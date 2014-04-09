@@ -7,11 +7,11 @@ que mais se adaptem à preferência do interessado.
 
 Desenvolvedores:
 
-Ebenezer Andrade
-Felipe Sampaio
-Matheus Mello
-Matheus Oliveira
-Nanson Augusto
-Pedro Tomioka
-Tainara Reis
-Vinícius Bandeira
+Ebenezer Andrade <br/>
+Felipe Sampaio <br/>
+Matheus Mello <br/>
+Matheus Oliveira <br/>
+Nanson Augusto <br/>
+Pedro Tomioka <br/>
+Tainara Reis <br/>
+Vinícius Bandeira <br/>
