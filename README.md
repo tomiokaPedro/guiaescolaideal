@@ -1,12 +1,12 @@
-GuiaEscolaIdeal
+Guia da Escola Ideal
 ===============
 
 O Guia da Escola Ideal é uma ferramenta WEB que permite filtrar as escolas 
 pesquisadas no censo do INEP, de acordo com as características fisícas e metodológicas
-que mais se adaptem à preferência do interessado.
+que mais se adaptem à preferência do interessado. 
 
-Desenvolvedores:
-
+Desenvolvedores
+===============
 Ebenezer Andrade <br/>
 Felipe Sampaio <br/>
 Matheus Mello <br/>
