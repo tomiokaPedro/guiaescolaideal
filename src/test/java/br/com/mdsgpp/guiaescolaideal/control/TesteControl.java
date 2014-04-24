@@ -1,4 +1,4 @@
-package control;
+package br.com.mdsgpp.guiaescolaideal.control;
 
 import org.junit.Before;
 import org.junit.Test;

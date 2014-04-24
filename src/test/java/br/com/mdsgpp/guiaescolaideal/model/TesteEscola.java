@@ -1,4 +1,4 @@
-package model;
+package br.com.mdsgpp.guiaescolaideal.model;
 
 import static org.junit.Assert.*;
 
