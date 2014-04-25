@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TipoSistemaDeEsgotoTest {
+public class TesteTipoSistemaDeEsgoto {
 
 	@Test
 	public void test() {
