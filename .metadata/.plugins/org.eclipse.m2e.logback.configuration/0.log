@@ -1,0 +1,19 @@
+2014-04-25 08:15:05,040 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.guiaescolaideal:GuiaEscolaIdeal:0.0.1-SNAPSHOT @ C:\Users\Felipe\git\guiaescolaideal\pom.xml.
+2014-04-25 08:15:05,275 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.guiaescolaideal:GuiaEscolaIdeal:0.0.1-SNAPSHOT @ C:\Users\Felipe\git\guiaescolaideal\pom.xml.
+2014-04-25 08:15:10,231 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: br.com.guiaescolaideal:GuiaEscolaIdeal:0.0.1-SNAPSHOT @ C:\Users\Felipe\git\guiaescolaideal\pom.xml.
+2014-04-25 08:15:10,325 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 08:15:10,327 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\main\resources
+2014-04-25 08:15:10,332 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 08:15:10,333 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\test\resources
+2014-04-25 08:15:14,976 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 08:15:14,997 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\main\resources
+2014-04-25 08:15:15,000 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 08:15:15,001 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\test\resources
+2014-04-25 14:20:16,520 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 14:20:16,551 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\main\resources
+2014-04-25 14:20:16,551 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 14:20:16,567 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\test\resources
+2014-04-25 14:21:28,608 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 14:21:28,608 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\main\resources
+2014-04-25 14:21:28,608 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-04-25 14:21:28,608 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Felipe\git\guiaescolaideal\src\test\resources

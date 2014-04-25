@@ -3,7 +3,6 @@ package br.com.mdsgpp.guiaescolaideal.model;
 public class LocalFuncionamento 
 {
     private String tipoLocalFuncionamento;
-    private Escola escola;
     private Local local;
     
     public Local getLocal() {
@@ -28,14 +27,6 @@ public class LocalFuncionamento
         }
         
         
-    }
-
-    public Escola getEscola() {
-        return escola;
-    }
-
-    public void setEscola(Escola escola) {
-        this.escola = escola;
     }
 
     public String getTipoLocalFuncionamento() {
