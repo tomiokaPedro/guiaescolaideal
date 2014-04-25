@@ -1,9 +1,11 @@
-package br.com.mdsgpp.guiaescolaideal.model;
+package br.com.mdsgpp.guiaescolaideal.model.teste;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.mdsgpp.guiaescolaideal.model.CategoriaEscola;
 
 public class TesteCategoriaEscola {
 	
