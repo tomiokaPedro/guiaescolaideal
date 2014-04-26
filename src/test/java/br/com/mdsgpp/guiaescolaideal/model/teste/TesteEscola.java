@@ -212,7 +212,9 @@ public class TesteEscola {
 
     @Test
     public void testIsAcessibilidade() {
-	fail("Not yet implemented");
+	this.escola.setAcessibilidade(true);
+	
+	assertEquals(this.escola.isAcessibilidade(),true);
     }
 
     @Test
@@ -222,7 +224,9 @@ public class TesteEscola {
 
     @Test
     public void testIsDependViasAcesso() {
-	fail("Not yet implemented");
+	this.escola.setDependViasAcesso(true);
+	
+	assertEquals(this.escola.isDependViasAcesso(),true);
     }
 
     @Test
