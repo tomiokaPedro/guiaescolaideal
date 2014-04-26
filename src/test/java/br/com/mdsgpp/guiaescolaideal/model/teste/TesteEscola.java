@@ -161,7 +161,10 @@ public class TesteEscola {
 
     @Test
     public void testGetDataTerminoLetivo() {
-	fail("Not yet implemented");
+	Date dataDeInicio = new Date(25);
+	this.escola.setDataInicioLetivo(dataDeInicio);
+	
+	assertTrue(this.escola.getDataInicioLetivo().equals(dataDeInicio));
     }
 
     @Test
@@ -171,7 +174,10 @@ public class TesteEscola {
 
     @Test
     public void testIsSeFinsLucrativos() {
-	fail("Not yet implemented");
+	this.escola.setSeFinsLucrativos(true);
+	
+	assertEquals(this.escola.isSeFinsLucrativos(),true);
+	
     }
 
     @Test
@@ -181,7 +187,9 @@ public class TesteEscola {
 
     @Test
     public void testGetAtividadeComplementar() {
-	fail("Not yet implemented");
+	this.escola.setAtividadeComplementar("STRING");
+	
+	assertTrue(this.escola.getAtividadeComplementar().equals("STRING"));
     }
 
     @Test
@@ -191,7 +199,10 @@ public class TesteEscola {
 
     @Test
     public void testGetCodLocalFuncionamento() {
-	fail("Not yet implemented");
+	int codigo = 100;
+	this.escola.setCodLocalFuncionamento(codigo);
+	
+	assertEquals(this.escola.getCodLocalFuncionamento(),codigo);
     }
 
     @Test
@@ -231,12 +242,12 @@ public class TesteEscola {
 
     @Test
     public void testIsAtendEducacionalEspecializado() {
-	fail("Not yet implemented");
+	
     }
 
     @Test
     public void testSetAtendEducacionalEspecializado() {
-	fail("Not yet implemented");
+	
     }
 
     @Test
