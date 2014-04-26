@@ -123,7 +123,7 @@ public class TesteEscola {
     public void testIsSistemaSenai() {
 	this.escola.setSistemaSenai(true);
 	
-	assertEquals(this.escola.isSistemaSenai());
+	assertEquals(this.escola.isSistemaSenai(),true);
 	
     }
 
