@@ -151,6 +151,7 @@ BEGIN
   DECLARE existe_mais_linhas INT DEFAULT 0;
 	DECLARE v_id INT DEFAULT 0;
 	 DECLARE v_cod_escola INT DEFAULT 0;
+	declare v_telefone varchar(20);
 	
 
   -- DefiniÃ§Ã£o do cursor
@@ -506,8 +507,19 @@ BEGIN
 											FROM   migracao_arquivo 
 											WHERE  id = v_id) vw_m 
 									WHERE  me.descricao IN ( vw_m.col_di, vw_m.col_dj, vw_m.col_dk ); 
-												
-												
+											
+									set v_telefone = (select ifnull(col_p,'0') from migracao_arquivo where id = v_id);
+									
+									if v_telefone not like '0' then
+
+
+									insert into telefone(numero_telefone, cod_escola, cod_municipio)
+									select v_telefone, v_cod_escola, ed.cod_municipio
+									from escola e 
+										inner join endereco ed on e.cod_endereco = ed.cod_endereco 
+									where e.cod_escola = v_cod_escola;
+
+									end if;
 												
   
 
