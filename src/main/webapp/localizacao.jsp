@@ -8,7 +8,7 @@
 <body>
 	<section>
     	<article>
-        	<p><span id="status">Por favor aguarde enquanto nós tentamos locar você...</span></p>
+        	<p><span id="status">Por favor aguarde enquanto n�s tentamos locar você...</span></p>
     	</article>
 	</section>
 
