@@ -345,6 +345,7 @@ public class TesteEscola {
 
     @Test
     public void testIsSanitarioAdequadoInfantil() {
+	
 	this.escola.setSanitarioAdequadoInfantil(false);
 	
 	assertTrue(this.escola.isSanitarioAdequadoInfantil()== true);
@@ -353,6 +354,7 @@ public class TesteEscola {
 
     @Test
     public void testIsBanheiroChuveiro() {
+	
 	this.escola.setBanheiroChuveiro(true);
 	
 	assertTrue(this.escola.isBanheiroChuveiro()==true);
@@ -361,6 +363,7 @@ public class TesteEscola {
 
     @Test
     public void testIsLavanderia() {
+	
 	this.escola.setLavanderia(true);
 	
 	assertTrue(this.escola.isLavanderia()==true);
@@ -369,6 +372,7 @@ public class TesteEscola {
 
     @Test
     public void testIsOutrasDependencias() {
+	
 	this.escola.setOutrasDependencias(true);
 	
 	assertTrue(this.escola.isLavanderia()==true);
@@ -377,94 +381,140 @@ public class TesteEscola {
 
     @Test
     public void testGetNumSalaExistentes() {
-	fail("Not yet implemented");
+	
+	this.escola.setNumSalaExistentes(100);
+	
+	assertTrue(this.escola.getNumSalaExistentes()==100);
     }
 
     @Test
     public void testGetNumSalaUtilizadas() {
-	fail("Not yet implemented");
+	
+	this.escola.setNumSalaUtilizadas(100);
+	
+	assertTrue(this.escola.getNumSalaUtilizadas() == 100);
     }
 
     @Test
     public void testIsSalaLeitura() {
-	fail("Not yet implemented");
+	
+	this.escola.setSalaLeitura(true);
+	
+	assertTrue(this.escola.isSalaLeitura()== true);
     }
 
 
     @Test
     public void testIsAlojamentoAluno() {
-	fail("Not yet implemented");
+	
+	this.escola.setAlojamentoAluno(true);
+	
+	assertTrue(this.escola.isAlojamentoAluno()==true);
     }
 
     @Test
     public void testIsAlojamentoProfessor() {
-	fail("Not yet implemented");
+	
+	this.escola.setAlojamentoProfessor(true);
+	
+	assertTrue(this.escola.isAlojamentoProfessor()==true);
     }
 
     @Test
     public void testIsAreaVerde() {
-	fail("Not yet implemented");
+	
+	this.escola.setAreaVerde(true);
+	
+	assertTrue(this.escola.isAreaVerde()==true);
     }
 
     @Test
     public void testGetNumFuncionarios() {
-	fail("Not yet implemented");
+	
+	int numFuncionarios = 500;
+	this.escola.setNumFuncionarios(numFuncionarios);
+	
+	assertTrue(this.escola.getNumFuncionarios()==numFuncionarios);
+	
     }
 
     @Test
     public void testIsAlimentacaoEscAlunos() {
-	fail("Not yet implemented");
+	this.escola.setAlimentacaoEscAlunos(true);
+	
+	assertTrue(this.escola.isAlimentacaoEscAlunos()==true);
     }
 
     @Test
     public void testIsAguaFiltrada() {
-	fail("Not yet implemented");
+	this.escola.setAguaFiltrada(true);
+	
+	assertTrue(this.escola.isAguaFiltrada()==true);
     }
 
     @Test
     public void testIsInternet() {
-	fail("Not yet implemented");
+	this.escola.setInternet(false);
+	
+	assertTrue(this.escola.isInternet()==false);
     }
 
     @Test
     public void testGetNumComputadoresAlunos() {
-	fail("Not yet implemented");
+	this.escola.setNumComputadoresAlunos(100);
+	
+	assertTrue(this.escola.getNumComputadoresAlunos()==100);
     }
 
     @Test
-    public void testGetNumComputadoresAdministracao() {
-	fail("Not yet implemented");
+    public void testGetNumComputadoresAdministracao() 
+    {
+	this.escola.setNumComputadoresAdministracao(50);
+	
+	assertTrue(this.escola.getNumComputadoresAdministracao()==50);
     }
 
 
     @Test
     public void testGetNumComputadoresTotal() {
-	fail("Not yet implemented");
+	this.escola.setNumComputadoresTotal(45);
+	
+	assertTrue(this.escola.getNumComputadoresTotal()==45);
     }
 
     @Test
     public void testIsEducacaoIndigena() {
-	fail("Not yet implemented");
+	this.escola.setEducacaoIndigena(true);
+	
+	assertTrue(this.escola.isEducacaoIndigena()==true);
     }
 
     @Test
     public void testIsLinguaIndigena() {
-	fail("Not yet implemented");
+	this.escola.setLinguaIndigena(true);
+	
+	assertTrue(this.escola.isLinguaIndigena()==true);
     }
 
     @Test
     public void testIsBrasilAlfabetizacao() {
-	fail("Not yet implemented");
+	this.escola.setBrasilAlfabetizacao(true);
+	
+	assertTrue(this.escola.isBrasilAlfabetizacao()==true);
     }
 
     @Test
     public void testIsAberturaFdsComun() {
-	fail("Not yet implemented");
+	this.escola.setAberturaFdsComun(true);
+	
+	assertTrue(this.escola.isAberturaFdsComun()==true);
     }
 
     @Test
     public void testGetNumMatriculas() {
-	fail("Not yet implemented");
+	this.escola.setNumMatriculas(122345);
+	
+	assertTrue(this.escola.getNumMatriculas()==122345);
     }
 
 }
