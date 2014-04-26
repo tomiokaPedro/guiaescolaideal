@@ -52,6 +52,7 @@ public class TesteEscola {
 	int codigoRede = 628213;
 	this.escola.setCodigoRede(codigoRede);
 	
+	assertTrue(this.escola.getCodigoRede() == codigoRede);
 	assertEquals(this.escola.getCodigoRede(),codigoRede);
     }
 
@@ -276,73 +277,101 @@ public class TesteEscola {
 
 
     @Test
-    public void testIsPatioCoberto() {
-	fail("Not yet implemented");
+    public void testIsPatioCoberto() 
+    {
+	this.escola.setPatioCoberto(true);
+	
+	assertTrue(this.escola.isPatioCoberto() == true);
+
     }
 
    
 
     @Test
     public void testIsPatioDescoberto() {
-	fail("Not yet implemented");
+	this.escola.setPatioDescoberto(true);
+	
+	assertTrue(this.escola.isPatioDescoberto() == true);
     }
 
 
     @Test
     public void testIsParqueInfantil() {
-	fail("Not yet implemented");
+	this.escola.setParqueInfantil(true);
+	
+	assertTrue(this.escola.isParqueInfantil() == true);
     }
 
     @Test
     public void testIsCozinha() {
-	fail("Not yet implemented");
+	this.escola.setCozinha(true);
+	
+	assertTrue(this.escola.isCozinha() == true);
     }
 
     @Test
     public void testIsBiblioteca() {
-	fail("Not yet implemented");
+	this.escola.setBiblioteca(true);
+	
+	assertTrue(this.escola.isBiblioteca() ==  true);
     }
 
 
     @Test
-    public void testIsBercario() {
-	fail("Not yet implemented");
+    public void testIsBercario() 
+    {
+	this.escola.setBercario(true);
+	
+	assertTrue(this.escola.isBercario() == true);
     }
 
 
     @Test
     public void testIsSanitarioNoPredio() {
-	fail("Not yet implemented");
+	this.escola.setSanitarioNoPredio(true);
+	
+	assertTrue(this.escola.isSanitarioNoPredio() == true);
     }
 
 
     @Test
     public void testIsSanitarioForaPredio() {
-	fail("Not yet implemented");
+
+	this.escola.setSanitarioForaPredio(true);
+	
+	assertTrue(this.escola.isSanitarioForaPredio() == true);
     }
 
 
     @Test
     public void testIsSanitarioAdequadoInfantil() {
-	fail("Not yet implemented");
+	this.escola.setSanitarioAdequadoInfantil(false);
+	
+	assertTrue(this.escola.isSanitarioAdequadoInfantil()== true);
     }
 
 
     @Test
     public void testIsBanheiroChuveiro() {
-	fail("Not yet implemented");
+	this.escola.setBanheiroChuveiro(true);
+	
+	assertTrue(this.escola.isBanheiroChuveiro()==true);
     }
 
 
     @Test
     public void testIsLavanderia() {
-	fail("Not yet implemented");
+	this.escola.setLavanderia(true);
+	
+	assertTrue(this.escola.isLavanderia()==true);
     }
 
 
     @Test
     public void testIsOutrasDependencias() {
-	fail("Not yet implemented");
+	this.escola.setOutrasDependencias(true);
+	
+	assertTrue(this.escola.isLavanderia()==true);
     }
 
 
