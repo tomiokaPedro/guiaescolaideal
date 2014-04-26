@@ -1,10 +1,19 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
 import java.sql.Date;
-
+import java.util.List;
 
 public class Escola {
 	private CategoriaEscola categoriaEscola;
+	private Endereco endereco;
+	private Telefone telefone;
+	private LocalFuncionamento localFuncionamento;
+	private List<Equipamento> listaEquipamentos;
+	private List<ModalidadeEnsino> listaModalidadeEnsino;
+	private List<TipoAbastecimentoAgua> listaAbastecimentoAgua;
+	private List<TipoSistemaDeEsgoto> listaSistemaEsgoto;
+	private List<TipoAbastecimentoEnergia> listaAbastecimentoEnergia;
+	private List<TipoDestinacaoLixo> listaDestinaçãoLixo;
 	private String nomeEscola;
 	private int codigoRede;
 	private String tipoLocalizacao;
@@ -63,361 +72,556 @@ public class Escola {
 	private boolean brasilAlfabetizacao;
 	private boolean aberturaFdsComun;
 	private int numMatriculas;
+
 	public CategoriaEscola getCategoriaEscola() {
-	    return categoriaEscola;
+		return categoriaEscola;
 	}
+
 	public void setCategoriaEscola(CategoriaEscola categoriaEscola) {
-	    this.categoriaEscola = categoriaEscola;
+		this.categoriaEscola = categoriaEscola;
 	}
+
 	public String getNomeEscola() {
-	    return nomeEscola;
+		return nomeEscola;
 	}
+
 	public void setNomeEscola(String nomeEscola) {
-	    this.nomeEscola = nomeEscola;
+		this.nomeEscola = nomeEscola;
 	}
+
 	public int getCodigoRede() {
-	    return codigoRede;
+		return codigoRede;
 	}
+
 	public void setCodigoRede(int codigoRede) {
-	    this.codigoRede = codigoRede;
+		this.codigoRede = codigoRede;
 	}
+
 	public String getTipoLocalizacao() {
-	    return tipoLocalizacao;
+		return tipoLocalizacao;
 	}
+
 	public void setTipoLocalizacao(String tipoLocalizacao) {
-	    this.tipoLocalizacao = tipoLocalizacao;
+		this.tipoLocalizacao = tipoLocalizacao;
 	}
+
 	public int getCodigoendereco() {
-	    return codigoendereco;
+		return codigoendereco;
 	}
+
 	public void setCodigoendereco(int codigoendereco) {
-	    this.codigoendereco = codigoendereco;
+		this.codigoendereco = codigoendereco;
 	}
+
 	public String getCodicaoFuncionamento() {
-	    return codicaoFuncionamento;
+		return codicaoFuncionamento;
 	}
+
 	public void setCodicaoFuncionamento(String codicaoFuncionamento) {
-	    this.codicaoFuncionamento = codicaoFuncionamento;
+		this.codicaoFuncionamento = codicaoFuncionamento;
 	}
+
 	public String getEmail() {
-	    return email;
+		return email;
 	}
+
 	public void setEmail(String email) {
-	    this.email = email;
+		this.email = email;
 	}
+
 	public boolean isSistemaSenai() {
-	    return sistemaSenai;
+		return sistemaSenai;
 	}
+
 	public void setSistemaSenai(boolean sistemaSenai) {
-	    this.sistemaSenai = sistemaSenai;
+		this.sistemaSenai = sistemaSenai;
 	}
+
 	public boolean isOng() {
-	    return ong;
+		return ong;
 	}
+
 	public void setOng(boolean ong) {
-	    this.ong = ong;
+		this.ong = ong;
 	}
+
 	public Date getDataInicioLetivo() {
-	    return dataInicioLetivo;
+		return dataInicioLetivo;
 	}
+
 	public void setDataInicioLetivo(Date dataInicioLetivo) {
-	    this.dataInicioLetivo = dataInicioLetivo;
+		this.dataInicioLetivo = dataInicioLetivo;
 	}
+
 	public Date getDataTerminoLetivo() {
-	    return dataTerminoLetivo;
+		return dataTerminoLetivo;
 	}
+
 	public void setDataTerminoLetivo(Date dataTerminoLetivo) {
-	    this.dataTerminoLetivo = dataTerminoLetivo;
+		this.dataTerminoLetivo = dataTerminoLetivo;
 	}
+
 	public boolean isSeFinsLucrativos() {
-	    return seFinsLucrativos;
+		return seFinsLucrativos;
 	}
+
 	public void setSeFinsLucrativos(boolean seFinsLucrativos) {
-	    this.seFinsLucrativos = seFinsLucrativos;
+		this.seFinsLucrativos = seFinsLucrativos;
 	}
+
 	public String getAtividadeComplementar() {
-	    return atividadeComplementar;
+		return atividadeComplementar;
 	}
+
 	public void setAtividadeComplementar(String atividadeComplementar) {
-	    this.atividadeComplementar = atividadeComplementar;
+		this.atividadeComplementar = atividadeComplementar;
 	}
+
 	public int getCodLocalFuncionamento() {
-	    return codLocalFuncionamento;
+		return codLocalFuncionamento;
 	}
+
 	public void setCodLocalFuncionamento(int codLocalFuncionamento) {
-	    this.codLocalFuncionamento = codLocalFuncionamento;
+		this.codLocalFuncionamento = codLocalFuncionamento;
 	}
+
 	public boolean isAcessibilidade() {
-	    return acessibilidade;
+		return acessibilidade;
 	}
+
 	public void setAcessibilidade(boolean acessibilidade) {
-	    this.acessibilidade = acessibilidade;
+		this.acessibilidade = acessibilidade;
 	}
+
 	public boolean isDependViasAcesso() {
-	    return dependViasAcesso;
+		return dependViasAcesso;
 	}
+
 	public void setDependViasAcesso(boolean dependViasAcesso) {
-	    this.dependViasAcesso = dependViasAcesso;
+		this.dependViasAcesso = dependViasAcesso;
 	}
+
 	public boolean isSantiAcess() {
-	    return santiAcess;
+		return santiAcess;
 	}
+
 	public void setSantiAcess(boolean santiAcess) {
-	    this.santiAcess = santiAcess;
+		this.santiAcess = santiAcess;
 	}
+
 	public boolean isAtendEducacionalEspecializado() {
-	    return atendEducacionalEspecializado;
+		return atendEducacionalEspecializado;
 	}
+
 	public void setAtendEducacionalEspecializado(
-		boolean atendEducacionalEspecializado) {
-	    this.atendEducacionalEspecializado = atendEducacionalEspecializado;
+			boolean atendEducacionalEspecializado) {
+		this.atendEducacionalEspecializado = atendEducacionalEspecializado;
 	}
+
 	public boolean isSalaDiretoria() {
-	    return salaDiretoria;
+		return salaDiretoria;
 	}
+
 	public void setSalaDiretoria(boolean salaDiretoria) {
-	    this.salaDiretoria = salaDiretoria;
+		this.salaDiretoria = salaDiretoria;
 	}
+
 	public boolean isSalaProfessor() {
-	    return salaProfessor;
+		return salaProfessor;
 	}
+
 	public void setSalaProfessor(boolean salaProfessor) {
-	    this.salaProfessor = salaProfessor;
+		this.salaProfessor = salaProfessor;
 	}
+
 	public boolean isRefeitorio() {
-	    return refeitorio;
+		return refeitorio;
 	}
+
 	public void setRefeitorio(boolean refeitorio) {
-	    this.refeitorio = refeitorio;
+		this.refeitorio = refeitorio;
 	}
+
 	public boolean isDespensa() {
-	    return despensa;
+		return despensa;
 	}
+
 	public void setDespensa(boolean despensa) {
-	    this.despensa = despensa;
+		this.despensa = despensa;
 	}
+
 	public boolean isAlmoxarifado() {
-	    return almoxarifado;
+		return almoxarifado;
 	}
+
 	public void setAlmoxarifado(boolean almoxarifado) {
-	    this.almoxarifado = almoxarifado;
+		this.almoxarifado = almoxarifado;
 	}
+
 	public boolean isAuditorio() {
-	    return auditorio;
+		return auditorio;
 	}
+
 	public void setAuditorio(boolean auditorio) {
-	    this.auditorio = auditorio;
+		this.auditorio = auditorio;
 	}
+
 	public boolean isLabInformatica() {
-	    return labInformatica;
+		return labInformatica;
 	}
+
 	public void setLabInformatica(boolean labInformatica) {
-	    this.labInformatica = labInformatica;
+		this.labInformatica = labInformatica;
 	}
+
 	public boolean isLabCiencias() {
-	    return labCiencias;
+		return labCiencias;
 	}
+
 	public void setLabCiencias(boolean labCiencias) {
-	    this.labCiencias = labCiencias;
+		this.labCiencias = labCiencias;
 	}
+
 	public boolean isSalaAtendimentoEspecializado() {
-	    return salaAtendimentoEspecializado;
+		return salaAtendimentoEspecializado;
 	}
-	public void setSalaAtendimentoEspecializado(boolean salaAtendimentoEspecializado) {
-	    this.salaAtendimentoEspecializado = salaAtendimentoEspecializado;
+
+	public void setSalaAtendimentoEspecializado(
+			boolean salaAtendimentoEspecializado) {
+		this.salaAtendimentoEspecializado = salaAtendimentoEspecializado;
 	}
+
 	public boolean isQuadraEsporteCoberta() {
-	    return quadraEsporteCoberta;
+		return quadraEsporteCoberta;
 	}
+
 	public void setQuadraEsporteCoberta(boolean quadraEsporteCoberta) {
-	    this.quadraEsporteCoberta = quadraEsporteCoberta;
+		this.quadraEsporteCoberta = quadraEsporteCoberta;
 	}
+
 	public boolean isQuadraEsporteDescoberta() {
-	    return quadraEsporteDescoberta;
+		return quadraEsporteDescoberta;
 	}
+
 	public void setQuadraEsporteDescoberta(boolean quadraEsporteDescoberta) {
-	    this.quadraEsporteDescoberta = quadraEsporteDescoberta;
+		this.quadraEsporteDescoberta = quadraEsporteDescoberta;
 	}
+
 	public boolean isPatioCoberto() {
-	    return patioCoberto;
+		return patioCoberto;
 	}
+
 	public void setPatioCoberto(boolean patioCoberto) {
-	    this.patioCoberto = patioCoberto;
+		this.patioCoberto = patioCoberto;
 	}
+
 	public boolean isPatioDescoberto() {
-	    return patioDescoberto;
+		return patioDescoberto;
 	}
+
 	public void setPatioDescoberto(boolean patioDescoberto) {
-	    this.patioDescoberto = patioDescoberto;
+		this.patioDescoberto = patioDescoberto;
 	}
+
 	public boolean isParqueInfantil() {
-	    return parqueInfantil;
+		return parqueInfantil;
 	}
+
 	public void setParqueInfantil(boolean parqueInfantil) {
-	    this.parqueInfantil = parqueInfantil;
+		this.parqueInfantil = parqueInfantil;
 	}
+
 	public boolean isCozinha() {
-	    return cozinha;
+		return cozinha;
 	}
+
 	public void setCozinha(boolean cozinha) {
-	    this.cozinha = cozinha;
+		this.cozinha = cozinha;
 	}
+
 	public boolean isBiblioteca() {
-	    return biblioteca;
+		return biblioteca;
 	}
+
 	public void setBiblioteca(boolean biblioteca) {
-	    this.biblioteca = biblioteca;
+		this.biblioteca = biblioteca;
 	}
+
 	public boolean isBercario() {
-	    return bercario;
+		return bercario;
 	}
+
 	public void setBercario(boolean bercario) {
-	    this.bercario = bercario;
+		this.bercario = bercario;
 	}
+
 	public boolean isSanitarioNoPredio() {
-	    return sanitarioNoPredio;
+		return sanitarioNoPredio;
 	}
+
 	public void setSanitarioNoPredio(boolean sanitarioNoPredio) {
-	    this.sanitarioNoPredio = sanitarioNoPredio;
+		this.sanitarioNoPredio = sanitarioNoPredio;
 	}
+
 	public boolean isSanitarioForaPredio() {
-	    return sanitarioForaPredio;
+		return sanitarioForaPredio;
 	}
+
 	public void setSanitarioForaPredio(boolean sanitarioForaPredio) {
-	    this.sanitarioForaPredio = sanitarioForaPredio;
+		this.sanitarioForaPredio = sanitarioForaPredio;
 	}
+
 	public boolean isSanitarioAdequadoInfantil() {
-	    return sanitarioAdequadoInfantil;
+		return sanitarioAdequadoInfantil;
 	}
+
 	public void setSanitarioAdequadoInfantil(boolean sanitarioAdequadoInfantil) {
-	    this.sanitarioAdequadoInfantil = sanitarioAdequadoInfantil;
+		this.sanitarioAdequadoInfantil = sanitarioAdequadoInfantil;
 	}
+
 	public boolean isBanheiroChuveiro() {
-	    return banheiroChuveiro;
+		return banheiroChuveiro;
 	}
+
 	public void setBanheiroChuveiro(boolean banheiroChuveiro) {
-	    this.banheiroChuveiro = banheiroChuveiro;
+		this.banheiroChuveiro = banheiroChuveiro;
 	}
+
 	public boolean isLavanderia() {
-	    return lavanderia;
+		return lavanderia;
 	}
+
 	public void setLavanderia(boolean lavanderia) {
-	    this.lavanderia = lavanderia;
+		this.lavanderia = lavanderia;
 	}
+
 	public boolean isOutrasDependencias() {
-	    return outrasDependencias;
+		return outrasDependencias;
 	}
+
 	public void setOutrasDependencias(boolean outrasDependencias) {
-	    this.outrasDependencias = outrasDependencias;
+		this.outrasDependencias = outrasDependencias;
 	}
+
 	public int getNumSalaExistentes() {
-	    return numSalaExistentes;
+		return numSalaExistentes;
 	}
+
 	public void setNumSalaExistentes(int numSalaExistentes) {
-	    this.numSalaExistentes = numSalaExistentes;
+		this.numSalaExistentes = numSalaExistentes;
 	}
+
 	public int getNumSalaUtilizadas() {
-	    return numSalaUtilizadas;
+		return numSalaUtilizadas;
 	}
+
 	public void setNumSalaUtilizadas(int numSalaUtilizadas) {
-	    this.numSalaUtilizadas = numSalaUtilizadas;
+		this.numSalaUtilizadas = numSalaUtilizadas;
 	}
+
 	public boolean isSalaLeitura() {
-	    return salaLeitura;
+		return salaLeitura;
 	}
+
 	public void setSalaLeitura(boolean salaLeitura) {
-	    this.salaLeitura = salaLeitura;
+		this.salaLeitura = salaLeitura;
 	}
+
 	public boolean isAlojamentoAluno() {
-	    return alojamentoAluno;
+		return alojamentoAluno;
 	}
+
 	public void setAlojamentoAluno(boolean alojamentoAluno) {
-	    this.alojamentoAluno = alojamentoAluno;
+		this.alojamentoAluno = alojamentoAluno;
 	}
+
 	public boolean isAlojamentoProfessor() {
-	    return alojamentoProfessor;
+		return alojamentoProfessor;
 	}
+
 	public void setAlojamentoProfessor(boolean alojamentoProfessor) {
-	    this.alojamentoProfessor = alojamentoProfessor;
+		this.alojamentoProfessor = alojamentoProfessor;
 	}
+
 	public boolean isAreaVerde() {
-	    return areaVerde;
+		return areaVerde;
 	}
+
 	public void setAreaVerde(boolean areaVerde) {
-	    this.areaVerde = areaVerde;
+		this.areaVerde = areaVerde;
 	}
+
 	public int getNumFuncionarios() {
-	    return numFuncionarios;
+		return numFuncionarios;
 	}
+
 	public void setNumFuncionarios(int numFuncionarios) {
-	    this.numFuncionarios = numFuncionarios;
+		this.numFuncionarios = numFuncionarios;
 	}
+
 	public boolean isAlimentacaoEscAlunos() {
-	    return alimentacaoEscAlunos;
+		return alimentacaoEscAlunos;
 	}
+
 	public void setAlimentacaoEscAlunos(boolean alimentacaoEscAlunos) {
-	    this.alimentacaoEscAlunos = alimentacaoEscAlunos;
+		this.alimentacaoEscAlunos = alimentacaoEscAlunos;
 	}
+
 	public boolean isAguaFiltrada() {
-	    return aguaFiltrada;
+		return aguaFiltrada;
 	}
+
 	public void setAguaFiltrada(boolean aguaFiltrada) {
-	    this.aguaFiltrada = aguaFiltrada;
+		this.aguaFiltrada = aguaFiltrada;
 	}
+
 	public boolean isInternet() {
-	    return internet;
+		return internet;
 	}
+
 	public void setInternet(boolean internet) {
-	    this.internet = internet;
+		this.internet = internet;
 	}
+
 	public int getNumComputadoresAlunos() {
-	    return numComputadoresAlunos;
+		return numComputadoresAlunos;
 	}
+
 	public void setNumComputadoresAlunos(int numComputadoresAlunos) {
-	    this.numComputadoresAlunos = numComputadoresAlunos;
+		this.numComputadoresAlunos = numComputadoresAlunos;
 	}
+
 	public int getNumComputadoresAdministracao() {
-	    return numComputadoresAdministracao;
+		return numComputadoresAdministracao;
 	}
+
 	public void setNumComputadoresAdministracao(int numComputadoresAdministracao) {
-	    this.numComputadoresAdministracao = numComputadoresAdministracao;
+		this.numComputadoresAdministracao = numComputadoresAdministracao;
 	}
+
 	public int getNumComputadoresTotal() {
-	    return numComputadoresTotal;
+		return numComputadoresTotal;
 	}
+
 	public void setNumComputadoresTotal(int numComputadoresTotal) {
-	    this.numComputadoresTotal = numComputadoresTotal;
+		this.numComputadoresTotal = numComputadoresTotal;
 	}
+
 	public boolean isEducacaoIndigena() {
-	    return educacaoIndigena;
+		return educacaoIndigena;
 	}
+
 	public void setEducacaoIndigena(boolean educacaoIndigena) {
-	    this.educacaoIndigena = educacaoIndigena;
+		this.educacaoIndigena = educacaoIndigena;
 	}
+
 	public boolean isLinguaIndigena() {
-	    return linguaIndigena;
+		return linguaIndigena;
 	}
+
 	public void setLinguaIndigena(boolean linguaIndigena) {
-	    this.linguaIndigena = linguaIndigena;
+		this.linguaIndigena = linguaIndigena;
 	}
+
 	public boolean isBrasilAlfabetizacao() {
-	    return brasilAlfabetizacao;
+		return brasilAlfabetizacao;
 	}
+
 	public void setBrasilAlfabetizacao(boolean brasilAlfabetizacao) {
-	    this.brasilAlfabetizacao = brasilAlfabetizacao;
+		this.brasilAlfabetizacao = brasilAlfabetizacao;
 	}
+
 	public boolean isAberturaFdsComun() {
-	    return aberturaFdsComun;
+		return aberturaFdsComun;
 	}
+
 	public void setAberturaFdsComun(boolean aberturaFdsComun) {
-	    this.aberturaFdsComun = aberturaFdsComun;
+		this.aberturaFdsComun = aberturaFdsComun;
 	}
+
 	public int getNumMatriculas() {
-	    return numMatriculas;
+		return numMatriculas;
 	}
+
 	public void setNumMatriculas(int numMatriculas) {
-	    this.numMatriculas = numMatriculas;
+		this.numMatriculas = numMatriculas;
 	}
-	
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Telefone getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(Telefone telefone) {
+		this.telefone = telefone;
+	}
+
+	public LocalFuncionamento getLocalFuncionamento() {
+		return localFuncionamento;
+	}
+
+	public void setLocalFuncionamento(LocalFuncionamento localFuncionamento) {
+		this.localFuncionamento = localFuncionamento;
+	}
+
+	public List<Equipamento> getListaEquipamentos() {
+		return listaEquipamentos;
+	}
+
+	public void setListaEquipamentos(List<Equipamento> listaEquipamentos) {
+		this.listaEquipamentos = listaEquipamentos;
+	}
+
+	public List<ModalidadeEnsino> getListaModalidadeEnsino() {
+		return listaModalidadeEnsino;
+	}
+
+	public void setListaModalidadeEnsino(
+			List<ModalidadeEnsino> listaModalidadeEnsino) {
+		this.listaModalidadeEnsino = listaModalidadeEnsino;
+	}
+
+	public List<TipoAbastecimentoAgua> getListaAbastecimentoAgua() {
+		return listaAbastecimentoAgua;
+	}
+
+	public void setListaAbastecimentoAgua(
+			List<TipoAbastecimentoAgua> listaAbastecimentoAgua) {
+		this.listaAbastecimentoAgua = listaAbastecimentoAgua;
+	}
+
+	public List<TipoSistemaDeEsgoto> getListaSistemaEsgoto() {
+		return listaSistemaEsgoto;
+	}
+
+	public void setListaSistemaEsgoto(
+			List<TipoSistemaDeEsgoto> listaSistemaEsgoto) {
+		this.listaSistemaEsgoto = listaSistemaEsgoto;
+	}
+
+	public List<TipoAbastecimentoEnergia> getListaAbastecimentoEnergia() {
+		return listaAbastecimentoEnergia;
+	}
+
+	public void setListaAbastecimentoEnergia(
+			List<TipoAbastecimentoEnergia> listaAbastecimentoEnergia) {
+		this.listaAbastecimentoEnergia = listaAbastecimentoEnergia;
+	}
+
+	public List<TipoDestinacaoLixo> getListaDestinaçãoLixo() {
+		return listaDestinaçãoLixo;
+	}
+
+	public void setListaDestinaçãoLixo(
+			List<TipoDestinacaoLixo> listaDestinaçãoLixo) {
+		this.listaDestinaçãoLixo = listaDestinaçãoLixo;
+	}
 
 }
