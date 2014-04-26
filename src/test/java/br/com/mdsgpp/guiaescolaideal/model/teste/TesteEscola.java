@@ -122,9 +122,9 @@ public class TesteEscola {
     @Test
     public void testGetSetDataTerminoLetivo() {
 	Date dataDeInicio = new Date(25);
-	this.escola.setDataInicioLetivo(dataDeInicio);
+	this.escola.setDataTerminoLetivo(dataDeInicio);
 	
-	assertTrue(this.escola.getDataInicioLetivo().equals(dataDeInicio));
+	assertTrue(this.escola.getDataTerminoLetivo().equals(dataDeInicio));
     }
 
 
@@ -177,12 +177,17 @@ public class TesteEscola {
 
     @Test
     public void testIsSantiAcess() {
-	fail("Not yet implemented");
+	this.escola.setSantiAcess(true);
+	
+	assertTrue(this.escola.isSantiAcess()==true);
     }
 
 
     @Test
     public void testIsAtendEducacionalEspecializado() {
+	this.escola.setAtendEducacionalEspecializado(true);
+	
+	assertTrue(this.escola.isAtendEducacionalEspecializado()==true);
 	
     }
 
@@ -348,7 +353,7 @@ public class TesteEscola {
 	
 	this.escola.setSanitarioAdequadoInfantil(false);
 	
-	assertTrue(this.escola.isSanitarioAdequadoInfantil()== true);
+	assertTrue(this.escola.isSanitarioAdequadoInfantil()== false);
     }
 
 
@@ -375,7 +380,7 @@ public class TesteEscola {
 	
 	this.escola.setOutrasDependencias(true);
 	
-	assertTrue(this.escola.isLavanderia()==true);
+	assertTrue(this.escola.isOutrasDependencias()==true);
     }
 
 
