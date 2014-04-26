@@ -26,7 +26,7 @@ public class TesteEscola {
     }
 
     @Test
-    public void testGetCategoriaEscola() 
+    public void testGetSetCategoriaEscola() 
     {
 	CategoriaEscola categoria = new CategoriaEscola(true);
 	this.escola.setCategoriaEscola(categoria);
@@ -34,14 +34,9 @@ public class TesteEscola {
 	assertTrue(this.escola.getCategoriaEscola().equals(categoria));
     }
 
-    @Test
-    public void testSetCategoriaEscola() 
-    {
-	
-    }
 
     @Test
-    public void testGetNomeEscola() 
+    public void testGetSetNomeEscola() 
     {
 	
 	this.escola.setNomeEscola("Escola das Nacoes");
@@ -50,24 +45,17 @@ public class TesteEscola {
 	
     }
 
-    @Test
-    public void testSetNomeEscola() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetCodigoRede() 
+    public void testGetSetCodigoRede() 
     {
 	int codigoRede = 628213;
 	this.escola.setCodigoRede(codigoRede);
 	
+	assertTrue(this.escola.getCodigoRede() == codigoRede);
 	assertEquals(this.escola.getCodigoRede(),codigoRede);
     }
 
-    @Test
-    public void testSetCodigoRede() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testGetTipoLocalizacao() {
@@ -76,10 +64,6 @@ public class TesteEscola {
 	assertTrue(this.escola.getTipoLocalizacao().equals("STRING"));
     }
 
-    @Test
-    public void testSetTipoLocalizacao() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testGetCodigoendereco() 
@@ -90,34 +74,22 @@ public class TesteEscola {
 	assertEquals(this.escola.getCodigoendereco(),codigoendereco);
     }
 
-    @Test
-    public void testSetCodigoendereco() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetCodicaoFuncionamento() {
+    public void testGetSetCodicaoFuncionamento() {
 	this.escola.setCodicaoFuncionamento("STRING");
 	
 	assertTrue(this.escola.getCodicaoFuncionamento().equals("STRING"));
     }
 
-    @Test
-    public void testSetCodicaoFuncionamento() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetEmail() {
+    public void testGetSetEmail() {
 	this.escola.setEmail("felipeta@gov.br");
 	
 	assertTrue(this.escola.getEmail().equals("felipeta@gov.br"));
     }
 
-    @Test
-    public void testSetEmail() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSistemaSenai() {
@@ -127,10 +99,6 @@ public class TesteEscola {
 	
     }
 
-    @Test
-    public void testSetSistemaSenai() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsOng() {
@@ -140,13 +108,9 @@ public class TesteEscola {
 	assertEquals(this.escola.isOng(),true);
     }
 
-    @Test
-    public void testSetOng() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetDataInicioLetivo() {
+    public void testGetSetDataInicioLetivo() {
 	
 	Date dataDeInicio = new Date(25);
 	this.escola.setDataInicioLetivo(dataDeInicio);
@@ -154,499 +118,408 @@ public class TesteEscola {
 	assertTrue(this.escola.getDataInicioLetivo().equals(dataDeInicio));
     }
 
-    @Test
-    public void testSetDataInicioLetivo() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetDataTerminoLetivo() {
-	fail("Not yet implemented");
+    public void testGetSetDataTerminoLetivo() {
+	Date dataDeInicio = new Date(25);
+	this.escola.setDataTerminoLetivo(dataDeInicio);
+	
+	assertTrue(this.escola.getDataTerminoLetivo().equals(dataDeInicio));
     }
 
-    @Test
-    public void testSetDataTerminoLetivo() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSeFinsLucrativos() {
-	fail("Not yet implemented");
+	
+	this.escola.setSeFinsLucrativos(true);
+	
+	assertEquals(this.escola.isSeFinsLucrativos(),true);
+	
     }
 
-    @Test
-    public void testSetSeFinsLucrativos() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testGetAtividadeComplementar() {
-	fail("Not yet implemented");
+    public void testGetSetAtividadeComplementar() {
+	
+	this.escola.setAtividadeComplementar("STRING");
+	
+	assertTrue(this.escola.getAtividadeComplementar().equals("STRING"));
     }
 
-    @Test
-    public void testSetAtividadeComplementar() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testGetCodLocalFuncionamento() {
-	fail("Not yet implemented");
+	
+	int codigo = 100;
+	this.escola.setCodLocalFuncionamento(codigo);
+	
+	assertEquals(this.escola.getCodLocalFuncionamento(),codigo);
     }
 
-    @Test
-    public void testSetCodLocalFuncionamento() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsAcessibilidade() {
-	fail("Not yet implemented");
+	this.escola.setAcessibilidade(true);
+	
+	assertEquals(this.escola.isAcessibilidade(),true);
     }
 
-    @Test
-    public void testSetAcessibilidade() {
-	fail("Not yet implemented");
-    }
+ 
 
     @Test
     public void testIsDependViasAcesso() {
-	fail("Not yet implemented");
+	this.escola.setDependViasAcesso(true);
+	
+	assertEquals(this.escola.isDependViasAcesso(),true);
     }
 
-    @Test
-    public void testSetDependViasAcesso() {
-	fail("Not yet implemented");
-    }
+    
 
     @Test
     public void testIsSantiAcess() {
-	fail("Not yet implemented");
+	this.escola.setSantiAcess(true);
+	
+	assertTrue(this.escola.isSantiAcess()==true);
     }
 
-    @Test
-    public void testSetSantiAcess() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsAtendEducacionalEspecializado() {
-	fail("Not yet implemented");
+	this.escola.setAtendEducacionalEspecializado(true);
+	
+	assertTrue(this.escola.isAtendEducacionalEspecializado()==true);
+	
     }
 
-    @Test
-    public void testSetAtendEducacionalEspecializado() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSalaDiretoria() {
-	fail("Not yet implemented");
+	this.escola.setSalaDiretoria(true);
+	
+	assertEquals(this.escola.isSalaDiretoria(),true);
     }
 
-    @Test
-    public void testSetSalaDiretoria() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSalaProfessor() {
-	fail("Not yet implemented");
+	this.escola.setSalaProfessor(true);
+	
+	assertEquals(this.escola.isSalaProfessor(),true);
     }
 
-    @Test
-    public void testSetSalaProfessor() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsRefeitorio() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetRefeitorio() {
-	fail("Not yet implemented");
+	this.escola.setRefeitorio(true);
+	
+	assertEquals(this.escola.isRefeitorio(),true);
     }
 
     @Test
     public void testIsDespensa() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetDespensa() {
-	fail("Not yet implemented");
+	
+	this.escola.setDespensa(true);
+	
+	assertEquals(this.escola.isDespensa(),true);
     }
 
     @Test
     public void testIsAlmoxarifado() {
-	fail("Not yet implemented");
+	this.escola.setAlmoxarifado(true);
+	
+	assertEquals(this.escola.isAlmoxarifado(),true);
     }
 
-    @Test
-    public void testSetAlmoxarifado() {
-	fail("Not yet implemented");
-    }
-
+   
     @Test
     public void testIsAuditorio() {
-	fail("Not yet implemented");
+	
+	this.escola.setAuditorio(true);
+	
+	assertEquals(this.escola.isAuditorio(),true);
     }
 
-    @Test
-    public void testSetAuditorio() {
-	fail("Not yet implemented");
-    }
+    
 
     @Test
     public void testIsLabInformatica() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetLabInformatica() {
-	fail("Not yet implemented");
+	
+	this.escola.setLabInformatica(true);
+	
+	assertEquals(this.escola.isLabInformatica(),true);
     }
 
     @Test
     public void testIsLabCiencias() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetLabCiencias() {
-	fail("Not yet implemented");
+	this.escola.setLabCiencias(true);
+	
+	assertEquals(this.escola.isLabCiencias(),true);
     }
 
     @Test
     public void testIsSalaAtendimentoEspecializado() {
-	fail("Not yet implemented");
+	
+	this.escola.setSalaAtendimentoEspecializado(true);
+	
+	assertEquals(this.escola.isSalaAtendimentoEspecializado(),true);
     }
-
-    @Test
-    public void testSetSalaAtendimentoEspecializado() {
-	fail("Not yet implemented");
-    }
-
+    
     @Test
     public void testIsQuadraEsporteCoberta() {
-	fail("Not yet implemented");
-    }
 
-    @Test
-    public void testSetQuadraEsporteCoberta() {
-	fail("Not yet implemented");
+	this.escola.setQuadraEsporteCoberta(false);
+	
+	assertEquals(this.escola.isQuadraEsporteCoberta(),false);
     }
 
     @Test
     public void testIsQuadraEsporteDescoberta() {
-	fail("Not yet implemented");
+
+	this.escola.setQuadraEsporteDescoberta(true);
+	
+	assertEquals(this.escola.isQuadraEsporteDescoberta(),true);
     }
 
-    @Test
-    public void testSetQuadraEsporteDescoberta() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testIsPatioCoberto() {
-	fail("Not yet implemented");
+    public void testIsPatioCoberto() 
+    {
+	this.escola.setPatioCoberto(true);
+	
+	assertTrue(this.escola.isPatioCoberto() == true);
+
     }
 
-    @Test
-    public void testSetPatioCoberto() {
-	fail("Not yet implemented");
-    }
+   
 
     @Test
     public void testIsPatioDescoberto() {
-	fail("Not yet implemented");
+	this.escola.setPatioDescoberto(true);
+	
+	assertTrue(this.escola.isPatioDescoberto() == true);
     }
 
-    @Test
-    public void testSetPatioDescoberto() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsParqueInfantil() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetParqueInfantil() {
-	fail("Not yet implemented");
+	this.escola.setParqueInfantil(true);
+	
+	assertTrue(this.escola.isParqueInfantil() == true);
     }
 
     @Test
     public void testIsCozinha() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetCozinha() {
-	fail("Not yet implemented");
+	this.escola.setCozinha(true);
+	
+	assertTrue(this.escola.isCozinha() == true);
     }
 
     @Test
     public void testIsBiblioteca() {
-	fail("Not yet implemented");
+	this.escola.setBiblioteca(true);
+	
+	assertTrue(this.escola.isBiblioteca() ==  true);
     }
 
-    @Test
-    public void testSetBiblioteca() {
-	fail("Not yet implemented");
-    }
 
     @Test
-    public void testIsBercario() {
-	fail("Not yet implemented");
+    public void testIsBercario() 
+    {
+	this.escola.setBercario(true);
+	
+	assertTrue(this.escola.isBercario() == true);
     }
 
-    @Test
-    public void testSetBercario() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSanitarioNoPredio() {
-	fail("Not yet implemented");
+	this.escola.setSanitarioNoPredio(true);
+	
+	assertTrue(this.escola.isSanitarioNoPredio() == true);
     }
 
-    @Test
-    public void testSetSanitarioNoPredio() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSanitarioForaPredio() {
-	fail("Not yet implemented");
+
+	this.escola.setSanitarioForaPredio(true);
+	
+	assertTrue(this.escola.isSanitarioForaPredio() == true);
     }
 
-    @Test
-    public void testSetSanitarioForaPredio() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsSanitarioAdequadoInfantil() {
-	fail("Not yet implemented");
+	
+	this.escola.setSanitarioAdequadoInfantil(false);
+	
+	assertTrue(this.escola.isSanitarioAdequadoInfantil()== false);
     }
 
-    @Test
-    public void testSetSanitarioAdequadoInfantil() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsBanheiroChuveiro() {
-	fail("Not yet implemented");
+	
+	this.escola.setBanheiroChuveiro(true);
+	
+	assertTrue(this.escola.isBanheiroChuveiro()==true);
     }
 
-    @Test
-    public void testSetBanheiroChuveiro() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsLavanderia() {
-	fail("Not yet implemented");
+	
+	this.escola.setLavanderia(true);
+	
+	assertTrue(this.escola.isLavanderia()==true);
     }
 
-    @Test
-    public void testSetLavanderia() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsOutrasDependencias() {
-	fail("Not yet implemented");
+	
+	this.escola.setOutrasDependencias(true);
+	
+	assertTrue(this.escola.isOutrasDependencias()==true);
     }
 
-    @Test
-    public void testSetOutrasDependencias() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testGetNumSalaExistentes() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumSalaExistentes() {
-	fail("Not yet implemented");
+	
+	this.escola.setNumSalaExistentes(100);
+	
+	assertTrue(this.escola.getNumSalaExistentes()==100);
     }
 
     @Test
     public void testGetNumSalaUtilizadas() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumSalaUtilizadas() {
-	fail("Not yet implemented");
+	
+	this.escola.setNumSalaUtilizadas(100);
+	
+	assertTrue(this.escola.getNumSalaUtilizadas() == 100);
     }
 
     @Test
     public void testIsSalaLeitura() {
-	fail("Not yet implemented");
+	
+	this.escola.setSalaLeitura(true);
+	
+	assertTrue(this.escola.isSalaLeitura()== true);
     }
 
-    @Test
-    public void testSetSalaLeitura() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testIsAlojamentoAluno() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAlojamentoAluno() {
-	fail("Not yet implemented");
+	
+	this.escola.setAlojamentoAluno(true);
+	
+	assertTrue(this.escola.isAlojamentoAluno()==true);
     }
 
     @Test
     public void testIsAlojamentoProfessor() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAlojamentoProfessor() {
-	fail("Not yet implemented");
+	
+	this.escola.setAlojamentoProfessor(true);
+	
+	assertTrue(this.escola.isAlojamentoProfessor()==true);
     }
 
     @Test
     public void testIsAreaVerde() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAreaVerde() {
-	fail("Not yet implemented");
+	
+	this.escola.setAreaVerde(true);
+	
+	assertTrue(this.escola.isAreaVerde()==true);
     }
 
     @Test
     public void testGetNumFuncionarios() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumFuncionarios() {
-	fail("Not yet implemented");
+	
+	int numFuncionarios = 500;
+	this.escola.setNumFuncionarios(numFuncionarios);
+	
+	assertTrue(this.escola.getNumFuncionarios()==numFuncionarios);
+	
     }
 
     @Test
     public void testIsAlimentacaoEscAlunos() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAlimentacaoEscAlunos() {
-	fail("Not yet implemented");
+	this.escola.setAlimentacaoEscAlunos(true);
+	
+	assertTrue(this.escola.isAlimentacaoEscAlunos()==true);
     }
 
     @Test
     public void testIsAguaFiltrada() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAguaFiltrada() {
-	fail("Not yet implemented");
+	this.escola.setAguaFiltrada(true);
+	
+	assertTrue(this.escola.isAguaFiltrada()==true);
     }
 
     @Test
     public void testIsInternet() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetInternet() {
-	fail("Not yet implemented");
+	this.escola.setInternet(false);
+	
+	assertTrue(this.escola.isInternet()==false);
     }
 
     @Test
     public void testGetNumComputadoresAlunos() {
-	fail("Not yet implemented");
+	this.escola.setNumComputadoresAlunos(100);
+	
+	assertTrue(this.escola.getNumComputadoresAlunos()==100);
     }
 
     @Test
-    public void testSetNumComputadoresAlunos() {
-	fail("Not yet implemented");
+    public void testGetNumComputadoresAdministracao() 
+    {
+	this.escola.setNumComputadoresAdministracao(50);
+	
+	assertTrue(this.escola.getNumComputadoresAdministracao()==50);
     }
 
-    @Test
-    public void testGetNumComputadoresAdministracao() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumComputadoresAdministracao() {
-	fail("Not yet implemented");
-    }
 
     @Test
     public void testGetNumComputadoresTotal() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumComputadoresTotal() {
-	fail("Not yet implemented");
+	this.escola.setNumComputadoresTotal(45);
+	
+	assertTrue(this.escola.getNumComputadoresTotal()==45);
     }
 
     @Test
     public void testIsEducacaoIndigena() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetEducacaoIndigena() {
-	fail("Not yet implemented");
+	this.escola.setEducacaoIndigena(true);
+	
+	assertTrue(this.escola.isEducacaoIndigena()==true);
     }
 
     @Test
     public void testIsLinguaIndigena() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetLinguaIndigena() {
-	fail("Not yet implemented");
+	this.escola.setLinguaIndigena(true);
+	
+	assertTrue(this.escola.isLinguaIndigena()==true);
     }
 
     @Test
     public void testIsBrasilAlfabetizacao() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetBrasilAlfabetizacao() {
-	fail("Not yet implemented");
+	this.escola.setBrasilAlfabetizacao(true);
+	
+	assertTrue(this.escola.isBrasilAlfabetizacao()==true);
     }
 
     @Test
     public void testIsAberturaFdsComun() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetAberturaFdsComun() {
-	fail("Not yet implemented");
+	this.escola.setAberturaFdsComun(true);
+	
+	assertTrue(this.escola.isAberturaFdsComun()==true);
     }
 
     @Test
     public void testGetNumMatriculas() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testSetNumMatriculas() {
-	fail("Not yet implemented");
+	this.escola.setNumMatriculas(122345);
+	
+	assertTrue(this.escola.getNumMatriculas()==122345);
     }
 
 }
