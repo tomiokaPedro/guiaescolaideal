@@ -2,6 +2,8 @@ package br.com.mdsgpp.guiaescolaideal.model.teste;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,7 +71,9 @@ public class TesteEscola {
 
     @Test
     public void testGetTipoLocalizacao() {
-	fail("Not yet implemented");
+	this.escola.setTipoLocalizacao("STRING");
+	
+	assertTrue(this.escola.getTipoLocalizacao().equals("STRING"));
     }
 
     @Test
@@ -78,8 +82,12 @@ public class TesteEscola {
     }
 
     @Test
-    public void testGetCodigoendereco() {
-	fail("Not yet implemented");
+    public void testGetCodigoendereco() 
+    {
+	int codigoendereco = 34567;
+	this.escola.setCodigoendereco(codigoendereco);
+	
+	assertEquals(this.escola.getCodigoendereco(),codigoendereco);
     }
 
     @Test
@@ -89,7 +97,9 @@ public class TesteEscola {
 
     @Test
     public void testGetCodicaoFuncionamento() {
-	fail("Not yet implemented");
+	this.escola.setCodicaoFuncionamento("STRING");
+	
+	assertTrue(this.escola.getCodicaoFuncionamento().equals("STRING"));
     }
 
     @Test
@@ -99,7 +109,9 @@ public class TesteEscola {
 
     @Test
     public void testGetEmail() {
-	fail("Not yet implemented");
+	this.escola.setEmail("felipeta@gov.br");
+	
+	assertTrue(this.escola.getEmail().equals("felipeta@gov.br"));
     }
 
     @Test
@@ -109,7 +121,10 @@ public class TesteEscola {
 
     @Test
     public void testIsSistemaSenai() {
-	fail("Not yet implemented");
+	this.escola.setSistemaSenai(true);
+	
+	assertEquals(this.escola.isSistemaSenai());
+	
     }
 
     @Test
@@ -119,7 +134,10 @@ public class TesteEscola {
 
     @Test
     public void testIsOng() {
-	fail("Not yet implemented");
+	
+	this.escola.setOng(true);
+	
+	assertEquals(this.escola.isOng(),true);
     }
 
     @Test
@@ -129,7 +147,11 @@ public class TesteEscola {
 
     @Test
     public void testGetDataInicioLetivo() {
-	fail("Not yet implemented");
+	
+	Date dataDeInicio = new Date(25);
+	this.escola.setDataInicioLetivo(dataDeInicio);
+	
+	assertTrue(this.escola.getDataInicioLetivo().equals(dataDeInicio));
     }
 
     @Test
