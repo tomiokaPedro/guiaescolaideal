@@ -1,41 +1,23 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
-public class LocalFuncionamento 
-{
-    private String tipoLocalFuncionamento;
-    private Local local;
-    
-    public Local getLocal() {
-        return local;
-    }
+public class LocalFuncionamento {
+	private String tipoLocalFuncionamento;
+	private Local local;
 
-    public void setLocal(Local local) {
-        this.local = local;
-    }
+	public Local getLocal() {
+		return local;
+	}
 
-    public enum Local 
-    {
-        SALA_EMPRESA,UNIDADE_INTERNACAO, TEMPLO_OU_IGREJA, CASA_PROFESSOR, RANCHO, OUTROS, OUTRA_ESCOLA;
-        private LocalFuncionamento localFuncionamento;
+	public void setLocal(Local local) {
+		this.local = local;
+	}
 
-        public LocalFuncionamento getLocalFuncionamento() {
-            return localFuncionamento;
-        }
+	public String getTipoLocalFuncionamento() {
+		return tipoLocalFuncionamento;
+	}
 
-        public void setLocalFuncionamento(LocalFuncionamento localFuncionamento) {
-            this.localFuncionamento = localFuncionamento;
-        }
-        
-        
-    }
+	public void setTipoLocalFuncionamento(String tipoLocalFuncionamento) {
+		this.tipoLocalFuncionamento = tipoLocalFuncionamento;
+	}
 
-    public String getTipoLocalFuncionamento() {
-        return tipoLocalFuncionamento;
-    }
-
-    public void setTipoLocalFuncionamento(String tipoLocalFuncionamento) {
-        this.tipoLocalFuncionamento = tipoLocalFuncionamento;
-    }
-    
-    
 }
