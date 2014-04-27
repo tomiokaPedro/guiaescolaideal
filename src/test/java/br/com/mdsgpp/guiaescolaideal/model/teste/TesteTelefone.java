@@ -21,6 +21,11 @@ public class TesteTelefone {
 		assertTrue(telefone.getTelefone().equalsIgnoreCase("96465022"));
 	}
 	
+	@Test
+	public void testSetTelefone(){
+		telefone.setTelefone("teste");
+		assertTrue(telefone.getTelefone().equalsIgnoreCase("teste"));
+	}
 	
 	
 }
