@@ -6,21 +6,25 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private Connection connection;
+	private Connection connection;
 
-    public Connection getConnection() throws SQLException {
-	if (connection == null) {
-	    try {
-		Class.forName("com.mysql.jdbc.Driver");
+	private String user = "root";
+	private String password = "";
+	private String database = "guia_escola_ideal";
 
-		connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/test", "root", "");
-	    } catch (ClassNotFoundException e) {
-		throw new SQLException();
-	    }
+	public Connection getConnection() throws SQLException {
+		if (this.connection == null) {
+
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+
+				this.connection = DriverManager.getConnection(
+						"jdbc:mysql://localhost/" + database, user, password);
+			} catch (ClassNotFoundException e) {
+				throw new SQLException();
+			}
+		}
+		return this.connection;
 
 	}
-	return connection;
-
-    }
 }
