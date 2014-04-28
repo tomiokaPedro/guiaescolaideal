@@ -1,10 +1,11 @@
 package br.com.mdsgpp.guiaescolaideal.model.teste;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.model.Municipio;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
 
 public class TesteTelefone {
@@ -14,6 +15,8 @@ public class TesteTelefone {
 	@Before
 	public void setUp(){
 		telefone.setTelefone("96465022");
+		Municipio municipio = new Municipio();
+		telefone.setMunicipio(municipio);
 	}
 	
 	@Test
@@ -27,5 +30,15 @@ public class TesteTelefone {
 		assertTrue(telefone.getTelefone().equalsIgnoreCase("teste"));
 	}
 	
+	@Test
+	public void testGetMunicipio(){
+		assertNotNull(telefone.getMunicipio());
+	}
+	
+	@Test
+	public void testSetMunicipio(){
+		telefone.setMunicipio(null);
+		assertNull(telefone.getMunicipio());
+	}
 	
 }

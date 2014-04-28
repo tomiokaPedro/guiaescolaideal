@@ -27,5 +27,16 @@ public class TesteEquipamento {
 		equipamento.setCodEquipamento(5);
 		assertTrue(equipamento.getCodEquipamento() == 3);
 	}
+	
+	@Test
+	public void testGetAparelho(){
+		assertTrue(equipamento.getAparelho().equalsIgnoreCase("tv"));
+	}
+	
+	@Test
+	public void testSetAparelho(){
+		equipamento.setAparelho("dvd");
+		assertTrue(equipamento.getAparelho().equalsIgnoreCase("dvd"));
+	}
 
 }
