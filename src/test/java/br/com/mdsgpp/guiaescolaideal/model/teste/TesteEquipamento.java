@@ -25,7 +25,7 @@ public class TesteEquipamento {
 	@Test
 	public void testSetCodEquipamento(){
 		equipamento.setCodEquipamento(5);
-		assertTrue(equipamento.getCodEquipamento() == 3);
+		assertTrue(equipamento.getCodEquipamento() == 5);
 	}
 	
 	@Test

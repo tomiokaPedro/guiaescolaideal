@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.mdsgpp.guiaescolaideal.model.TipoDestinacaoLixo;
+import br.com.mdsgpp.guiaescolaideal.model.TipoAbastecimentoAgua;
 
-public class TesteTipoDestinacaoLixo {
+public class TesteTipoAbastecimentoAgua {
 
-	private TipoDestinacaoLixo tipo;
+	private TipoAbastecimentoAgua tipo;
 
 	@Before
 	public void setUP() {
-		tipo = new TipoDestinacaoLixo();
+		tipo = new TipoAbastecimentoAgua();
 		tipo.setTipo("publica");
 	}
 
@@ -24,8 +24,8 @@ public class TesteTipoDestinacaoLixo {
 
 	@Test
 	public void testSetTipo() {
-		tipo.setTipo("queima");
-		assertTrue(tipo.getTipo().equalsIgnoreCase("queima"));
+		tipo.setTipo("fonte");
+		assertTrue(tipo.getTipo().equalsIgnoreCase("fonte"));
 		assertFalse(tipo.getTipo().equalsIgnoreCase("publica"));
 	}
 
