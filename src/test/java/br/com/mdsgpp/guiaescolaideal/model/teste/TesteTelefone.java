@@ -27,5 +27,4 @@ public class TesteTelefone {
 		assertTrue(telefone.getTelefone().equalsIgnoreCase("teste"));
 	}
 	
-	
 }
