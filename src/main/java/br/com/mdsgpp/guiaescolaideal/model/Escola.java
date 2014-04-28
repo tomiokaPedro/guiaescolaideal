@@ -4,6 +4,9 @@ import java.sql.Date;
 import java.util.List;
 
 public class Escola {
+	
+	private int CodEscola;
+	
 	private CategoriaEscola categoriaEscola;
 	private Endereco endereco;
 	private Telefone telefone;
@@ -625,5 +628,15 @@ public class Escola {
 			List<TipoDestinacaoLixo> listaDestinaçãoLixo) {
 		this.listaDestinaçãoLixo = listaDestinaçãoLixo;
 	}
+
+	public int getCodEscola() {
+		return CodEscola;
+	}
+
+	public void setCodEscola(int codEscola) {
+		CodEscola = codEscola;
+	}
+	
+	
 
 }
