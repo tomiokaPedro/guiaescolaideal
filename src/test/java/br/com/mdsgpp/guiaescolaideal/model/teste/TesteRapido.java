@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EquipamentoDAO;
+import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 
 public class TesteRapido {
 
@@ -18,6 +19,9 @@ public class TesteRapido {
 		EquipamentoDAO dao = new EquipamentoDAO(con);
 		
 		System.out.println(dao.pesquisarPorID(2).getAparelho());
+		
+		EscolaDAO daoEscola = new EscolaDAO(con);
+		System.out.println(daoEscola.pesquisarPorID(666).getNomeEscola());
 		
 		con.close();
 	}
