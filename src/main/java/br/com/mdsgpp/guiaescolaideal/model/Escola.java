@@ -8,12 +8,14 @@ public class Escola {
 	private Endereco endereco;
 	private Telefone telefone;
 	private LocalFuncionamento localFuncionamento;
+	
 	private List<Equipamento> listaEquipamentos;
 	private List<ModalidadeEnsino> listaModalidadeEnsino;
 	private List<TipoAbastecimentoAgua> listaAbastecimentoAgua;
 	private List<TipoSistemaDeEsgoto> listaSistemaEsgoto;
 	private List<TipoAbastecimentoEnergia> listaAbastecimentoEnergia;
 	private List<TipoDestinacaoLixo> listaDestinaçãoLixo;
+	
 	private String nomeEscola;
 	private int codigoRede;
 	private String tipoLocalizacao;
