@@ -40,5 +40,4 @@ public class TesteTelefone {
 		telefone.setMunicipio(null);
 		assertNull(telefone.getMunicipio());
 	}
-	
 }

@@ -312,6 +312,78 @@ public class TesteEscola {
 	}
 
 	@Test
+	public void testEndereco() {
+		this.escola.setEndereco(new Endereco());
+		assertNotNull(escola.getEndereco());
+	}
+
+	@Test
+	public void testTelefone() {
+		this.escola.setTelefone(new Telefone());
+		assertNotNull(escola.getTelefone());
+	}
+
+	@Test
+	public void testLocalFuncionamento() {
+		this.escola.setLocalFuncionamento(new LocalFuncionamento());
+		assertNotNull(escola.getLocalFuncionamento());
+	}
+
+	@Test
+	public void testGetListaEquipamentos() {
+		ArrayList<Equipamento> lista = new ArrayList<Equipamento>();
+		lista.add(new Equipamento());
+
+		this.escola.setListaEquipamentos(lista);
+		assertTrue(escola.getListaEquipamentos().size() == 1);
+	}
+
+	@Test
+	public void testGetListaModalidadeEnsinoo() {
+		ArrayList<ModalidadeEnsino> lista = new ArrayList<ModalidadeEnsino>();
+		lista.add(new ModalidadeEnsino());
+
+		this.escola.setListaModalidadeEnsino(lista);
+		assertTrue(escola.getListaModalidadeEnsino().size() == 1);
+	}
+
+	@Test
+	public void testGetListaAbastecimentoAgua() {
+		ArrayList<TipoAbastecimentoAgua> lista = new ArrayList<TipoAbastecimentoAgua>();
+		lista.add(new TipoAbastecimentoAgua());
+
+		this.escola.setListaAbastecimentoAgua(lista);
+		assertTrue(escola.getListaAbastecimentoAgua().size() == 1);
+	}
+
+	@Test
+	public void testListaTipoSistemaDeEsgoto() {
+		List<TipoSistemaDeEsgoto> lista = new ArrayList<TipoSistemaDeEsgoto>();
+		lista.add(new TipoSistemaDeEsgoto());
+
+		this.escola.setListaSistemaEsgoto(lista);
+		assertTrue(escola.getListaSistemaEsgoto().size() == 1);
+	}
+
+	@Test
+	public void testListaAbastecimentoEnergia() {
+		List<TipoAbastecimentoEnergia> lista = new ArrayList<TipoAbastecimentoEnergia>();
+		lista.add(new TipoAbastecimentoEnergia());
+
+		this.escola.setListaAbastecimentoEnergia(lista);
+		assertTrue(escola.getListaAbastecimentoEnergia().size() == 1);
+	}
+
+	@Test
+	public void testListaDestinaçãoLixo() {
+		List<TipoDestinacaoLixo> lista = new ArrayList<TipoDestinacaoLixo>();
+		lista.add(new TipoDestinacaoLixo());
+
+		this.escola.setListaDestinaçãoLixo(lista);
+		assertTrue(escola.getListaDestinaçãoLixo().size() == 1);
+	}
+
+	@Test
 	public void testIsSanitarioForaPredio() {
 
 		this.escola.setSanitarioForaPredio(true);
@@ -485,78 +557,12 @@ public class TesteEscola {
 
 		assertTrue(this.escola.getNumMatriculas() == 122345);
 	}
-	
-	@Test
-	public void testEndereco(){
-		this.escola.setEndereco(new Endereco());
-		assertNotNull(escola.getEndereco());
-	}
-	
-	@Test
-	public void testTelefone(){
-		this.escola.setTelefone(new Telefone());
-		assertNotNull(escola.getTelefone());
-	}
-	
-	@Test
-	public void testLocalFuncionamento(){
-		this.escola.setLocalFuncionamento(new LocalFuncionamento());
-		assertNotNull(escola.getLocalFuncionamento());
-	}
-	
-	@Test
-	public void testGetListaEquipamentos(){
-		ArrayList<Equipamento> lista = new ArrayList<Equipamento>();
-		lista.add(new Equipamento());
-		
-		this.escola.setListaEquipamentos(lista);
-		assertTrue(escola.getListaEquipamentos().size() == 1);
-	}
-	
-	@Test
-	public void testGetListaModalidadeEnsinoo(){
-		ArrayList<ModalidadeEnsino> lista = new ArrayList<ModalidadeEnsino>();
-		lista.add(new ModalidadeEnsino());
-		
-		this.escola.setListaModalidadeEnsino(lista);
-		assertTrue(escola.getListaModalidadeEnsino().size() == 1);
-	}
-	
-	@Test
-	public void testGetListaAbastecimentoAgua(){
-		ArrayList<TipoAbastecimentoAgua> lista = new ArrayList<TipoAbastecimentoAgua>();
-		lista.add(new TipoAbastecimentoAgua());
-		
-		this.escola.setListaAbastecimentoAgua(lista);
-		assertTrue(escola.getListaAbastecimentoAgua().size() == 1);
-	}
-	
-	@Test
-	public void testListaTipoSistemaDeEsgoto(){
-		List<TipoSistemaDeEsgoto> lista = new ArrayList<TipoSistemaDeEsgoto>();
-		lista.add(new TipoSistemaDeEsgoto());
-		
-		this.escola.setListaSistemaEsgoto(lista);
-		assertTrue(escola.getListaSistemaEsgoto().size() == 1);
-	}
-	
-	@Test
-	public void testListaAbastecimentoEnergia(){
-		List<TipoAbastecimentoEnergia> lista = new ArrayList<TipoAbastecimentoEnergia>();
-		lista.add(new TipoAbastecimentoEnergia());
-		
-		this.escola.setListaAbastecimentoEnergia(lista);
-		assertTrue(escola.getListaAbastecimentoEnergia().size() == 1);
-	}
-	
-	@Test
-	public void testListaDestinaçãoLixo(){
-		List<TipoDestinacaoLixo> lista = new ArrayList<TipoDestinacaoLixo>();
-		lista.add(new TipoDestinacaoLixo());
-		
-		this.escola.setListaDestinaçãoLixo(lista);
-		assertTrue(escola.getListaDestinaçãoLixo().size() == 1);
-	}
-	
 
+	@Test
+	public void testGetCodEscola() {
+		this.escola.setCodEscola(555);
+
+		assertTrue(this.escola.getCodEscola() == 555);
+	}
+	
 }
