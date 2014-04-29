@@ -39,7 +39,7 @@ public class TesteEscolaDAO extends DAO {
 	
 	@Test
 	public void testPesquisarPorNome() throws SQLException, Exception {
-		assertTrue(this.dao.pesquisarPorNome("mds", 0, 100).size() == 2);
+		assertTrue(this.dao.pesquisarPorNome("mds", 0, 100).size() == 1);
 	}
 	
 	@Test
