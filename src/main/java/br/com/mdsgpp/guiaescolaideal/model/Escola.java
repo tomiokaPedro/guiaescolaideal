@@ -38,6 +38,7 @@ public class Escola {
 	private boolean atendEducacionalEspecializado;
 	private boolean salaDiretoria;
 	private boolean salaProfessor;
+	private boolean secretaria;
 	private boolean refeitorio;
 	private boolean despensa;
 	private boolean almoxarifado;
@@ -635,6 +636,14 @@ public class Escola {
 
 	public void setCodEscola(int codEscola) {
 		CodEscola = codEscola;
+	}
+
+	public boolean isSecretaria() {
+		return secretaria;
+	}
+
+	public void setSecretaria(boolean secretaria) {
+		this.secretaria = secretaria;
 	}
 	
 	
