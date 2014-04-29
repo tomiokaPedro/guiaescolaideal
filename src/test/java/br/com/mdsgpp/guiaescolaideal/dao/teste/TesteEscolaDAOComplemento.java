@@ -28,6 +28,11 @@ public class TesteEscolaDAOComplemento {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testPesquisarPorNomeValorInteiroInvalido() throws SQLException {
-		this.dao.pesquisarPorNome("", 0, 100);
+		this.dao.pesquisarPorNome("x", -1, 100);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testPesquisarPorNomeValorInteiroInvalidoQuantidade() throws SQLException {
+		this.dao.pesquisarPorNome("x", 0, 0);
 	}
 }
