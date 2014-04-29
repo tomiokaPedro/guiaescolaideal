@@ -36,11 +36,4 @@ public class CategoriaEscola {
 		this.categoriaEscolaPrivada = categoriaEscolaPrivada;
 	}
 
-	@Override
-	public String toString() {
-		return "CategoriaEscola [escolaPublica=" + escolaPublica
-				+ ", dependenciaAdministrativa=" + dependenciaAdministrativa
-				+ ", categoriaEscolaPrivada=" + categoriaEscolaPrivada + "]";
-	}
-
 }

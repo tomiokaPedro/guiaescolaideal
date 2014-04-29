@@ -19,11 +19,4 @@ public class Equipamento {
 	public void setAparelho(String aparelho) {
 		this.aparelho = aparelho;
 	}
-
-	@Override
-	public String toString() {
-		return "Equipamento [codEquipamento=" + codEquipamento + ", aparelho="
-				+ aparelho + "]";
-	}
-
 }
