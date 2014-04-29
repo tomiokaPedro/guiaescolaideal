@@ -565,4 +565,11 @@ public class TesteEscola {
 		assertTrue(this.escola.getCodEscola() == 555);
 	}
 	
+	@Test
+	public void testGetSecretaria() {
+		this.escola.setSecretaria(false);
+
+		assertTrue(!this.escola.isSecretaria());
+	}
+	
 }
