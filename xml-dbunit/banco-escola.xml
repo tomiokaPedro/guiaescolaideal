@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<escola COD_ESCOLA='75001' NOME_ESCOLA='ESCOLA a TESTE 001'/>
+	<escola COD_ESCOLA='75002' NOME_ESCOLA='ESCOLA a TESTE 002'/>
+	
+	<escola COD_ESCOLA='75003' NOME_ESCOLA='MDS JAVA 003'/>
+	<escola COD_ESCOLA='75004' NOME_ESCOLA='MDS PyThon 004'/>
+</dataset>
