@@ -24,7 +24,16 @@ public class TesteMunicipioDAO extends DAO{
 		return new FlatXmlDataSetBuilder().build(new FileInputStream(
 				"xml-dbunit/banco-municipio.xml"));
 	}
+    
+	@Test
+	public void testPesquisarPorId() throws SQLException, Exception {
+		assertNotNull(this.dao.pesquisarPorID(2002));
+	}
 	
+	@Test
+	public void testPesquisarPorIdInexistente() throws SQLException, Exception {
+		assertNull(this.dao.pesquisarPorID(2222));
+	}
 	
 
 }
