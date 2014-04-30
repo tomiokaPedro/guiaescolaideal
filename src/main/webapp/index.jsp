@@ -5,24 +5,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Guia da Escola Ideal</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/demo.css">
-<link rel="stylesheet" href="css/text.css">
-<link rel="stylesheet" href="css/960.css">
+<link rel="stylesheet" href="CSS/style.css">
+<!--<link rel="stylesheet" href="CSS/reset.css">
+<link rel="stylesheet" href="CSS/demo.css">
+<link rel="stylesheet" href="CSS/text.css">
+<link rel="stylesheet" href="CSS/960.css">-->
 
 </head>
 <body>
 	
-	<div class="container_16">
-		<div class="grid_12">
-			<p>asoidjasdj</p>
-		</div>
-		<div class="grid_4">
-			<p>aoksdjasj</p>
-		</div>
-		<div class="clear"></div>
+	<header>
+		
+	</header>
+
+	<div class="nome">
+		
 	</div>
+
+	<div class="carac">
+		
+	</div>
+
+	<div class="feed">
+		
+	</div>
+
+	<footer>
+		
+	</footer>
+
+
 	
 </body>
 </html>	
