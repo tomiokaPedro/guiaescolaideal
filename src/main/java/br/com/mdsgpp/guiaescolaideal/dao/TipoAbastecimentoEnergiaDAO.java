@@ -17,7 +17,7 @@ public class TipoAbastecimentoEnergiaDAO {
     
     	public TipoAbastecimentoEnergia pesquisarPorID(int id) throws SQLException{
     	    
-    	    String sql = "select * from tipo_abastecimento_energia_eletrica where COD_TIPO_ABASTECIMENTO_ENERGIA = ?";
+    	    String sql = "select * from tipo_abastecimento_energia_eletrica where COD_TIPO_ABAST_ENERGIA = ?";
     	    
     	    PreparedStatement stmt = this.connection.prepareStatement(sql);  
     	    stmt.setInt(1, id);
