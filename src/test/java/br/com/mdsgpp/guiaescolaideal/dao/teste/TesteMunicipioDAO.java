@@ -27,12 +27,12 @@ public class TesteMunicipioDAO extends DAO{
     
 	@Test
 	public void testPesquisarPorId() throws SQLException, Exception {
-		assertNotNull(this.dao.pesquisarPorID(2002));
+		assertNotNull(this.dao.pesquisarPorId(5003207));
 	}
 	
 	@Test
 	public void testPesquisarPorIdInexistente() throws SQLException, Exception {
-		assertNull(this.dao.pesquisarPorID(2222));
+		assertNull(this.dao.pesquisarPorId(2222));
 	}
 	
 
