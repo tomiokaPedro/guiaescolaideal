@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.model.LocalFuncionamento;
 
 public class LocalFuncionamentoDAO 
