@@ -1,5 +1,5 @@
 LOAD DATA LOCAL INFILE
-'W:/Dropbox/GRUPO_MDS_GPP/banco/migracao_3.csv' INTO TABLE
+'C:/Users/mello_000/Dropbox/GRUPO_MDS_GPP/banco/migracao_final.csv' INTO TABLE
 migracao_arquivo FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' ignore 3
 rows (COL_A ,COL_B ,COL_C ,
 COL_D ,
