@@ -2,8 +2,8 @@
 
 <dataset>
 
-
-
-
+	<endereco COD_ENDERECO ='800' DESCRICAO='TESTE 001'/>
+	<endereco COD_ENDERECO ='801' DESCRICAO='TESTE 001'/>
+	<endereco COD_ENDERECO ='802' DESCRICAO='TESTE 001'/>
 
 </dataset>
