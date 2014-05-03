@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<telefone COD_TELEFONE='6423' NUMERO_TELEFONE='2345'/>
+	<telefone COD_TELEFONE='6424'  NUMERO_TELEFONE='2346'/>
+	<telefone COD_TELEFONE='6425' NUMERO_TELEFONE='2347'/>
+	<telefone COD_TELEFONE='6426'  NUMERO_TELEFONE='2348'/>
+</dataset>
