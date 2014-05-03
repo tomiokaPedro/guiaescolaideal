@@ -30,13 +30,13 @@ public class TesteTelefoneDAO extends DAO
     @Test
     public void testPesquisarPorId() throws Exception, SQLException
     {
-	assertNotNull(this.dao.pesquisarPorID(500));
+	assertNotNull(this.dao.pesquisarPorID(6423));
     }
     
     @Test
     public void testPesquisarPorIDInexistente() throws SQLException
     {
-	assertNull(this.dao.pesquisarPorID(44));
+	assertNull(this.dao.pesquisarPorID(34567));
     }
 
     

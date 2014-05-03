@@ -27,7 +27,7 @@ public class TelefoneDAO
 
 		Telefone telefone = new Telefone();
 		
-		telefone.setTelefone(rs.getString("TELEFONE"));
+		telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
 		
 		stmt.close();
 		return telefone;
