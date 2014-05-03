@@ -32,7 +32,7 @@ public class RegiaoDAO {
 			
 			stmt.close();
 			
-			return tipoabastecimentoagua;
+			return regiao;
 		}
 		
 		stmt.close();
