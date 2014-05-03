@@ -28,7 +28,7 @@ public class LocalFuncionamentoDAO
 
 		LocalFuncionamento localfuncionamento = new LocalFuncionamento();
 		
-		localfuncionamento.setTipoLocalFuncionamento(rs.getString("LOCAL_FUNCIONAMENTO"));
+		localfuncionamento.setTipoLocalFuncionamento(rs.getString("COD_LOCAL_FUNCIONAMENTO"));
 		
 		stmt.close();
 		return localfuncionamento;
