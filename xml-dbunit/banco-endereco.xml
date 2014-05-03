@@ -2,8 +2,7 @@
 
 <dataset>
 
-	<endereco COD_ENDERECO ='800' DESCRICAO='TESTE 001'/>
-	<endereco COD_ENDERECO ='801' DESCRICAO='TESTE 001'/>
-	<endereco COD_ENDERECO ='802' DESCRICAO='TESTE 001'/>
+	<endereco COD_ENDERECO ='15001' bairro='TESTE 001' rua='inventar rua' cep='00000000' complemento='srdyg' numero='2356'/>
+	<endereco COD_ENDERECO ='15002' bairro='TESTE 001' rua='inventar rua' cep='00000000' complemento='srdyg' numero='2356' />
 
 </dataset>

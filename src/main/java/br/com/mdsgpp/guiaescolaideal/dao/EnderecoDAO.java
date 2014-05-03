@@ -29,7 +29,7 @@ public class EnderecoDAO {
 			
 			endereco.setBairro(rs.getString("BAIRRO"));
 			endereco.setRua(rs.getString("RUA"));
-			endereco.setCep(Integer.getInteger(rs.getString("CEP")));
+			endereco.setCep(Integer.parseInt(rs.getString("CEP")));
 			endereco.setNumero(rs.getString("NUMERO"));
 			endereco.setComplemento(rs.getString("COMPLEMENTO"));
 			

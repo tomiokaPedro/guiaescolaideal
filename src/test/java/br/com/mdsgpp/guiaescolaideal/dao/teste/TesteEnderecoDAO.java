@@ -29,13 +29,13 @@ public class TesteEnderecoDAO extends DAO {
 	
 	@Test
 	public void testPesquisarPorId() throws SQLException, Exception{
-		assertNotNull(this.dao.pesquisarPorID(800));
+		assertNotNull(this.dao.pesquisarPorID(15001));
 	}
 	
 	
 	@Test
 	public void testPesquisarPorIdInexistente() throws SQLException, Exception {
-		assertNull(this.dao.pesquisarPorID(1000));
+		assertNull(this.dao.pesquisarPorID(234567));
 	}
 	
 	
