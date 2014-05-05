@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
+import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EscolaDAO {
 
@@ -58,8 +59,8 @@ public class EscolaDAO {
 	public List<Escola> pesquisarPorNomeComPalavrasChaves(
 			List<String> listaPalavras, int comeco, int quantidade)
 			throws SQLException, ParseException {
-		
-		if((comeco < 0) || (quantidade <= 0)){
+
+		if ((comeco < 0) || (quantidade <= 0)) {
 			throw new IllegalArgumentException();
 		}
 
@@ -84,7 +85,7 @@ public class EscolaDAO {
 			listaEscola.add(escola);
 
 		}
-		
+
 		return listaEscola;
 	}
 
@@ -96,68 +97,115 @@ public class EscolaDAO {
 		escola.setTipoLocalizacao(rs.getString("TIPO_LOCALIZACAO"));
 		escola.setCodicaoFuncionamento(rs.getString("CONDICAO_FUNCIONAMENTO"));
 		escola.setEmail(rs.getString("EMAIL"));
-		escola.setSistemaSenai(rs.getString("SE_SISTEMA_SENAI").equalsIgnoreCase("sim"));
-		escola.setOng(rs.getString("SE_ONG").equalsIgnoreCase("sim"));
-		
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		
-		escola.setDataInicioLetivo(new Date(dateFormat.parse(rs.getString("DATA_INICIO_LETIVO")).getTime()));
-		escola.setDataTerminoLetivo(new Date(dateFormat.parse(rs.getString("DATA_TERMINO_LETIVO")).getTime()));
-		
-		escola.setSeFinsLucrativos(rs.getString("SE_FINS_LURATIVOS").equalsIgnoreCase("sim"));
+		escola.setSistemaSenai(rs.getString("SE_SISTEMA_SENAI")
+				.equalsIgnoreCase("sim"));
+		escola.setOng(getBoolean(rs.getString("SE_ONG")));
+
+		escola.setDataInicioLetivo(getData(rs, "DATA_INICIO_LETIVO"));
+		escola.setDataTerminoLetivo(getData(rs, "DATA_TERMINO_LETIVO"));
+
+		escola.setSeFinsLucrativos(getBoolean(rs.getString("SE_FINS_LURATIVOS")));
 		escola.setAtividadeComplementar(rs.getString("ATIVIDADE_COMPLEMENTAR"));
-		escola.setAcessibilidade(rs.getString("SE_ACESSIBILIDADE").equalsIgnoreCase("sim"));
-		escola.setDependViasAcesso(rs.getString("SE_DEPEN_VIAS_ACES").equalsIgnoreCase("sim"));
-		escola.setSantiAcess(rs.getString("SE_SANTI_ACESS").equalsIgnoreCase("sim"));
-		escola.setAtendEducacionalEspecializado(rs.getString("SE_AEE").equalsIgnoreCase("sim"));
-		escola.setSalaDiretoria(rs.getString("SE_SALA_DIRETORIA").equalsIgnoreCase("sim"));
-		escola.setSalaProfessor(rs.getString("SE_SALA_PROFESSOR").equalsIgnoreCase("sim"));
-		escola.setSecretaria(rs.getString("SE_SECRETARIA").equalsIgnoreCase("sim"));
-		escola.setRefeitorio(rs.getString("SE_REFEITORIO").equalsIgnoreCase("sim"));
+		escola.setAcessibilidade(getBoolean(rs.getString("SE_ACESSIBILIDADE")));
+		escola.setDependViasAcesso(getBoolean(rs
+				.getString("SE_DEPEN_VIAS_ACES")));
+		escola.setSantiAcess(getBoolean(rs.getString("SE_SANTI_ACESS")));
+		escola.setAtendEducacionalEspecializado(rs.getString("SE_AEE"));
+		escola.setSalaDiretoria(getBoolean(rs.getString("SE_SALA_DIRETORIA")));
+		escola.setSalaProfessor(getBoolean(rs.getString("SE_SALA_PROFESSOR")));
+		escola.setSecretaria(getBoolean(rs.getString("SE_SECRETARIA")));
+		escola.setRefeitorio(getBoolean(rs.getString("SE_REFEITORIO")));
 		escola.setDespensa(rs.getString("SE_DESPENSA").equalsIgnoreCase("sim"));
-		escola.setAlmoxarifado(rs.getString("SE_ALMOXARIFADO").equalsIgnoreCase("sim"));
-		escola.setAuditorio(rs.getString("SE_AUDITORIO").equalsIgnoreCase("sim"));
-		escola.setLabInformatica(rs.getString("SE_LAB_INFO").equalsIgnoreCase("sim"));
-		escola.setLabCiencias(rs.getString("SE_LAB_CIENCIAS").equalsIgnoreCase("sim"));
-		escola.setSalaAtendimentoEspecializado(rs.getString("SE_SALA_ATEND_ESP").equalsIgnoreCase("sim"));
-		escola.setQuadraEsporteCoberta(rs.getString("SE_QUADRA_ESPO_COBERTA").equalsIgnoreCase("sim"));
-		escola.setQuadraEsporteDescoberta(rs.getString("SE_QUADRA_ESPO_DESCOBERTA").equalsIgnoreCase("sim"));
-		escola.setPatioCoberto(rs.getString("SE_PATIO_COBERTO").equalsIgnoreCase("sim"));
-		escola.setPatioDescoberto(rs.getString("SE_PATIO_DESCOBERTO").equalsIgnoreCase("sim"));
-		escola.setParqueInfantil(rs.getString("SE_PARQUE_INFANTIL").equalsIgnoreCase("sim"));
-		escola.setCozinha(rs.getString("SE_COZINHA").equalsIgnoreCase("sim"));
-		escola.setBiblioteca(rs.getString("SE_BIBLIOTECA").equalsIgnoreCase("sim"));
-		escola.setBercario(rs.getString("SE_BERCARIO").equalsIgnoreCase("sim"));
-		escola.setSanitarioNoPredio(rs.getString("SE_SANITARIO_NO_PREDIO").equalsIgnoreCase("sim"));
-		escola.setSanitarioForaPredio(rs.getString("SE_SANITARIO_FORA_PREDIO").equalsIgnoreCase("sim"));
-		escola.setSanitarioAdequadoInfantil(rs.getString("SE_SANITARIO_EDUC_ADEQ_INFAN").equalsIgnoreCase("sim"));
-		escola.setBanheiroChuveiro(rs.getString("SE_BANHEIRO_CHUVEIRO").equalsIgnoreCase("sim"));
-		escola.setLavanderia(rs.getString("SE_LAVANDERIA").equalsIgnoreCase("sim"));
-		escola.setOutrasDependencias(rs.getString("SE_OUTRAS_DEPENDENCIAS").equalsIgnoreCase("sim"));
-		
-		escola.setNumSalaExistentes(Integer.parseInt(rs.getString("NUM_SALAS_EXISTENTES")));
-		escola.setNumSalaUtilizadas(Integer.parseInt(rs.getString("NUM_SALAS_UTILIZADAS")));
-		
-		escola.setSalaLeitura(rs.getString("SE_SALA_LEITURA").equalsIgnoreCase("sim"));
-		escola.setAlojamentoAluno(rs.getString("SE_ALOJAMENTO_ALUNO").equalsIgnoreCase("sim"));
-		escola.setAlojamentoProfessor(rs.getString("SE_ALOJAMENTO_PROFESSOR").equalsIgnoreCase("sim"));
-		escola.setAreaVerde(rs.getString("SE_AREA_VERDE").equalsIgnoreCase("sim"));
-		escola.setAlimentacaoEscAlunos(rs.getString("SE_ALIMENTACAO_ESC_ALUNOS").equalsIgnoreCase("sim"));
-		escola.setAguaFiltrada(rs.getString("SE_AGUA_FILTRADA").equalsIgnoreCase("sim"));
-		escola.setInternet(rs.getString("SE_INTERNET").equalsIgnoreCase("sim"));
-		
-		escola.setNumFuncionarios(Integer.parseInt(rs.getString("NUM_FUNCIONARIOS")));
-		escola.setNumComputadoresAlunos(Integer.parseInt(rs.getString("NUM_COMPUTADORES_ALUNOS")));
-		escola.setNumComputadoresAdministracao(Integer.parseInt(rs.getString("NUM_COMPUTADORES_ADMINISTRACAO")));
-		escola.setNumComputadoresTotal(Integer.parseInt(rs.getString("NUM_COMPUTADORES_TOTAL")));
-		escola.setNumMatriculas(Integer.parseInt(rs.getString("NUM_MATRICULAS")));
-		
-		escola.setEducacaoIndigena(rs.getString("SE_EDUCACAO_INDIGNA").equalsIgnoreCase("sim"));
-		escola.setLinguaIndigena(rs.getString("SE_LINGUA_INDIGENA").equalsIgnoreCase("sim"));
-		escola.setBrasilAlfabetizacao(rs.getString("SE_BRASIL_ALFABETIZACAO").equalsIgnoreCase("sim"));
-		escola.setAberturaFdsComun(rs.getString("SE_ABERTURA_FDS_COMUN").equalsIgnoreCase("sim"));
-		
+
+		escola.setAlmoxarifado(getBoolean(rs.getString("SE_ALMOXARIFADO")));
+		escola.setAuditorio(getBoolean(rs.getString("SE_AUDITORIO")));
+		escola.setLabInformatica(getBoolean(rs.getString("SE_LAB_INFO")));
+		escola.setLabCiencias(getBoolean(rs.getString("SE_LAB_CIENCIAS")));
+		escola.setSalaAtendimentoEspecializado(getBoolean(rs
+				.getString("SE_SALA_ATEND_ESP")));
+		escola.setQuadraEsporteCoberta(getBoolean(rs
+				.getString("SE_QUADRA_ESPO_COBERTA")));
+		escola.setQuadraEsporteDescoberta(getBoolean(rs
+				.getString("SE_QUADRA_ESPO_DESCOBERTA")));
+		escola.setPatioCoberto(getBoolean(rs.getString("SE_PATIO_COBERTO")));
+		escola.setPatioDescoberto(getBoolean(rs
+				.getString("SE_PATIO_DESCOBERTO")));
+		escola.setParqueInfantil(getBoolean(rs.getString("SE_PARQUE_INFANTIL")));
+		escola.setCozinha(getBoolean(rs.getString("SE_COZINHA")));
+		escola.setBiblioteca(getBoolean(rs.getString("SE_BIBLIOTECA")));
+		escola.setBercario(getBoolean(rs.getString("SE_BERCARIO")));
+		escola.setSanitarioNoPredio(getBoolean(rs
+				.getString("SE_SANITARIO_NO_PREDIO")));
+		escola.setSanitarioForaPredio(getBoolean(rs
+				.getString("SE_SANITARIO_FORA_PREDIO")));
+		escola.setSanitarioAdequadoInfantil(getBoolean(rs
+				.getString("SE_SANITARIO_EDUC_ADEQ_INFAN")));
+		escola.setBanheiroChuveiro(getBoolean(rs
+				.getString("SE_BANHEIRO_CHUVEIRO")));
+		escola.setLavanderia(getBoolean(rs.getString("SE_LAVANDERIA")));
+		escola.setOutrasDependencias(getBoolean(rs
+				.getString("SE_OUTRAS_DEPENDENCIAS")));
+
+		escola.setNumSalaExistentes(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs.getString("NUM_SALAS_EXISTENTES")));
+		escola.setNumSalaUtilizadas(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs.getString("NUM_SALAS_UTILIZADAS")));
+
+		escola.setSalaLeitura(getBoolean(rs.getString("SE_SALA_LEITURA")));
+		escola.setAlojamentoAluno(getBoolean(rs
+				.getString("SE_ALOJAMENTO_ALUNO")));
+		escola.setAlojamentoProfessor(getBoolean(rs
+				.getString("SE_ALOJAMENTO_PROFESSOR")));
+		escola.setAreaVerde(getBoolean(rs.getString("SE_AREA_VERDE")));
+
+		escola.setAlimentacaoEscAlunos(getBoolean(rs
+				.getString("SE_ALIMENTACAO_ESC_ALUNOS")));
+
+		escola.setAguaFiltrada(getBoolean(rs.getString("SE_AGUA_FILTRADA")));
+		escola.setInternet(getBoolean(rs.getString("SE_INTERNET")));
+
+		escola.setNumFuncionarios(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs.getString("NUM_FUNCIONARIOS")));
+		escola.setNumComputadoresAlunos(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs
+						.getString("NUM_COMPUTADORES_ALUNOS")));
+		escola.setNumComputadoresAdministracao(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs
+						.getString("NUM_COMPUTADORES_ADMINISTRACAO")));
+		escola.setNumComputadoresTotal(ConversorDeEntrada
+				.getNumeroInteiroSemPonto(rs
+						.getString("NUM_COMPUTADORES_TOTAL")));
+
+		escola.setNumMatriculas(ConversorDeEntrada.getNumeroInteiroSemPonto(rs
+				.getString("NUM_MATRICULAS")));
+
+		escola.setEducacaoIndigena(getBoolean(rs
+				.getString("SE_EDUCACAO_INDIGNA")));
+		escola.setLinguaIndigena(getBoolean(rs.getString("SE_LINGUA_INDIGENA")));
+		escola.setBrasilAlfabetizacao(getBoolean(rs
+				.getString("SE_BRASIL_ALFABETIZACAO")));
+		escola.setAberturaFdsComun(getBoolean(rs
+				.getString("SE_ABERTURA_FDS_COMUN")));
+
 		return escola;
+	}
+
+	private Date getData(ResultSet rs, String nome_campo) throws SQLException,
+			ParseException {
+		Date data = null;
+		if (rs.getString(nome_campo) != null) {
+			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			data = new Date(dateFormat.parse(rs.getString(nome_campo))
+					.getTime());
+		}
+		return data;
+	}
+
+	private boolean getBoolean(String texto) {
+		if (texto == null) {
+			return false;
+		} else
+			return texto.equalsIgnoreCase("sim");
 	}
 
 	private String gerarQuerySql(List<String> listaPalavras) {
