@@ -172,7 +172,7 @@ public class TesteEscola {
 
 	@Test
 	public void testIsAtendEducacionalEspecializado() {
-		this.escola.setAtendEducacionalEspecializado("lol'");
+		this.escola.setAtendEducacionalEspecializado("lol");
 
 		assertTrue(this.escola.isAtendEducacionalEspecializado().equalsIgnoreCase("LOL"));
 
