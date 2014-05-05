@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <dataset>
-	<regiao COD_REGIAO='456' DESCRICAO='Fonte' />
-	<regiao COD_REGIAO='457' DESCRICAO='Cacimba' />
-	<regiao COD_REGIAO='458' DESCRICAO='Inexistente' />
+	<tipo_abastecimento_agua  COD_TIPO_ABASTECIMENTO_AGUA='456' DESCRICAO='Fonte' />
+	<tipo_abastecimento_agua  COD_TIPO_ABASTECIMENTO_AGUA='171' DESCRICAO='Fonte' />
 </dataset>
