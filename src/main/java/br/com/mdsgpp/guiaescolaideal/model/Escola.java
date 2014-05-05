@@ -35,7 +35,7 @@ public class Escola {
 	private boolean acessibilidade;
 	private boolean dependViasAcesso;
 	private boolean santiAcess;
-	private boolean atendEducacionalEspecializado;
+	private String atendEducacionalEspecializado;
 	private boolean salaDiretoria;
 	private boolean salaProfessor;
 	private boolean secretaria;
@@ -215,12 +215,12 @@ public class Escola {
 		this.santiAcess = santiAcess;
 	}
 
-	public boolean isAtendEducacionalEspecializado() {
+	public String isAtendEducacionalEspecializado() {
 		return atendEducacionalEspecializado;
 	}
 
 	public void setAtendEducacionalEspecializado(
-			boolean atendEducacionalEspecializado) {
+			String atendEducacionalEspecializado) {
 		this.atendEducacionalEspecializado = atendEducacionalEspecializado;
 	}
 
