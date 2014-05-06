@@ -2,6 +2,7 @@ package br.com.mdsgpp.guiaescolaideal.dao.teste;
 
 import java.io.FileInputStream;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,5 +65,64 @@ public class TesteEscolaDAO extends DAO {
 		assertTrue(this.dao.pesquisarPorNomeComPalavrasChaves(listaPalavras, 0, 100).size() == 0);
 	}
 	
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacao() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XP5PK");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Rua");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).size() == 1);
+	}
+	
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacaoNomeInexistente() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XPTO");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Rua");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+	}
+	
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacaoComEstadoInexistente() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XP5PK");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Rua");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah do sul";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+	}
+
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacaoComMunicipioInexistente() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XP5PK");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Cidade");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah do sul";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+	}
 
 }
