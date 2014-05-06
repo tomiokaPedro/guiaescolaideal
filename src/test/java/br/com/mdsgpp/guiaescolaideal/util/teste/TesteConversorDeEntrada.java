@@ -1,3 +1,4 @@
+package br.com.mdsgpp.guiaescolaideal.util.teste;
 import static org.junit.Assert.*;
 
 import java.text.ParseException;

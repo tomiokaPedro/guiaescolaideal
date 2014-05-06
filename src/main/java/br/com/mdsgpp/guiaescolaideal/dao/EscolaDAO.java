@@ -16,6 +16,7 @@ import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 public class EscolaDAO {
 
 	private Connection connection;
+	private final static String TAMANHO_PESQUISA = "TAMANHO_PESQUISA";
 
 	public EscolaDAO(Connection connection) {
 		this.connection = connection;
@@ -28,31 +29,26 @@ public class EscolaDAO {
 		stmt.setInt(1, id);
 
 		ResultSet rs = stmt.executeQuery();
-
+		Escola escola = null;
 		if (rs.next()) {
-
-			Escola escola = getEscolaAll(rs);
-
-			stmt.close();
-			return escola;
+			escola = getEscolaAll(rs);
 		}
 
 		stmt.close();
-		return null;
+		return escola;
 	}
 
 	public List<Escola> pesquisarPorNome(String nome, int comeco, int quantidade)
 			throws SQLException, ParseException {
 
-		if (nome.isEmpty()) {
+		if (nome.isEmpty() || nome == null) {
 			throw new IllegalArgumentException();
 		}
 
 		ArrayList<String> listaPalavras = new ArrayList<String>();
 		listaPalavras.add(nome);
 
-		return pesquisarPorNomeComPalavrasChaves(listaPalavras, comeco,
-				quantidade);
+		return pesquisarPorNomeComPalavrasChaves(listaPalavras, comeco, quantidade);
 	}
 
 	public List<Escola> pesquisarPorNomeComPalavrasChaves(
@@ -64,7 +60,7 @@ public class EscolaDAO {
 		}
 
 		String sql = gerarQuerySqlComPesquisaPorPalavras(listaPalavras);
-		sql = addLimit(sql);
+		sql = sql + addLimit();
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		int sizeLista = listaPalavras.size();
@@ -90,29 +86,27 @@ public class EscolaDAO {
 	}
 
 	public int pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(
-			List<String> listaPalavras, String estado, String municipio) {
+			List<String> listaPalavras, String estado,
+			List<String> listaPalavrasMunicipio) {
+		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras,
+				listaPalavrasMunicipio);
+
+		sql = sql.replaceAll("[*]", " count(*) as " + TAMANHO_PESQUISA);
+
 		return 0;
 	}
 
 	public List<Escola> pesquisarPorNomeMaisLocalizacao(
-			List<String> listaPalavras, String estado, String municipio,
-			int comeco, int quantidade) throws SQLException, ParseException {
+			List<String> listaPalavras, String estado,
+			List<String> listaPalavrasMunicipio, int comeco, int quantidade)
+			throws SQLException, ParseException {
 
 		if ((comeco < 0) || (quantidade <= 0)) {
 			throw new IllegalArgumentException();
 		}
 
-		/*
-		 * select count(*) from escola esc INNER JOIN endereco en ON
-		 * esc.COD_ENDERECO = en.COD_ENDERECO AND esc.NOME_ESCOLA like '%a%'
-		 * INNER JOIN municipio mun ON mun.COD_MUNICIPIO = en.COD_MUNICIPIO and
-		 * mun.DESCRICAO like '%a%' INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF
-		 * and uf.DESCRICAO like '%Distrito%';
-		 */
-		StringBuilder sb = new StringBuilder();
-		sb.append(gerarQuerySqlComPesquisaPorPalavras(listaPalavras));
-		// sb.append();
-		String sql = sb.toString();
+		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras, listaPalavrasMunicipio);
+		System.out.println(sql);
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		int sizeLista = listaPalavras.size();
@@ -120,21 +114,49 @@ public class EscolaDAO {
 		for (int i = 1; i <= sizeLista; i++) {
 			stmt.setString(i, "%" + listaPalavras.get(i - 1) + "%");
 		}
-
-		stmt.setInt(sizeLista + 1, comeco);
-		stmt.setInt(sizeLista + 2, quantidade);
+		
+		int sizeListaMunicipio = listaPalavrasMunicipio.size();
+		
+		for (int i = 0, p=sizeLista+1; i < sizeListaMunicipio; i++, p++) {
+			stmt.setString(p, "%" + listaPalavrasMunicipio.get(i) + "%");
+		}
+		
+		int posicaoEstado = sizeLista + sizeListaMunicipio +1;
+		stmt.setString(posicaoEstado , estado);
+		
+		stmt.setInt(posicaoEstado + 1, comeco);
+		stmt.setInt(posicaoEstado + 2, quantidade);
 
 		List<Escola> listaEscola = new ArrayList<Escola>();
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
 
-			Escola escola = getEscolaAll(rs);
+			Escola escola = getEscolaDefault(rs);
 			listaEscola.add(escola);
 
 		}
 
 		return listaEscola;
+	}
+
+	private String gerarQuerySQLNomeMaisLocalizao(List<String> listaPalavras,
+			List<String> palavrasMunicipio) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("select * from escola esc ");
+		sb.append("INNER JOIN endereco en ON esc.COD_ENDERECO = en.COD_ENDERECO AND ");
+		sb.append(addListaNome("esc.NOME_ESCOLA", listaPalavras));
+		sb.append("INNER JOIN municipio mun ON mun.COD_MUNICIPIO = en.COD_MUNICIPIO ");
+		
+		if(palavrasMunicipio.size() != 0){
+			sb.append("AND ");
+			sb.append(addListaNome("mun.DESCRICAO", palavrasMunicipio));
+		}
+		
+		sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
+		sb.append(addLimit());
+		String sql = sb.toString();
+		return sql;
 	}
 
 	private Escola getEscolaAll(ResultSet rs) throws SQLException,
@@ -295,11 +317,18 @@ public class EscolaDAO {
 			List<String> listaPalavras) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("select * from escola where ");
+		builder.append(addListaNome("NOME_ESCOLA", listaPalavras));
+
+		return builder.toString();
+	}
+
+	private String addListaNome(String nomeCampo, List<String> listaPalavras) {
+		StringBuilder builder = new StringBuilder();
 
 		int sizeLista = listaPalavras.size();
 
 		for (int i = 0; i < sizeLista; i++) {
-			builder.append("( NOME_ESCOLA like ?) ");
+			builder.append("( " + nomeCampo + " like ?) ");
 
 			if (i != (sizeLista - 1)) {
 				builder.append("AND ");
@@ -309,10 +338,7 @@ public class EscolaDAO {
 		return builder.toString();
 	}
 
-	private String addLimit(String sql) {
-		StringBuilder builder = new StringBuilder(sql);
-		builder.append("LIMIT ?, ?");
-		return builder.toString();
+	private String addLimit() {
+		return " LIMIT ?, ?";
 	}
-
 }

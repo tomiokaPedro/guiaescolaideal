@@ -12,13 +12,14 @@ import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EscolaControl {
 	
-	public List<Escola> getEscolaEspecifica(String nome, String endereco, String municipio) throws SQLException, ParseException{
+	public List<Escola> getEscolaEspecifica(String nome, String estado, String municipio) throws SQLException, ParseException{
 		Connection connection = new ConnectionFactory().getConnection();
 		
 		EscolaDAO escolaDao= new EscolaDAO(connection);
 		
 		List<String> palavras = ConversorDeEntrada.getPalavrasChaveDoTexto(nome);
-		List<Escola> listaEscola = escolaDao.pesquisarPorNomeComPalavrasChaves(palavras, 0, 20);
+		List<String> palavrasMunicipio = ConversorDeEntrada.getPalavrasChaveDoTexto(municipio);
+		List<Escola> listaEscola = escolaDao.pesquisarPorNomeMaisLocalizacao(palavras, estado, palavrasMunicipio, 0, 30);
 		connection.close();
 		return listaEscola;
 		
