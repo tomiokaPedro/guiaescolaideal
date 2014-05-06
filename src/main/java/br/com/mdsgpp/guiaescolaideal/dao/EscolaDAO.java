@@ -106,7 +106,6 @@ public class EscolaDAO {
 		}
 
 		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras, listaPalavrasMunicipio);
-		System.out.println(sql);
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		int sizeLista = listaPalavras.size();
