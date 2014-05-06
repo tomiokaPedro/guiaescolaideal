@@ -18,8 +18,8 @@
 			<tr>
 				<td>Estado:</td>
 				<td><select name="estado">
-						<option value="Distrito Federal">Distrito Federal</option>
-
+						<option value=""  >Escolha o Estado</option>
+						<option value="Distrito Federal"  >Distrito Federal</option>
 						<option value="Goias">Goiás</option>
 						<option value="Mato Grosso">Mato Grosso</option>
 						<option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
