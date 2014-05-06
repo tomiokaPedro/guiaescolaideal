@@ -26,9 +26,7 @@ public class TelefoneDAO
 	if (rs.next()) {
 
 		Telefone telefone = new Telefone();
-		
 		telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
-		
 		stmt.close();
 		return telefone;
 	}
@@ -36,5 +34,25 @@ public class TelefoneDAO
 	stmt.close();
 	return null;
 }
+
+	public Telefone pesquisarPorIDEscola(int codEscola) throws SQLException {
+		String sql = "select * from telefone where COD_ESCOLA = ?";
+
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, codEscola);
+
+		ResultSet rs = stmt.executeQuery();
+
+		if (rs.next()) {
+
+			Telefone telefone = new Telefone();
+			telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
+			stmt.close();
+			return telefone;
+		}
+		
+		stmt.close();
+		return null;
+	}
     
 }

@@ -14,6 +14,8 @@
 			<tr>
 				<td>${escola.nomeEscola}</td>
 				<td>${escola.email}</td>
+				<td>${escola.endereco.bairro}</td>
+				<td>(${escola.endereco.municipio.codigoDDD})${escola.telefone.telefone}</td>
 			</tr>
 		</c:forEach>
 		

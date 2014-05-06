@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
 import br.com.mdsgpp.guiaescolaideal.model.Endereco;
+import br.com.mdsgpp.guiaescolaideal.model.Municipio;
+import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EnderecoDAO {
 	
@@ -25,13 +27,7 @@ public class EnderecoDAO {
 		
 		if(rs.next()){
 			
-			Endereco endereco = new Endereco();
-			
-			endereco.setBairro(rs.getString("BAIRRO"));
-			endereco.setRua(rs.getString("RUA"));
-			endereco.setCep(Integer.parseInt(rs.getString("CEP")));
-			endereco.setNumero(rs.getString("NUMERO"));
-			endereco.setComplemento(rs.getString("COMPLEMENTO"));
+			Endereco endereco = getEndereco(rs);
 			
 			stmt.close();
 			
@@ -42,6 +38,23 @@ public class EnderecoDAO {
 
 		return null;
 					
+	}
+
+	private Endereco getEndereco(ResultSet rs) throws SQLException {
+		Endereco endereco = new Endereco();
+		
+		endereco.setBairro(rs.getString("BAIRRO"));
+		endereco.setRua(rs.getString("RUA"));
+		endereco.setCep(Integer.parseInt(rs.getString("CEP")));
+		endereco.setNumero(rs.getString("NUMERO"));
+		endereco.setComplemento(rs.getString("COMPLEMENTO"));
+		
+		Municipio municipio = null;
+		MunicipioDAO municipioDAO = new MunicipioDAO(connection);
+		municipio = municipioDAO.pesquisarPorId(ConversorDeEntrada.getNumeroInteiroSemPonto(rs.getString("COD_MUNICIPIO")));
+		endereco.setMunicipio(municipio);
+		
+		return endereco;
 	}
 		
 

@@ -29,7 +29,7 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		try {
 			nome = request.getParameter("nome");
 		} catch (NullPointerException e) {
-			request.setAttribute("erroMsg", "mensagem aqui");
+			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -40,10 +40,10 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 
 			dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 		} catch (SQLException e) {
-			request.setAttribute("erroMsg", "mensagem aqui");
+			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
 		} catch (ParseException e) {
-			request.setAttribute("erroMsg", "mensagem aqui");
+			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
 		} 
 		
