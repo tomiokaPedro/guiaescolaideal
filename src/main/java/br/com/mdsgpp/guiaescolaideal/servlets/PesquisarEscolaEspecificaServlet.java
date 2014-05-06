@@ -25,18 +25,18 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		EscolaControl escolaControl = new EscolaControl();
 		RequestDispatcher dispatcher = null;
 		String nome = null;
+		String estado = null;
+		String municipio = null;
 
-		try {
-			nome = request.getParameter("nome");
-		} catch (NullPointerException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
-			dispatcher.forward(request, response);
-		}
+		nome = request.getParameter("nome");
+		estado = request.getParameter("estado");
+		municipio = request.getParameter("municipio");
+		
+		System.out.println(nome +" - "+ estado +" - "+ municipio);
 
 		try {
 			request.setAttribute("listaEscola",
-					escolaControl.getEscolaEspecifica(nome, "", ""));
+					escolaControl.getEscolaEspecifica(nome, estado, municipio));
 
 			dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 		} catch (SQLException e) {
@@ -45,8 +45,8 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		} catch (ParseException e) {
 			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
-		} 
-		
+		}
+
 		dispatcher.forward(request, response);
 	}
 
