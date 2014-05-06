@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.junit.Before;
 import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
