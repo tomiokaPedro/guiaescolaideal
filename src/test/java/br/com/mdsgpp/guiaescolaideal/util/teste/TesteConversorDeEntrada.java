@@ -78,7 +78,7 @@ public class TesteConversorDeEntrada {
 	
 	@Test
 	public void testGetValorBooleanDoTextoIsNULL() {
-		assertFalse(ConversorDeEntrada.getValorBooleanDoTexto(""));
+		assertFalse(ConversorDeEntrada.getValorBooleanDoTexto(null));
 	}
 
 	@Test
@@ -98,7 +98,7 @@ public class TesteConversorDeEntrada {
 	
 	@Test
 	public void testGetDataIsEmpty() throws ParseException {
-		assertNull(ConversorDeEntrada.getData(null));
+		assertNull(ConversorDeEntrada.getData(""));
 	}
 	
 	@Test(expected=ParseException.class)
