@@ -9,34 +9,29 @@ import br.com.mdsgpp.guiaescolaideal.model.ModalidadeEnsino;
 
 public class ModalidadeEnsinoDAO {
 
-    private Connection connection;
+	private Connection connection;
 
 	public ModalidadeEnsinoDAO(Connection connection) {
 		this.connection = connection;
 	}
-    
-    	public ModalidadeEnsino pesquisarPorID(int id) throws SQLException{
-    	    
-    	    String sql = "select * from modalidade_ensino where COD_MODALIDADE_ENSINO = ?";
-    	    
-    	    PreparedStatement stmt = this.connection.prepareStatement(sql);  
-    	    stmt.setInt(1, id);
 
-    	    ResultSet rs = stmt.executeQuery();
-    	    
-    	    if (rs.next())
-    	    {
-    		ModalidadeEnsino modalidadeEnsino = new ModalidadeEnsino();
-    		String tipoModalidadeEnsino = rs.getString("DESCRICAO");
-    		
-    		modalidadeEnsino.setTipoModalidadeEnsino(tipoModalidadeEnsino);
-    		
-    		stmt.close();
-    		
-    		return modalidadeEnsino;
-    	    }
-    	    stmt.close();
-    	    return null;
-    	    
-    	}
+	public ModalidadeEnsino pesquisarPorID(int id) throws SQLException {
+
+		String sql = "select * from modalidade_ensino where COD_MODALIDADE_ENSINO = ?";
+
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, id);
+
+		ResultSet rs = stmt.executeQuery();
+		ModalidadeEnsino modalidadeEnsino = null;
+
+		if (rs.next()) {
+			modalidadeEnsino = new ModalidadeEnsino();
+			String tipoModalidadeEnsino = rs.getString("DESCRICAO");
+			modalidadeEnsino.setTipoModalidadeEnsino(tipoModalidadeEnsino);
+		}
+
+		stmt.close();
+		return modalidadeEnsino;
+	}
 }

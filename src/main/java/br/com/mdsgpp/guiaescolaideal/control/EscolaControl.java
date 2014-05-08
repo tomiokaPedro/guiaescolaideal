@@ -15,12 +15,7 @@ public class EscolaControl {
 		this.escolaDAO = escolaDAO;
 	}
 	
-	
 	public List<Escola> getEscolaEspecifica(List<String> listaPalavrasChaves, String estado,List<String> ListaPalavrasMunicipio) throws SQLException, ParseException{
-		List<Escola> listaEscola = this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, estado, ListaPalavrasMunicipio, 0, 30);
-		return listaEscola;
-		
+		return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, estado, ListaPalavrasMunicipio, 0, 30);
 	}
-
-	
 }

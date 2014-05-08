@@ -1,11 +1,8 @@
 package br.com.mdsgpp.guiaescolaideal.dao.teste;
 
-import static org.junit.Assert.*;
-
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.Test;
 
 public abstract class DAO extends DBTestCase {
 	

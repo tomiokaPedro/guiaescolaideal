@@ -1,8 +1,8 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
 public class TipoAbastecimentoEnergia {
-
-	private String tipo; // REDE_PUBLICA, GERADOR, OUTROS, INEXISTENTE;
+	// REDE_PUBLICA, GERADOR, OUTROS, INEXISTENTE;
+	private String tipo; 
 
 	public String getTipo() {
 		return tipo;

@@ -1,8 +1,8 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
 public class TipoSistemaDeEsgoto {
-
-	private String tipo; // REDE_PUBLICA, FOSSA, INEXISTENTE;
+	// REDE_PUBLICA, FOSSA, INEXISTENTE;
+	private String tipo;
 
 	public String getTipo() {
 		return tipo;

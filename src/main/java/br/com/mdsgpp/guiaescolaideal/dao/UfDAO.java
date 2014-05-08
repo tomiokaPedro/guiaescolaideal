@@ -9,34 +9,29 @@ import br.com.mdsgpp.guiaescolaideal.model.Uf;
 
 public class UfDAO {
 
-    private Connection connection;
+	private Connection connection;
 
 	public UfDAO(Connection connection) {
 		this.connection = connection;
 	}
-    
-    	public Uf pesquisarPorID(int id) throws SQLException{
-    	    
-    	    String sql = "select * from UF where COD_UF = ?";
-    	    
-    	    PreparedStatement stmt = this.connection.prepareStatement(sql);  
-    	    stmt.setInt(1, id);
 
-    	    ResultSet rs = stmt.executeQuery();
-    	    
-    	    if (rs.next())
-    	    {
-    		Uf uf = new Uf();
-    		String tipoUf = rs.getString("DESCRICAO");
-    		
-    		uf.setEstado(tipoUf);
-    		
-    		stmt.close();
-    		
-    		return uf;
-    	    }
-    	    stmt.close();
-    	    return null;
-    	    
-    	}
+	public Uf pesquisarPorID(int id) throws SQLException {
+
+		String sql = "select * from UF where COD_UF = ?";
+
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, id);
+
+		ResultSet rs = stmt.executeQuery();
+		Uf uf = null;
+		if (rs.next()) {
+			uf = new Uf();
+			String tipoUf = rs.getString("DESCRICAO");
+
+			uf.setEstado(tipoUf);
+		}
+
+		stmt.close();
+		return uf;
+	}
 }

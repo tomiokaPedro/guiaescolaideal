@@ -25,47 +25,43 @@ public class EquipamentoDAO {
 		stmt.setInt(1, id);
 
 		ResultSet rs = stmt.executeQuery();
+		Equipamento equipamento = null;
 
 		if (rs.next()) {
-
-			Equipamento equipamento = getEquipamento(rs);
-
-			stmt.close();
-
-			return equipamento;
+			equipamento = getEquipamento(rs);
 		}
 
 		stmt.close();
-		return null; // criar uma exception ???
+		return equipamento;
 
 	}
 
 	private Equipamento getEquipamento(ResultSet rs) throws SQLException {
 		Equipamento equipamento = new Equipamento();
 		String aparelho = rs.getString("DESCRICAO");
-
 		equipamento.setAparelho(aparelho);
 		equipamento.setCodEquipamento(rs.getInt("COD_EQUIPAMENTO"));
 		return equipamento;
 	}
-	
-	public List<Equipamento> pesquisarPorEscola(Escola escola) throws SQLException{
+
+	public List<Equipamento> pesquisarPorEscola(Escola escola)
+			throws SQLException {
 		String sql = "select * from equipamento e "
 				+ "INNER JOIN equipamento_escola eq ON eq.COD_ESCOLA = ? "
 				+ "and e.COD_EQUIPAMENTO = eq.COD_EQUIPAMENTO";
-		
+
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 		stmt.setInt(1, escola.getCodEscola());
 
 		ResultSet rs = stmt.executeQuery();
-		
+
 		List<Equipamento> listaEquipamentos = new ArrayList<Equipamento>();
-		
-		while(rs.next()){
+
+		while (rs.next()) {
 			Equipamento equipamento = getEquipamento(rs);
 			listaEquipamentos.add(equipamento);
 		}
-		
+
 		stmt.close();
 		return listaEquipamentos;
 	}

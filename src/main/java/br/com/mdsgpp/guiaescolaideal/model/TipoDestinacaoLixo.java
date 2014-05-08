@@ -1,9 +1,9 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
 public class TipoDestinacaoLixo {
-
-	private String tipo; // COLETA_PERIODICA, QUEIMA, JOGA_EM_OUTRA_AREA,
-							// RECICLA, ENTERRA, OUTROS;
+	// COLETA_PERIODICA, QUEIMA, JOGA_EM_OUTRA_AREA,
+	// RECICLA, ENTERRA, OUTROS;
+	private String tipo; 						
 
 	public String getTipo() {
 		return tipo;

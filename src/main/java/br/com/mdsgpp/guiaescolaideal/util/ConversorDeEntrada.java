@@ -9,25 +9,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ConversorDeEntrada {
-	
-	//Quebra a frase em n palavras as colocando em uma Lista.
+
+	// Quebra a frase em n palavras as colocando em uma Lista.
 	public static List<String> getPalavrasChaveDoTexto(String texto) {
-		
-		if(texto == null || texto.isEmpty()){
+
+		if (texto == null || texto.isEmpty()) {
 			return new ArrayList<String>();
 		}
-		
-		String novoTexto = texto.replaceAll("[-!\"#$%&'()*+,./:;<=>?@\\\\\\_`{|}~]", "");
-		
-		//retira espaço duplo
-		novoTexto = novoTexto.replaceAll("  ", " ");
-		//retira espaço antes e no final da frase
-		novoTexto = novoTexto.trim();
-		//quebra a frase com base nos espaços
-		List<String> lista = Arrays.asList(novoTexto.split(" "));
-		
-		return lista;
 
+		String novoTexto = texto.replaceAll(
+				"[-!\"#$%&'()*+,./:;<=>?@\\\\\\_`{|}~]", "");
+
+		// retira espaço duplo
+		novoTexto = novoTexto.replaceAll("  ", " ");
+		// retira espaço antes e no final da frase
+		novoTexto = novoTexto.trim();
+		// quebra a frase com base nos espaços e retorna
+		return Arrays.asList(novoTexto.split(" "));
 	}
 
 	public static int getNumeroInteiroSemPonto(String numero) {
@@ -40,13 +38,14 @@ public class ConversorDeEntrada {
 		String novoTexto = numero.replaceAll("[.]", "").trim();
 		return Integer.parseInt(novoTexto);
 	}
-	
-	//sim = true e false para o resto
+
+	// sim = true e false para o resto
 	public static boolean getValorBooleanDoTexto(String texto) {
 		if (texto == null || texto.isEmpty()) {
 			return false;
-		} else
-			return texto.equalsIgnoreCase("sim");
+		}
+
+		return texto.equalsIgnoreCase("sim");
 	}
 
 	public static Date getData(String dataTexto) throws ParseException {
@@ -55,7 +54,7 @@ public class ConversorDeEntrada {
 			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			data = new Date(dateFormat.parse(dataTexto).getTime());
 		}
+
 		return data;
 	}
-
 }

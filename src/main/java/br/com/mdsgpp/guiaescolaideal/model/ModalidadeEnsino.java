@@ -1,8 +1,8 @@
 package br.com.mdsgpp.guiaescolaideal.model;
 
 public class ModalidadeEnsino {
-	
-	private String tipoModalidadeEnsino; //ENSINO_REGULAR, EDUCACAO_ESPECIAL, EDUCACAO_JOVENS_ADULTOS;
+	//ENSINO_REGULAR, EDUCACAO_ESPECIAL, EDUCACAO_JOVENS_ADULTOS;
+	private String tipoModalidadeEnsino; 
 
 	public String getTipoModalidadeEnsino() {
 		return tipoModalidadeEnsino;

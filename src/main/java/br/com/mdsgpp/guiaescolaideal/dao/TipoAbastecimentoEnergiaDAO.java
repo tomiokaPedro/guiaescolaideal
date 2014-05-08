@@ -9,34 +9,30 @@ import br.com.mdsgpp.guiaescolaideal.model.TipoAbastecimentoEnergia;
 
 public class TipoAbastecimentoEnergiaDAO {
 
-    private Connection connection;
+	private Connection connection;
 
 	public TipoAbastecimentoEnergiaDAO(Connection connection) {
 		this.connection = connection;
 	}
-    
-    	public TipoAbastecimentoEnergia pesquisarPorID(int id) throws SQLException{
-    	    
-    	    String sql = "select * from tipo_abastecimento_energia_eletrica where COD_TIPO_ABAST_ENERGIA = ?";
-    	    
-    	    PreparedStatement stmt = this.connection.prepareStatement(sql);  
-    	    stmt.setInt(1, id);
 
-    	    ResultSet rs = stmt.executeQuery();
-    	    
-    	    if (rs.next())
-    	    {
-    		TipoAbastecimentoEnergia tipoAbastecimentoEnergia = new TipoAbastecimentoEnergia();
-    		String tipo = rs.getString("DESCRICAO");
-    		
-    		tipoAbastecimentoEnergia.setTipo(tipo);
-    		
-    		stmt.close();
-    		
-    		return tipoAbastecimentoEnergia;
-    	    }
-    	    stmt.close();
-    	    return null;
-    	    
-    	}
+	public TipoAbastecimentoEnergia pesquisarPorID(int id) throws SQLException {
+
+		String sql = "select * from tipo_abastecimento_energia_eletrica where COD_TIPO_ABAST_ENERGIA = ?";
+
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, id);
+
+		ResultSet rs = stmt.executeQuery();
+		TipoAbastecimentoEnergia tipoAbastecimentoEnergia = null;
+
+		if (rs.next()) {
+			tipoAbastecimentoEnergia = new TipoAbastecimentoEnergia();
+			String tipo = rs.getString("DESCRICAO");
+
+			tipoAbastecimentoEnergia.setTipo(tipo);
+		}
+
+		stmt.close();
+		return tipoAbastecimentoEnergia;
+	}
 }

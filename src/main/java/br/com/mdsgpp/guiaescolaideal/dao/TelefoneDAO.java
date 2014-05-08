@@ -6,34 +6,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
 
-public class TelefoneDAO 
-{
-    private Connection connection;
-    
-    public TelefoneDAO(Connection connection)
-    {
-	this.connection = connection;
-    }
-    
-    public Telefone pesquisarPorID(int id) throws SQLException {
-	String sql = "select * from telefone where COD_TELEFONE = ?";
+public class TelefoneDAO {
+	private Connection connection;
 
-	PreparedStatement stmt = this.connection.prepareStatement(sql);
-	stmt.setInt(1, id);
+	public TelefoneDAO(Connection connection) {
+		this.connection = connection;
+	}
 
-	ResultSet rs = stmt.executeQuery();
+	public Telefone pesquisarPorID(int id) throws SQLException {
+		String sql = "select * from telefone where COD_TELEFONE = ?";
 
-	if (rs.next()) {
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, id);
 
-		Telefone telefone = new Telefone();
-		telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
+		ResultSet rs = stmt.executeQuery();
+		Telefone telefone = null;
+
+		if (rs.next()) {
+			telefone = getTelefone(rs);
+		}
+
 		stmt.close();
 		return telefone;
 	}
-	
-	stmt.close();
-	return null;
-}
+
+	private Telefone getTelefone(ResultSet rs) throws SQLException {
+		Telefone telefone = new Telefone();
+		telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
+		return telefone;
+	}
 
 	public Telefone pesquisarPorIDEscola(int codEscola) throws SQLException {
 		String sql = "select * from telefone where COD_ESCOLA = ?";
@@ -42,17 +43,14 @@ public class TelefoneDAO
 		stmt.setInt(1, codEscola);
 
 		ResultSet rs = stmt.executeQuery();
+		Telefone telefone = null;
 
 		if (rs.next()) {
-
-			Telefone telefone = new Telefone();
-			telefone.setTelefone(rs.getString("NUMERO_TELEFONE"));
-			stmt.close();
-			return telefone;
+			telefone = getTelefone(rs);
 		}
-		
+
 		stmt.close();
-		return null;
+		return telefone;
 	}
-    
+
 }

@@ -15,8 +15,9 @@ import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EscolaDAO {
 
-	private Connection connection;
 	private final static String TAMANHO_PESQUISA = "TAMANHO_PESQUISA";
+
+	private Connection connection;
 
 	public EscolaDAO(Connection connection) {
 		this.connection = connection;
@@ -41,14 +42,15 @@ public class EscolaDAO {
 	public List<Escola> pesquisarPorNome(String nome, int comeco, int quantidade)
 			throws SQLException, ParseException {
 
-		if (nome.isEmpty() || nome == null) {
+		if (nome == null || nome.isEmpty()) {
 			throw new IllegalArgumentException();
 		}
 
 		ArrayList<String> listaPalavras = new ArrayList<String>();
 		listaPalavras.add(nome);
 
-		return pesquisarPorNomeComPalavrasChaves(listaPalavras, comeco, quantidade);
+		return pesquisarPorNomeComPalavrasChaves(listaPalavras, comeco,
+				quantidade);
 	}
 
 	public List<Escola> pesquisarPorNomeComPalavrasChaves(
@@ -105,7 +107,8 @@ public class EscolaDAO {
 			throw new IllegalArgumentException();
 		}
 
-		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras, listaPalavrasMunicipio);
+		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras,
+				listaPalavrasMunicipio);
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		int sizeLista = listaPalavras.size();
@@ -113,16 +116,16 @@ public class EscolaDAO {
 		for (int i = 1; i <= sizeLista; i++) {
 			stmt.setString(i, "%" + listaPalavras.get(i - 1) + "%");
 		}
-		
+
 		int sizeListaMunicipio = listaPalavrasMunicipio.size();
-		
-		for (int i = 0, p=sizeLista+1; i < sizeListaMunicipio; i++, p++) {
+
+		for (int i = 0, p = sizeLista + 1; i < sizeListaMunicipio; i++, p++) {
 			stmt.setString(p, "%" + listaPalavrasMunicipio.get(i) + "%");
 		}
-		
-		int posicaoEstado = sizeLista + sizeListaMunicipio +1;
-		stmt.setString(posicaoEstado , estado);
-		
+
+		int posicaoEstado = sizeLista + sizeListaMunicipio + 1;
+		stmt.setString(posicaoEstado, estado);
+
 		stmt.setInt(posicaoEstado + 1, comeco);
 		stmt.setInt(posicaoEstado + 2, quantidade);
 
@@ -146,16 +149,16 @@ public class EscolaDAO {
 		sb.append("INNER JOIN endereco en ON esc.COD_ENDERECO = en.COD_ENDERECO AND ");
 		sb.append(addListaNome("esc.NOME_ESCOLA", listaPalavras));
 		sb.append("INNER JOIN municipio mun ON mun.COD_MUNICIPIO = en.COD_MUNICIPIO ");
-		
-		if(palavrasMunicipio.size() != 0){
+
+		if (palavrasMunicipio.size() != 0) {
 			sb.append("AND ");
 			sb.append(addListaNome("mun.DESCRICAO", palavrasMunicipio));
 		}
-		
+
 		sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
 		sb.append(addLimit());
-		String sql = sb.toString();
-		return sql;
+
+		return sb.toString();
 	}
 
 	private Escola getEscolaAll(ResultSet rs) throws SQLException,

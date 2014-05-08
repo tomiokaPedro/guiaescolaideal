@@ -1,7 +1,5 @@
 package br.com.mdsgpp.guiaescolaideal.dao.teste;
 
-import static org.junit.Assert.*;
-
 import java.io.FileInputStream;
 import java.sql.SQLException;
 
@@ -10,7 +8,6 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.CategoriaEscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.dao.EquipamentoDAO;
 
 public class TesteCategoriaEscolaDAO extends DAO {
 	

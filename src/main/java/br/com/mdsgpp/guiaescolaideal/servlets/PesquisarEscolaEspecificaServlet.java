@@ -18,7 +18,7 @@ import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
-@WebServlet(value = "/realizarConsultaEscolaEspecifica.jsp")
+@WebServlet(value="/realizarConsultaEscolaEspecifica.jsp")
 public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -37,7 +37,6 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		
 		Connection con = null;
 		
-
 		try {
 			con = new ConnectionFactory().getConnection();
 			EscolaDAO escolaDAO = new EscolaDAO(con);
@@ -51,14 +50,19 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 
 			dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 		} catch (SQLException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
+			dispatcher = setDispatcherErro(request, e);
 		} catch (ParseException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
+			dispatcher = setDispatcherErro(request, e);
 		}
 
 		dispatcher.forward(request, response);
+	}
+
+	private RequestDispatcher setDispatcherErro(ServletRequest request, Exception e) {
+		RequestDispatcher dispatcher;
+		request.setAttribute("erroMsg", e.getMessage());
+		dispatcher = request.getRequestDispatcher("/erro.jsp");
+		return dispatcher;
 	}
 
 }

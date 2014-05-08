@@ -7,38 +7,30 @@ import java.sql.SQLException;
 
 import br.com.mdsgpp.guiaescolaideal.model.LocalFuncionamento;
 
-public class LocalFuncionamentoDAO 
-{
-    private Connection connection;
-    
-    public LocalFuncionamentoDAO(Connection connection)
-    {
+public class LocalFuncionamentoDAO {
+	private Connection connection;
+
+	public LocalFuncionamentoDAO(Connection connection) {
 		this.connection = connection;
-    }
-    
-    public LocalFuncionamento pesquisarPorID(int id) throws SQLException {
-	String sql = "select * from local_funcionamento where COD_LOCAL_FUNCIONAMENTO = ?";
+	}
 
-	PreparedStatement stmt = this.connection.prepareStatement(sql);
-	stmt.setInt(1, id);
+	public LocalFuncionamento pesquisarPorID(int id) throws SQLException {
+		String sql = "select * from local_funcionamento where COD_LOCAL_FUNCIONAMENTO = ?";
 
-	ResultSet rs = stmt.executeQuery();
+		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		stmt.setInt(1, id);
 
-	if (rs.next()) {
+		ResultSet rs = stmt.executeQuery();
+		LocalFuncionamento localfuncionamento = null;
 
-		LocalFuncionamento localfuncionamento = new LocalFuncionamento();
-		
-		localfuncionamento.setTipoLocalFuncionamento(rs.getString("COD_LOCAL_FUNCIONAMENTO"));
-		
+		if (rs.next()) {
+			localfuncionamento = new LocalFuncionamento();
+			localfuncionamento.setTipoLocalFuncionamento(rs
+					.getString("COD_LOCAL_FUNCIONAMENTO"));
+		}
+
 		stmt.close();
 		return localfuncionamento;
 	}
-	
-	stmt.close();
-	return null;
-}
 
-
-    
-    
 }

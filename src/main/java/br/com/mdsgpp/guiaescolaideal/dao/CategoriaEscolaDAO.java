@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.mdsgpp.guiaescolaideal.model.CategoriaEscola;
-import br.com.mdsgpp.guiaescolaideal.model.Equipamento;
-import br.com.mdsgpp.guiaescolaideal.model.Escola;
 
 public class CategoriaEscolaDAO {
 	private Connection connection;
@@ -23,29 +21,29 @@ public class CategoriaEscolaDAO {
 		stmt.setInt(1, id);
 
 		ResultSet rs = stmt.executeQuery();
+		CategoriaEscola categoriaEscola = null;
 
 		if (rs.next()) {
-
-			CategoriaEscola categoriaEscola = pegarCategoriaEscola(rs);
-				
-			stmt.close();
-			return categoriaEscola;
+			categoriaEscola = pegarCategoriaEscola(rs);
 		}
 
 		stmt.close();
-		return null; // criar uma exception ???
+		return categoriaEscola;
 
 	}
 
 	private CategoriaEscola pegarCategoriaEscola(ResultSet rs)
 			throws SQLException {
 		CategoriaEscola categoriaEscola = new CategoriaEscola();
-		
+
 		String tipo_escola = rs.getString("DESCRICAO");
-		categoriaEscola.setEscolaPublica(!tipo_escola.equalsIgnoreCase("Privada"));
-		
-		categoriaEscola.setDependenciaAdministrativa(rs.getString("DEPENDENCIA_ADM"));
-		categoriaEscola.setCategoriaEscolaPrivada(rs.getString("CATEGORIA_ESCOLA_PRIVADA"));
+		categoriaEscola.setEscolaPublica(!tipo_escola
+				.equalsIgnoreCase("Privada"));
+
+		categoriaEscola.setDependenciaAdministrativa(rs
+				.getString("DEPENDENCIA_ADM"));
+		categoriaEscola.setCategoriaEscolaPrivada(rs
+				.getString("CATEGORIA_ESCOLA_PRIVADA"));
 		return categoriaEscola;
 	}
 }
