@@ -124,5 +124,35 @@ public class TesteEscolaDAO extends DAO {
 		
 		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
 	}
+	
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacaoQuantidadeResultados() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XP5PK");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Rua");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(listaPalavras, estado, listaPalavrasMunicipio) == 1);
+	}
+	
+	@Test
+	public void testPesquisarPorNomeMaisLocalizacaoQuantidadeResultadosComMunicipioInexistente() throws SQLException, ParseException{
+		List<String> listaPalavras = new ArrayList<String>();
+		listaPalavras.add("XP5PK");
+		listaPalavras.add("OVER");
+		
+		List<String> listaPalavrasMunicipio = new ArrayList<String>();
+		listaPalavrasMunicipio.add("Cidade");
+		listaPalavrasMunicipio.add("loucos");
+		
+		String estado = "Javavah do sul";
+		
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(listaPalavras, estado, listaPalavrasMunicipio) == 0);
+	}
 
 }

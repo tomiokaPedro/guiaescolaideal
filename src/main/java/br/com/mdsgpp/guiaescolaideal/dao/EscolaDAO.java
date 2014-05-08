@@ -89,26 +89,26 @@ public class EscolaDAO {
 
 	public int pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(
 			List<String> listaPalavras, String estado,
-			List<String> listaPalavrasMunicipio) {
-		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras,
+			List<String> listaPalavrasMunicipio) throws SQLException {
+		String retorno = "count(*) as " + TAMANHO_PESQUISA;
+		String sql = gerarQuerySQLNomeMaisLocalizao(retorno, listaPalavras,
 				listaPalavrasMunicipio);
 
-		sql = sql.replaceAll("[*]", " count(*) as " + TAMANHO_PESQUISA);
+		PreparedStatement stmt = getStmtConfig(listaPalavras, estado,
+				listaPalavrasMunicipio, sql);
+		
+		ResultSet rs = stmt.executeQuery();
 
-		return 0;
-	}
-
-	public List<Escola> pesquisarPorNomeMaisLocalizacao(
-			List<String> listaPalavras, String estado,
-			List<String> listaPalavrasMunicipio, int comeco, int quantidade)
-			throws SQLException, ParseException {
-
-		if ((comeco < 0) || (quantidade <= 0)) {
-			throw new IllegalArgumentException();
+		if (rs.next()) {
+			return rs.getInt(TAMANHO_PESQUISA);
 		}
 
-		String sql = gerarQuerySQLNomeMaisLocalizao(listaPalavras,
-				listaPalavrasMunicipio);
+		return -1;
+	}
+
+	private PreparedStatement getStmtConfig(List<String> listaPalavras,
+			String estado, List<String> listaPalavrasMunicipio, String sql)
+			throws SQLException {
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		int sizeLista = listaPalavras.size();
@@ -125,9 +125,28 @@ public class EscolaDAO {
 
 		int posicaoEstado = sizeLista + sizeListaMunicipio + 1;
 		stmt.setString(posicaoEstado, estado);
+		return stmt;
+	}
 
-		stmt.setInt(posicaoEstado + 1, comeco);
-		stmt.setInt(posicaoEstado + 2, quantidade);
+	public List<Escola> pesquisarPorNomeMaisLocalizacao(
+			List<String> listaPalavras, String estado,
+			List<String> listaPalavrasMunicipio, int comeco, int quantidade)
+			throws SQLException, ParseException {
+
+		if ((comeco < 0) || (quantidade <= 0)) {
+			throw new IllegalArgumentException();
+		}
+
+		String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
+				listaPalavrasMunicipio) + addLimit();
+
+		PreparedStatement stmt = getStmtConfig(listaPalavras, estado,
+				listaPalavrasMunicipio, sql);
+
+		int posicaoLimit = listaPalavrasMunicipio.size() + listaPalavras.size()
+				+ 2;
+		stmt.setInt(posicaoLimit, comeco);
+		stmt.setInt(posicaoLimit + 1, quantidade);
 
 		List<Escola> listaEscola = new ArrayList<Escola>();
 		ResultSet rs = stmt.executeQuery();
@@ -142,10 +161,12 @@ public class EscolaDAO {
 		return listaEscola;
 	}
 
-	private String gerarQuerySQLNomeMaisLocalizao(List<String> listaPalavras,
-			List<String> palavrasMunicipio) {
+	private String gerarQuerySQLNomeMaisLocalizao(String retorno,
+			List<String> listaPalavras, List<String> palavrasMunicipio) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("select * from escola esc ");
+		sb.append("select ");
+		sb.append(retorno);
+		sb.append(" from escola esc ");
 		sb.append("INNER JOIN endereco en ON esc.COD_ENDERECO = en.COD_ENDERECO AND ");
 		sb.append(addListaNome("esc.NOME_ESCOLA", listaPalavras));
 		sb.append("INNER JOIN municipio mun ON mun.COD_MUNICIPIO = en.COD_MUNICIPIO ");
@@ -156,8 +177,6 @@ public class EscolaDAO {
 		}
 
 		sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
-		sb.append(addLimit());
-
 		return sb.toString();
 	}
 
