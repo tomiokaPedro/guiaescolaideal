@@ -14,11 +14,13 @@ import org.mockito.Mockito;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
+import br.com.mdsgpp.guiaescolaideal.model.Pagina;
 
 public class TesteEscolaControl {
 	
 	private EscolaDAO escolaDAO;
 	private EscolaControl control;
+	private Pagina pagina;
 	
 	@Before
 	public void inic() throws SQLException, ParseException{
@@ -31,19 +33,26 @@ public class TesteEscolaControl {
 		}
 		
 		escolaDAO = Mockito.mock(EscolaDAO.class);
-		Mockito.when(escolaDAO.pesquisarPorNomeMaisLocalizacao(null, null, null, 0, 30)).thenReturn(listaEscola);
+		Mockito.when(escolaDAO.pesquisarPorNomeMaisLocalizacao(new ArrayList<String>(), null, new ArrayList<String>(), 0, 30)).thenReturn(listaEscola);
 		
 		control  = new EscolaControl(escolaDAO);
+		pagina= Mockito.mock(Pagina.class);
+		Mockito.when(pagina.getMaxResult()).thenReturn(30);
+		Mockito.when(pagina.getEscAtual()).thenReturn(0);
+		Mockito.when(pagina.getEstado()).thenReturn(null);
+		
+		
+		
 	}
 	
 	@Test
 	public void testGetEscolaEspecifica() throws SQLException, ParseException {
-		assertTrue(control.getEscolaEspecifica(null, null,null).size() == 10);
+		assertTrue(control.getEscolaEspecifica(pagina).size() == 10);
 	}
 	
 	@Test
 	public void testGetEscolaEspecificaValor() throws SQLException, ParseException {
-		assertTrue(control.getEscolaEspecifica(null, null,null).get(0).getNomeEscola().equalsIgnoreCase("item 0"));
+		assertTrue(control.getEscolaEspecifica(pagina).get(0).getNomeEscola().equalsIgnoreCase("item 0"));
 	}
 
 }
