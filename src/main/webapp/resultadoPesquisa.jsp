@@ -10,7 +10,7 @@
 </head>
 <body>
 	<table>
-		<c:forEach var="escola" items="${listaEscola}">
+		<c:forEach var="escola" items="${pagina.listaEscola}">
 			<tr>
 				<td>${escola.nomeEscola}</td>
 				<td>${escola.email}</td>
@@ -19,7 +19,11 @@
 			</tr>
 		</c:forEach>
 		
+		
 		<a href="resultadoPesquisa.jsp?code=2">teste</a>
+		<h1>
+		${pagina.numResult} 
+		</h1>
 	</table>
 </body>
 </html>
