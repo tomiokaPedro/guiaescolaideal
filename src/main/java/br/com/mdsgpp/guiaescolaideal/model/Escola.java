@@ -17,7 +17,7 @@ public class Escola {
 	private List<TipoAbastecimentoAgua> listaAbastecimentoAgua;
 	private List<TipoSistemaDeEsgoto> listaSistemaEsgoto;
 	private List<TipoAbastecimentoEnergia> listaAbastecimentoEnergia;
-	private List<TipoDestinacaoLixo> listaDestinaçãoLixo;
+	private List<TipoDestinacaoLixo> listaDestinacaoLixo;
 	
 	private String nomeEscola;
 	private int codigoRede;
@@ -621,13 +621,13 @@ public class Escola {
 		this.listaAbastecimentoEnergia = listaAbastecimentoEnergia;
 	}
 
-	public List<TipoDestinacaoLixo> getListaDestinaçãoLixo() {
-		return listaDestinaçãoLixo;
+	public List<TipoDestinacaoLixo> getListaDestinacaoLixo() {
+		return listaDestinacaoLixo;
 	}
 
-	public void setListaDestinaçãoLixo(
-			List<TipoDestinacaoLixo> listaDestinaçãoLixo) {
-		this.listaDestinaçãoLixo = listaDestinaçãoLixo;
+	public void setListaDestinacaoLixo(
+			List<TipoDestinacaoLixo> listaDestinacaoLixo) {
+		this.listaDestinacaoLixo = listaDestinacaoLixo;
 	}
 
 	public int getCodEscola() {
