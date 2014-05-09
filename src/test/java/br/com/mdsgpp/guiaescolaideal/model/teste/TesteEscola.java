@@ -375,12 +375,12 @@ public class TesteEscola {
 	}
 
 	@Test
-	public void testListaDestinaçãoLixo() {
+	public void testListaDestinacaoLixo() {
 		List<TipoDestinacaoLixo> lista = new ArrayList<TipoDestinacaoLixo>();
 		lista.add(new TipoDestinacaoLixo());
 
-		this.escola.setListaDestinaçãoLixo(lista);
-		assertTrue(escola.getListaDestinaçãoLixo().size() == 1);
+		this.escola.setListaDestinacaoLixo(lista);
+		assertTrue(escola.getListaDestinacaoLixo().size() == 1);
 	}
 
 	@Test
