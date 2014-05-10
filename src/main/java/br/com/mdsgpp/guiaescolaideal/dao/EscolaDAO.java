@@ -130,23 +130,15 @@ public class EscolaDAO {
 
 	public List<Escola> pesquisarPorNomeMaisLocalizacao(
 			List<String> listaPalavras, String estado,
-			List<String> listaPalavrasMunicipio, int comeco, int quantidade)
+			List<String> listaPalavrasMunicipio)
 			throws SQLException, ParseException {
 
-		if ((comeco < 0) || (quantidade <= 0)) {
-			throw new IllegalArgumentException();
-		}
 
 		String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
-				listaPalavrasMunicipio) + addLimit();
+				listaPalavrasMunicipio);
 
 		PreparedStatement stmt = getStmtConfig(listaPalavras, estado,
 				listaPalavrasMunicipio, sql);
-
-		int posicaoLimit = listaPalavrasMunicipio.size() + listaPalavras.size()
-				+ 2;
-		stmt.setInt(posicaoLimit, comeco);
-		stmt.setInt(posicaoLimit + 1, quantidade);
 
 		List<Escola> listaEscola = new ArrayList<Escola>();
 		ResultSet rs = stmt.executeQuery();

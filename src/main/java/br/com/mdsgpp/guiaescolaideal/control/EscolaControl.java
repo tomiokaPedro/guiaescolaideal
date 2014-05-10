@@ -6,7 +6,6 @@ import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
-import br.com.mdsgpp.guiaescolaideal.model.Pagina;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EscolaControl {
@@ -17,11 +16,9 @@ public class EscolaControl {
 		this.escolaDAO = escolaDAO;
 	}
 	
-	public List<Escola> getEscolaEspecifica(Pagina pagina) throws SQLException, ParseException{
-	    	List<String> listaPalavrasChaves= ConversorDeEntrada.getPalavrasChaveDoTexto(pagina.getNome());
-	    	List<String> listaPalavrasMunicipio = ConversorDeEntrada.getPalavrasChaveDoTexto(pagina.getMunicipio());
-		int num = escolaDAO.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(listaPalavrasChaves, pagina.getEstado(), listaPalavrasMunicipio);
-	    	pagina.setNumResult(num);
-		return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, pagina.getEstado(), listaPalavrasMunicipio, pagina.getEscAtual(), pagina.getMaxResult());
+	public List<Escola> getEscolaEspecifica(String nomeEscola,String estado, String nomeMunicipio) throws SQLException, ParseException{
+	    	List<String> listaPalavrasChaves= ConversorDeEntrada.getPalavrasChaveDoTexto(nomeEscola);
+	    	List<String> listaPalavrasMunicipio = ConversorDeEntrada.getPalavrasChaveDoTexto(nomeMunicipio);
+		return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, estado, listaPalavrasMunicipio);
 	}
 }

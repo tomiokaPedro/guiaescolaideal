@@ -26,7 +26,7 @@
 		<div id="wrapper">
 			<div id="paging_container" class="container">
 				<div class="content">
-		<c:forEach var="escolar" items="${pagina.listaEscola}">
+		<c:forEach var="escolar" items="${listaescola}">
 			
 				<div class="escola">Nome:${escolar.nomeEscola} Bairro: ${escolar.endereco.bairro}<br>
 				E-Mail:${escolar.email} Telefone:(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}
