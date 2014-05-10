@@ -45,7 +45,7 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		pagina.setNome(nome);
 		pagina.setEstado(estado);
 		pagina.setMunicipio(municipio);
-		pagina.setMaxResult(20);
+		pagina.setMaxResult(1000);
 		
 		
 		int pag = ConversorDeEntrada.getNumeroInteiroSemPonto(pagAtual);
