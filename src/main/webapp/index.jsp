@@ -1,57 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="CSS/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-	<script>
-	$(function() {
-	  $('a[href*=#]:not([href=#])').click(function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  });
-	});
-	</script>
+	<link rel="stylesheet" href="style.css">
+	<title>Guia da Escola Ideal</title>
+	<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
 <body>
+	<header>
+		<div id="logo"></div>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#busca">Buscar Escola</a></li>
+			<li><a href="#noticias">Noticias</a></li>
+			<li><a href="#faq">FAQ</a></li>
+			<li><a href="#quem">Quem Somos</a></li>
+			<li><a href="#contato">Contato</a></li>
+		</ul>
+	</nav>
+	<section class="conteudo" id="home"></section>
+	<section class="conteudo" id="busca"></section>
+	<section class="conteudo" id="noticias"></section>
+	<section class="conteudo" id="faq"></section>
+	<section class="conteudo" id="quem"></section>
+	<section class="conteudo" id="contato"></section>
 
-	<div class="container">
-		<header>
-			<div class="menubar">
-				<ul class="menu">
-  					<li><a href="#first-content" class="active"><span>Home</span></a></li>
-  					<li><a href="#second-content"><span>Noticias</span></a></li>
-  					<li><a href="#third-content"><span>FAQ</span></a></li>
-  					<li><a href="#footer"><span>Contato</span></a></li>
-				</ul>
-			</div>
-		</header>
-		<div id="first-content">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easing.1.3.js"></script>
 
-		</div>
-		<div id="second-content">
-
-		</div>
-		<div id="third-content">
-
-		</div>
-		<div id="footer">
-			<p></p>
-			<p></p>
-		</div>
-	</div>
+	<script type="text/javascript">
+		$(function() {
+			$('ul li a').bind('click',function(event){
+				var $anchor = $(this);
+				/*
+				if you want to use one of the easing effects:
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1500,'easeInOutExpo');
+				 */
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1000);
+				event.preventDefault();
+			});
+		})
+    </script>
+	
 </body>
-</html>	
+</html>
+    
