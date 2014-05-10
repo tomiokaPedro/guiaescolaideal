@@ -52,6 +52,29 @@
 				<td>(${escola.biblioteca})</td>
 				<td>(${escola.bercario})</td>
 				<td>(${escola.sanitarioNoPredio})</td>
+				<td>(${escola.sanitarioForaPredio})</td>
+				<td>(${escola.sanitarioAdequadoInfantil})</td>
+				<td>(${escola.banheiroChuveiro})</td>
+				<td>(${escola.lavanderia})</td>
+				<td>(${escola.outrasDependencias})</td>
+				<td>(${escola.numSalaExistentes})</td>
+				<td>(${escola.numSalaUtilizadas})</td>
+				<td>(${escola.salaLeitura})</td>
+				<td>(${escola.alojamentoAluno})</td>
+				<td>(${escola.alojamentoProfessor})</td>
+				<td>(${escola.areaVerde})</td>
+				<td>(${escola.numFuncionarios})</td>	
+				<td>(${escola.alimentacaoEscAlunos})</td>
+				<td>(${escola.aguaFiltrada})</td>
+				<td>(${escola.internet})</td>
+				<td>(${escola.numComputadoresAlunos})</td>
+				<td>(${escola.numComputadoresAdministracao})</td>
+				<td>(${escola.numComputadoresTotal})</td>
+				<td>(${escola.educacaoIndigena})</td>
+				<td>(${escola.linguaIndigena})</td>
+				<td>(${escola.brasilAlfabetizacao})</td>
+				<td>(${escola.aberturaFdsComun})</td>
+				<td>(${escola.numMatriculas})</td>
 			</tr>
 		</c:forEach>
 		
