@@ -9,7 +9,7 @@
 	<title>Insert title here</title>
 </head>
 <body>
-<table>
+	<table>
 		<c:forEach var="escola" items="${listaEscola}">
 			<tr>
 				<td>${escola.nomeEscola}</td>
@@ -79,6 +79,7 @@
 		</c:forEach>
 		
 		<a href="resultadoPesquisa.jsp?code=2">teste</a>
+		
 	</table>
 </body>
 </html>
