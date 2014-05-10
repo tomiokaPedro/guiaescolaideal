@@ -1,5 +1,7 @@
 package br.com.mdsgpp.guiaescolaideal.dao.teste;
 
+import static org.junit.Assert.*;
+
 import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -11,6 +13,8 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
+
+
 
 public class TesteEscolaDAO extends DAO {
 	
@@ -77,7 +81,7 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).size() == 1);
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).size() == 1);
 	}
 	
 	@Test
@@ -92,7 +96,7 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
 	}
 	
 	@Test
@@ -107,7 +111,7 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah do sul";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
 	}
 
 	@Test
@@ -122,7 +126,7 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah do sul";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio, 0, 1200).isEmpty());
+		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
 	}
 	
 	@Test
