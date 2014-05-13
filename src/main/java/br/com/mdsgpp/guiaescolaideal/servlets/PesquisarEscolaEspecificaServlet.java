@@ -48,7 +48,7 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 			request.setAttribute("listaEscola",
 					escolaControl.getEscolaEspecifica(palavras, estado, palavrasMunicipio));
 
-			dispatcher = request.getRequestDispatcher("/mostraresultado.jsp");
+			dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 		} catch (SQLException e) {
 			dispatcher = setDispatcherErro(request, e);
 		} catch (ParseException e) {
