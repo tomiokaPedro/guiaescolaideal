@@ -1,3 +1,13 @@
+<section class="conteudo" id="busca">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <table>
 		<c:forEach var="escola" items="${listaEscola}">
 			<tr>
@@ -10,3 +20,4 @@
 		
 		<a href="resultadoPesquisa.jsp?code=2">teste</a>
 	</table>
+</section>

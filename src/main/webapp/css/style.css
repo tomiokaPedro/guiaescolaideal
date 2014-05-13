@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 html {
-	overflow: hidden;
+	overflow:hidden;
 }
 
 body {
@@ -71,14 +71,14 @@ nav li a:hover{
 
 #home{
 	
-	background-image:url(../img/home.png), url(../img/foot.jpg);
+	background-image:url(../img/home.png), url(../img/bolas.jpg);
 	background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
 	}
 
 #busca{
-	background-image:url(../img/busca.png), url(../img/foot.jpg);
+	background-image:url(../img/busca.png), url(../img/bolas.jpg);
 	background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
@@ -86,7 +86,7 @@ nav li a:hover{
 	}
 
 #noticias{
-	background-image:url(../img/noticias.png),url(../img/foot.jpg);
+	background-image:url(../img/noticias.png),url(../img/bolas.jpg);
 		background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
@@ -94,7 +94,7 @@ nav li a:hover{
 	}
 
 #faq{
-	background-image:url(../img/faq.png),url(../img/foot.jpg);
+	background-image:url(../img/faq.png),url(../img/bolas.jpg);
 	background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
@@ -102,7 +102,7 @@ nav li a:hover{
 	}
 
 #quem{
-	background-image:url(../img/quem.png),url(../img/foot.jpg);
+	background-image:url(../img/quem.png),url(../img/bolas.jpg);
 	background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
@@ -111,7 +111,7 @@ nav li a:hover{
 
 
 #contato{
-	background-image:url(../img/contato.png),url(../img/foot.jpg);
+	background-image:url(../img/contato.png),url(../img/bolas.jpg);
 	background-position:top left, bottom right;
 	background-origin:content-box;
 	background-repeat:no-repeat, no-repeat;
