@@ -3,55 +3,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="CSS/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-	<script>
-	$(function() {
-	  $('a[href*=#]:not([href=#])').click(function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  });
-	});
-	</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+		$(function() {
+			$('ul li a').bind('click',function(event){
+				var $anchor = $(this);
+				/*
+				if you want to use one of the easing effects:
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1500,'easeInOutExpo');
+				 */
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1000);
+				event.preventDefault();
+			});
+		})
+    </script>
+<link rel="stylesheet" href="css/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Guia da Escola Ideal</title>
 </head>
 <body>
+<%@ include file="header.jsp" %> 
+<%@ include file="nav.jsp" %> 
+<%@ include file="home.jsp" %> 
+<%@ include file="busca.jsp" %> 
+<%@ include file="noticias.jsp" %> 
+<%@ include file="faq.jsp" %> 
+<%@ include file="quem.jsp" %> 
+<%@ include file="contato.jsp" %> 
 
-	<div class="container">
-		<header>
-			<div class="menubar">
-				<ul class="menu">
-  					<li><a href="#first-content" class="active"><span>Home</span></a></li>
-  					<li><a href="#second-content"><span>Noticias</span></a></li>
-  					<li><a href="#third-content"><span>FAQ</span></a></li>
-  					<li><a href="#footer"><span>Contato</span></a></li>
-				</ul>
-			</div>
-		</header>
-		<div id="first-content">
-
-		</div>
-		<div id="second-content">
-
-		</div>
-		<div id="third-content">
-
-		</div>
-		<div id="footer">
-			<p></p>
-			<p></p>
-		</div>
-	</div>
 </body>
-</html>	
+</html>
