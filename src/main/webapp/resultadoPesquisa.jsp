@@ -22,6 +22,9 @@
 		</script>
 </head>
 <body>
+<%@ include file="header.jsp" %> 
+<%@ include file="nav.jsp" %> 
+<%@ include file="home.jsp" %>
 		<!-- Código criado a partir da demo https://github.com/wesnolte/Pajinate-->
 		<div id="wrapper">
 			<div id="paging_container" class="container">
@@ -36,5 +39,10 @@
 				<div class="page_navigation"></div>
 			</div>
 		</div>
+
+<%@ include file="noticias.jsp" %> 
+<%@ include file="faq.jsp" %> 
+<%@ include file="quem.jsp" %> 
+<%@ include file="contato.jsp" %>
 </body>
 </html>
