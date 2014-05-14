@@ -7,14 +7,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/paginacao.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+		$(function() {
+			$('ul li a').bind('click',function(event){
+				var $anchor = $(this);
+				/*
+				if you want to use one of the easing effects:
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1500,'easeInOutExpo');
+				 */
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1000);
+				event.preventDefault();
+			});
+		})
+    </script>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.pajinate.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#paging_container').pajinate({
-			items_per_page : 20,
+		$('#busca').pajinate({
+			items_per_page : 2,
 			num_page_links_to_display : 10,
 			abort_on_small_lists : true,
 		});
@@ -25,24 +44,8 @@
 	<%@ include file="header.jsp"%>
 	<%@ include file="nav.jsp"%>
 	<%@ include file="home.jsp"%>
-	<!-- Código criado a partir da demo https://github.com/wesnolte/Pajinate-->
-	<div id="wrapper">
-		<div id="paging_container" class="container">
-			<div class="content">
-				<c:forEach var="escolar" items="${listaescola}">
-
-					<div class="escola">
-						Nome:${escolar.nomeEscola}<br> 
-						Bairro: ${escolar.endereco.bairro}<br> 
-						E-Mail:${escolar.email}<br>
-						Telefone:(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}
-					</div>
-				</c:forEach>
-			</diV>
-			<div class="page_navigation"></div>
-		</div>
-	</div>
-
+	<%@ include file="resultado.jsp"%>
+	
 	<%@ include file="noticias.jsp"%>
 	<%@ include file="faq.jsp"%>
 	<%@ include file="quem.jsp"%>

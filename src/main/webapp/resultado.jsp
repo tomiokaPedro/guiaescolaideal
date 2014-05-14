@@ -1,23 +1,27 @@
-<section class="conteudo" id="busca">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<table>
-		<c:forEach var="escola" items="${listaEscola}">
-			<tr>
-				<td>${escola.nomeEscola}</td>
-				<td>${escola.email}</td>
-				<td>${escola.endereco.bairro}</td>
-				<td>(${escola.endereco.municipio.codigoDDD})${escola.telefone.telefone}</td>
-			</tr>
-		</c:forEach>
-		
-		<a href="resultadoPesquisa.jsp?code=2">teste</a>
-	</table>
-</section>
+<!-- Código criado a partir da demo https://github.com/wesnolte/Pajinate-->
+	
+	<section class="conteudo" id="busca">
+	
+	  <br/>
+	   <br/>
+	    <br/>
+	     <br/>
+	         <br/>
+	          <br/>
+	           <br/>
+	        <div class="container">
+			 <div class="content"> 
+				<c:forEach var="escolar" items="${listaescola}">
+
+					<div class="escola">
+						Nome:${escolar.nomeEscola}<br> 
+						Bairro: ${escolar.endereco.bairro}<br> 
+						E-Mail:${escolar.email}<br>
+						Telefone:(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}
+					</div>
+				</c:forEach>
+			</div>
+			<div class="page_navigation"></div>
+		</div>
+	</section>
+

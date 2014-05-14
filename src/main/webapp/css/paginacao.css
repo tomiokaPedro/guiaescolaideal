@@ -1,23 +1,6 @@
-* {
-	margin: 0;
-	padding: 0;
-}
 
-body{
-	text-align: center;
-	height: 100%;
-	background-color: yellow;
-}
 
-#wrapper{
-	margin: 0px auto;
-	text-align: left;
-	width: 960px;
-	background-color: red;
-}
 
-#paging_container{
-}
 
 .ellipse{
 	float: left;
@@ -25,7 +8,6 @@ body{
 
 .escola{
 	padding: 10px;
-	margin-bottom: 10px;
 	background-color: #E0FBFC;
 	border-bottom: 1px solid black;
 }
@@ -35,6 +17,8 @@ body{
 	margin: 50px 10px 10px;
 	padding: 20px;
 	background-color: white;
+	width: 750px;
+	
 }
 
 .page_navigation , .alt_page_navigation{
