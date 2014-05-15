@@ -5,75 +5,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
+	<script language="JavaScript">
+	function jumpScroll(){
+		window.scroll(1600,0);
+	}
+</script>
+
+<meta charset="UTF-8">
+<title>Document</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/paginacao.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+		$(function() {
+			$('ul li a').bind('click',function(event){
+				var $anchor = $(this);
+				/*
+				if you want to use one of the easing effects:
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1500,'easeInOutExpo');
+				 */
+				$('html, body').stop().animate({
+					scrollLeft: $($anchor.attr('href')).offset().left
+				}, 1000);
+				event.preventDefault();
+			});
+		})
+    </script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.pajinate.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#busca').pajinate({
+			items_per_page : 2,
+			num_page_links_to_display : 10,
+			abort_on_small_lists : true,
+		});
+	});
+</script>
+
+<script type="text/javascript">
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+})
+
+</script>
+
 </head>
-<body>
-	<table>
-			<tr>
-				<td>${escola.nomeEscola}</td>
-				<td>${escola.email}</td>
-				<td>${escola.endereco.bairro}</td>
-				<td>(${escola.endereco.municipio.codigoDDD})${escola.telefone.telefone}</td>
-				<td>(${escola.codigoRede })</td>
-				<td>(${escola.tipoLocalizacao})</td>
-				<td>(${escola.codigoendereco})</td>
-				<td>(${escola.codicaoFuncionamento})</td>
-				<td>(${escola.email})</td>
-				<td>(${escola.sistemaSenai})</td>
-				<td>(${escola.ong })</td>
-				<td>(${escola.dataInicioLetivo })</td>
-				<td>(${escola.dataTerminoLetivo })</td>
-				<td>(${escola.seFinsLucrativos })</td>
-				<td>(${escola.atividadeComplementar})</td>
-				<td>(${escola.codLocalFuncionamento})</td>
-				<td>(${escola.acessibilidade})</td>
-				<td>(${escola.dependViasAcesso})</td>
-				<td>(${escola.santiAcess})</td>
-				<td>(${escola.atendEducacionalEspecializado})</td>
-				<td>(${escola.salaDiretoria})</td>
-				<td>(${escola.salaProfessor})</td>
-				<td>(${escola.secretaria})</td>
-				<td>(${escola.refeitorio})</td>
-				<td>(${escola.almoxarifado})</td>
-				<td>(${escola.despensa})</td>
-				<td>(${escola.auditorio})</td>
-				<td>(${escola.labInformatica})</td>
-				<td>(${escola.labCiencias})</td>
-				<td>(${escola.salaAtendimentoEspecializado})</td>
-				<td>(${escola.quadraEsporteCoberta})</td>
-				<td>(${escola.quadraEsporteDescoberta})</td>
-				<td>(${escola.patioCoberto})</td>
-				<td>(${escola.patioDescoberto})</td>
-				<td>(${escola.parqueInfantil})</td>
-				<td>(${escola.cozinha})</td>
-				<td>(${escola.biblioteca})</td>
-				<td>(${escola.bercario})</td>
-				<td>(${escola.sanitarioNoPredio})</td>
-				<td>(${escola.sanitarioForaPredio})</td>
-				<td>(${escola.sanitarioAdequadoInfantil})</td>
-				<td>(${escola.banheiroChuveiro})</td>
-				<td>(${escola.lavanderia})</td>
-				<td>(${escola.outrasDependencias})</td>
-				<td>(${escola.numSalaExistentes})</td>
-				<td>(${escola.numSalaUtilizadas})</td>
-				<td>(${escola.salaLeitura})</td>
-				<td>(${escola.alojamentoAluno})</td>
-				<td>(${escola.alojamentoProfessor})</td>
-				<td>(${escola.areaVerde})</td>
-				<td>(${escola.numFuncionarios})</td>	
-				<td>(${escola.alimentacaoEscAlunos})</td>
-				<td>(${escola.aguaFiltrada})</td>
-				<td>(${escola.internet})</td>
-				<td>(${escola.numComputadoresAlunos})</td>
-				<td>(${escola.numComputadoresAdministracao})</td>
-				<td>(${escola.numComputadoresTotal})</td>
-				<td>(${escola.educacaoIndigena})</td>
-				<td>(${escola.linguaIndigena})</td>
-				<td>(${escola.brasilAlfabetizacao})</td>
-				<td>(${escola.aberturaFdsComun})</td>
-				<td>(${escola.numMatriculas})</td>
-		
-	</table>
+<body onload="jumpScroll()">
+<div class="loader"></div>
+<%@ include file="header.jsp" %> 
+<%@ include file="nav.jsp" %> 
+<%@ include file="home.jsp" %> 
+<%@ include file="clicado.jsp" %> 
+<%@ include file="noticias.jsp" %> 
+<%@ include file="faq.jsp" %> 
+<%@ include file="quem.jsp" %> 
+<%@ include file="contato.jsp" %> 
+
 </body>
 </html>
