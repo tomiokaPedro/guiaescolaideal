@@ -174,7 +174,7 @@ public class TesteEscola {
 	public void testIsAtendEducacionalEspecializado() {
 		this.escola.setAtendEducacionalEspecializado("lol");
 
-		assertTrue(this.escola.isAtendEducacionalEspecializado().equalsIgnoreCase("LOL"));
+		assertTrue(this.escola.getAtendEducacionalEspecializado().equalsIgnoreCase("LOL"));
 
 	}
 
