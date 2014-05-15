@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Escola {
 	
-	private int CodEscola;
+	private int codEscola;
 	
 	private CategoriaEscola categoriaEscola;
 	private Endereco endereco;
@@ -215,7 +215,7 @@ public class Escola {
 		this.santiAcess = santiAcess;
 	}
 
-	public String isAtendEducacionalEspecializado() {
+	public String getAtendEducacionalEspecializado() {
 		return atendEducacionalEspecializado;
 	}
 
@@ -631,11 +631,11 @@ public class Escola {
 	}
 
 	public int getCodEscola() {
-		return CodEscola;
+		return codEscola;
 	}
 
 	public void setCodEscola(int codEscola) {
-		CodEscola = codEscola;
+		this.codEscola = codEscola;
 	}
 
 	public boolean isSecretaria() {
