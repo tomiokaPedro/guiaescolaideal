@@ -7,7 +7,7 @@
 <head>
 <script language="JavaScript">
 	function jumpScroll(){
-		window.scroll(1100,0);
+		window.scroll(1600,0);
 	}
 </script>
 
@@ -45,8 +45,17 @@
 		});
 	});
 </script>
+
+<script type="text/javascript">
+$(window).load(function() {
+	$(".loader").fadeOut("slow");
+})
+
+</script>
+
 </head>
 <body onLoad="jumpScroll()">
+	<div class="loader"></div>
 	<%@ include file="header.jsp"%>
 	<%@ include file="nav.jsp"%>
 	<%@ include file="home.jsp"%>
