@@ -5,6 +5,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script language="JavaScript">
+	function jumpScroll(){
+		window.scroll(1100,0);
+	}
+</script>
+
 <meta charset="UTF-8">
 <title>Document</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -40,7 +46,7 @@
 	});
 </script>
 </head>
-<body>
+<body onLoad="jumpScroll()">
 	<%@ include file="header.jsp"%>
 	<%@ include file="nav.jsp"%>
 	<%@ include file="home.jsp"%>
