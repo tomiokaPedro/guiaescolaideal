@@ -59,7 +59,7 @@ $(window).load(function() {
 <%@ include file="header.jsp" %> 
 <%@ include file="nav.jsp" %> 
 <%@ include file="home.jsp" %> 
-<%@ include file="clicado.jsp" %> 
+<%@ include file="click.jsp" %> 
 <%@ include file="noticias.jsp" %> 
 <%@ include file="faq.jsp" %> 
 <%@ include file="quem.jsp" %> 
