@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 
 @WebServlet(value="/pegarEscola.jsp")
@@ -29,7 +30,7 @@ public class EscolaPorIdServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		RequestDispatcher dispatcher = null;
 
-		Connection connection;
+		Connection connection = null;
 		try {
 			connection = new ConnectionFactory().getConnection();
 
@@ -40,13 +41,23 @@ public class EscolaPorIdServlet extends HttpServlet {
 			request.setAttribute("escola", escola);
 			
 			dispatcher = request.getRequestDispatcher("/perfil.jsp");
-			connection.close();
 		} catch (SQLException e) {
 			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
 		} catch (ParseException e) {
 			request.setAttribute("erroMsg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("/erro.jsp");
+		} catch (ConsultaBancoRetornoVazioException e) {
+			request.setAttribute("erroMsg", e.getMessage());
+			dispatcher = request.getRequestDispatcher("/erro.jsp");
+		}finally{
+			try {
+				if(connection != null && !connection.isClosed()){
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		dispatcher.forward(request, response);
