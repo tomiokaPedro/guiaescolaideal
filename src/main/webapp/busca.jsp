@@ -9,7 +9,7 @@
 <br/>
 <br/>
 <table>
-		<form action="realizarConsultaEscolaEspecifica.jsp" method="post">
+		<form name="form1" action="realizarConsultaEscolaEspecifica.jsp" method="post">
 			<tr>
 				<td>Nome da Escola:</td>
 				<td><input type="text" name="nome" /></td>
@@ -30,7 +30,7 @@
 			</tr>
 			<td>
 				<td><td>
-				<td><input type="submit"/></td>
+				<td><input type="submit" onclick="return validar()"/></td>
 			</td>
 		</form>
 	</table>

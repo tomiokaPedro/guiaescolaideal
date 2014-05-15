@@ -42,6 +42,32 @@ $(window).load(function() {
 
 </script>
 
+<script language="javascript" type="text/javascript">
+	function validar() {
+		var nome = form1.nome.value;
+		var estado = form1.estado.value;
+		
+		if(nome == ""){
+			alert('Digite o nome da escola');
+			form1.nome.focus();
+			return false;
+		}
+		
+		if (nome.length < 3) {
+			alert('Nome escola deve ter pelo menos 3 caracteres');
+			form1.nome.focus();
+			return false;
+		}
+		
+		if (estado == "") {
+			alert('Selecione um estado');
+			form1.estado.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js" type="text/javascript"></script>
 
 <script src="scripts/jquery.cycle.all.js" type="text/javascript"></script>
