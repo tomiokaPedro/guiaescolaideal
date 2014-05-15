@@ -10,7 +10,6 @@
 </head>
 <body>
 	<table>
-		<c:forEach var="escola" items="${listaEscola}">
 			<tr>
 				<td>${escola.nomeEscola}</td>
 				<td>${escola.email}</td>
@@ -19,9 +18,9 @@
 				<td>(${escola.codigoRede })</td>
 				<td>(${escola.tipoLocalizacao})</td>
 				<td>(${escola.codigoendereco})</td>
-				<td>(${escola.condicaoFuncionamento})</td>
+				<td>(${escola.codicaoFuncionamento})</td>
 				<td>(${escola.email})</td>
-				<td>(${escola.sistemaEmail})</td>
+				<td>(${escola.sistemaSenai})</td>
 				<td>(${escola.ong })</td>
 				<td>(${escola.dataInicioLetivo })</td>
 				<td>(${escola.dataTerminoLetivo })</td>
@@ -36,7 +35,6 @@
 				<td>(${escola.salaProfessor})</td>
 				<td>(${escola.secretaria})</td>
 				<td>(${escola.refeitorio})</td>
-				<td>(${escola.dispensa})</td>
 				<td>(${escola.almoxarifado})</td>
 				<td>(${escola.despensa})</td>
 				<td>(${escola.auditorio})</td>
@@ -75,10 +73,6 @@
 				<td>(${escola.brasilAlfabetizacao})</td>
 				<td>(${escola.aberturaFdsComun})</td>
 				<td>(${escola.numMatriculas})</td>
-			</tr>
-		</c:forEach>
-		
-		<a href="resultadoPesquisa.jsp?code=2">teste</a>
 		
 	</table>
 </body>
