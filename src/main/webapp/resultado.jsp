@@ -22,5 +22,7 @@
 			</div>
 			<div class="page_navigation"></div>
 		</div>
+		<br>
+		
 	</section>
 

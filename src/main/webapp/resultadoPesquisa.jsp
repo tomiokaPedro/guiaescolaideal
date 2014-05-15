@@ -66,5 +66,7 @@ $(window).load(function() {
 	<%@ include file="faq.jsp"%>
 	<%@ include file="quem.jsp"%>
 	<%@ include file="contato.jsp"%>
+	
+	
 </body>
 </html>

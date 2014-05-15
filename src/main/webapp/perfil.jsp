@@ -36,6 +36,7 @@
     </script>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.pajinate.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.1.1/jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#busca').pajinate({
@@ -52,6 +53,28 @@ $(window).load(function() {
 })
 
 </script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('#table_id td.y_n').each(function(){
+        if ($(this).text() == 'false') {
+            $(this).css('background-color','red');
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('#table_id td.y_n').each(function(){
+        if ($(this).text() == 'true') {
+            $(this).css('background-color','green');
+        }
+    });
+});
+
+</script>
+
+
 
 </head>
 <body onload="jumpScroll()">
