@@ -12,9 +12,8 @@
 	        <div class="container">
 			 <div class="content"> 
 				<c:forEach var="escolar" items="${listaescola}">
-
 					<div class="escola">
-						Nome:${escolar.nomeEscola}<br> 
+						Nome:<a href="pegarEscola.jsp?id=${escolar.codEscola}">${escolar.nomeEscola}</a><br> 
 						Bairro: ${escolar.endereco.bairro}<br> 
 						E-Mail:${escolar.email}<br>
 						Telefone:(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}
