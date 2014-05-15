@@ -1,7 +1,5 @@
 package br.com.mdsgpp.guiaescolaideal.dao.teste;
 
-import static org.junit.Assert.*;
-
 import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -13,6 +11,7 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 
 
 
@@ -38,7 +37,15 @@ public class TesteEscolaDAO extends DAO {
 
 	@Test
 	public void testPesquisarPorIdInexistente() throws SQLException, Exception {
-		assertNull(this.dao.pesquisarPorID(75000));
+		/*
+		 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit 4.0
+		 */
+		try {
+			assertNull(this.dao.pesquisarPorID(75000));
+			fail("Esperava-se ConsultaBancoRetornoVazioException");
+		} catch (ConsultaBancoRetornoVazioException success) {
+			assertNotNull(success.getMessage());
+		}
 	}
 	
 	@Test
@@ -70,7 +77,7 @@ public class TesteEscolaDAO extends DAO {
 	}
 	
 	@Test
-	public void testPesquisarPorNomeMaisLocalizacao() throws SQLException, ParseException{
+	public void testPesquisarPorNomeMaisLocalizacao() throws SQLException, ParseException, ConsultaBancoRetornoVazioException{
 		List<String> listaPalavras = new ArrayList<String>();
 		listaPalavras.add("XP5PK");
 		listaPalavras.add("OVER");
@@ -96,7 +103,15 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+		/*
+		 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit 4.0
+		 */
+		try {
+			assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+			fail("Esperava-se ConsultaBancoRetornoVazioException");
+		} catch (ConsultaBancoRetornoVazioException success) {
+			assertNotNull(success.getMessage());
+		}
 	}
 	
 	@Test
@@ -111,7 +126,15 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah do sul";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+		/*
+		 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit 4.0
+		 */
+		try {
+			assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+			fail("Esperava-se ConsultaBancoRetornoVazioException");
+		} catch (ConsultaBancoRetornoVazioException success) {
+			assertNotNull(success.getMessage());
+		}
 	}
 
 	@Test
@@ -126,7 +149,15 @@ public class TesteEscolaDAO extends DAO {
 		
 		String estado = "Javavah do sul";
 		
-		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+		/*
+		 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit 4.0
+		 */
+		try {
+			assertTrue(this.dao.pesquisarPorNomeMaisLocalizacao(listaPalavras, estado, listaPalavrasMunicipio).isEmpty());
+			fail("Esperava-se ConsultaBancoRetornoVazioException");
+		} catch (ConsultaBancoRetornoVazioException success) {
+			assertNotNull(success.getMessage());
+		}
 	}
 	
 	@Test
