@@ -42,14 +42,11 @@ public class EscolaPorIdServlet extends HttpServlet {
 			
 			dispatcher = request.getRequestDispatcher("/perfil.jsp");
 		} catch (SQLException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
+			dispatcher = setDispatcherErro(request, e);
 		} catch (ParseException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
+			dispatcher = setDispatcherErro(request, e);
 		} catch (ConsultaBancoRetornoVazioException e) {
-			request.setAttribute("erroMsg", e.getMessage());
-			dispatcher = request.getRequestDispatcher("/erro.jsp");
+			dispatcher = setDispatcherErro(request, e);
 		}finally{
 			try {
 				if(connection != null && !connection.isClosed()){
@@ -62,5 +59,12 @@ public class EscolaPorIdServlet extends HttpServlet {
 
 		dispatcher.forward(request, response);
 
+	}
+	
+	private RequestDispatcher setDispatcherErro(ServletRequest request, Exception e) {
+		RequestDispatcher dispatcher;
+		request.setAttribute("erroMsg", e.getMessage());
+		dispatcher = request.getRequestDispatcher("/erro.jsp");
+		return dispatcher;
 	}
 }
