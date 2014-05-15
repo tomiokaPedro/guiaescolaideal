@@ -102,12 +102,13 @@ public class EscolaDAO {
 				listaPalavrasMunicipio, sql);
 		
 		ResultSet rs = stmt.executeQuery();
-
+		
+		int valor = 0;
 		if (rs.next()) {
-			return rs.getInt(TAMANHO_PESQUISA);
+			valor =  rs.getInt(TAMANHO_PESQUISA);
 		}
 
-		return -1;
+		return valor;
 	}
 
 	private PreparedStatement getStmtConfig(List<String> listaPalavras,
