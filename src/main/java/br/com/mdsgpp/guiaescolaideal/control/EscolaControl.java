@@ -21,4 +21,9 @@ public class EscolaControl {
 	    	List<String> listaPalavrasMunicipio = ConversorDeEntrada.getPalavrasChaveDoTexto(nomeMunicipio);
 		return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, estado, listaPalavrasMunicipio);
 	}
+
+	public Escola getEscolaPorId(String id) throws SQLException, ParseException {
+		int id_numerico = ConversorDeEntrada.getNumeroInteiroSemPonto(id);
+		return escolaDAO.pesquisarPorID(id_numerico);
+	}
 }
