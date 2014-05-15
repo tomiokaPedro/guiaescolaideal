@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
@@ -16,13 +17,13 @@ public class EscolaControl {
 		this.escolaDAO = escolaDAO;
 	}
 	
-	public List<Escola> getEscolaEspecifica(String nomeEscola,String estado, String nomeMunicipio) throws SQLException, ParseException{
+	public List<Escola> getEscolaEspecifica(String nomeEscola,String estado, String nomeMunicipio) throws SQLException, ParseException, ConsultaBancoRetornoVazioException{
 	    	List<String> listaPalavrasChaves= ConversorDeEntrada.getPalavrasChaveDoTexto(nomeEscola);
 	    	List<String> listaPalavrasMunicipio = ConversorDeEntrada.getPalavrasChaveDoTexto(nomeMunicipio);
 		return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(listaPalavrasChaves, estado, listaPalavrasMunicipio);
 	}
 
-	public Escola getEscolaPorId(String id) throws SQLException, ParseException {
+	public Escola getEscolaPorId(String id) throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
 		int id_numerico = ConversorDeEntrada.getNumeroInteiroSemPonto(id);
 		return escolaDAO.pesquisarPorID(id_numerico);
 	}

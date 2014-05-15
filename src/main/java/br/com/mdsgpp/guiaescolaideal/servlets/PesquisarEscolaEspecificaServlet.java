@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 
 @WebServlet(value="/realizarConsultaEscolaEspecifica.jsp")
 public class PesquisarEscolaEspecificaServlet extends HttpServlet {
@@ -51,6 +50,16 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 			dispatcher = setDispatcherErro(request, e);
 		} catch (ParseException e) {
 			dispatcher = setDispatcherErro(request, e);
+		}catch (ConsultaBancoRetornoVazioException e) {
+			dispatcher = setDispatcherErro(request, e);
+		}finally{
+			try {
+				if(con!= null && !con.isClosed()){
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		dispatcher.forward(request, response);

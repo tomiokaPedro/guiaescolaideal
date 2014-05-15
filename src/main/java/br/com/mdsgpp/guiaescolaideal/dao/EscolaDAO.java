@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
@@ -23,7 +24,7 @@ public class EscolaDAO {
 		this.connection = connection;
 	}
 
-	public Escola pesquisarPorID(int id) throws SQLException, ParseException {
+	public Escola pesquisarPorID(int id) throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
 		String sql = "select * from escola where COD_ESCOLA= ?";
 
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -33,6 +34,9 @@ public class EscolaDAO {
 		Escola escola = null;
 		if (rs.next()) {
 			escola = getEscolaAll(rs);
+		}else{
+			stmt.close();
+			throw new ConsultaBancoRetornoVazioException("Nenhuma escola com o id= " +id+" foi encontrada.");
 		}
 
 		stmt.close();
@@ -98,12 +102,13 @@ public class EscolaDAO {
 				listaPalavrasMunicipio, sql);
 		
 		ResultSet rs = stmt.executeQuery();
-
+		
+		int valor = 0;
 		if (rs.next()) {
-			return rs.getInt(TAMANHO_PESQUISA);
+			valor =  rs.getInt(TAMANHO_PESQUISA);
 		}
 
-		return -1;
+		return valor;
 	}
 
 	private PreparedStatement getStmtConfig(List<String> listaPalavras,
@@ -131,7 +136,7 @@ public class EscolaDAO {
 	public List<Escola> pesquisarPorNomeMaisLocalizacao(
 			List<String> listaPalavras, String estado,
 			List<String> listaPalavrasMunicipio)
-			throws SQLException, ParseException {
+			throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
 
 
 		String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
@@ -144,10 +149,12 @@ public class EscolaDAO {
 		ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
-
 			Escola escola = getEscolaDefault(rs);
 			listaEscola.add(escola);
-
+		}
+		
+		if(listaEscola.isEmpty()){
+			throw new ConsultaBancoRetornoVazioException("Consulta não retornou nenhuma escola com esses atributos.");
 		}
 
 		return listaEscola;

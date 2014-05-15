@@ -4,18 +4,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Guia da Escola Ideal | Erro</title>
 
 <style>
-.error {
-	font-size: 20px;
-	color: red;
-	background: yellow;
+body{
+	background-color: #F8F8F8;
+	margin 0 0;
+	text-align: center;
 }
+
+.error {
+	background-color: #900000;
+	border: 1px solid black;
+	padding: 20px;
+	margin:10px;
+	
+	border-radius:5px;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px black;
+	
+}
+
+.redirecionar{
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px white;
+}
+
+.redirecionar a{
+	color:black;
+	text-decoration: blink;
+}
+
 </style>
 
 </head>
 <body>
-	<p class="error">${erroMsg}</p>
+	<div class="error">
+		${erroMsg}
+	</div>
+	
+	<div class="redirecionar">
+		Você será direcionado automaticamente em 10s, caso contrário <a href="index.jsp">clique aqui</a>.
+	</div>
+	<script type="text/javascript">
+		setTimeout("location.href='index.jsp'",10000);
+	</script>
 </body>
 </html>
