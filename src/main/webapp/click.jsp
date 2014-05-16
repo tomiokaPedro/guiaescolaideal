@@ -1,11 +1,10 @@
-<section class="conteudo" id="busca">
+
 
 <p>
-Nome:${escola.nomeEscola}<br> 
+Nome:${escola.nomeEscola} &nbsp; &nbsp; &nbsp;
 Bairro: ${escola.endereco.bairro}<br> 
 </p>
-<br>
-<br>
+<hr/>
 <table id="table_id">
 	<tr>
 		<td>Fins Lucrativos</td>
@@ -90,12 +89,5 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.internet}</td>
 	</tr>
 	
-	
-
-	
-
 </table>
 
-<a href="index.jsp">Voltar</a>
-
-</section>

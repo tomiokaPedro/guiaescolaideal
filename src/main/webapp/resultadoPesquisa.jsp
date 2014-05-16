@@ -12,7 +12,7 @@
 </script>
 
 <meta charset="UTF-8">
-<title>Document</title>
+<title>Guia da Escola Ideal</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/paginacao.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -39,7 +39,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#busca').pajinate({
-			items_per_page : 2,
+			items_per_page : 3,
 			num_page_links_to_display : 10,
 			abort_on_small_lists : true,
 		});
@@ -66,6 +66,7 @@ $(window).load(function() {
 	<%@ include file="faq.jsp"%>
 	<%@ include file="quem.jsp"%>
 	<%@ include file="contato.jsp"%>
+	<div class="footer"></div>
 	
 	
 </body>

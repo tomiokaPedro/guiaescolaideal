@@ -12,7 +12,7 @@
 </script>
 
 <meta charset="UTF-8">
-<title>Document</title>
+<title>Guia da Escola Ideal</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/paginacao.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -77,16 +77,11 @@ $(document).ready(function(){
 
 
 </head>
-<body onload="jumpScroll()">
+
 <div class="loader"></div>
-<%@ include file="header.jsp" %> 
-<%@ include file="nav.jsp" %> 
-<%@ include file="home.jsp" %> 
+ 
 <%@ include file="click.jsp" %> 
-<%@ include file="noticias.jsp" %> 
-<%@ include file="faq.jsp" %> 
-<%@ include file="quem.jsp" %> 
-<%@ include file="contato.jsp" %> 
+
 
 </body>
 </html>

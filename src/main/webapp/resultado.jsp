@@ -2,27 +2,29 @@
 	
 	<section class="conteudo" id="busca">
 	
-	  <br/>
-	   <br/>
-	    <br/>
-	     <br/>
-	         <br/>
-	          <br/>
-	           <br/>
+	 <br>
+	 <br>
+	 <br>
+	 <br>
+	 
+	 
+	  
 	        <div class="container">
+			<div class="page_navigation"></div>
 			 <div class="content"> 
 				<c:forEach var="escolar" items="${listaescola}">
 					<div class="escola">
-						Nome:<a href="pegarEscola.jsp?id=${escolar.codEscola}">${escolar.nomeEscola}</a><br> 
+						Nome:<a href="#" onclick="window.open('pegarEscola.jsp?id=${escolar.codEscola}', 'Pagina', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=YES, TOP=10, LEFT=10, WIDTH=670, HEIGHT=250');">${escolar.nomeEscola}</a><br> 
 						Bairro: ${escolar.endereco.bairro}<br> 
 						E-Mail:${escolar.email}<br>
 						Telefone:(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}
 					</div>
 				</c:forEach>
 			</div>
-			<div class="page_navigation"></div>
 		</div>
-		<br>
+		<a href="index.jsp"><div class="voltar"></div></a>
+		
+		
 		
 	</section>
 

@@ -76,6 +76,8 @@ $(window).load(function() {
 
 <div class="loader"></div>
 
+
+
 <%@ include file="header.jsp" %> 
 <%@ include file="nav.jsp" %> 
 <%@ include file="home.jsp" %> 
@@ -84,6 +86,8 @@ $(window).load(function() {
 <%@ include file="faq.jsp" %> 
 <%@ include file="quem.jsp" %> 
 <%@ include file="contato.jsp" %> 
+
+<div class="footer"></div>
 
 
 </body>
