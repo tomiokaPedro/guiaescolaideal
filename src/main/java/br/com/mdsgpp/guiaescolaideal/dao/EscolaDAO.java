@@ -274,8 +274,13 @@ public class EscolaDAO {
 				.getValorBooleanDoTexto(rs
 						.getString("SE_ALIMENTACAO_ESC_ALUNOS")));
 
-		escola.setAguaFiltrada(ConversorDeEntrada.getValorBooleanDoTexto(rs
-				.getString("SE_AGUA_FILTRADA")));
+		String seAguaFiltrada = rs.getString("SE_AGUA_FILTRADA");
+		if("Filtrada".equalsIgnoreCase(seAguaFiltrada)){
+			seAguaFiltrada = "sim";
+		}
+
+		escola.setAguaFiltrada(ConversorDeEntrada.getValorBooleanDoTexto(seAguaFiltrada));
+
 		escola.setInternet(ConversorDeEntrada.getValorBooleanDoTexto(rs
 				.getString("SE_INTERNET")));
 
