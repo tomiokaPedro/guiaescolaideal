@@ -6,32 +6,41 @@ import java.util.List;
 
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 
 public class TesteConversorDeEntrada {
 
-	@Test
-	public void testGetPalavrasChaveDoTextoIsNull() {
-		List<String> lista = ConversorDeEntrada.getPalavrasChaveDoTexto(null);
-		assertTrue(lista.isEmpty());
+	@Test(expected=PesquisaException.class)
+	public void testGetPalavrasChaveDoTextoIsNull() throws PesquisaException {
+		ConversorDeEntrada.getPalavrasChaveDoTexto(null);
+	}
+	
+	@Test(expected=PesquisaException.class)
+	public void testGetPalavrasChaveDoTextoIsEmpty() throws PesquisaException {
+		ConversorDeEntrada.getPalavrasChaveDoTexto("");
+	}
+	
+	@Test(expected=PesquisaException.class)
+	public void testGetPalavrasChaveDoTextoComPercentil() throws PesquisaException {
+		ConversorDeEntrada.getPalavrasChaveDoTexto("%%%");
+	}
+	
+	@Test(expected=PesquisaException.class)
+	public void testGetPalavrasChaveDoTextoComDuasLetras() throws PesquisaException {
+		ConversorDeEntrada.getPalavrasChaveDoTexto("es");
 	}
 	
 	@Test
-	public void testGetPalavrasChaveDoTextoIsEmpty() {
-		List<String> lista = ConversorDeEntrada.getPalavrasChaveDoTexto("");
-		assertTrue(lista.isEmpty());
-	}
-	
-	@Test
-	public void testGetPalavrasChaveDoTexto() {
+	public void testGetPalavrasChaveDoTexto() throws PesquisaException {
 		List<String> lista = ConversorDeEntrada.getPalavrasChaveDoTexto("MDS + GPP");
 		assertTrue(lista.size() == 2);
 	}
 	
 	@Test
-	public void testGetPalavrasChaveDoTextoComSimbolos() {
-		List<String> lista = ConversorDeEntrada.getPalavrasChaveDoTexto("m+at*e(m)a%t#i!c@a");
+	public void testGetPalavrasChaveDoTextoComSimbolos() throws PesquisaException {
+		List<String> lista = ConversorDeEntrada.getPalavrasChaveDoTexto("m+at*e(m)á%t#i!c@a");
 		assertTrue(lista.size() == 1);
 		assertTrue(lista.get(0).equalsIgnoreCase("Matematica"));
 	}

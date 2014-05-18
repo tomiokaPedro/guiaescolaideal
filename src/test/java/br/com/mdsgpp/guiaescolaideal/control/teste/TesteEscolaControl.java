@@ -14,54 +14,86 @@ import org.mockito.Mockito;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 
 public class TesteEscolaControl {
 
-	private EscolaDAO escolaDAO;
-	private EscolaControl control;
+    private EscolaDAO escolaDAO;
+    private EscolaControl control;
+    private ArrayList<String> munNome = null;
+    private ArrayList<String> escolaNome = null;
 
-	@Before
-	public void inic() throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
-		List<Escola> listaEscola = new ArrayList<Escola>();
+    @Before
+    public void inic() throws SQLException, ParseException,
+	    ConsultaBancoRetornoVazioException {
 
-		for (int i = 0; i < 10; i++) {
-			Escola escola = new Escola();
-			escola.setNomeEscola("item " + i);
-			listaEscola.add(escola);
-		}
+	escolaNome = new ArrayList<String>();
+	escolaNome.add("teste");
+	munNome = new ArrayList<String>();
+	munNome.add("testeMun");
+	escolaDAO = Mockito.mock(EscolaDAO.class);
+	configDaoPesquisaMock(getListaEscola(), escolaNome, munNome);
+	configDaoIdMock();
 
-		escolaDAO = Mockito.mock(EscolaDAO.class);
-		Mockito.when(
-				escolaDAO.pesquisarPorNomeMaisLocalizacao(
-						new ArrayList<String>(), null, new ArrayList<String>()))
-				.thenReturn(listaEscola);
+	control = new EscolaControl(escolaDAO);
+    }
 
-		Escola escola = new Escola();
-		escola.setCodEscola(171);
-		Mockito.when(escolaDAO.pesquisarPorID(171)).thenReturn(escola);
+    private void configDaoPesquisaMock(List<Escola> listaEscola,
+	    ArrayList<String> escolaNome, ArrayList<String> munNome)
+	    throws SQLException, ParseException,
+	    ConsultaBancoRetornoVazioException {
+	Mockito.when(
+		escolaDAO.pesquisarPorNomeMaisLocalizacao(escolaNome, "df",
+			munNome)).thenReturn(listaEscola);
+    }
 
-		control = new EscolaControl(escolaDAO);
+    private void configDaoIdMock() throws SQLException, ParseException,
+	    ConsultaBancoRetornoVazioException {
+	Escola escola = new Escola();
+	escola.setCodEscola(171);
+	Mockito.when(escolaDAO.pesquisarPorID(171)).thenReturn(escola);
+    }
 
+    private List<Escola> getListaEscola() {
+	List<Escola> listaEscola = new ArrayList<Escola>();
+
+	for (int i = 0; i < 10; i++) {
+	    Escola escola = new Escola();
+	    escola.setNomeEscola("item " + i);
+	    listaEscola.add(escola);
 	}
 
-	@Test
-	public void testGetEscolaEspecifica() throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
-		assertTrue(control.getEscolaEspecifica(null, null, null).size() == 10);
-	}
+	return listaEscola;
+    }
 
-	@Test
-	public void testGetEscolaEspecificaValor() throws SQLException,
-			ParseException, ConsultaBancoRetornoVazioException {
-		assertTrue(control.getEscolaEspecifica(null, null, null).get(0)
-				.getNomeEscola().equalsIgnoreCase("item 0"));
-	}
-	
-	@Test
-	public void testGetEscolaPorId() throws SQLException, ParseException, ConsultaBancoRetornoVazioException{
-		String id ="171";
-		assertTrue(control.getEscolaPorId(id).getCodEscola() == 171);
-		
-	}
+    @Test
+    public void testGetEscolaEspecifica() throws SQLException, ParseException,
+	    PesquisaException {
+	assertTrue(control.getEscolaEspecifica("teste", "df", "testeMun")
+		.size() == 10);
+    }
 
+    @Test
+    public void testGetEscolaEspecificaValor() throws SQLException,
+	    ParseException, PesquisaException {
+	assertTrue("item 0".equalsIgnoreCase(control
+		.getEscolaEspecifica("teste", "df", "testeMun").get(0)
+		.getNomeEscola()));
+    }
+
+    @Test
+    public void testGetEscolaPorId() throws SQLException, ParseException,
+	    ConsultaBancoRetornoVazioException {
+	String id = "171";
+	assertTrue(control.getEscolaPorId(id).getCodEscola() == 171);
+    }
+
+    @Test
+    public void testGetEscolaEspecificaMunicipioNull() throws SQLException,
+	    ParseException, PesquisaException {
+	configDaoPesquisaMock(getListaEscola(), escolaNome,
+		new ArrayList<String>());
+	assertTrue(control.getEscolaEspecifica("teste", "df", null).size() == 10);
+    }
 }

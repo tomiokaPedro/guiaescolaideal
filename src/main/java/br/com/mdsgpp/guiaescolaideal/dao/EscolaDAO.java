@@ -137,8 +137,7 @@ public class EscolaDAO {
 			List<String> listaPalavras, String estado,
 			List<String> listaPalavrasMunicipio)
 			throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
-
-
+		
 		String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
 				listaPalavrasMunicipio);
 
