@@ -365,4 +365,31 @@ public class EscolaDAO {
 	private String addLimit() {
 		return " LIMIT ?, ?";
 	}
+	
+	public List<Escola> pesquisarEscolaPorCep(String cep){
+	    
+	    String prefixoCep = cep.substring(0, 5)+"%"; 
+	    
+	    String sql = "select * from escola INNER JOIN endereco ON endereco.COD_ENDERECO = escola.COD_ENDERECO AND endereco.CEP like ?";
+
+	    PreparedStatement stmt = this.connection.prepareStatement(sql);
+	    stmt.setString(1, prefixoCep);
+
+	    List<Escola> listaEscola = new ArrayList<Escola>();
+	    ResultSet rs = stmt.executeQuery();
+
+	    while (rs.next()) {
+		Escola escola = getEscolaDefault(rs);
+	 	listaEscola.add(escola);
+	    }
+	    
+	    
+	    if(listaEscola.isEmpty()){
+		 throw new ConsultaBancoRetornoVazioException("Consulta não retornou nenhuma escola com esses atributos.");
+	    }
+
+	    stmt.close();
+	    return escola;
+	    
+	}
 }
