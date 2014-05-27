@@ -53,6 +53,10 @@ $(window).load(function() {
 
 </script>
 
+<script type="text/javascript" src="./js/jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.tablesorter.js"></script>
+	<script type="text/javascript" src="./js/jquery.tablesorter.pager.js"></script>
+
 
 </head>
 <body onLoad="jumpScroll()">
@@ -60,7 +64,7 @@ $(window).load(function() {
 	<%@ include file="header.jsp"%>
 	<%@ include file="nav.jsp"%>
 	<%@ include file="home.jsp"%>
-	<%@ include file="resultado.jsp"%>
+	<%@ include file="resultadofinal.jsp"%>
 	
 	<%@ include file="noticias.jsp"%>
 	<%@ include file="faq.jsp"%>
