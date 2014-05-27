@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
@@ -34,11 +35,11 @@ public class PesquisarPorCepServlet extends HttpServlet{
 		 connection = new ConnectionFactory().getConnection();
 		 
 		 EscolaDAO escolaDAO = new EscolaDAO(connection);
-		
-		 request.setAttribute("listaescola", escolaDAO.pesquisarEscolaPorCep(cep));
+		 EscolaControl escolaControl = new EscolaControl(escolaDAO);
+		 
+		 request.setAttribute("listaescola", escolaControl.getEscolaPorCep(cep));
 		 
 		 dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
-		 connection.close();
 	    }catch (SQLException e){
 		    dispatcher = setDispatcherErro(request, e);
 	    }catch (PesquisaException e){
