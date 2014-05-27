@@ -389,7 +389,7 @@ public class EscolaDAO {
 	    }
 
 	    stmt.close();
-	    return escola;
+	    return listaEscola;
 	    
 	}
 }
