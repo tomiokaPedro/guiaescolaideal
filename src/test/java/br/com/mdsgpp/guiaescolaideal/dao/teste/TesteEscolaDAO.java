@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
+import br.com.mdsgpp.guiaescolaideal.model.Escola;
 
 
 
@@ -189,5 +190,26 @@ public class TesteEscolaDAO extends DAO {
 		
 		assertTrue(this.dao.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(listaPalavras, estado, listaPalavrasMunicipio) == 0);
 	}
+	
+	@Test
+	public void testPesquisarEscolaPorCep() throws SQLException, ParseException{
+	    	String cep =  "11111111";
+	    
+	    	List<Escola> listaEscola = new ArrayList<Escola>();
+	    	listaEscola = dao.pesquisarEscolaPorCep(cep);
+	    	
+	    	assertTrue(listaEscola.size()==1);
+	    	
+	}
 
+	@Test
+	public void testPesquisarEscolaPorCepInvalido() throws SQLException, ParseException{
+	    	String cep =  "11115555";
+	    
+	    	List<Escola> listaEscola = new ArrayList<Escola>();
+	    	listaEscola = dao.pesquisarEscolaPorCep(cep);
+	    	
+	    	
+	    	
+	}
 }
