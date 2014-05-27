@@ -5,29 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Pesquisar Escola por CEP</title>
-<script language="javascript" type="text/javascript">
-	function validar() {
-		var nome = form1.cep;
+<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+ <script src="js/jquery.maskedinput.min.js" type="text/javascript"></script>
 
-		if(nome = ""){
-			alert('Digite o cep desejado!');
-			form1.cep.focus();
-			return false;
-		}
+ <script type="text/javascript">
+  $(function() {
+  $("#cep").mask("99999-999");
+  });
+</script>
+<script type="text/javascript">
+  
+ function validar(){
+ 	var regexCep = /[0-9]{5}-[0-9]{3}/;
 
-		return true;
-	}
-			
+ 	if(!regexCep.test(form1.cep.value)){
+ 	 alert("cep invalido");
+ 	 return false;
+ 	}
+ 	return true;
+ }
+
 </script>
 </head>
 <body>
 	<table>
-		<element>
-		<form name="form1" action="realizarConsultaPorCep.jsp" method="post"></element>
+		<form name="form1" action="realizarConsultaPorCep.jsp" method="post">
  
-   		<!-- <label>CEP:<input required name="cep" pattern="[0-9]{5}-[0-9]{3}"></label>-->
-		  CEP: <input type="text" name="cep" />
-		
+   		<label>CEP:<input pattern="[0-9]{5}-[0-9]{3}" type="text" id="cep" name="cep"></label>
+
 		<td><input type="submit" onclick="return validar()"/></td>
 		</form>
 	</table>
