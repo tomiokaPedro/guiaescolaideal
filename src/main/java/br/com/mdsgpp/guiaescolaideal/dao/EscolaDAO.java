@@ -371,7 +371,7 @@ public class EscolaDAO {
     }
 
     public List<Escola> pesquisarEscolaPorCep(String cep) throws SQLException,
-	    ConsultaBancoRetornoVazioException {
+	    ConsultaBancoRetornoVazioException{
 
 	String prefixoCep = cep.substring(0, 5) + "%";
 
