@@ -43,4 +43,12 @@ public class EscolaControl {
 	int id_numerico = ConversorDeEntrada.getNumeroInteiroSemPonto(id);
 	return escolaDAO.pesquisarPorID(id_numerico);
     }
+    
+    public List<Escola> getEscolaPorCep(String cep) throws SQLException, PesquisaException{
+	if(ConversorDeEntrada.validarCep(cep)){
+	    return this.escolaDAO.pesquisarEscolaPorCep(cep);
+	}else{
+	    throw new EntradaDadosException("CEP inválido");
+	}
+    }  
 }
