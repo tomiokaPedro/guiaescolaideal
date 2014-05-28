@@ -34,4 +34,8 @@
 			</td>
 		</form>
 	</table>
+	
+	<%@ include file="pesquisarEscolaPorCep.jsp" %> 
+	
+	
 </section>
