@@ -65,4 +65,10 @@ public class ConversorDeEntrada {
 
 	return data;
     }
+    public static boolean validarCep(String cep){
+	if(cep == null || cep.isEmpty()){
+	    return false;
+	}
+	return cep.matches("[0-9]{5}-[0-9]{3}");
+    	}
 }
