@@ -13,12 +13,32 @@
 		
 		var estado = form1.estado.value;
 		var municipio = form1.municipio.value;
+		var modalidade = form1.modalidade.value;
+		var labinf = form1.labinf.value;
+		var labcien = form1.labcien.value;
 		
 		if (estado == "") {
 			alert('Selecione um estado');
 			form1.estado.focus();
 			return false;
 		}
+		
+		if(modalidade == ""){
+			alert('Selecione uma modalidade');
+			form1.modalidade.focus();
+			return false;
+		}
+		
+		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false){
+			alert('Maque uma opção para laboratório de informática');
+			return false;
+		}
+		
+		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false){
+			alert('Maque uma opção para laboratório de ciencias');
+			return false;
+		}
+		
 		
 		return true;
 	}
@@ -52,25 +72,27 @@
 				<td>Município</td>
 				<td><input type="text" name="municipio" /></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" onclick="return validar()" /></td>
-			</tr>
 			
 			<tr><table>
 			<tr>
 				<td>Laboratório de informática:</td> 
-				<td><input type="radio" name="labinf" value="true">Sim</td> 
-				<td><input type="radio" name="labinf" value="false">Não</td>
+				<td><input type="radio" name="labinf" value="sim">Sim</td> 
+				<td><input type="radio" name="labinf" value="nao">Não</td>
 			</tr>
 			
 			
 			<tr>
 				<td>Laboratório de ciências:</td>
-				<td><input type="radio" name="labcien" value="true">Sim</td> 
-				<td><input type="radio" name="labcien" value="false">Não</td>
+				<td><input type="radio" name="labcien" value="sim">Sim</td> 
+				<td><input type="radio" name="labcien" value="nao">Não</td>
 			</tr>
 			</table></tr>
+			
+			
+			<tr><br>
+				<td></td>
+				<td><input type="submit" onclick="return validar()" /></td>
+			</tr>
 		</form>
 	</table>
 </body>
