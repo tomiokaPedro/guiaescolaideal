@@ -496,13 +496,13 @@ BEGIN
 										   v_cod_escola 
 									FROM   modalidade_ensino me, 
 										   (SELECT CASE col_di 
-													 WHEN 'Sim' THEN 'Ensino Regular' 
+													 WHEN 'S' THEN 'Ensino Regular' 
 												   END AS col_di, 
 												   CASE col_dj 
-													 WHEN 'Sim' THEN 'Educação Especial' 
+													 WHEN 'S' THEN 'Educação Especial' 
 												   END AS col_dj, 
 												   CASE col_dk 
-													 WHEN 'Sim' THEN 'Educação De Jovens E Adultos' 
+													 WHEN 'S' THEN 'Educação De Jovens E Adultos' 
 												   END AS col_dk 
 											FROM   migracao_arquivo 
 											WHERE  id = v_id) vw_m 
