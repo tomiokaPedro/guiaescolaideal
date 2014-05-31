@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
@@ -239,5 +241,12 @@ public class TesteEscolaDAO extends DAO {
 	    assertNotNull(success.getMessage());
 	}
 
+    }
+    @Test
+    public void testPesquisarPorCampo() throws ConsultaBancoRetornoVazioException, SQLException
+    {
+	Campo campo = new Campo("NOME_ESCOLA", "GALOIS", "escola");
+	assertTrue(dao.pesquisarPorCampo(Arrays.asList(campo)).size()==2);
+	
     }
 }

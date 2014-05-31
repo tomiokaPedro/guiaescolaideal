@@ -45,6 +45,50 @@ public class EscolaDAO {
 	return escola;
     }
 
+    public List<Escola> pesquisarPorCampo(List<Campo> campos)
+	    throws SQLException, ConsultaBancoRetornoVazioException {
+	StringBuilder sb = new StringBuilder();
+	sb.append("select ");
+	sb.append("*");
+	sb.append(" from escola ");
+	sb.append("INNER JOIN endereco ON escola.COD_ENDERECO = endereco.COD_ENDERECO ");
+	sb.append("INNER JOIN municipio  ON municipio.COD_MUNICIPIO = endereco.COD_MUNICIPIO ");
+
+	for (int i = 0; i < campos.size(); i++) {
+	    if (i == 0) {
+		sb.append("ON ");
+	    } else {
+		sb.append("AND ");
+	    }
+	    sb.append(campos.get(i).getTabela() + "." + campos.get(i).getNome()
+		    + " like ?");
+
+	}
+
+	PreparedStatement stmt = this.connection
+		.prepareStatement(sb.toString());
+
+	for (int i = 0; i < campos.size(); i++) {
+	    stmt.setString(i + 1, "%" + campos.get(i).getValor() + "%");
+	}
+
+	ResultSet rs = stmt.executeQuery();
+
+	List<Escola> listaEscola = new ArrayList<Escola>();
+	
+	while (rs.next()) {
+	    Escola escola = getEscolaDefault(rs);
+	    listaEscola.add(escola);
+	}
+
+	if (listaEscola.isEmpty()) {
+	    throw new ConsultaBancoRetornoVazioException(
+		    "Consulta não retornou nenhuma escola com esses atributos.");
+	}
+
+	return listaEscola;
+    }
+
     public List<Escola> pesquisarPorNome(String nome, int comeco, int quantidade)
 	    throws SQLException, ParseException {
 
@@ -371,7 +415,7 @@ public class EscolaDAO {
     }
 
     public List<Escola> pesquisarEscolaPorCep(String cep) throws SQLException,
-	    ConsultaBancoRetornoVazioException{
+	    ConsultaBancoRetornoVazioException {
 
 	String prefixoCep = cep.substring(0, 5) + "%";
 
