@@ -53,15 +53,16 @@ public class EscolaDAO {
 	sb.append(" from escola ");
 	sb.append("INNER JOIN endereco ON escola.COD_ENDERECO = endereco.COD_ENDERECO ");
 	sb.append("INNER JOIN municipio  ON municipio.COD_MUNICIPIO = endereco.COD_MUNICIPIO ");
-
+	sb.append("INNER JOIN uf uf ON uf.COD_UF = municipio.COD_UF ");
+		
 	for (int i = 0; i < campos.size(); i++) {
-	    if (i == 0) {
+	    /*if (i == 0) {
 		sb.append("ON ");
 	    } else {
 		sb.append("AND ");
-	    }
-	    sb.append(campos.get(i).getTabela() + "." + campos.get(i).getNome()
-		    + " like ?");
+	    }*/
+	    sb.append("AND "+campos.get(i).getTabela() + "." + campos.get(i).getNome()
+		    + " like ? ");
 
 	}
 

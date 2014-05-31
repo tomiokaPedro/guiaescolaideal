@@ -245,8 +245,30 @@ public class TesteEscolaDAO extends DAO {
     @Test
     public void testPesquisarPorCampo() throws ConsultaBancoRetornoVazioException, SQLException
     {
-	Campo campo = new Campo("NOME_ESCOLA", "GALOIS", "escola");
-	assertTrue(dao.pesquisarPorCampo(Arrays.asList(campo)).size()==2);
+	Campo campo = new Campo("NOME_ESCOLA", "xp5pk", "escola");
+	Campo campoLAB = new Campo("SE_LAB_INFO", "sim", "escola");
+	System.out.println(dao.pesquisarPorCampo(Arrays.asList(campo,campoLAB)).size());
+	assertTrue(dao.pesquisarPorCampo(Arrays.asList(campo,campoLAB)).size()==1);
 	
+		
     }
+    
+    @Test
+    public void testPesquisarEscolaPorCampoInvalido() throws SQLException,
+	    ParseException {
+	
+	Campo campo = new Campo("NOME_ESCOLA", "xp8d423", "escola");
+	/*
+	 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit
+	 * 4.0
+	 */
+	try {
+	    dao.pesquisarPorCampo(Arrays.asList(campo));
+	    fail("Esperava-se ConsultaBancoRetornoVazioException");
+	} catch (ConsultaBancoRetornoVazioException success) {
+	    assertNotNull(success.getMessage());
+	}
+
+    }
+    
 }
