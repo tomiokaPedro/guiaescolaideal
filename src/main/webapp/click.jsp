@@ -36,16 +36,9 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.cozinha}</td>
 		<td>Berçario</td>
 		<td class="y_n">${escola.bercario}</td>
-		<td>Sala Diretoria</td>
-		<td class="y_n">${escola.salaDiretoria}</td>
-	</tr>
-	<tr>
-	<td>Sala Professor</td>
-		<td class="y_n">${escola.salaProfessor}</td>
 		<td>Secretaria</td>
 		<td class="y_n">${escola.secretaria}</td>
-		<td>Sanitário Adequado Infantil</td>
-		<td class="y_n">${escola.sanitarioAdequadoInfantil}</td>
+		
 	</tr>
 	<tr>
 	<td>Dispensa</td>
@@ -64,17 +57,27 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.banheiroChuveiro}</td>
 	</tr>
 	<tr>
-		<td>Sanitário Fora do Prédio</td>
-		<td class="y_n">${escola.sanitarioForaPredio}</td>
-			<td>Sala de Atendimento Especializado</td>
-		<td class="y_n">${escola.salaAtendimentoEspecializado}</td>
+		
+			
 		
 		<td>Alojamento Aluno</td>
 		<td class="y_n">${escola.alojamentoAluno}</td>
 	</tr>
+	
+	<tr>
+	<th>Salas</th>
+	</tr>
 	<tr>
 	<td>Sala de Leitura</td>
 		<td class="y_n">${escola.salaLeitura}</td>
+		<td>Sala de Atendimento Especializado</td>
+		<td class="y_n">${escola.salaAtendimentoEspecializado}</td>
+		<td>Sala Professor</td>
+		<td class="y_n">${escola.salaProfessor}</td>
+	</tr>
+	<tr>
+		<td>Sala Diretoria</td>
+		<td class="y_n">${escola.salaDiretoria}</td>
 	</tr>
 	<tr>
 	<th>Laboratórios</th>
@@ -103,8 +106,14 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.parqueInfantil}</td>
 	</tr>
 	<tr>
-		
+	<th>Sanitários</th>
+	</tr>
 	<tr>
+	<td>Sanitário Adequado Infantil</td>
+		<td class="y_n">${escola.sanitarioAdequadoInfantil}</td>
+	<td>Sanitário Fora do Prédio</td>
+		<td class="y_n">${escola.sanitarioForaPredio}</td>
+	</tr>
 	<th>
 	Serviços
 	</th>
