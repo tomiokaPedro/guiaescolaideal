@@ -121,6 +121,29 @@ public class TesteAceitacaoFormEscolaIdeal {
 
     }
 
+    @Test
+    public void testeModalidadeVazia()
+    {
+	
+	Select listaEstado = new Select(driver.findElement(By.name("estado")));
+	listaEstado.selectByVisibleText("Distrito Federal");
+
+	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
+	radioLabInfo.click();
+
+	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
+	radioLabCiencia.click();
+
+	WebElement submit = driver.findElement(By.name("submit"));
+	submit.click();
+	
+	String texto = driver.switchTo().alert().getText();
+	driver.switchTo().alert().accept();
+	
+	assertTrue(texto.equalsIgnoreCase("Selecione uma modalidade"));
+	
+	
+    }
     @After
     public void close() {
 	driver.close();
