@@ -50,18 +50,14 @@ public class EscolaDAO {
     public List<Escola> pesquisaPorCampos(List<Campo> campos)
 	    throws SQLException, ConsultaBancoRetornoVazioException {
 	StringBuilder sb = new StringBuilder();
-	gerarQuerySQL(sb);
 
-	for (Campo campo : campos) {
-	    addCondicaoAQuery(sb, campo);
-	}
+	gerarQuerySQL(sb);
+	addCondicaoAQuery(campos, sb);
 
 	PreparedStatement stmt = this.connection
 		.prepareStatement(sb.toString());
 
-	for (int i = 0; i < campos.size(); i++) {
-	    addValoresAQuery(campos.get(i), stmt, i + 1);
-	}
+	addValoresAQuery(campos, stmt);
 
 	ResultSet rs = stmt.executeQuery();
 	List<Escola> listaEscola = getListaEscola(rs);
@@ -70,6 +66,29 @@ public class EscolaDAO {
 	verificarSeListaEstaVazia(listaEscola);
 
 	return listaEscola;
+    }
+
+    private void addValoresAQuery(List<Campo> campos, PreparedStatement stmt)
+	    throws SQLException {
+	for (int i = 0; i < campos.size(); i++) {
+	    stmt.setString(i + 1, "%" + campos.get(i).getValor() + "%");
+	}
+    }
+
+    private void addCondicaoAQuery(List<Campo> campos, StringBuilder sb) {
+	for (Campo campo : campos) {
+	    sb.append("AND " + campo.getTabela() + "." + campo.getNome()
+		    + " like ? ");
+	}
+    }
+
+    private void gerarQuerySQL(StringBuilder sb) {
+	sb.append("select * from escola ");
+	sb.append("INNER JOIN endereco ON escola.COD_ENDERECO = endereco.COD_ENDERECO ");
+	sb.append("INNER JOIN municipio  ON municipio.COD_MUNICIPIO = endereco.COD_MUNICIPIO ");
+	sb.append("INNER JOIN uf uf ON uf.COD_UF = municipio.COD_UF ");
+	sb.append("INNER JOIN modalidade_escola_escola ON modalidade_escola_escola.COD_ESCOLA = escola.COD_ESCOLA ");
+	sb.append("INNER JOIN modalidade_ensino ON modalidade_ensino.COD_MODALIDADE_ENSINO = modalidade_escola_escola.COD_MODALIDADE_ENSINO ");
     }
 
     public List<Escola> pesquisarEscolaPorCep(String cep) throws SQLException,
@@ -97,25 +116,6 @@ public class EscolaDAO {
 	    throw new ConsultaBancoRetornoVazioException(
 		    "Consulta não retornou nenhuma escola com esses atributos.");
 	}
-    }
-
-    private void gerarQuerySQL(StringBuilder sb) {
-	sb.append("select * from escola ");
-	sb.append("INNER JOIN endereco ON escola.COD_ENDERECO = endereco.COD_ENDERECO ");
-	sb.append("INNER JOIN municipio  ON municipio.COD_MUNICIPIO = endereco.COD_MUNICIPIO ");
-	sb.append("INNER JOIN uf uf ON uf.COD_UF = municipio.COD_UF ");
-	sb.append("INNER JOIN modalidade_escola_escola ON modalidade_escola_escola.COD_ESCOLA = escola.COD_ESCOLA ");
-	sb.append("INNER JOIN modalidade_ensino ON modalidade_ensino.COD_MODALIDADE_ENSINO = modalidade_escola_escola.COD_MODALIDADE_ENSINO ");
-    }
-
-    private void addValoresAQuery(Campo campo, PreparedStatement stmt,
-	    int posicao) throws SQLException {
-	stmt.setString(posicao, "%" + campo.getValor() + "%");
-    }
-
-    private void addCondicaoAQuery(StringBuilder sb, Campo campo) {
-	sb.append("AND " + campo.getTabela() + "." + campo.getNome()
-		+ " like ? ");
     }
 
     private List<Escola> getListaEscola(ResultSet rs) throws SQLException {
