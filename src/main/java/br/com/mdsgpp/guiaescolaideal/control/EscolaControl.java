@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
@@ -51,4 +52,23 @@ public class EscolaControl {
 	    throw new EntradaDadosException("CEP inválido");
 	}
     }  
+    
+    public List<Escola> getEscolaIdeal(List<Campo> campos)throws SQLException, ParseException,
+    PesquisaException{	
+	
+	
+	return this.escolaDAO.pesquisaPorCampos(campos);
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+

@@ -53,9 +53,9 @@
 				<td>Modalidade de ensino:</td>
 				<td><select name="modalidade">
 						<option value="">Escolha a modalidade</option>
-						<option value="ENSINO_REGULAR">Ensino Regular</option>
-						<option value="EDUCACAO_ESPECIAL">Educação Especial</option>
-						<option value="EDUCACAO_JOVENS_ADULTOS">EJA - Educação de Jovens e Adultos</option>
+						<option value="Ensino Regular">Ensino Regular</option>
+						<option value="Educacao Especial">Educação Especial</option>
+						<option value="Educacao De Jovens E">EJA - Educação de Jovens e Adultos</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -77,14 +77,14 @@
 			<tr>
 				<td>Laboratório de informática:</td> 
 				<td><input type="radio" name="labinf" value="sim">Sim</td> 
-				<td><input type="radio" name="labinf" value="nao">Não</td>
+				<td><input type="radio" name="labinf" value="não">Não</td>
 			</tr>
 			
 			
 			<tr>
 				<td>Laboratório de ciências:</td>
 				<td><input type="radio" name="labcien" value="sim">Sim</td> 
-				<td><input type="radio" name="labcien" value="nao">Não</td>
+				<td><input type="radio" name="labcien" value="não">Não</td>
 			</tr>
 			</table></tr>
 			
