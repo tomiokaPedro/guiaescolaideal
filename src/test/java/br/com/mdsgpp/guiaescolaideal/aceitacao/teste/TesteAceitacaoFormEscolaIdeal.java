@@ -42,8 +42,6 @@ public class TesteAceitacaoFormEscolaIdeal {
 	WebElement submit = driver.findElement(By.name("submit"));
 	submit.click();
 
-	pausa();
-
 	String linkPagAtual = driver.getCurrentUrl();
 
 	assertTrue(!linkPag.equalsIgnoreCase(linkPagAtual));
@@ -121,13 +119,6 @@ public class TesteAceitacaoFormEscolaIdeal {
 	assertTrue(driver.getPageSource().contains(
 		"Consulta não retornou nenhuma escola com esses atributos."));
 
-    }
-
-    private void pausa() {
-	try {
-	    Thread.sleep(10000);
-	} catch (InterruptedException e) {
-	}
     }
 
     @After
