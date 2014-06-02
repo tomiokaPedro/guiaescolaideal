@@ -47,6 +47,25 @@ public class TesteAceitacaoFormEscolaIdeal {
 	
 	assertTrue(!linkPag.equalsIgnoreCase(linkPagAtual));
     }
+    
+    @Test
+    public void testeSemInserirEstado()
+    {
+	Select listaModalidade = new Select(driver.findElement(By.name("modalidade")));
+	listaModalidade.selectByVisibleText("Ensino Regular");
+	
+	WebElement submit  = driver.findElement(By.name("submit"));
+	submit.click();
+	
+	
+	String texto = driver.switchTo().alert().getText();
+	
+	driver.switchTo().alert().accept();
+	
+	assertTrue(texto.equals("Selecione um estado"));
+	
+	
+    }
 
     private void pausa() {
 	try {
