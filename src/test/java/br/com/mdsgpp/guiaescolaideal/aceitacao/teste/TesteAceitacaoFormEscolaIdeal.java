@@ -65,12 +65,9 @@ public class TesteAceitacaoFormEscolaIdeal {
 	assertTrue(texto.equals("Selecione um estado"));
 
     }
-    
+
     @Test
-    public void testeMunicipioComCaracteresInvalidos(){
-
-	String linkPag = driver.getCurrentUrl();
-
+    public void testeMunicipioComCaracteresInvalidos() {
 	Select listaModalidade = new Select(driver.findElement(By
 		.name("modalidade")));
 	listaModalidade.selectByVisibleText("Ensino Regular");
@@ -83,7 +80,7 @@ public class TesteAceitacaoFormEscolaIdeal {
 
 	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
 	radioLabCiencia.click();
-	
+
 	WebElement municipio = driver.findElement(By.name("municipio"));
 	municipio.sendKeys("$%$¨&%¨¨¨&%");
 
@@ -96,10 +93,8 @@ public class TesteAceitacaoFormEscolaIdeal {
 	assertTrue(texto != null && !texto.isEmpty());
     }
     
-    private void TesteNaoEncontrarEscola()
-    {
-	String linkPag = driver.getCurrentUrl();
-
+    @Test
+    public void testeNaoEncontrarEscola() {
 	Select listaModalidade = new Select(driver.findElement(By
 		.name("modalidade")));
 	listaModalidade.selectByVisibleText("Ensino Regular");
@@ -112,17 +107,20 @@ public class TesteAceitacaoFormEscolaIdeal {
 
 	WebElement municipio = driver.findElement(By.name("municipio"));
 	municipio.sendKeys("Java");
-	
+
 	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
 	radioLabCiencia.click();
 
 	WebElement submit = driver.findElement(By.name("submit"));
 	submit.click();
 	
-	assertTrue(!linkPag.equalsIgnoreCase("http://localhost:8765/GuiaEscolaIdeal/realizarConsultaEscolaEspecifica.jsp"));
-	
-	assertTrue(driver.getPageSource().contains("Argumento(s) inserido(s) pelo usuário inválido(s)."));
-	
+	String linkPag = driver.getCurrentUrl();
+	assertTrue(linkPag
+		.equalsIgnoreCase("http://localhost:8765/GuiaEscolaIdeal/realizarConsultaEscolaEspecifica.jsp"));
+
+	assertTrue(driver.getPageSource().contains(
+		"Consulta não retornou nenhuma escola com esses atributos."));
+
     }
 
     private void pausa() {
