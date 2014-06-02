@@ -19,6 +19,7 @@ import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
+import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 @WebServlet(value = "/realizarConsultaEscolaEspecifica.jsp")
 public class PesquisarEscolaIdealServlet extends HttpServlet {
@@ -30,30 +31,42 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	    throws ServletException, IOException {
 
 	RequestDispatcher dispatcher = null;
-	String nome = null;
+
 	String estado = null;
 	String municipio = null;
 	String labinf = null;
 	String labcien = null;
 	String modalidade = null;
-	
-	nome = request.getParameter("nome");
+
 	estado = request.getParameter("estado");
 	municipio = request.getParameter("municipio");
 	labinf = request.getParameter("labinf");
 	labcien = request.getParameter("labcien");
 	modalidade = request.getParameter("modalidade");
-	
-	
+
+	List<Campo> campos = new ArrayList<Campo>();
+
 	Connection con = null;
 
 	try {
+
+	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO", estado,
+		    "UF"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
+		    municipio, "MUNICIPIO"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INF", labinf,
+		    "ESCOLA"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
+		    labcien, "ESCOLA"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
+		    modalidade, "MODALIDADE_ENSINO"));
+
 	    con = new ConnectionFactory().getConnection();
 	    EscolaDAO escolaDAO = new EscolaDAO(con);
 	    EscolaControl escolaControl = new EscolaControl(escolaDAO);
 
 	    request.setAttribute("listaescola",
-		    escolaControl.getEscolaIdeal());
+		    escolaControl.getEscolaIdeal(campos));
 
 	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 	    con.close();
@@ -83,7 +96,5 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	dispatcher = request.getRequestDispatcher("/erro.jsp");
 	return dispatcher;
     }
-    
-    
 
 }

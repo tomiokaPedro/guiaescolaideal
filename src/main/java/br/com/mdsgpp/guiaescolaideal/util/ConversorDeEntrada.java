@@ -37,7 +37,7 @@ public class ConversorDeEntrada {
 
 	return Arrays.asList(texto.split(" "));
     }
-    public static List<Campo> gerarCampos(String tabela,String valor,String nome) throws EntradaDadosException{
+    public static List<Campo> gerarCampos(String nome,String valor,String tabela) throws EntradaDadosException{
 
 	List<Campo> campos = new ArrayList<Campo>();
 	List<String> palavras = getPalavrasChaveDoTexto(valor);
