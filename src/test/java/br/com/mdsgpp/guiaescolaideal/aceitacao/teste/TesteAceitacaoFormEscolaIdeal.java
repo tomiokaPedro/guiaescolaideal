@@ -95,6 +95,35 @@ public class TesteAceitacaoFormEscolaIdeal {
 
 	assertTrue(texto != null && !texto.isEmpty());
     }
+    
+    private void TesteNaoEncontrarEscola()
+    {
+	String linkPag = driver.getCurrentUrl();
+
+	Select listaModalidade = new Select(driver.findElement(By
+		.name("modalidade")));
+	listaModalidade.selectByVisibleText("Ensino Regular");
+
+	Select listaEstado = new Select(driver.findElement(By.name("estado")));
+	listaEstado.selectByVisibleText("Distrito Federal");
+
+	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
+	radioLabInfo.click();
+
+	WebElement municipio = driver.findElement(By.name("municipio"));
+	municipio.sendKeys("Java");
+	
+	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
+	radioLabCiencia.click();
+
+	WebElement submit = driver.findElement(By.name("submit"));
+	submit.click();
+	
+	assertTrue(!linkPag.equalsIgnoreCase("http://localhost:8765/GuiaEscolaIdeal/realizarConsultaEscolaEspecifica.jsp"));
+	
+	assertTrue(driver.getPageSource().contains("Argumento(s) inserido(s) pelo usuário inválido(s)."));
+	
+    }
 
     private void pausa() {
 	try {
