@@ -23,130 +23,106 @@ public class TesteAceitacaoFormEscolaIdeal {
 
     @Test
     public void testeCasoPerfeito() {
-
 	String linkPag = driver.getCurrentUrl();
 
-	Select listaModalidade = new Select(driver.findElement(By
-		.name("modalidade")));
-	listaModalidade.selectByVisibleText("Ensino Regular");
-
-	Select listaEstado = new Select(driver.findElement(By.name("estado")));
-	listaEstado.selectByVisibleText("Distrito Federal");
-
-	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
-	radioLabInfo.click();
-
-	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
-	radioLabCiencia.click();
-
-	WebElement submit = driver.findElement(By.name("submit"));
-	submit.click();
+	selecionaModalidade();
+	selecionaEstado();
+	selecionaLabInfo();
+	selecionaLabCiencias();
+	submit();
 
 	String linkPagAtual = driver.getCurrentUrl();
-
+	
 	assertTrue(!linkPag.equalsIgnoreCase(linkPagAtual));
+	assertTrue(driver.getPageSource().contains("Bairro"));
     }
 
     @Test
     public void testeSemInserirEstado() {
-	Select listaModalidade = new Select(driver.findElement(By
-		.name("modalidade")));
-	listaModalidade.selectByVisibleText("Ensino Regular");
+	selecionaModalidade();
+	submit();
 
-	WebElement submit = driver.findElement(By.name("submit"));
-	submit.click();
-
-	String texto = driver.switchTo().alert().getText();
-
-	driver.switchTo().alert().accept();
-
+	String texto = getAlertText();
 	assertTrue(texto.equals("Selecione um estado"));
-
     }
 
     @Test
     public void testeMunicipioComCaracteresInvalidos() {
-	Select listaModalidade = new Select(driver.findElement(By
-		.name("modalidade")));
-	listaModalidade.selectByVisibleText("Ensino Regular");
-
-	Select listaEstado = new Select(driver.findElement(By.name("estado")));
-	listaEstado.selectByVisibleText("Distrito Federal");
-
-	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
-	radioLabInfo.click();
-
-	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
-	radioLabCiencia.click();
+	selecionaModalidade();
+	selecionaEstado();
+	selecionaLabInfo();
+	selecionaLabCiencias();
 
 	WebElement municipio = driver.findElement(By.name("municipio"));
 	municipio.sendKeys("$%$จ&%จจจ&%");
+	submit();
 
-	WebElement submit = driver.findElement(By.name("submit"));
-	submit.click();
-
-	String texto = driver.switchTo().alert().getText();
-	driver.switchTo().alert().accept();
-
+	String texto = getAlertText();
 	assertTrue(texto != null && !texto.isEmpty());
     }
-    
+
+    private String getAlertText() {
+	String texto = driver.switchTo().alert().getText();
+	driver.switchTo().alert().accept();
+	return texto;
+    }
+
     @Test
     public void testeNaoEncontrarEscola() {
-	Select listaModalidade = new Select(driver.findElement(By
-		.name("modalidade")));
-	listaModalidade.selectByVisibleText("Ensino Regular");
-
-	Select listaEstado = new Select(driver.findElement(By.name("estado")));
-	listaEstado.selectByVisibleText("Distrito Federal");
-
-	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
-	radioLabInfo.click();
+	selecionaModalidade();
+	selecionaEstado();
+	selecionaLabInfo();
 
 	WebElement municipio = driver.findElement(By.name("municipio"));
 	municipio.sendKeys("Java");
 
-	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
-	radioLabCiencia.click();
-
-	WebElement submit = driver.findElement(By.name("submit"));
-	submit.click();
-	
-	String linkPag = driver.getCurrentUrl();
-	assertTrue(linkPag
-		.equalsIgnoreCase("http://localhost:8765/GuiaEscolaIdeal/realizarConsultaEscolaEspecifica.jsp"));
+	selecionaLabCiencias();
+	submit();
 
 	assertTrue(driver.getPageSource().contains(
 		"Consulta nใo retornou nenhuma escola com esses atributos."));
-
     }
 
     @Test
-    public void testeModalidadeVazia()
-    {
-	
-	Select listaEstado = new Select(driver.findElement(By.name("estado")));
-	listaEstado.selectByVisibleText("Distrito Federal");
+    public void testeModalidadeVazia() {
+	selecionaEstado();
+	selecionaLabInfo();
+	selecionaLabCiencias();
+	submit();
 
-	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
-	radioLabInfo.click();
-
-	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
-	radioLabCiencia.click();
-
-	WebElement submit = driver.findElement(By.name("submit"));
-	submit.click();
-	
-	String texto = driver.switchTo().alert().getText();
-	driver.switchTo().alert().accept();
-	
+	String texto = getAlertText();
 	assertTrue(texto.equalsIgnoreCase("Selecione uma modalidade"));
-	
-	
     }
+
     @After
     public void close() {
 	driver.close();
+    }
+    
+    private void submit() {
+	WebElement submit = driver.findElement(By.cssSelector("input[type=\"submit\"]"));
+	submit.click();
+    }
+
+    private void selecionaLabCiencias() {
+	WebElement radioLabCiencia = driver.findElement(By.name("labcien"));
+	radioLabCiencia.click();
+    }
+
+    private void selecionaLabInfo() {
+	WebElement radioLabInfo = driver.findElement(By.name("labinf"));
+	radioLabInfo.click();
+    }
+
+    private void selecionaEstado() {
+	Select listaEstado = new Select(driver.findElement(By.name("estado")));
+	listaEstado.selectByVisibleText("Distrito Federal");
+    }
+
+    private void selecionaModalidade() {
+	Select listaModalidade = new Select(driver.findElement(By
+		.name("modalidade")));
+	listaModalidade.selectByVisibleText("Ensino Regular");
     }
 
 }
