@@ -39,6 +39,11 @@
 			return false;
 		}
 		
+		if(!municipio.matches("[a-zA-Z]"){
+			alert('Insira o município.');
+			//form1.municipio.focus();
+			return false;
+		}
 		
 		return true;
 	}
