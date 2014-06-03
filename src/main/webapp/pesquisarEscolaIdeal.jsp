@@ -52,7 +52,7 @@
 </head>
 <body>
 	<table>
-		<form name="form1" action="realizarConsultaEscolaEspecifica.jsp" method="post">
+		<form name="form1" action="realizarConsultaEscolaIdeal.jsp" method="post">
 
 			<tr>
 				<td>Modalidade de ensino:</td>

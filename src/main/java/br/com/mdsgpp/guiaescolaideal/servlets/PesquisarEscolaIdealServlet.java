@@ -21,7 +21,7 @@ import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
-@WebServlet(value = "/realizarConsultaEscolaEspecifica.jsp")
+@WebServlet(value = "/realizarConsultaEscolaIdeal.jsp")
 public class PesquisarEscolaIdealServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
