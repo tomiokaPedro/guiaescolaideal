@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
@@ -123,5 +124,9 @@ public class TesteConversorDeEntrada {
 	@Test
 	public void testConstrutor(){
 		assertNotNull(new ConversorDeEntrada());
+	}
+	@Test
+	public void testGerarCampos() throws EntradaDadosException{
+	    assertTrue(ConversorDeEntrada.gerarCampos("padrao", "1 2 3 4 5", "padrao").size() == 5);
 	}
 }
