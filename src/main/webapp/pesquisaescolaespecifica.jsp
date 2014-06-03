@@ -1,4 +1,14 @@
 <section class="conteudo" id="busca">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <table>
 		<form name="form1" action="realizarConsultaEscolaEspecifica.jsp" method="post">
 			<tr>
