@@ -96,7 +96,7 @@
 			
 			<tr><br>
 				<td></td>
-				<td><input type="submit" onclick="return validar()" /></td>
+				<td><input type="submit" name="submit" onclick="return validar()" /></td>
 			</tr>
 		</form>
 	</table>
