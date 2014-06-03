@@ -101,7 +101,7 @@ $(window).load(function() {
 <%@ include file="header.jsp" %> 
 <%@ include file="nav.jsp" %> 
 <%@ include file="home.jsp" %> 
-<%@ include file="busca.jsp" %> 
+<%@ include file="selecaobusca.jsp" %> 
 <%@ include file="noticias.jsp" %> 
 <%@ include file="faq.jsp" %> 
 <%@ include file="quem.jsp" %> 

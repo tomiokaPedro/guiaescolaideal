@@ -204,6 +204,18 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 background-color: #8dbdd8;
 }
 
+.especifica {
+	width: 45%;
+	clear: both;
+	float:left;
+
+}
+
+.ideal {
+	width: 45%;
+	float: right;
+	
+}
 
 
 

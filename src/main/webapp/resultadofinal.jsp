@@ -22,7 +22,7 @@
 <c:forEach var="escolar" items="${listaescola}">
 
 	<tr>					
-		<td>				<a href="#" onclick="window.open('pegarEscola.jsp?id=${escolar.codEscola}', 'Pagina', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=YES, TOP=10, LEFT=10, WIDTH=670, HEIGHT=250');">${escolar.nomeEscola}</a> </td>
+		<td>				<a href="#" onclick="window.open('pegarEscola.jsp?id=${escolar.codEscola}', 'Pagina', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=YES, TOP=10, LEFT=10, WIDTH=660, HEIGHT=450');">${escolar.nomeEscola}</a> </td>
 		<td>				 ${escolar.endereco.bairro}</td>
 		<td>				(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}</td>
 						
