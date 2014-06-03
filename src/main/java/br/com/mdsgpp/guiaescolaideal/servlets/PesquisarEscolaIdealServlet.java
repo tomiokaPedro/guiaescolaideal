@@ -52,12 +52,15 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO", estado,
 		    "uf"));
+	    try{
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
 		    municipio, "municipio"));
-	    try{
+	
+	    }catch (Exception e){}
+	    
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
 		    "escola"));
-	    }catch (Exception e){}
+	    
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
 		    labcien, "escola"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",

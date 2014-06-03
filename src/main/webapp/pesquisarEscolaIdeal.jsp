@@ -39,11 +39,11 @@
 			return false;
 		}
 		
-		if(!municipio.matches("[a-zA-Z]"){
-			alert('Insira o município.');
-			//form1.municipio.focus();
-			return false;
-		}
+		var regExp = /[^A-Za-z0-9\sÀ-Üà-ü]/;
+	 	if(regExp.test(municipio)){
+	 	 alert('Insira o município.');
+	 	 return false;
+	 	}
 		
 		return true;
 	}
