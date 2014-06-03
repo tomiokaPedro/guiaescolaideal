@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
@@ -213,7 +215,8 @@ public class TesteEscolaDAO extends DAO {
     }
 
     @Test
-    public void testPesquisarEscolaPorCep() throws SQLException, ParseException, ConsultaBancoRetornoVazioException {
+    public void testPesquisarEscolaPorCep() throws SQLException,
+	    ParseException, ConsultaBancoRetornoVazioException {
 	String cep = "11111111";
 
 	List<Escola> listaEscola = new ArrayList<Escola>();
@@ -227,7 +230,7 @@ public class TesteEscolaDAO extends DAO {
     public void testPesquisarEscolaPorCepInvalido() throws SQLException,
 	    ParseException {
 	String cep = "11115555";
-	
+
 	/*
 	 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit
 	 * 4.0
@@ -240,4 +243,39 @@ public class TesteEscolaDAO extends DAO {
 	}
 
     }
+
+    @Test
+    public void testPesquisarPorCampo()
+	    throws ConsultaBancoRetornoVazioException, SQLException {
+	Campo campo = new Campo("NOME_ESCOLA", "xp5pk", "escola");
+	Campo campoLAB = new Campo("SE_LAB_INFO", "sim", "escola");
+	assertTrue(dao.pesquisaPorCampos(Arrays.asList(campo, campoLAB)).size() == 1);
+
+    }
+
+    @Test
+    public void testPesquisarPorCampoModalidade()
+	    throws ConsultaBancoRetornoVazioException, SQLException {
+	Campo campo = new Campo("DESCRICAO", "java", "modalidade_ensino");
+	assertTrue(dao.pesquisaPorCampos(Arrays.asList(campo)).size() == 2);
+    }
+
+    @Test
+    public void testPesquisarEscolaPorCampoInvalido() throws SQLException,
+	    ParseException {
+
+	Campo campo = new Campo("NOME_ESCOLA", "xp8d423", "escola");
+	/*
+	 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit
+	 * 4.0
+	 */
+	try {
+	    dao.pesquisaPorCampos(Arrays.asList(campo));
+	    fail("Esperava-se ConsultaBancoRetornoVazioException");
+	} catch (ConsultaBancoRetornoVazioException success) {
+	    assertNotNull(success.getMessage());
+	}
+
+    }
+
 }

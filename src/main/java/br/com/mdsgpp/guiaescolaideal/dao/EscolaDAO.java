@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
@@ -13,6 +14,7 @@ import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
+import br.com.mdsgpp.guiaescolaideal.util.Util;
 
 public class EscolaDAO {
 
@@ -45,17 +47,96 @@ public class EscolaDAO {
 	return escola;
     }
 
+    public List<Escola> pesquisaPorCampos(List<Campo> campos)
+	    throws SQLException, ConsultaBancoRetornoVazioException {
+	StringBuilder sb = new StringBuilder();
+
+	gerarQuerySQL(sb);
+	addCondicaoAQuery(campos, sb);
+
+	PreparedStatement stmt = this.connection
+		.prepareStatement(sb.toString());
+
+	addValoresAQuery(campos, stmt);
+
+	ResultSet rs = stmt.executeQuery();
+	List<Escola> listaEscola = getListaEscola(rs);
+	stmt.close();
+
+	verificarSeListaEstaVazia(listaEscola);
+
+	return listaEscola;
+    }
+
+    private void addValoresAQuery(List<Campo> campos, PreparedStatement stmt)
+	    throws SQLException {
+	for (int i = 0; i < campos.size(); i++) {
+	    stmt.setString(i + 1, "%" + campos.get(i).getValor() + "%");
+	}
+    }
+
+    private void addCondicaoAQuery(List<Campo> campos, StringBuilder sb) {
+	for (Campo campo : campos) {
+	    sb.append("AND " + campo.getTabela() + "." + campo.getNome()
+		    + " like ? ");
+	}
+    }
+
+    private void gerarQuerySQL(StringBuilder sb) {
+	sb.append("select * from escola ");
+	sb.append("INNER JOIN endereco ON escola.COD_ENDERECO = endereco.COD_ENDERECO ");
+	sb.append("INNER JOIN municipio  ON municipio.COD_MUNICIPIO = endereco.COD_MUNICIPIO ");
+	sb.append("INNER JOIN uf uf ON uf.COD_UF = municipio.COD_UF ");
+	sb.append("INNER JOIN modalidade_escola_escola ON modalidade_escola_escola.COD_ESCOLA = escola.COD_ESCOLA ");
+	sb.append("INNER JOIN modalidade_ensino ON modalidade_ensino.COD_MODALIDADE_ENSINO = modalidade_escola_escola.COD_MODALIDADE_ENSINO ");
+    }
+
+    public List<Escola> pesquisarEscolaPorCep(String cep) throws SQLException,
+	    ConsultaBancoRetornoVazioException {
+
+	String prefixoCep = cep.substring(0, 5) + "%";
+
+	String sql = "select * from escola INNER JOIN endereco ON endereco.COD_ENDERECO = escola.COD_ENDERECO AND endereco.CEP like ?";
+
+	PreparedStatement stmt = this.connection.prepareStatement(sql);
+	stmt.setString(1, prefixoCep);
+
+	ResultSet rs = stmt.executeQuery();
+	List<Escola> listaEscola = getListaEscola(rs);
+	stmt.close();
+
+	verificarSeListaEstaVazia(listaEscola);
+
+	return listaEscola;
+    }
+
+    private void verificarSeListaEstaVazia(List<Escola> listaEscola)
+	    throws ConsultaBancoRetornoVazioException {
+	if (listaEscola.isEmpty()) {
+	    throw new ConsultaBancoRetornoVazioException(
+		    "Consulta não retornou nenhuma escola com esses atributos.");
+	}
+    }
+
+    private List<Escola> getListaEscola(ResultSet rs) throws SQLException {
+	List<Escola> listaEscola = new ArrayList<Escola>();
+
+	while (rs.next()) {
+	    Escola escola = getEscolaDefault(rs);
+	    listaEscola.add(escola);
+	}
+
+	return listaEscola;
+    }
+
     public List<Escola> pesquisarPorNome(String nome, int comeco, int quantidade)
 	    throws SQLException, ParseException {
 
-	if (nome == null || nome.isEmpty()) {
+	if (!Util.textoTemConteudo(nome)) {
 	    throw new IllegalArgumentException();
 	}
 
-	ArrayList<String> listaPalavras = new ArrayList<String>();
-	listaPalavras.add(nome);
-
-	return pesquisarPorNomeComPalavrasChaves(listaPalavras, comeco,
+	return pesquisarPorNomeComPalavrasChaves(Arrays.asList(nome), comeco,
 		quantidade);
     }
 
@@ -80,15 +161,9 @@ public class EscolaDAO {
 	stmt.setInt(sizeLista + 1, comeco);
 	stmt.setInt(sizeLista + 2, quantidade);
 
-	List<Escola> listaEscola = new ArrayList<Escola>();
 	ResultSet rs = stmt.executeQuery();
-
-	while (rs.next()) {
-
-	    Escola escola = getEscolaAll(rs);
-	    listaEscola.add(escola);
-
-	}
+	List<Escola> listaEscola = getListaEscola(rs);
+	stmt.close();
 
 	return listaEscola;
     }
@@ -146,18 +221,11 @@ public class EscolaDAO {
 	PreparedStatement stmt = getStmtConfig(listaPalavras, estado,
 		listaPalavrasMunicipio, sql);
 
-	List<Escola> listaEscola = new ArrayList<Escola>();
 	ResultSet rs = stmt.executeQuery();
+	List<Escola> listaEscola = getListaEscola(rs);
+	stmt.close();
 
-	while (rs.next()) {
-	    Escola escola = getEscolaDefault(rs);
-	    listaEscola.add(escola);
-	}
-
-	if (listaEscola.isEmpty()) {
-	    throw new ConsultaBancoRetornoVazioException(
-		    "Consulta não retornou nenhuma escola com esses atributos.");
-	}
+	verificarSeListaEstaVazia(listaEscola);
 
 	return listaEscola;
     }
@@ -179,6 +247,35 @@ public class EscolaDAO {
 
 	sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
 	return sb.toString();
+    }
+
+    private String gerarQuerySqlComPesquisaPorPalavras(
+	    List<String> listaPalavras) {
+	StringBuilder builder = new StringBuilder();
+	builder.append("select * from escola where ");
+	builder.append(addListaNome("NOME_ESCOLA", listaPalavras));
+
+	return builder.toString();
+    }
+
+    private String addListaNome(String nomeCampo, List<String> listaPalavras) {
+	StringBuilder builder = new StringBuilder();
+
+	int sizeLista = listaPalavras.size();
+
+	for (int i = 0; i < sizeLista; i++) {
+	    builder.append("( " + nomeCampo + " like ?) ");
+
+	    if (i != (sizeLista - 1)) {
+		builder.append("AND ");
+	    }
+	}
+
+	return builder.toString();
+    }
+
+    private String addLimit() {
+	return " LIMIT ?, ?";
     }
 
     private Escola getEscolaAll(ResultSet rs) throws SQLException,
@@ -339,62 +436,5 @@ public class EscolaDAO {
 	escola.setTelefone(telefone);
 
 	return escola;
-    }
-
-    private String gerarQuerySqlComPesquisaPorPalavras(
-	    List<String> listaPalavras) {
-	StringBuilder builder = new StringBuilder();
-	builder.append("select * from escola where ");
-	builder.append(addListaNome("NOME_ESCOLA", listaPalavras));
-
-	return builder.toString();
-    }
-
-    private String addListaNome(String nomeCampo, List<String> listaPalavras) {
-	StringBuilder builder = new StringBuilder();
-
-	int sizeLista = listaPalavras.size();
-
-	for (int i = 0; i < sizeLista; i++) {
-	    builder.append("( " + nomeCampo + " like ?) ");
-
-	    if (i != (sizeLista - 1)) {
-		builder.append("AND ");
-	    }
-	}
-
-	return builder.toString();
-    }
-
-    private String addLimit() {
-	return " LIMIT ?, ?";
-    }
-
-    public List<Escola> pesquisarEscolaPorCep(String cep) throws SQLException,
-	    ConsultaBancoRetornoVazioException{
-
-	String prefixoCep = cep.substring(0, 5) + "%";
-
-	String sql = "select * from escola INNER JOIN endereco ON endereco.COD_ENDERECO = escola.COD_ENDERECO AND endereco.CEP like ?";
-
-	PreparedStatement stmt = this.connection.prepareStatement(sql);
-	stmt.setString(1, prefixoCep);
-
-	List<Escola> listaEscola = new ArrayList<Escola>();
-	ResultSet rs = stmt.executeQuery();
-
-	while (rs.next()) {
-	    Escola escola = getEscolaDefault(rs);
-	    listaEscola.add(escola);
-	}
-
-	if (listaEscola.isEmpty()) {
-	    throw new ConsultaBancoRetornoVazioException(
-		    "Consulta não retornou nenhuma escola com esses atributos.");
-	}
-
-	stmt.close();
-	return listaEscola;
-
     }
 }

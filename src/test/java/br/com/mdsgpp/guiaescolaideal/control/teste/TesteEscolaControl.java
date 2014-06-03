@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
+import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
@@ -103,6 +104,13 @@ public class TesteEscolaControl {
 	String cep = "12345-678";
 	Mockito.when(escolaDAO.pesquisarEscolaPorCep(cep)).thenReturn(getListaEscola());
 	assertTrue(control.getEscolaPorCep(cep).size() == 10);
+    }
+    @Test
+    public void testGetEscolaIdeal() throws SQLException, PesquisaException, ParseException{
+	List<Campo> campos = new ArrayList<Campo>();
+	campos.add(new Campo("defalt", "defalt", "defalt"));
+	Mockito.when(escolaDAO.pesquisaPorCampos(campos)).thenReturn(getListaEscola());
+	assertTrue(control.getEscolaIdeal(campos).size() == 10);
     }
     
     @Test(expected = EntradaDadosException.class)

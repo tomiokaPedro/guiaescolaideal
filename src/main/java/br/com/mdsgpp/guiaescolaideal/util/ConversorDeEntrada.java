@@ -5,9 +5,11 @@ import java.text.DateFormat;
 import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 
@@ -35,6 +37,17 @@ public class ConversorDeEntrada {
 
 	return Arrays.asList(texto.split(" "));
     }
+    public static List<Campo> gerarCampos(String nome,String valor,String tabela) throws EntradaDadosException{
+
+	List<Campo> campos = new ArrayList<Campo>();
+	List<String> palavras = getPalavrasChaveDoTexto(valor);
+	
+	for(String palavra : palavras){
+	    campos.add(new Campo(nome, palavra, tabela));
+	}
+	return campos;
+    }
+    
 
     public static int getNumeroInteiroSemPonto(String numero) {
 	if (numero == null || numero.isEmpty()) {
