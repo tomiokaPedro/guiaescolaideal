@@ -51,15 +51,17 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	try {
 
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO", estado,
-		    "UF"));
+		    "uf"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
-		    municipio, "MUNICIPIO"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INF", labinf,
-		    "ESCOLA"));
+		    municipio, "municipio"));
+	    try{
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
+		    "escola"));
+	    }catch (Exception e){}
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
-		    labcien, "ESCOLA"));
+		    labcien, "escola"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
-		    modalidade, "MODALIDADE_ENSINO"));
+		    modalidade, "modalidade_ensino"));
 
 	    con = new ConnectionFactory().getConnection();
 	    EscolaDAO escolaDAO = new EscolaDAO(con);
