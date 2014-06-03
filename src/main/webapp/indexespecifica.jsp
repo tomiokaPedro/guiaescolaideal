@@ -52,6 +52,33 @@ $(window).load(function() {
 })
 
 </script>
+<script language="javascript" type="text/javascript">
+	function validarEspecifica() {
+		var nome = form1.nome.value;
+		var estado = form1.estado.value;
+		var municipio = form1.municipio.value;
+		
+		if(nome == ""){
+			alert('Digite o nome da escola');
+			form1.nome.focus();
+			return false;
+		}
+		
+		if (nome.length < 3) {
+			alert('Nome escola deve ter pelo menos 3 caracteres');
+			form1.nome.focus();
+			return false;
+		}
+		
+		if (estado == "") {
+			alert('Selecione um estado');
+			form1.estado.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 
 <script type="text/javascript" src="./js/jquery-1.3.1.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.tablesorter.js"></script>

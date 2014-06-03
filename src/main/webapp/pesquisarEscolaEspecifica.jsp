@@ -9,12 +9,12 @@
 <title>Pesquisar Escola Específica</title>
 
 <script language="javascript" type="text/javascript">
-	function validar() {
+	function validarEspecifica() {
 		var nome = form1.nome.value;
 		var estado = form1.estado.value;
 		var municipio = form1.municipio.value;
 		
-		if(nome = ""){
+		if(nome == ""){
 			alert('Digite o nome da escola');
 			form1.nome.focus();
 			return false;
@@ -59,7 +59,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" onclick="return validar()" /></td>
+				<td><input type="submit" onclick="return validarEspecifica()" /></td>
 			</tr>
 		</form>
 	</table>

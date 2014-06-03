@@ -31,7 +31,7 @@
 			</tr>
 			<td>
 				<td><td>
-				<td><input type="submit" onclick="return validar()"/></td>
+				<td><input type="submit" onclick="return validarEspecifica()"/></td>
 			</td>
 		</form>
 	</table>

@@ -10,6 +10,6 @@
 <br/>
 <br/>
 
-<%@ include file="pesquisarEscolaPorCep.jsp" %> 	
+<%@ include file="pesquisarEscolaIdeal.jsp" %> 	
 
 </section>
