@@ -37,17 +37,18 @@ public class ConversorDeEntrada {
 
 	return Arrays.asList(texto.split(" "));
     }
-    public static List<Campo> gerarCampos(String nome,String valor,String tabela) throws EntradaDadosException{
+
+    public static List<Campo> gerarCampos(String nome, String valor,
+	    String tabela) throws EntradaDadosException {
 
 	List<Campo> campos = new ArrayList<Campo>();
 	List<String> palavras = getPalavrasChaveDoTexto(valor);
-	
-	for(String palavra : palavras){
+
+	for (String palavra : palavras) {
 	    campos.add(new Campo(nome, palavra, tabela));
 	}
 	return campos;
     }
-    
 
     public static int getNumeroInteiroSemPonto(String numero) {
 	if (numero == null || numero.isEmpty()) {
@@ -78,10 +79,15 @@ public class ConversorDeEntrada {
 
 	return data;
     }
-    public static boolean validarCep(String cep){
-	if(cep == null || cep.isEmpty()){
-	    return false;
+
+    public static void validarCep(String cep) throws EntradaDadosException {
+	if (!Util.textoTemConteudo(cep, 8)) {
+	    throw new EntradaDadosException("CEP inválido");
 	}
-	return cep.matches("[0-9]{5}-[0-9]{3}");
-    	}
+
+	if (!cep.matches("[0-9]{5}-[0-9]{3}")) {
+	    throw new EntradaDadosException("CEP inválido");
+	}
+    }
+
 }

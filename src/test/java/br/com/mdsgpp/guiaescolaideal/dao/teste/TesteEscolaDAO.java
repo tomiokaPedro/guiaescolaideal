@@ -51,39 +51,6 @@ public class TesteEscolaDAO extends DAO {
     }
 
     @Test
-    public void testPesquisarPorNome() throws SQLException, Exception {
-	assertTrue(this.dao.pesquisarPorNome("mds", 0, 100).size() == 1);
-    }
-
-    @Test
-    public void testPesquisarPorNomeInexistente() throws SQLException,
-	    Exception {
-	assertTrue(this.dao.pesquisarPorNome("XPTO", 0, 100).size() == 0);
-    }
-
-    @Test
-    public void testPesquisarpesquisarPorNomeComPalavrasChaves()
-	    throws SQLException, Exception {
-	List<String> listaPalavras = new ArrayList<String>();
-	listaPalavras.add("mds");
-	listaPalavras.add("java");
-
-	assertTrue(this.dao.pesquisarPorNomeComPalavrasChaves(listaPalavras, 0,
-		100).size() == 1);
-    }
-
-    @Test
-    public void testPesquisarpesquisarPorNomeComPalavrasChavesCombinaçãoInexistente()
-	    throws SQLException, Exception {
-	List<String> listaPalavras = new ArrayList<String>();
-	listaPalavras.add("mds");
-	listaPalavras.add("ruby");
-
-	assertTrue(this.dao.pesquisarPorNomeComPalavrasChaves(listaPalavras, 0,
-		100).size() == 0);
-    }
-
-    @Test
     public void testPesquisarPorNomeMaisLocalizacao() throws SQLException,
 	    ParseException, ConsultaBancoRetornoVazioException {
 	List<String> listaPalavras = new ArrayList<String>();
@@ -176,42 +143,6 @@ public class TesteEscolaDAO extends DAO {
 	} catch (ConsultaBancoRetornoVazioException success) {
 	    assertNotNull(success.getMessage());
 	}
-    }
-
-    @Test
-    public void testPesquisarPorNomeMaisLocalizacaoQuantidadeResultados()
-	    throws SQLException, ParseException {
-	List<String> listaPalavras = new ArrayList<String>();
-	listaPalavras.add("XP5PK");
-	listaPalavras.add("OVER");
-
-	List<String> listaPalavrasMunicipio = new ArrayList<String>();
-	listaPalavrasMunicipio.add("Rua");
-	listaPalavrasMunicipio.add("loucos");
-
-	String estado = "Javavah";
-
-	assertTrue(this.dao
-		.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(
-			listaPalavras, estado, listaPalavrasMunicipio) == 1);
-    }
-
-    @Test
-    public void testPesquisarPorNomeMaisLocalizacaoQuantidadeResultadosComMunicipioInexistente()
-	    throws SQLException, ParseException {
-	List<String> listaPalavras = new ArrayList<String>();
-	listaPalavras.add("XP5PK");
-	listaPalavras.add("OVER");
-
-	List<String> listaPalavrasMunicipio = new ArrayList<String>();
-	listaPalavrasMunicipio.add("Cidade");
-	listaPalavrasMunicipio.add("loucos");
-
-	String estado = "Javavah do sul";
-
-	assertTrue(this.dao
-		.pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(
-			listaPalavras, estado, listaPalavrasMunicipio) == 0);
     }
 
     @Test

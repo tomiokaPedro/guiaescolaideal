@@ -28,12 +28,7 @@ public class EscolaControl {
 		.getPalavrasChaveDoTexto(nomeEscola);
 	List<String> listaPalavrasMunicipio = null;
 
-	try {
-	    listaPalavrasMunicipio = ConversorDeEntrada
-		    .getPalavrasChaveDoTexto(nomeMunicipio);
-	} catch (EntradaDadosException e) {
-	    listaPalavrasMunicipio = new ArrayList<String>();
-	}
+	listaPalavrasMunicipio = getMunicipioSeForValido(nomeMunicipio);
 
 	return this.escolaDAO.pesquisarPorNomeMaisLocalizacao(
 		listaPalavrasChaves, estado, listaPalavrasMunicipio);
@@ -44,31 +39,28 @@ public class EscolaControl {
 	int id_numerico = ConversorDeEntrada.getNumeroInteiroSemPonto(id);
 	return escolaDAO.pesquisarPorID(id_numerico);
     }
-    
-    public List<Escola> getEscolaPorCep(String cep) throws SQLException, PesquisaException{
-	if(ConversorDeEntrada.validarCep(cep)){
-	    return this.escolaDAO.pesquisarEscolaPorCep(cep);
-	}else{
-	    throw new EntradaDadosException("CEP inválido");
-	}
-    }  
-    
-    public List<Escola> getEscolaIdeal(List<Campo> campos)throws SQLException, ParseException,
-    PesquisaException{	
-	
-	
+
+    public List<Escola> getEscolaPorCep(String cep) throws SQLException,
+	    PesquisaException {
+	ConversorDeEntrada.validarCep(cep);
+	return this.escolaDAO.pesquisarEscolaPorCep(cep);
+    }
+
+    public List<Escola> getEscolaIdeal(List<Campo> campos) throws SQLException,
+	    ParseException, PesquisaException {
+
 	return this.escolaDAO.pesquisaPorCampos(campos);
     }
-    
-    
-    
+
+    private List<String> getMunicipioSeForValido(String nomeMunicipio) {
+	List<String> listaPalavrasMunicipio;
+	try {
+	    listaPalavrasMunicipio = ConversorDeEntrada
+		    .getPalavrasChaveDoTexto(nomeMunicipio);
+	} catch (EntradaDadosException e) {
+	    listaPalavrasMunicipio = new ArrayList<String>();
+	}
+	return listaPalavrasMunicipio;
+    }
+
 }
-
-
-
-
-
-
-
-
-
