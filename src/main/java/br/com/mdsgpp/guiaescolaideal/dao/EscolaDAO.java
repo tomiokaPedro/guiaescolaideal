@@ -77,8 +77,7 @@ public class EscolaDAO {
 
     private void addCondicaoAQuery(List<Campo> campos, StringBuilder sb) {
 	for (Campo campo : campos) {
-	    sb.append("AND " + campo.getTabela() + "." + campo.getNome()
-		    + " like ? ");
+	    sb.append(campo.gerarCondicao());
 	}
     }
 
@@ -106,7 +105,6 @@ public class EscolaDAO {
 	stmt.close();
 
 	verificarSeListaEstaVazia(listaEscola);
-
 	return listaEscola;
     }
 
@@ -128,66 +126,6 @@ public class EscolaDAO {
 
 	return listaEscola;
     }
-
-    public List<Escola> pesquisarPorNome(String nome, int comeco, int quantidade)
-	    throws SQLException, ParseException {
-
-	if (!Util.textoTemConteudo(nome)) {
-	    throw new IllegalArgumentException();
-	}
-
-	return pesquisarPorNomeComPalavrasChaves(Arrays.asList(nome), comeco,
-		quantidade);
-    }
-
-    public List<Escola> pesquisarPorNomeComPalavrasChaves(
-	    List<String> listaPalavras, int comeco, int quantidade)
-	    throws SQLException, ParseException {
-
-	if ((comeco < 0) || (quantidade <= 0)) {
-	    throw new IllegalArgumentException();
-	}
-
-	String sql = gerarQuerySqlComPesquisaPorPalavras(listaPalavras);
-	sql = sql + addLimit();
-	PreparedStatement stmt = this.connection.prepareStatement(sql);
-
-	int sizeLista = listaPalavras.size();
-
-	for (int i = 1; i <= sizeLista; i++) {
-	    stmt.setString(i, "%" + listaPalavras.get(i - 1) + "%");
-	}
-
-	stmt.setInt(sizeLista + 1, comeco);
-	stmt.setInt(sizeLista + 2, quantidade);
-
-	ResultSet rs = stmt.executeQuery();
-	List<Escola> listaEscola = getListaEscola(rs);
-	stmt.close();
-
-	return listaEscola;
-    }
-
-    public int pesquisarPorNomeMaisLocalizacaoQuantidadeResultados(
-	    List<String> listaPalavras, String estado,
-	    List<String> listaPalavrasMunicipio) throws SQLException {
-	String retorno = "count(*) as " + TAMANHO_PESQUISA;
-	String sql = gerarQuerySQLNomeMaisLocalizao(retorno, listaPalavras,
-		listaPalavrasMunicipio);
-
-	PreparedStatement stmt = getStmtConfig(listaPalavras, estado,
-		listaPalavrasMunicipio, sql);
-
-	ResultSet rs = stmt.executeQuery();
-
-	int valor = 0;
-	if (rs.next()) {
-	    valor = rs.getInt(TAMANHO_PESQUISA);
-	}
-
-	return valor;
-    }
-
     private PreparedStatement getStmtConfig(List<String> listaPalavras,
 	    String estado, List<String> listaPalavrasMunicipio, String sql)
 	    throws SQLException {
@@ -214,7 +152,7 @@ public class EscolaDAO {
 	    List<String> listaPalavras, String estado,
 	    List<String> listaPalavrasMunicipio) throws SQLException,
 	    ParseException, ConsultaBancoRetornoVazioException {
-
+	
 	String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
 		listaPalavrasMunicipio);
 
@@ -237,28 +175,19 @@ public class EscolaDAO {
 	sb.append(retorno);
 	sb.append(" from escola esc ");
 	sb.append("INNER JOIN endereco en ON esc.COD_ENDERECO = en.COD_ENDERECO AND ");
-	sb.append(addListaNome("esc.NOME_ESCOLA", listaPalavras));
+	sb.append(addCondicaoAQueryPorLista("esc.NOME_ESCOLA", listaPalavras));
 	sb.append("INNER JOIN municipio mun ON mun.COD_MUNICIPIO = en.COD_MUNICIPIO ");
 
 	if (palavrasMunicipio.size() != 0) {
 	    sb.append("AND ");
-	    sb.append(addListaNome("mun.DESCRICAO", palavrasMunicipio));
+	    sb.append(addCondicaoAQueryPorLista("mun.DESCRICAO", palavrasMunicipio));
 	}
 
 	sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
 	return sb.toString();
     }
 
-    private String gerarQuerySqlComPesquisaPorPalavras(
-	    List<String> listaPalavras) {
-	StringBuilder builder = new StringBuilder();
-	builder.append("select * from escola where ");
-	builder.append(addListaNome("NOME_ESCOLA", listaPalavras));
-
-	return builder.toString();
-    }
-
-    private String addListaNome(String nomeCampo, List<String> listaPalavras) {
+    private String addCondicaoAQueryPorLista(String nomeCampo, List<String> listaPalavras) {
 	StringBuilder builder = new StringBuilder();
 
 	int sizeLista = listaPalavras.size();
@@ -272,10 +201,6 @@ public class EscolaDAO {
 	}
 
 	return builder.toString();
-    }
-
-    private String addLimit() {
-	return " LIMIT ?, ?";
     }
 
     private Escola getEscolaAll(ResultSet rs) throws SQLException,
