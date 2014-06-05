@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
@@ -48,7 +49,7 @@ public class EscolaDAO {
     }
 
     public List<Escola> pesquisaPorCampos(List<Campo> campos)
-	    throws SQLException, ConsultaBancoRetornoVazioException {
+	    throws SQLException, PesquisaException {
 	StringBuilder sb = new StringBuilder();
 
 	gerarQuerySQL(sb);
@@ -69,9 +70,9 @@ public class EscolaDAO {
     }
 
     private void addValoresAQuery(List<Campo> campos, PreparedStatement stmt)
-	    throws SQLException {
+	    throws PesquisaException {
 	for (int i = 0; i < campos.size(); i++) {
-	    stmt.setString(i + 1, "%" + campos.get(i).getValor() + "%");
+	    campos.get(i).addValorACondicao(stmt, i + 1);
 	}
     }
 

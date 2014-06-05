@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.dao.Campo;
+import br.com.mdsgpp.guiaescolaideal.dao.CampoTexto;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 
@@ -45,7 +46,7 @@ public class ConversorDeEntrada {
 	List<String> palavras = getPalavrasChaveDoTexto(valor);
 
 	for (String palavra : palavras) {
-	    campos.add(new Campo(nome, palavra, tabela));
+	    campos.add(new CampoTexto(nome, palavra, tabela));
 	}
 	return campos;
     }

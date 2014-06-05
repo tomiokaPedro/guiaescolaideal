@@ -11,9 +11,11 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
+import br.com.mdsgpp.guiaescolaideal.dao.CampoTexto;
 import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 
 public class TesteEscolaDAO extends DAO {
@@ -177,25 +179,25 @@ public class TesteEscolaDAO extends DAO {
 
     @Test
     public void testPesquisarPorCampo()
-	    throws ConsultaBancoRetornoVazioException, SQLException {
-	Campo campo = new Campo("NOME_ESCOLA", "xp5pk", "escola");
-	Campo campoLAB = new Campo("SE_LAB_INFO", "sim", "escola");
+	    throws SQLException, PesquisaException {
+	Campo campo = new CampoTexto("NOME_ESCOLA", "xp5pk", "escola");
+	Campo campoLAB = new CampoTexto("SE_LAB_INFO", "sim", "escola");
 	assertTrue(dao.pesquisaPorCampos(Arrays.asList(campo, campoLAB)).size() == 1);
 
     }
 
     @Test
     public void testPesquisarPorCampoModalidade()
-	    throws ConsultaBancoRetornoVazioException, SQLException {
-	Campo campo = new Campo("DESCRICAO", "java", "modalidade_ensino");
+	    throws SQLException, PesquisaException {
+	Campo campo = new CampoTexto("DESCRICAO", "java", "modalidade_ensino");
 	assertTrue(dao.pesquisaPorCampos(Arrays.asList(campo)).size() == 2);
     }
 
     @Test
     public void testPesquisarEscolaPorCampoInvalido() throws SQLException,
-	    ParseException {
+	    ParseException, PesquisaException {
 
-	Campo campo = new Campo("NOME_ESCOLA", "xp8d423", "escola");
+	Campo campo = new CampoTexto("NOME_ESCOLA", "xp8d423", "escola");
 	/*
 	 * DBUnit não reconhece a anotação @Test(expected = *.class) do JUnit
 	 * 4.0

@@ -1,31 +1,10 @@
 package br.com.mdsgpp.guiaescolaideal.dao;
 
-public class Campo implements Condicao{
+import java.sql.PreparedStatement;
 
-    private final String nome;
-    private final String valor;
-    private final String tabela;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 
-    public Campo(String nome, String valor, String tabela) {
-	this.nome = nome;
-	this.valor = valor;
-	this.tabela = tabela;
-    }
-
-    public String getNome() {
-	return nome;
-    }
-
-    public String getValor() {
-	return valor;
-    }
-
-    public String getTabela() {
-	return tabela;
-    }
-
-    public String gerarCondicao() {
-	return "AND " + this.tabela + "." + this.nome + " like ? ";
-    }
-
+public interface Campo {
+    public String gerarCondicao();
+    public void addValorACondicao(PreparedStatement stmt, int posicao) throws PesquisaException;
 }
