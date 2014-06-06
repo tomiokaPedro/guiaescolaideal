@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.CampoTexto;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
@@ -25,15 +28,12 @@ public class ConversorDeEntrada {
      */
     public static List<String> getPalavrasChaveDoTexto(String texto)
 	    throws EntradaDadosException {
-	// Verificando a entrada
 	Utilitarios.checarParaConteudo(texto, 3);
-	// retirnando os acentos
-	texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
-	// retirnando tudo que não for letra ou número ou espaço simples.
-	texto = texto.replaceAll("[^a-zA-Z0-9 ]", "");
-	// retirando possíveis espaços.
-	texto = texto.replaceAll("  ", " ");
-	// Verificando texto após verificação
+
+	texto = retiraAcentos(texto);
+	texto = retiraCaracteresEspeciais(texto);
+	texto = retiraEspacoDuplo(texto);
+
 	Utilitarios.checarParaConteudo(texto, 0);
 
 	return Arrays.asList(texto.split(" "));
@@ -71,24 +71,36 @@ public class ConversorDeEntrada {
 	return texto.equalsIgnoreCase("sim");
     }
 
-    public static Date getData(String dataTexto) throws ParseException {
+    public static Date getData(String dataTexto) {
 	Date data = null;
-	if (dataTexto != null && !dataTexto.isEmpty()) {
+
+	try {
 	    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	    data = new Date(dateFormat.parse(dataTexto).getTime());
+	} catch (ParseException e) {
+	    Logger logger = LoggerFactory.getLogger(ConversorDeEntrada.class);
+	    logger.info(e.getMessage());
+	} finally {
+	    return data;
 	}
-
-	return data;
     }
 
     public static void validarCep(String cep) throws EntradaDadosException {
-	if (!Util.textoTemConteudo(cep, 8)) {
+	if ((!Util.textoTemConteudo(cep, 8)) || (!cep.matches("[0-9]{5}-[0-9]{3}"))) {
 	    throw new EntradaDadosException("CEP inválido");
 	}
+    }
 
-	if (!cep.matches("[0-9]{5}-[0-9]{3}")) {
-	    throw new EntradaDadosException("CEP inválido");
-	}
+    private static String retiraAcentos(String texto) {
+	return Normalizer.normalize(texto, Normalizer.Form.NFD);
+    }
+
+    private static String retiraCaracteresEspeciais(String texto) {
+	return texto.replaceAll("[^a-zA-Z0-9 ]", "");
+    }
+
+    private static String retiraEspacoDuplo(String texto) {
+	return texto.replaceAll("  ", " ");
     }
 
 }

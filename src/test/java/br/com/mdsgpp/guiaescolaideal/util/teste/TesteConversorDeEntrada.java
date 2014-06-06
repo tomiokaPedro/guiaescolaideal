@@ -116,7 +116,7 @@ public class TesteConversorDeEntrada {
 	assertNull(ConversorDeEntrada.getData(""));
     }
 
-    @Test(expected = ParseException.class)
+    @Test
     public void testGetDataErrada() throws ParseException {
 	assertNull(ConversorDeEntrada.getData("22-1993"));
     }
