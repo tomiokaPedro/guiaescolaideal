@@ -360,6 +360,7 @@ public class EscolaDAO {
 	escola.setNomeEscola(rs.getString("NOME_ESCOLA"));
 	escola.setCodicaoFuncionamento(rs.getString("CONDICAO_FUNCIONAMENTO"));
 	escola.setEmail(rs.getString("EMAIL"));
+	escola.setQuantidadeVotos(rs.getInt("quantidade_votos"));
 
 	Endereco endereco = null;
 
