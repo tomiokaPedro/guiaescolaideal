@@ -6,10 +6,9 @@ package br.com.mdsgpp.guiaescolaideal.util;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
 
 public final class Utilitarios {
-
-    private Utilitarios() {
-    }
-
+    
+    private Utilitarios(){}
+    
     public static void checarParaConteudo(String texto, int tamanhoMinimo)
 	    throws EntradaDadosException {
 	if (!Util.textoTemConteudo(texto, tamanhoMinimo)) {

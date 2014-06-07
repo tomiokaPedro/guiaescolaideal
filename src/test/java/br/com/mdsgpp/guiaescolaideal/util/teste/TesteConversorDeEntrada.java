@@ -3,6 +3,7 @@ package br.com.mdsgpp.guiaescolaideal.util.teste;
 import static org.junit.Assert.*;
 
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -153,5 +154,25 @@ public class TesteConversorDeEntrada {
     public void testValidarCepInvalidoNumerico() throws EntradaDadosException{
 	String cep = "71000000";
 	ConversorDeEntrada.validarCep(cep);
+    }
+    
+    @Test
+    public void testGetValorBooleanDoTextoComDoisParametros(){
+	assertTrue(ConversorDeEntrada.getValorBooleanDoTexto("java", Arrays.asList("sim", "java")));
+    }
+    
+    @Test
+    public void testGetValorBooleanDoTextoComDoisParametrosEsperandoFalso(){
+	assertFalse(ConversorDeEntrada.getValorBooleanDoTexto("ruby", Arrays.asList("sim", "java")));
+    }
+    
+    @Test
+    public void testGetValorBooleanDoTextoComDoisParametrosValorNull(){
+	assertFalse(ConversorDeEntrada.getValorBooleanDoTexto(null, Arrays.asList("sim", "java")));
+    }
+    
+    @Test
+    public void testGetValorBooleanDoTextoComDoisParametrosValorVazio(){
+	assertFalse(ConversorDeEntrada.getValorBooleanDoTexto("", Arrays.asList("sim", "java")));
     }
 }

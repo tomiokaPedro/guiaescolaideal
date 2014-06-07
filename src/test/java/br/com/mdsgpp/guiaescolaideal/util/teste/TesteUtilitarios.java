@@ -1,7 +1,5 @@
 package br.com.mdsgpp.guiaescolaideal.util.teste;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;

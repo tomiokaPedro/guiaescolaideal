@@ -87,6 +87,10 @@ public class ConversorDeEntrada {
 
     public static Date getData(String dataTexto) {
 	Date data = null;
+	
+	if(!Util.textoTemConteudo(dataTexto)){
+	    return null;
+	}
 
 	try {
 	    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,9 +98,9 @@ public class ConversorDeEntrada {
 	} catch (ParseException e) {
 	    Logger logger = LoggerFactory.getLogger(ConversorDeEntrada.class);
 	    logger.info(e.getMessage());
-	} finally {
-	    return data;
-	}
+	} 
+	
+	return data;
     }
 
     public static void validarCep(String cep) throws EntradaDadosException {
