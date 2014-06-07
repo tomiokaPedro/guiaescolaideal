@@ -367,6 +367,7 @@ public class EscolaDAO {
 	EnderecoDAO enderecoDAO = new EnderecoDAO(connection);
 	endereco = enderecoDAO.pesquisarPorID(rs.getInt("COD_ENDERECO"));
 	escola.setEndereco(endereco);
+	
 
 	Telefone telefone = null;
 
