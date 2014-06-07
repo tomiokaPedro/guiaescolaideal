@@ -25,7 +25,7 @@ public class EscolaDAO {
 	this.connection = connection;
     }
 
-    public Escola pesquisarPorID(int id) throws SQLException, ParseException,
+    public Escola pesquisarPorID(int id) throws SQLException,
 	    ConsultaBancoRetornoVazioException {
 	String sql = "select * from escola where COD_ESCOLA= ?";
 
@@ -125,6 +125,7 @@ public class EscolaDAO {
 
 	return listaEscola;
     }
+
     private PreparedStatement getStmtConfig(List<String> listaPalavras,
 	    String estado, List<String> listaPalavrasMunicipio, String sql)
 	    throws SQLException {
@@ -151,7 +152,7 @@ public class EscolaDAO {
 	    List<String> listaPalavras, String estado,
 	    List<String> listaPalavrasMunicipio) throws SQLException,
 	    ParseException, ConsultaBancoRetornoVazioException {
-	
+
 	String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
 		listaPalavrasMunicipio);
 
@@ -179,14 +180,16 @@ public class EscolaDAO {
 
 	if (palavrasMunicipio.size() != 0) {
 	    sb.append("AND ");
-	    sb.append(addCondicaoAQueryPorLista("mun.DESCRICAO", palavrasMunicipio));
+	    sb.append(addCondicaoAQueryPorLista("mun.DESCRICAO",
+		    palavrasMunicipio));
 	}
 
 	sb.append("INNER JOIN uf uf ON uf.COD_UF = mun.COD_UF and uf.DESCRICAO = ? ");
 	return sb.toString();
     }
 
-    private String addCondicaoAQueryPorLista(String nomeCampo, List<String> listaPalavras) {
+    private String addCondicaoAQueryPorLista(String nomeCampo,
+	    List<String> listaPalavras) {
 	StringBuilder builder = new StringBuilder();
 
 	int sizeLista = listaPalavras.size();
@@ -202,8 +205,7 @@ public class EscolaDAO {
 	return builder.toString();
     }
 
-    private Escola getEscolaAll(ResultSet rs) throws SQLException,
-	    ParseException {
+    private Escola getEscolaAll(ResultSet rs) throws SQLException {
 	Escola escola = getEscolaInformacaoBasica(rs);
 	getEscolaInformacaoTipo(rs, escola);
 	getInformacaoDataPeriodoLetivo(rs, escola);
@@ -221,8 +223,8 @@ public class EscolaDAO {
 	escola.setAberturaFdsComun(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_ABERTURA_FDS_COMUN")));
 	String seAguaFiltrada = rs.getString("SE_AGUA_FILTRADA");
-	escola.setAguaFiltrada(ConversorDeEntrada
-		.getValorBooleanDoTexto(seAguaFiltrada, Arrays.asList("sim", "Filtrada")));
+	escola.setAguaFiltrada(ConversorDeEntrada.getValorBooleanDoTexto(
+		seAguaFiltrada, Arrays.asList("sim", "Filtrada")));
 	escola.setInternet(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_INTERNET")));
     }
@@ -256,7 +258,7 @@ public class EscolaDAO {
 	escola.setSantiAcess(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_SANTI_ACESS")));
 	escola.setAtendEducacionalEspecializado(rs.getString("SE_AEE"));
-	
+
 	escola.setSalaDiretoria(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_SALA_DIRETORIA")));
 	escola.setSalaProfessor(ConversorDeEntrada.getValorBooleanDoTexto(rs
@@ -341,17 +343,19 @@ public class EscolaDAO {
     }
 
     private void getInformacaoDataPeriodoLetivo(ResultSet rs, Escola escola)
-	    throws ParseException, SQLException {
-	Date inicioAnoLetivo = ConversorDeEntrada.getData(rs.getString("DATA_INICIO_LETIVO"));
+	    throws SQLException {
+	Date inicioAnoLetivo = ConversorDeEntrada.getData(rs
+		.getString("DATA_INICIO_LETIVO"));
 	escola.setDataInicioLetivo(inicioAnoLetivo);
-	
-	Date terminoAnoLetivo = ConversorDeEntrada.getData(rs.getString("DATA_TERMINO_LETIVO"));
+
+	Date terminoAnoLetivo = ConversorDeEntrada.getData(rs
+		.getString("DATA_TERMINO_LETIVO"));
 	escola.setDataTerminoLetivo(terminoAnoLetivo);
     }
 
     private Escola getEscolaInformacaoBasica(ResultSet rs) throws SQLException {
 	Escola escola = new Escola();
-	
+
 	escola.setCodEscola(rs.getInt("COD_ESCOLA"));
 	escola.setNomeEscola(rs.getString("NOME_ESCOLA"));
 	escola.setCodicaoFuncionamento(rs.getString("CONDICAO_FUNCIONAMENTO"));
@@ -367,11 +371,11 @@ public class EscolaDAO {
 
 	TelefoneDAO telefoneDAO = new TelefoneDAO(connection);
 	telefone = telefoneDAO.pesquisarPorIDEscola(escola.getCodEscola());
-	
+
 	if (telefone != null) {
 	    telefone.setMunicipio(endereco.getMunicipio());
 	}
-	
+
 	escola.setTelefone(telefone);
 	return escola;
     }

@@ -15,11 +15,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
-import br.com.mdsgpp.guiaescolaideal.dao.CampoTexto;
 import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
+import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 @WebServlet(value = "/realizarConsultaEscolaIdeal.jsp")
@@ -53,15 +53,16 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO", estado,
 		    "uf"));
-	    try{
-	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
-		    municipio, "municipio"));
-	
-	    }catch (Exception e){}
-	    
+	    try {
+		campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
+			municipio, "municipio"));
+
+	    } catch (Exception e) {
+	    }
+
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
 		    "escola"));
-	    
+
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
 		    labcien, "escola"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
@@ -75,7 +76,6 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 		    escolaControl.getEscolaIdeal(campos));
 
 	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
-	    con.close();
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
 	} catch (ParseException e) {
@@ -83,17 +83,12 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	} catch (PesquisaException e) {
 	    dispatcher = setDispatcherErro(request, e);
 	} finally {
-	    try {
-		if (con != null && !con.isClosed()) {
-		    con.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
+	    ConnectionUtil.closeConnection(con);
 	}
 
 	dispatcher.forward(request, response);
     }
+
 
     private RequestDispatcher setDispatcherErro(ServletRequest request,
 	    Exception e) {

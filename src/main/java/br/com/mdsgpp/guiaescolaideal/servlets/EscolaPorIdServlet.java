@@ -3,7 +3,6 @@ package br.com.mdsgpp.guiaescolaideal.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,54 +16,47 @@ import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
 import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
+import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
-@WebServlet(value="/pegarEscola.jsp")
+@WebServlet(value = "/pegarEscola.jsp")
 public class EscolaPorIdServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	public void service(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
+    @Override
+    public void service(ServletRequest request, ServletResponse response)
+	    throws ServletException, IOException {
 
-		String id = request.getParameter("id");
-		RequestDispatcher dispatcher = null;
+	String id = request.getParameter("id");
+	RequestDispatcher dispatcher = null;
 
-		Connection connection = null;
-		try {
-			connection = new ConnectionFactory().getConnection();
+	Connection connection = null;
+	try {
+	    connection = new ConnectionFactory().getConnection();
 
-			EscolaDAO escolaDAO = new EscolaDAO(connection);
-			EscolaControl control = new EscolaControl(escolaDAO);
-			
-			Escola escola = control.getEscolaPorId(id);
-			request.setAttribute("escola", escola);
-			
-			dispatcher = request.getRequestDispatcher("/perfil.jsp");
-		} catch (SQLException e) {
-			dispatcher = setDispatcherErro(request, e);
-		} catch (ParseException e) {
-			dispatcher = setDispatcherErro(request, e);
-		} catch (ConsultaBancoRetornoVazioException e) {
-			dispatcher = setDispatcherErro(request, e);
-		}finally{
-			try {
-				if(connection != null && !connection.isClosed()){
-					connection.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+	    EscolaDAO escolaDAO = new EscolaDAO(connection);
+	    EscolaControl control = new EscolaControl(escolaDAO);
 
-		dispatcher.forward(request, response);
+	    Escola escola = control.getEscolaPorId(id);
+	    request.setAttribute("escola", escola);
 
+	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
+	} catch (SQLException e) {
+	    dispatcher = setDispatcherErro(request, e);
+	} catch (ConsultaBancoRetornoVazioException e) {
+	    dispatcher = setDispatcherErro(request, e);
+	} finally {
+	    ConnectionUtil.closeConnection(connection);
 	}
-	
-	private RequestDispatcher setDispatcherErro(ServletRequest request, Exception e) {
-		RequestDispatcher dispatcher;
-		request.setAttribute("erroMsg", e.getMessage());
-		dispatcher = request.getRequestDispatcher("/erro.jsp");
-		return dispatcher;
-	}
+
+	dispatcher.forward(request, response);
+    }
+
+    private RequestDispatcher setDispatcherErro(ServletRequest request,
+	    Exception e) {
+	RequestDispatcher dispatcher;
+	request.setAttribute("erroMsg", e.getMessage());
+	dispatcher = request.getRequestDispatcher("/erro.jsp");
+	return dispatcher;
+    }
 }
