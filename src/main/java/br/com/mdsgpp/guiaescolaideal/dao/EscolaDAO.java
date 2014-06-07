@@ -1,6 +1,7 @@
 package br.com.mdsgpp.guiaescolaideal.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +16,8 @@ import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.model.Telefone;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
-import br.com.mdsgpp.guiaescolaideal.util.Util;
 
 public class EscolaDAO {
-
-    private final static String TAMANHO_PESQUISA = "TAMANHO_PESQUISA";
 
     private Connection connection;
 
@@ -121,7 +119,7 @@ public class EscolaDAO {
 	List<Escola> listaEscola = new ArrayList<Escola>();
 
 	while (rs.next()) {
-	    Escola escola = getEscolaDefault(rs);
+	    Escola escola = getEscolaInformacaoBasica(rs);
 	    listaEscola.add(escola);
 	}
 
@@ -206,21 +204,50 @@ public class EscolaDAO {
 
     private Escola getEscolaAll(ResultSet rs) throws SQLException,
 	    ParseException {
-	Escola escola = getEscolaDefault(rs);
+	Escola escola = getEscolaInformacaoBasica(rs);
+	getEscolaInformacaoTipo(rs, escola);
+	getInformacaoDataPeriodoLetivo(rs, escola);
+	getEscolaInformacaoEstruturaFisica(rs, escola);
+	getEscolaInformacaoNumeros(rs, escola);
+	getEscolaInformacaoOutros(rs, escola);
+	return escola;
+    }
 
+    private void getEscolaInformacaoOutros(ResultSet rs, Escola escola)
+	    throws SQLException {
+	escola.setAlimentacaoEscAlunos(ConversorDeEntrada
+		.getValorBooleanDoTexto(rs
+			.getString("SE_ALIMENTACAO_ESC_ALUNOS")));
+	escola.setAberturaFdsComun(ConversorDeEntrada.getValorBooleanDoTexto(rs
+		.getString("SE_ABERTURA_FDS_COMUN")));
+	String seAguaFiltrada = rs.getString("SE_AGUA_FILTRADA");
+	escola.setAguaFiltrada(ConversorDeEntrada
+		.getValorBooleanDoTexto(seAguaFiltrada, Arrays.asList("sim", "Filtrada")));
+	escola.setInternet(ConversorDeEntrada.getValorBooleanDoTexto(rs
+		.getString("SE_INTERNET")));
+    }
+
+    private void getEscolaInformacaoNumeros(ResultSet rs, Escola escola)
+	    throws SQLException {
+	escola.setNumFuncionarios(ConversorDeEntrada
+		.getNumeroInteiroSemPonto(rs.getString("NUM_FUNCIONARIOS")));
+	escola.setNumComputadoresAlunos(ConversorDeEntrada
+		.getNumeroInteiroSemPonto(rs
+			.getString("NUM_COMPUTADORES_ALUNOS")));
+	escola.setNumComputadoresAdministracao(ConversorDeEntrada
+		.getNumeroInteiroSemPonto(rs
+			.getString("NUM_COMPUTADORES_ADMINISTRACAO")));
+	escola.setNumComputadoresTotal(ConversorDeEntrada
+		.getNumeroInteiroSemPonto(rs
+			.getString("NUM_COMPUTADORES_TOTAL")));
+
+	escola.setNumMatriculas(ConversorDeEntrada.getNumeroInteiroSemPonto(rs
+		.getString("NUM_MATRICULAS")));
+    }
+
+    private void getEscolaInformacaoEstruturaFisica(ResultSet rs, Escola escola)
+	    throws SQLException {
 	escola.setTipoLocalizacao(rs.getString("TIPO_LOCALIZACAO"));
-	escola.setSistemaSenai(rs.getString("SE_SISTEMA_SENAI")
-		.equalsIgnoreCase("sim"));
-	escola.setOng(ConversorDeEntrada.getValorBooleanDoTexto(rs
-		.getString("SE_ONG")));
-
-	escola.setDataInicioLetivo(ConversorDeEntrada.getData(rs
-		.getString("DATA_INICIO_LETIVO")));
-	escola.setDataTerminoLetivo(ConversorDeEntrada.getData(rs
-		.getString("DATA_TERMINO_LETIVO")));
-
-	escola.setSeFinsLucrativos(ConversorDeEntrada.getValorBooleanDoTexto(rs
-		.getString("SE_FINS_LURATIVOS")));
 	escola.setAtividadeComplementar(rs.getString("ATIVIDADE_COMPLEMENTAR"));
 	escola.setAcessibilidade(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_ACESSIBILIDADE")));
@@ -229,6 +256,7 @@ public class EscolaDAO {
 	escola.setSantiAcess(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_SANTI_ACESS")));
 	escola.setAtendEducacionalEspecializado(rs.getString("SE_AEE"));
+	
 	escola.setSalaDiretoria(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_SALA_DIRETORIA")));
 	escola.setSalaProfessor(ConversorDeEntrada.getValorBooleanDoTexto(rs
@@ -294,52 +322,36 @@ public class EscolaDAO {
 		.getValorBooleanDoTexto(rs.getString("SE_ALOJAMENTO_PROFESSOR")));
 	escola.setAreaVerde(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_AREA_VERDE")));
+    }
 
-	escola.setAlimentacaoEscAlunos(ConversorDeEntrada
-		.getValorBooleanDoTexto(rs
-			.getString("SE_ALIMENTACAO_ESC_ALUNOS")));
-
-	String seAguaFiltrada = rs.getString("SE_AGUA_FILTRADA");
-	if ("Filtrada".equalsIgnoreCase(seAguaFiltrada)) {
-	    seAguaFiltrada = "sim";
-	}
-
-	escola.setAguaFiltrada(ConversorDeEntrada
-		.getValorBooleanDoTexto(seAguaFiltrada));
-
-	escola.setInternet(ConversorDeEntrada.getValorBooleanDoTexto(rs
-		.getString("SE_INTERNET")));
-
-	escola.setNumFuncionarios(ConversorDeEntrada
-		.getNumeroInteiroSemPonto(rs.getString("NUM_FUNCIONARIOS")));
-	escola.setNumComputadoresAlunos(ConversorDeEntrada
-		.getNumeroInteiroSemPonto(rs
-			.getString("NUM_COMPUTADORES_ALUNOS")));
-	escola.setNumComputadoresAdministracao(ConversorDeEntrada
-		.getNumeroInteiroSemPonto(rs
-			.getString("NUM_COMPUTADORES_ADMINISTRACAO")));
-	escola.setNumComputadoresTotal(ConversorDeEntrada
-		.getNumeroInteiroSemPonto(rs
-			.getString("NUM_COMPUTADORES_TOTAL")));
-
-	escola.setNumMatriculas(ConversorDeEntrada.getNumeroInteiroSemPonto(rs
-		.getString("NUM_MATRICULAS")));
-
+    private void getEscolaInformacaoTipo(ResultSet rs, Escola escola)
+	    throws SQLException {
+	escola.setSistemaSenai(rs.getString("SE_SISTEMA_SENAI")
+		.equalsIgnoreCase("sim"));
+	escola.setOng(ConversorDeEntrada.getValorBooleanDoTexto(rs
+		.getString("SE_ONG")));
+	escola.setSeFinsLucrativos(ConversorDeEntrada.getValorBooleanDoTexto(rs
+		.getString("SE_FINS_LURATIVOS")));
 	escola.setEducacaoIndigena(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_EDUCACAO_INDIGNA")));
 	escola.setLinguaIndigena(ConversorDeEntrada.getValorBooleanDoTexto(rs
 		.getString("SE_LINGUA_INDIGENA")));
 	escola.setBrasilAlfabetizacao(ConversorDeEntrada
 		.getValorBooleanDoTexto(rs.getString("SE_BRASIL_ALFABETIZACAO")));
-	escola.setAberturaFdsComun(ConversorDeEntrada.getValorBooleanDoTexto(rs
-		.getString("SE_ABERTURA_FDS_COMUN")));
-
-	return escola;
     }
 
-    private Escola getEscolaDefault(ResultSet rs) throws SQLException {
-	Escola escola = new Escola();
+    private void getInformacaoDataPeriodoLetivo(ResultSet rs, Escola escola)
+	    throws ParseException, SQLException {
+	Date inicioAnoLetivo = ConversorDeEntrada.getData(rs.getString("DATA_INICIO_LETIVO"));
+	escola.setDataInicioLetivo(inicioAnoLetivo);
+	
+	Date terminoAnoLetivo = ConversorDeEntrada.getData(rs.getString("DATA_TERMINO_LETIVO"));
+	escola.setDataTerminoLetivo(terminoAnoLetivo);
+    }
 
+    private Escola getEscolaInformacaoBasica(ResultSet rs) throws SQLException {
+	Escola escola = new Escola();
+	
 	escola.setCodEscola(rs.getInt("COD_ESCOLA"));
 	escola.setNomeEscola(rs.getString("NOME_ESCOLA"));
 	escola.setCodicaoFuncionamento(rs.getString("CONDICAO_FUNCIONAMENTO"));
@@ -348,19 +360,19 @@ public class EscolaDAO {
 	Endereco endereco = null;
 
 	EnderecoDAO enderecoDAO = new EnderecoDAO(connection);
-	endereco = enderecoDAO.pesquisarPorID(ConversorDeEntrada
-		.getNumeroInteiroSemPonto(rs.getString("COD_ENDERECO")));
+	endereco = enderecoDAO.pesquisarPorID(rs.getInt("COD_ENDERECO"));
 	escola.setEndereco(endereco);
 
 	Telefone telefone = null;
 
 	TelefoneDAO telefoneDAO = new TelefoneDAO(connection);
 	telefone = telefoneDAO.pesquisarPorIDEscola(escola.getCodEscola());
+	
 	if (telefone != null) {
 	    telefone.setMunicipio(endereco.getMunicipio());
 	}
+	
 	escola.setTelefone(telefone);
-
 	return escola;
     }
 }

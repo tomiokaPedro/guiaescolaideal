@@ -70,6 +70,20 @@ public class ConversorDeEntrada {
 
 	return texto.equalsIgnoreCase("sim");
     }
+    
+    public static boolean getValorBooleanDoTexto(String texto, List<String> palavrasPermitidas) {
+	if (!Util.textoTemConteudo(texto)) {
+	    return false;
+	}
+	
+	for(String palavra: palavrasPermitidas){
+	    if(texto.equalsIgnoreCase(palavra)){
+		return true;
+	    }
+	}
+	
+	return false;
+    }
 
     public static Date getData(String dataTexto) {
 	Date data = null;
