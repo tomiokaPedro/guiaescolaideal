@@ -13,29 +13,10 @@
 		
 		var estado = form1.estado.value;
 		var municipio = form1.municipio.value;
-		var modalidade = form1.modalidade.value;
-		var labinf = form1.labinf.value;
-		var labcien = form1.labcien.value;
 		
 		if (estado == "") {
 			alert('Selecione um estado');
 			form1.estado.focus();
-			return false;
-		}
-		
-		if(modalidade == ""){
-			alert('Selecione uma modalidade');
-			form1.modalidade.focus();
-			return false;
-		}
-		
-		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false){
-			alert('Maque uma opção para laboratório de informática');
-			return false;
-		}
-		
-		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false){
-			alert('Maque uma opção para laboratório de ciencias');
 			return false;
 		}
 		
@@ -83,6 +64,7 @@
 				<td>Laboratório de informática:</td> 
 				<td><input type="radio" name="labinf" value="sim">Sim</td> 
 				<td><input type="radio" name="labinf" value="não">Não</td>
+				<td><input type="radio" name="labinf" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			
@@ -90,9 +72,41 @@
 				<td>Laboratório de ciências:</td>
 				<td><input type="radio" name="labcien" value="sim">Sim</td> 
 				<td><input type="radio" name="labcien" value="não">Não</td>
+				<td><input type="radio" name="labcien" value="tanto faz">Tanto faz</td>
 			</tr>
 			</table></tr>
 			
+			<tr>
+				<td>Acessibilidade:</td>
+				<td><input type="radio" name="acessibilidade" value="sim">Sim</td> 
+				<td><input type="radio" name="acessibilidade" value="não">Não</td>
+				<td><input type="radio" name="acessibilidade" value="tanto faz">Tanto faz</td>
+			</tr>
+			</table></tr>
+			
+			<tr>
+				<td>Internet:</td>
+				<td><input type="radio" name="internet" value="sim">Sim</td> 
+				<td><input type="radio" name="internet" value="não">Não</td>
+				<td><input type="radio" name="internet" value="tanto faz">Tanto faz</td>
+			</tr>
+			</table></tr>
+			
+			<tr>
+				<td>Quadra coberta:</td>
+				<td><input type="radio" name="quadraCoberta" value="sim">Sim</td> 
+				<td><input type="radio" name="quadraCoberta" value="não">Não</td>
+				<td><input type="radio" name="quadraCoberta" value="tanto faz">Tanto faz</td>
+			</tr>
+			</table></tr>
+			
+			<tr>
+				<td>Quadra descoberta:</td>
+				<td><input type="radio" name="quadraDescoberta" value="sim">Sim</td> 
+				<td><input type="radio" name="quadraDescoberta" value="não">Não</td>
+				<td><input type="radio" name="quadraDescoberta" value="tanto faz">Tanto faz</td>
+			</tr>
+			</table></tr>
 			
 			<tr><br>
 				<td></td>
