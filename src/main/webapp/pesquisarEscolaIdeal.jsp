@@ -16,7 +16,12 @@
 		var modalidade = form1.modalidade.value;
 		var labinf = form1.labinf.value;
 		var labcien = form1.labcien.value;
-
+		var acessibilidade = form1.acessibilidade.value;
+		var internet = form1.internet.value;
+		var quadraCoberta = form1.quadraCoberta.value;
+		var quadraDescoberta = form1.quadraDescoberta.value;
+		var alojamentoAluno = form1.alojamentoAluno.value;
+		
 		if (estado == "") {
 			alert('Selecione um estado');
 			form1.estado.focus();
@@ -35,17 +40,40 @@
 			return false;
 		}
 		
-		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false){
+		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false && form1.labinf[2].checked==false){
 			alert('Maque uma opção para laboratório de informática');
 			return false;
 		}
 		
-		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false){
+		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false && form1.labcien[2].checked==false){
 			alert('Maque uma opçãoo para laboratório de ciencias');
 			return false;
 		}
 
+		if(form1.acessibilidade[0].checked==false && form1.acessibilidade[1].checked==false && form1.acessibilidade[2].checked==false){
+			alert('Maque uma opção para acessibilidade');
+			return false;
+		}
 		
+		if(form1.internet[0].checked==false && form1.internet[1].checked==false && form1.internet[2].checked==false){
+			alert('Maque uma opção para internet');
+			return false;
+		}
+		
+		if(form1.quadraCoberta[0].checked==false && form1.quadraCoberta[1].checked==false && form1.quadraCoberta[2].checked==false){
+			alert('Maque uma opção para quadra coberta');
+			return false;
+		}
+		
+		if(form1.quadraDescoberta[0].checked==false && form1.quadraDescoberta[1].checked==false && form1.quadraDescoberta[2].checked==false){
+			alert('Maque uma opção para quadra descoberta');
+			return false;
+		}
+		
+		if(form1.alojamentoAluno[0].checked==false && form1.alojamentoAluno[1].checked==false && form1.alojamentoAluno[2].checked==false){
+			alert('Maque uma opção alojamento para alunos');
+			return false;
+		}
 		return true;
 	}
 </script>
@@ -94,7 +122,7 @@
 				<td><input type="radio" name="labcien" value="não">Não</td>
 				<td><input type="radio" name="labcien" value="tanto faz">Tanto faz</td>
 			</tr>
-			</table></tr>
+			
 			
 			<tr>
 				<td>Acessibilidade:</td>
@@ -102,15 +130,13 @@
 				<td><input type="radio" name="acessibilidade" value="não">Não</td>
 				<td><input type="radio" name="acessibilidade" value="tanto faz">Tanto faz</td>
 			</tr>
-			</table></tr>
-			
+					
 			<tr>
 				<td>Internet:</td>
 				<td><input type="radio" name="internet" value="sim">Sim</td> 
 				<td><input type="radio" name="internet" value="não">Não</td>
 				<td><input type="radio" name="internet" value="tanto faz">Tanto faz</td>
 			</tr>
-			</table></tr>
 			
 			<tr>
 				<td>Quadra coberta:</td>
@@ -118,7 +144,6 @@
 				<td><input type="radio" name="quadraCoberta" value="não">Não</td>
 				<td><input type="radio" name="quadraCoberta" value="tanto faz">Tanto faz</td>
 			</tr>
-			</table></tr>
 			
 			<tr>
 				<td>Quadra descoberta:</td>
@@ -126,6 +151,13 @@
 				<td><input type="radio" name="quadraDescoberta" value="não">Não</td>
 				<td><input type="radio" name="quadraDescoberta" value="tanto faz">Tanto faz</td>
 			</tr>
+			
+			<tr>
+				<td>Alojamento para alunos:</td>
+				<td><input type="radio" name="alojamentoAluno" value="sim">Sim</td> 
+				<td><input type="radio" name="alojamentoAluno" value="não">Não</td>
+				<td><input type="radio" name="alojamentoAluno" value="tanto faz">Tanto faz</td>
+			<tr>
 			</table></tr>
 			
 			<tr><br>
