@@ -24,6 +24,7 @@ public class EscolaDAO {
     public EscolaDAO(Connection connection) {
 	this.connection = connection;
     }
+    
 
     public Escola pesquisarPorID(int id) throws SQLException,
 	    ConsultaBancoRetornoVazioException {
@@ -105,6 +106,17 @@ public class EscolaDAO {
 
 	verificarSeListaEstaVazia(listaEscola);
 	return listaEscola;
+    }
+    
+    public void atualizarVotos(int id) throws SQLException {
+	
+	String sql = "update escola set quantidade_votos = quantidade_votos+1 where COD_ESCOLA = ? ";
+	
+	PreparedStatement stmt = this.connection.prepareStatement(sql);
+	stmt.setInt(1, id);
+	stmt.executeUpdate();
+	stmt.close();
+	
     }
 
     private void verificarSeListaEstaVazia(List<Escola> listaEscola)
@@ -360,12 +372,14 @@ public class EscolaDAO {
 	escola.setNomeEscola(rs.getString("NOME_ESCOLA"));
 	escola.setCodicaoFuncionamento(rs.getString("CONDICAO_FUNCIONAMENTO"));
 	escola.setEmail(rs.getString("EMAIL"));
+	escola.setQuantidadeVotos(rs.getInt("quantidade_votos"));
 
 	Endereco endereco = null;
 
 	EnderecoDAO enderecoDAO = new EnderecoDAO(connection);
 	endereco = enderecoDAO.pesquisarPorID(rs.getInt("COD_ENDERECO"));
 	escola.setEndereco(endereco);
+	
 
 	Telefone telefone = null;
 

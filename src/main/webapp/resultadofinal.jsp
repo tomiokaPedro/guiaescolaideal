@@ -15,6 +15,7 @@
     <th>Nome</th> 
     <th>Bairro</th> 
     <th>Telefone</th> 
+    <th>Likes</th>
 </tr> 
 </thead> 
 <tbody> 
@@ -25,6 +26,7 @@
 		<td>				<a href="#" onclick="window.open('pegarEscola.jsp?id=${escolar.codEscola}', 'Pagina', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=YES, TOP=10, LEFT=10, WIDTH=660, HEIGHT=450');">${escolar.nomeEscola}</a> </td>
 		<td>				 ${escolar.endereco.bairro}</td>
 		<td>				(${escolar.endereco.municipio.codigoDDD})${escolar.telefone.telefone}</td>
+		<td><a href="computaVotos.jsp?id=${escolar.codEscola}&escolas=${listaescola}">${escolar.quantidadeVotos}</a></td>
 						
 	</tr>				
 </c:forEach>

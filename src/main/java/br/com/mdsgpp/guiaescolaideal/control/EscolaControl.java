@@ -44,6 +44,10 @@ public class EscolaControl {
 	ConversorDeEntrada.validarCep(cep);
 	return this.escolaDAO.pesquisarEscolaPorCep(cep);
     }
+    
+    public void updateVotos(int id) throws SQLException {
+	escolaDAO.atualizarVotos(id);
+    }
 
     public List<Escola> getEscolaIdeal(List<Campo> campos) throws SQLException,
 	    ParseException, PesquisaException {
