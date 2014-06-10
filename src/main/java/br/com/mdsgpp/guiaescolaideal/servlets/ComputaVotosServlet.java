@@ -3,6 +3,7 @@ package br.com.mdsgpp.guiaescolaideal.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,8 +28,13 @@ public class ComputaVotosServlet extends HttpServlet {
     @Override
     public void service(ServletRequest request, ServletResponse response)
 	    throws ServletException, IOException {
+	
+	
 
+	
 	String id = request.getParameter("id");
+	List<Escola> escolas = (List<Escola>)request.getAttribute("escolas");
+
 	RequestDispatcher dispatcher = null;
 
 	Connection connection = null;
@@ -39,6 +45,8 @@ public class ComputaVotosServlet extends HttpServlet {
 	    EscolaControl control = new EscolaControl(escolaDAO);
 	    
 	    control.updateVotos(Integer.parseInt(id));
+	    
+	    request.setAttribute("listaescola", escolas);
 
 	    
 
