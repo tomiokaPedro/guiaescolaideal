@@ -40,37 +40,37 @@
 			return false;
 		}
 		
-		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false && form1.labinf[2].checked==false){
+		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false){
 			alert('Maque uma opção para laboratório de informática');
 			return false;
 		}
 		
-		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false && form1.labcien[2].checked==false){
+		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false){
 			alert('Maque uma opçãoo para laboratório de ciencias');
 			return false;
 		}
 
-		if(form1.acessibilidade[0].checked==false && form1.acessibilidade[1].checked==false && form1.acessibilidade[2].checked==false){
+		if(form1.acessibilidade[0].checked==false && form1.acessibilidade[1].checked==false){
 			alert('Maque uma opção para acessibilidade');
 			return false;
 		}
 		
-		if(form1.internet[0].checked==false && form1.internet[1].checked==false && form1.internet[2].checked==false){
+		if(form1.internet[0].checked==false && form1.internet[1].checked==false){
 			alert('Maque uma opção para internet');
 			return false;
 		}
 		
-		if(form1.quadraCoberta[0].checked==false && form1.quadraCoberta[1].checked==false && form1.quadraCoberta[2].checked==false){
+		if(form1.quadraCoberta[0].checked==false && form1.quadraCoberta[1].checked==false){
 			alert('Maque uma opção para quadra coberta');
 			return false;
 		}
 		
-		if(form1.quadraDescoberta[0].checked==false && form1.quadraDescoberta[1].checked==false && form1.quadraDescoberta[2].checked==false){
+		if(form1.quadraDescoberta[0].checked==false && form1.quadraDescoberta[1].checked==false){
 			alert('Maque uma opção para quadra descoberta');
 			return false;
 		}
 		
-		if(form1.alojamentoAluno[0].checked==false && form1.alojamentoAluno[1].checked==false && form1.alojamentoAluno[2].checked==false){
+		if(form1.alojamentoAluno[0].checked==false && form1.alojamentoAluno[1].checked==false){
 			alert('Maque uma opção alojamento para alunos');
 			return false;
 		}
@@ -112,7 +112,6 @@
 				<td>Laboratório de informática:</td> 
 				<td><input type="radio" name="labinf" value="sim">Sim</td> 
 				<td><input type="radio" name="labinf" value="não">Não</td>
-				<td><input type="radio" name="labinf" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			
@@ -120,7 +119,6 @@
 				<td>Laboratório de ciências:</td>
 				<td><input type="radio" name="labcien" value="sim">Sim</td> 
 				<td><input type="radio" name="labcien" value="não">Não</td>
-				<td><input type="radio" name="labcien" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			
@@ -128,35 +126,30 @@
 				<td>Acessibilidade:</td>
 				<td><input type="radio" name="acessibilidade" value="sim">Sim</td> 
 				<td><input type="radio" name="acessibilidade" value="não">Não</td>
-				<td><input type="radio" name="acessibilidade" value="tanto faz">Tanto faz</td>
 			</tr>
 					
 			<tr>
 				<td>Internet:</td>
 				<td><input type="radio" name="internet" value="sim">Sim</td> 
 				<td><input type="radio" name="internet" value="não">Não</td>
-				<td><input type="radio" name="internet" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			<tr>
 				<td>Quadra coberta:</td>
 				<td><input type="radio" name="quadraCoberta" value="sim">Sim</td> 
 				<td><input type="radio" name="quadraCoberta" value="não">Não</td>
-				<td><input type="radio" name="quadraCoberta" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			<tr>
 				<td>Quadra descoberta:</td>
 				<td><input type="radio" name="quadraDescoberta" value="sim">Sim</td> 
 				<td><input type="radio" name="quadraDescoberta" value="não">Não</td>
-				<td><input type="radio" name="quadraDescoberta" value="tanto faz">Tanto faz</td>
 			</tr>
 			
 			<tr>
 				<td>Alojamento para alunos:</td>
 				<td><input type="radio" name="alojamentoAluno" value="sim">Sim</td> 
 				<td><input type="radio" name="alojamentoAluno" value="não">Não</td>
-				<td><input type="radio" name="alojamentoAluno" value="tanto faz">Tanto faz</td>
 			<tr>
 			</table></tr>
 			
