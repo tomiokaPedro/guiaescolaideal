@@ -106,6 +106,17 @@ public class EscolaDAO {
 	verificarSeListaEstaVazia(listaEscola);
 	return listaEscola;
     }
+    
+    public void atualizarVotos(int id) throws SQLException {
+	
+	String sql = "update escola set quantidade_votos = quantidade_votos+1 where COD_ESCOLA = ? ";
+	
+	PreparedStatement stmt = this.connection.prepareStatement(sql);
+	stmt.setInt(1, id);
+	stmt.executeUpdate();
+	stmt.close();
+	
+    }
 
     private void verificarSeListaEstaVazia(List<Escola> listaEscola)
 	    throws ConsultaBancoRetornoVazioException {
