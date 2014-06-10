@@ -17,6 +17,8 @@ import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioExcepti
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
+import javax.servlet.annotation.*;
+
 @WebServlet(value = "/computaVotos.jsp")
 public class ComputaVotosServlet extends HttpServlet {
     
@@ -26,7 +28,7 @@ public class ComputaVotosServlet extends HttpServlet {
     public void service(ServletRequest request, ServletResponse response)
 	    throws ServletException, IOException {
 
-	String id = request.getParameter(id);
+	String id = request.getParameter("id");
 	RequestDispatcher dispatcher = null;
 
 	Connection connection = null;
@@ -42,8 +44,6 @@ public class ComputaVotosServlet extends HttpServlet {
 
 	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 	} catch (SQLException e) {
-	    dispatcher = setDispatcherErro(request, e);
-	} catch (ConsultaBancoRetornoVazioException e) {
 	    dispatcher = setDispatcherErro(request, e);
 	} finally {
 	    ConnectionUtil.closeConnection(connection);
