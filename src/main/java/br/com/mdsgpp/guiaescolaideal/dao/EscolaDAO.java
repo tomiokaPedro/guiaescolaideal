@@ -24,6 +24,7 @@ public class EscolaDAO {
     public EscolaDAO(Connection connection) {
 	this.connection = connection;
     }
+    
 
     public Escola pesquisarPorID(int id) throws SQLException,
 	    ConsultaBancoRetornoVazioException {
