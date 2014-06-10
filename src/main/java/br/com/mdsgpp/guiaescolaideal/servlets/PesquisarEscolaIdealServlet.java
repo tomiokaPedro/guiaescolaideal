@@ -38,12 +38,22 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	String labinf = null;
 	String labcien = null;
 	String modalidade = null;
+	String acessibilidade = null;
+	String internet = null;
+	String quadraCoberta = null;
+	String quadraDescoberta = null;
+	String alojamentoAluno = null;
 
 	estado = request.getParameter("estado");
 	municipio = request.getParameter("municipio");
 	labinf = request.getParameter("labinf");
 	labcien = request.getParameter("labcien");
 	modalidade = request.getParameter("modalidade");
+	acessibilidade = request.getParameter("acessibilidade");
+	internet = request.getParameter("internet");
+	quadraCoberta = request.getParameter("quadraCoberta");
+	quadraDescoberta = request.getParameter("quadraDescoberta");
+	alojamentoAluno = request.getParameter("alojamentoAluno");
 
 	List<Campo> campos = new ArrayList<Campo>();
 
@@ -67,6 +77,16 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 		    labcien, "escola"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
 		    modalidade, "modalidade_ensino"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ACESSIBILIDADE",
+		    acessibilidade, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_INTERNET",
+		    internet, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_QUADRA_ESPO_COBERTA", quadraCoberta, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_QUADRA_ESPO_DESCOBERTA", quadraDescoberta, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALOJAMENTO_ALUNO",
+		    alojamentoAluno, "escola"));
 
 	    con = new ConnectionFactory().getConnection();
 	    EscolaDAO escolaDAO = new EscolaDAO(con);
@@ -88,7 +108,6 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 
 	dispatcher.forward(request, response);
     }
-
 
     private RequestDispatcher setDispatcherErro(ServletRequest request,
 	    Exception e) {
