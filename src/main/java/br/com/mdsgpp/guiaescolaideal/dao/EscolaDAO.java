@@ -387,7 +387,7 @@ public class EscolaDAO {
 	TelefoneDAO telefoneDAO = new TelefoneDAO(connection);
 	telefone = telefoneDAO.pesquisarPorIDEscola(escola.getCodEscola());
 
-	if (telefone != null) {
+	if (telefone != null && endereco != null) {
 	    telefone.setMunicipio(endereco.getMunicipio());
 	}
 
