@@ -26,7 +26,7 @@ public class EnderecoDAO {
 
 	ResultSet rs = stmt.executeQuery();
 	Endereco endereco = null;
-	System.out.println(id);
+	
 	if (rs.next()) {
 	    endereco = getEndereco(rs);
 	}

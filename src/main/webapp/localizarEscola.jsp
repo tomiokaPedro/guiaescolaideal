@@ -98,7 +98,7 @@
 </script>
 	<c:if test="${!escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
 		<script>	
-		window.onload = inicializaPorPosicao("${escola.endereco.posicao.longitude}", "${escola.endereco.posicao.latitude}");
+		window.onload = inicializaPorPosicao("${escola.endereco.posicao.latitude}", "${escola.endereco.posicao.longitude}");
 		</script>
 	</c:if>
 	<c:if test="${escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
