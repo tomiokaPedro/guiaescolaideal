@@ -11,7 +11,6 @@ public class Endereco {
 	private Posicao posicao;
 	
 	public Endereco(){
-	    this.posicao = new Posicao();
 	}
 	
 	public String getBairro() {

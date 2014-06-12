@@ -7,49 +7,58 @@ import java.sql.PreparedStatement;
 
 import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Municipio;
+import br.com.mdsgpp.guiaescolaideal.model.Posicao;
 import br.com.mdsgpp.guiaescolaideal.util.ConversorDeEntrada;
 
 public class EnderecoDAO {
 
-	private Connection connection;
+    private Connection connection;
 
-	public EnderecoDAO(Connection connection) {
-		this.connection = connection;
+    public EnderecoDAO(Connection connection) {
+	this.connection = connection;
+    }
+
+    public Endereco pesquisarPorID(int id) throws SQLException {
+	String sql = "select * from endereco where COD_ENDERECO = ?";
+
+	PreparedStatement stmt = this.connection.prepareStatement(sql);
+	stmt.setInt(1, id);
+
+	ResultSet rs = stmt.executeQuery();
+	Endereco endereco = null;
+	System.out.println(id);
+	if (rs.next()) {
+	    endereco = getEndereco(rs);
 	}
 
-	public Endereco pesquisarPorID(int id) throws SQLException {
-		String sql = "select * from endereco where COD_ENDERECO = ?";
+	stmt.close();
+	return endereco;
+    }
 
-		PreparedStatement stmt = this.connection.prepareStatement(sql);
-		stmt.setInt(1, id);
+    private Endereco getEndereco(ResultSet rs) throws SQLException {
+	Endereco endereco = new Endereco();
 
-		ResultSet rs = stmt.executeQuery();
-		Endereco endereco = null;
+	endereco.setBairro(rs.getString("BAIRRO"));
+	endereco.setRua(rs.getString("RUA"));
+	endereco.setCep(Integer.parseInt(rs.getString("CEP")));
+	endereco.setNumero(rs.getString("NUMERO"));
+	endereco.setComplemento(rs.getString("COMPLEMENTO"));
 
-		if (rs.next()) {
-			endereco = getEndereco(rs);
-		}
+	Posicao posicao = new Posicao();
 
-		stmt.close();
-		return endereco;
-	}
+	String latitude = rs.getString("LATITUDE");
+	String longitude = rs.getString("LONGITUDE");
 
-	private Endereco getEndereco(ResultSet rs) throws SQLException {
-		Endereco endereco = new Endereco();
+	posicao.converter(latitude, longitude);
+	endereco.setPosicao(posicao);
 
-		endereco.setBairro(rs.getString("BAIRRO"));
-		endereco.setRua(rs.getString("RUA"));
-		endereco.setCep(Integer.parseInt(rs.getString("CEP")));
-		endereco.setNumero(rs.getString("NUMERO"));
-		endereco.setComplemento(rs.getString("COMPLEMENTO"));
+	Municipio municipio = null;
+	MunicipioDAO municipioDAO = new MunicipioDAO(connection);
+	municipio = municipioDAO.pesquisarPorId(ConversorDeEntrada
+		.getNumeroInteiroSemPonto(rs.getString("COD_MUNICIPIO")));
+	endereco.setMunicipio(municipio);
 
-		Municipio municipio = null;
-		MunicipioDAO municipioDAO = new MunicipioDAO(connection);
-		municipio = municipioDAO.pesquisarPorId(ConversorDeEntrada
-				.getNumeroInteiroSemPonto(rs.getString("COD_MUNICIPIO")));
-		endereco.setMunicipio(municipio);
-
-		return endereco;
-	}
+	return endereco;
+    }
 
 }
