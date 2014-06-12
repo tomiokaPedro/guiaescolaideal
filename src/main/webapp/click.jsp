@@ -127,5 +127,6 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.internet}</td>
 	</tr>
 	
+	<%@ include file="localizarEscola.jsp" %> 
 </table>
 

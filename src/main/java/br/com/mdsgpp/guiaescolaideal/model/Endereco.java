@@ -10,6 +10,10 @@ public class Endereco {
 	private Municipio municipio;
 	private Posicao posicao;
 	
+	public Endereco(){
+	    this.posicao = new Posicao();
+	}
+	
 	public String getBairro() {
 		return bairro;
 	}
