@@ -8,7 +8,8 @@ public class Endereco {
 	private String numero;
 	private String complemento;
 	private Municipio municipio;
-
+	private Posicao posicao;
+	
 	public String getBairro() {
 		return bairro;
 	}
@@ -55,6 +56,14 @@ public class Endereco {
 
 	public void setMunicipio(Municipio municipio) {
 		this.municipio = municipio;
+	}
+
+	public Posicao getPosicao() {
+	    return posicao;
+	}
+
+	public void setPosicao(Posicao posicao) {
+	    this.posicao = posicao;
 	}
 
 }
