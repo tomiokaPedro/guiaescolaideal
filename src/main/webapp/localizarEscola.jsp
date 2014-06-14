@@ -14,6 +14,8 @@
 </style>
 </head>
 <body >
+	<!-- Para que o mapa seja exibido em uma página da Web, devemos reservar um espaço para ele fazemos isso criando um
+	elemento div nomeado e obtendo uma referência para esse elemento no modelo de objeto de documento (DOM) do navegador.-->
 	<div id="map_canvas"></div>
 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=TRUE">
@@ -49,15 +51,15 @@
 			console.log("setando posicao");
 			posicao = new google.maps.LatLng(-18.8800397, -47.05878999999999);
 		}
-
+		
+		<!-- Para inicializar um mapa, primeiro devemos criar um objeto Map options para conter variáveis de inicialização do mapa. -->
 		var mapOptions = {
-			center : posicao,
+			center : posicao, <!-- Para centralizar o mapa no ponto específico da (latitude, longitude) -->
 			zoom : 15,
-			mapTypeId : google.maps.MapTypeId.ROADMAP
+			mapTypeId : google.maps.MapTypeId.ROADMAP <!-- Definição do tipo de mapa: ROADMAP - exibe os blocos 2D normais padrão do Google Maps.-->
 		};
 		
-		map = new google.maps.Map(document.getElementById("map_canvas"),
-				mapOptions);
+		map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions); <!-- Instanciação de um objeto do tipo Map. A classe JavaScript que representa um mapa é a classe Map.-->
 		
 		directionsDisplay = new google.maps.DirectionsRenderer();
 		directionsDisplay.setMap(map);
