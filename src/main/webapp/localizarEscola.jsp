@@ -33,33 +33,32 @@
 
 	}
 	
-	function marcaPonto(posicao, title){
-		var marker = new google.maps.Marker({
-		    position: posicao,
-		    map: map,
-		    title:title
-		});
-	}
-	
 	function inicializaPorNome(search){
-		//achar por nome
 		initialize();
 	}
 	
 	function initialize(posicao) {
 		if(posicao === undefined){
-			console.log("setando posicao");
 			posicao = new google.maps.LatLng(-18.8800397, -47.05878999999999);
 		}
 		
-		<!-- Para inicializar um mapa, primeiro devemos criar um objeto Map options para conter variáveis de inicialização do mapa. -->
+		/*
+		 * Para inicializar um mapa, primeiro devemos criar um objeto Map options 
+		 * para conter variáveis de inicialização do mapa.
+		 */
 		var mapOptions = {
-			center : posicao, <!-- Para centralizar o mapa no ponto específico da (latitude, longitude) -->
+			// Para centralizar o mapa no ponto específico da (latitude, longitude)
+			center : posicao, 
 			zoom : 15,
-			mapTypeId : google.maps.MapTypeId.ROADMAP <!-- Definição do tipo de mapa: ROADMAP - exibe os blocos 2D normais padrão do Google Maps.-->
+			// Definição do tipo de mapa: ROADMAP - exibe os blocos 2D normais padrão do Google Maps
+			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		
-		map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions); <!-- Instanciação de um objeto do tipo Map. A classe JavaScript que representa um mapa é a classe Map.-->
+		/*
+		 * Instanciação de um objeto do tipo Map. A classe JavaScript que representa 
+		 * um mapa é a classe Map.
+		 */
+		map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions); 
 		
 		directionsDisplay = new google.maps.DirectionsRenderer();
 		directionsDisplay.setMap(map);
@@ -75,7 +74,6 @@
 	}
 	
 	function success(position){
-		console.log("Foi");
 		var enderecoPartida = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		var enderecoChegada = escolaLatLng;
 
@@ -96,17 +94,20 @@
 	
 	function pegaPosicaoDoUsuario(msg){
 		//C2
+		console.log(msg);
 	}
 </script>
+	<!-- Se Escola tem posicao então -->
 	<c:if test="${!escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
 		<script>	
 		window.onload = inicializaPorPosicao("${escola.endereco.posicao.latitude}", "${escola.endereco.posicao.longitude}");
 		</script>
 	</c:if>
+	<!-- senão tente localizar por nome -->
 	<c:if test="${escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
 		<script>	
-		//window.onload = inicializaPorNome("${escola.nomeEscola} , ${escola.endereco.bairro}, ${escola.endereco.municipio.nome}, ${escola.endereco.municipio.uf.estado}, Brasil");
-		window.onload = inicializaPorNome("${escola.nomeEscola}");
+		window.onload = inicializaPorNome("${escola.nomeEscola} , ${escola.endereco.bairro}, ${escola.endereco.municipio.nome}, ${escola.endereco.municipio.uf.estado}, Brasil");
+		//window.onload = inicializaPorNome("${escola.nomeEscola}");
 		</script>
 	</c:if>
 </body>
