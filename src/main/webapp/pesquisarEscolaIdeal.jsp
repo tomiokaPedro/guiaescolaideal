@@ -302,6 +302,20 @@
 				<td><input type="radio" name="parqueinfantil" value="não">Não</td>
 				<td><input type="radio" name="parqueinfantil" checked='checked' value="">Tanto Faz</td>
 			</tr>
+			
+			<tr>
+				<td>Patio Coberto:</td>
+				<td><input type="radio" name="patiocoberto" value="sim">Sim</td> 
+				<td><input type="radio" name="parqueinfantil" value="não">Não</td>
+				<td><input type="radio" name="parqueinfantil" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			<tr>
+				<td>Patio Descoberto:</td>
+				<td><input type="radio" name="parqueinfantil" value="sim">Sim</td> 
+				<td><input type="radio" name="parqueinfantil" value="não">Não</td>
+				<td><input type="radio" name="parqueinfantil" checked='checked' value="">Tanto Faz</td>
+			</tr>
 			</table></tr>
 			
 			<tr><br>
