@@ -108,10 +108,78 @@
 			</tr>
 			
 			<tr><table>
+			<br></br>
+			<b>Modalidade:</b>
+			<tr>
+				<td>Instituição sem fim lucrativo:</td>
+				<td><input type="radio" name="fimlucrativo" value="sim">Sim</td> 
+				<td><input type="radio" name="fimlucrativo" value="não">Não</td>
+				<td><input type="radio" name="fimlucrativo" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			<tr>
+				<td>Brasil Alfabetização:</td>
+				<td><input type="radio" name="brasilalfabet" value="sim">Sim</td> 
+				<td><input type="radio" name="brasilalfabet" value="não">Não</td>
+				<td><input type="radio" name="brasilalfabet" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			<tr>
+				<td>Educação Indígena:</td>
+				<td><input type="radio" name="indigena" value="sim">Sim</td> 
+				<td><input type="radio" name="indigena" value="não">Não</td>
+				<td><input type="radio" name="indigena" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			<tr>
+				<td>Acessibilidade:</td>
+				<td><input type="radio" name="acessibilidade" value="sim">Sim</td> 
+				<td><input type="radio" name="acessibilidade" value="não">Não</td>
+				<td><input type="radio" name="acessibilidade" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			<tr>
+			<td></td>
+			</tr>
+				</tr>
+			<tr>
+			<td></td>
+			</tr>
+			<tr>
+			<td><b>Salas</b></td>
+			</tr>
+			<tr>
+				<td>Sala de leitura:</td> 
+				<td><input type="radio" name="salaleitura" value="sim">Sim</td> 
+				<td><input type="radio" name="salaleitura" value="não">Não</td>
+				<td><input type="radio" name="salaleitura" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Sala de Atendimento Especializado:</td> 
+				<td><input type="radio" name="salaatendimentoespecial" value="sim">Sim</td> 
+				<td><input type="radio" name="salaatendimentoespecial" value="não">Não</td>
+				<td><input type="radio" name="salaatendimentoespecial" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Sala Professor:</td> 
+				<td><input type="radio" name="salaprofessor" value="sim">Sim</td> 
+				<td><input type="radio" name="salaprofessor" value="não">Não</td>
+				<td><input type="radio" name="salaprofessor" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Sala Diretoria:</td> 
+				<td><input type="radio" name="saladiretoria" value="sim">Sim</td> 
+				<td><input type="radio" name="saladiretoria" value="não">Não</td>
+				<td><input type="radio" name="saladiretoria" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+			<td><b>Laboratorios</b></td>
+			</tr>
 			<tr>
 				<td>Laboratório de informática:</td> 
 				<td><input type="radio" name="labinf" value="sim">Sim</td> 
 				<td><input type="radio" name="labinf" value="não">Não</td>
+				<td><input type="radio" name="labinf" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
 			
@@ -119,38 +187,96 @@
 				<td>Laboratório de ciências:</td>
 				<td><input type="radio" name="labcien" value="sim">Sim</td> 
 				<td><input type="radio" name="labcien" value="não">Não</td>
+				<td><input type="radio" name="labcien" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
-			
 			<tr>
-				<td>Acessibilidade:</td>
-				<td><input type="radio" name="acessibilidade" value="sim">Sim</td> 
-				<td><input type="radio" name="acessibilidade" value="não">Não</td>
+			<td><b>Infra-Estrutura</b></td>
+			</tr>
+			<tr>
+				<td>Cozinha:</td> 
+				<td><input type="radio" name="cozinha" value="sim">Sim</td> 
+				<td><input type="radio" name="cozinha" value="não">Não</td>
+				<td><input type="radio" name="cozinha" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Dispensa:</td> 
+				<td><input type="radio" name="dispensa" value="sim">Sim</td> 
+				<td><input type="radio" name="dispensa" value="não">Não</td>
+				<td><input type="radio" name="dispensa" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Refeitorio:</td> 
+				<td><input type="radio" name="refeitorio" value="sim">Sim</td> 
+				<td><input type="radio" name="refeitorio" value="não">Não</td>
+				<td><input type="radio" name="refeitorio" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Alojamento Aluno:</td> 
+				<td><input type="radio" name="alojamentoAluno" value="sim">Sim</td> 
+				<td><input type="radio" name="alojamentoAluno" value="não">Não</td>
+				<td><input type="radio" name="alojamentoAluno" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Berçario:</td> 
+				<td><input type="radio" name="bercario" value="sim">Sim</td> 
+				<td><input type="radio" name="bercario" value="não">Não</td>
+				<td><input type="radio" name="bercario" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Auditorio:</td> 
+				<td><input type="radio" name="auditorio" value="sim">Sim</td> 
+				<td><input type="radio" name="auditorio" value="não">Não</td>
+				<td><input type="radio" name="auditorio" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Almoxarifado:</td> 
+				<td><input type="radio" name="almoxarifado" value="sim">Sim</td> 
+				<td><input type="radio" name="almoxarifado" value="não">Não</td>
+				<td><input type="radio" name="almoxarifado" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Secretaria:</td> 
+				<td><input type="radio" name="secretaria" value="sim">Sim</td> 
+				<td><input type="radio" name="secretaria" value="não">Não</td>
+				<td><input type="radio" name="secretaria" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Lavanderia:</td> 
+				<td><input type="radio" name="lavanderia" value="sim">Sim</td> 
+				<td><input type="radio" name="lavanderia" value="não">Não</td>
+				<td><input type="radio" name="lavanderia" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			<tr>
+				<td>Chuveiro:</td> 
+				<td><input type="radio" name="chuveiro" value="sim">Sim</td> 
+				<td><input type="radio" name="chuveiro" value="não">Não</td>
+				<td><input type="radio" name="chuveiro" checked='checked' value="">Tanto Faz</td>
 			</tr>
 					
 			<tr>
 				<td>Internet:</td>
 				<td><input type="radio" name="internet" value="sim">Sim</td> 
 				<td><input type="radio" name="internet" value="não">Não</td>
+				<td><input type="radio" name="internet" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
+			<tr>
+			<td><b>Recreação:</b></td>
+			</tr>
 			<tr>
 				<td>Quadra coberta:</td>
 				<td><input type="radio" name="quadraCoberta" value="sim">Sim</td> 
 				<td><input type="radio" name="quadraCoberta" value="não">Não</td>
+				<td><input type="radio" name="quadraCoberta" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
 			<tr>
 				<td>Quadra descoberta:</td>
 				<td><input type="radio" name="quadraDescoberta" value="sim">Sim</td> 
 				<td><input type="radio" name="quadraDescoberta" value="não">Não</td>
+				<td><input type="radio" name="quadraDescoberta" checked='checked' value="">Tanto Faz</td>
 			</tr>
-			
-			<tr>
-				<td>Alojamento para alunos:</td>
-				<td><input type="radio" name="alojamentoAluno" value="sim">Sim</td> 
-				<td><input type="radio" name="alojamentoAluno" value="não">Não</td>
-			<tr>
 			</table></tr>
 			
 			<tr><br>
