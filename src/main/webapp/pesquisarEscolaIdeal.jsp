@@ -299,7 +299,7 @@
 			<tr>
 				<td>Parque Infantil:</td>
 				<td><input type="radio" name="parqueinfantil" value="sim">Sim</td> 
-				<td><input type="radio" name="quadraDescoberta" value="não">Não</td>
+				<td><input type="radio" name="parqueinfantil" value="não">Não</td>
 				<td><input type="radio" name="quadraDescoberta" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			</table></tr>
