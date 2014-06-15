@@ -11,6 +11,10 @@
 	height: 400px;
 }
 
+body{
+width:100% !important;
+}
+
 </style>
 
 <!-- Latest compiled and minified CSS -->
@@ -43,7 +47,7 @@
 	</div>
 	
 	
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=TRUE">
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=TRUE">
     </script>
 	<script type="text/javascript">
 	var map;
