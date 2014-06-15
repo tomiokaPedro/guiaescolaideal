@@ -27,7 +27,7 @@
                         <a href="#portfolio">Buscar Escola</a>
                     </li>
                     <!--<li class="page-scroll">
-                        <a href="#noticia">Notícias</a>
+                        <a href="#noticia">NotÃ­cias</a>
                     </li>
                     -->
                     <li class="page-scroll">
