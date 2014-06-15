@@ -2,7 +2,7 @@
 
 <p>
 Nome:${escola.nomeEscola} &nbsp; &nbsp; &nbsp;
-Bairro: ${escola.endereco.bairro}<br> 
+<br> 
 </p>
 <hr/>
 <table id="table_id">
@@ -127,6 +127,5 @@ Bairro: ${escola.endereco.bairro}<br>
 		<td class="y_n">${escola.internet}</td>
 	</tr>
 	
-	<%@ include file="localizarEscola.jsp" %> 
 </table>
-
+<%@ include file="localizarEscola.jsp" %> 

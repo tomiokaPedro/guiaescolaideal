@@ -6,18 +6,43 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <style type="text/css">
 
+
 #map_canvas {
 	height: 400px;
-	width: 600px;
-	border: 1px solid black;
 }
+
 </style>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 </head>
 <body >
 	<!-- Para que o mapa seja exibido em uma página da Web, devemos reservar um espaço para ele fazemos isso criando um
 	elemento div nomeado e obtendo uma referência para esse elemento no modelo de objeto de documento (DOM) do navegador.-->
-	<div id="map_canvas"></div>
-
+	<div id="map_canvas" class = "col-xs-12 col-md-6" ></div>
+	<div id="endereco" class = "col-xs-12 col-md-2">
+		<div: class = "col-xs-12">
+		Bairro: ${escola.endereco.bairro}</div:>
+		<div: class = "col-xs-12">
+		Rua: ${escola.endereco.rua} </div:>
+		<div: class = "col-xs-12">
+		Número: ${escola.endereco.numero}</div:>
+		<div: class = "col-xs-12">
+		Complemento: ${escola.endereco.complemento}</div:>
+		<div: class = "col-xs-12">
+		CEP: ${escola.endereco.cep}</div:>
+		<div: class = "col-xs-12">
+		Municipio: ${escola.endereco.municipio.nome}</div:>
+	</div>
+	
+	
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=TRUE">
     </script>
 	<script type="text/javascript">
@@ -28,16 +53,12 @@
 	
 	function inicializaPorPosicao(latitude, longitude){
 		escolaLatLng = new google.maps.LatLng(latitude, longitude);
-		initialize(escolaLatLng);
+		inicializaMapa(escolaLatLng);
 		verificaPosicaoUsuario();
 
 	}
 	
-	function inicializaPorNome(search){
-		initialize();
-	}
-	
-	function initialize(posicao) {
+	function inicializaMapa(posicao) {
 		if(posicao === undefined){
 			posicao = new google.maps.LatLng(-18.8800397, -47.05878999999999);
 		}
@@ -67,9 +88,9 @@
 
 	function verificaPosicaoUsuario() {
 		if(navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(success, pegaPosicaoDoUsuario);
+			navigator.geolocation.getCurrentPosition(success, erro);
 		}else{
-			pegaPosicaoDoUsuario();
+			erro();
 		}
 	}
 	
@@ -87,27 +108,25 @@
 			if (status == google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(result);
 			}else{
-				console.log(status);
+				erro();
 			}
 		});
 	}
 	
-	function pegaPosicaoDoUsuario(msg){
-		//C2
-		console.log(msg);
+	function erro(){
+		marker = new google.maps.Marker({
+		    map:map,
+		    draggable:false,
+		    position: escolaLatLng,
+		    title: "Localização da escola."
+		});	
 	}
+	
 </script>
 	<!-- Se Escola tem posicao então -->
 	<c:if test="${!escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
 		<script>	
 		window.onload = inicializaPorPosicao("${escola.endereco.posicao.latitude}", "${escola.endereco.posicao.longitude}");
-		</script>
-	</c:if>
-	<!-- senão tente localizar por nome -->
-	<c:if test="${escola.endereco.posicao.latitude.equals(\"ERROR\")}" >
-		<script>	
-		window.onload = inicializaPorNome("${escola.nomeEscola} , ${escola.endereco.bairro}, ${escola.endereco.municipio.nome}, ${escola.endereco.municipio.uf.estado}, Brasil");
-		//window.onload = inicializaPorNome("${escola.nomeEscola}");
 		</script>
 	</c:if>
 </body>
