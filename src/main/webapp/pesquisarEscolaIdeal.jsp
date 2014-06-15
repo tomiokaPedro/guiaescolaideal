@@ -198,15 +198,15 @@
 				<td>Sanitário adequado infantil:</td> 
 				<td><input type="radio" name="sanitarioinfantil" value="sim">Sim</td> 
 				<td><input type="radio" name="sanitarioinfantil" value="não">Não</td>
-				<td><input type="radio" name="labinf" checked='checked' value="">Tanto Faz</td>
+				<td><input type="radio" name="sanitarioinfantil" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
 			
 			<tr>
-				<td>Laboratório de ciências:</td>
-				<td><input type="radio" name="labcien" value="sim">Sim</td> 
-				<td><input type="radio" name="labcien" value="não">Não</td>
-				<td><input type="radio" name="labcien" checked='checked' value="">Tanto Faz</td>
+				<td>Sanitário fora do prédio:</td>
+				<td><input type="radio" name="sanitarioforapredio" value="sim">Sim</td> 
+				<td><input type="radio" name="sanitarioforapredio" value="não">Não</td>
+				<td><input type="radio" name="sanitarioforapredio" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			<tr>
 			<td><b>Infra-Estrutura</b></td>
