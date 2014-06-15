@@ -190,6 +190,24 @@
 				<td><input type="radio" name="labcien" checked='checked' value="">Tanto Faz</td>
 			</tr>
 			
+			</tr>
+			<tr>
+			<td><b>Sanitários</b></td>
+			</tr>
+			<tr>
+				<td>Sanitário adequado infantil:</td> 
+				<td><input type="radio" name="sanitarioinfantil" value="sim">Sim</td> 
+				<td><input type="radio" name="labinf" value="não">Não</td>
+				<td><input type="radio" name="labinf" checked='checked' value="">Tanto Faz</td>
+			</tr>
+			
+			
+			<tr>
+				<td>Laboratório de ciências:</td>
+				<td><input type="radio" name="labcien" value="sim">Sim</td> 
+				<td><input type="radio" name="labcien" value="não">Não</td>
+				<td><input type="radio" name="labcien" checked='checked' value="">Tanto Faz</td>
+			</tr>
 			<tr>
 			<td><b>Infra-Estrutura</b></td>
 			</tr>
