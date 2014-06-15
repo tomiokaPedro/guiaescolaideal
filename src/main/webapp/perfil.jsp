@@ -45,6 +45,10 @@
 	margin-top: 15px;
 }
 
+.caminho-botao{
+	display:none;
+}
+
 .mapa {
 	height: 300px;
 }
@@ -56,7 +60,7 @@
 }
 
 td {
-	padding:5px;
+	padding: 5px;
 }
 </style>
 </head>
@@ -207,6 +211,26 @@ td {
 		Municipio: ${escola.endereco.municipio.nome}</div:>
 		</div>
 		<div id="map_canvas" class="col-xs-12 col-md-8 mapa"></div>
+		<div class="col-xs-12 col-md-1">
+			<button id="botao-caminho" class="btn btn-primary btn-lg caminho-botao" data-toggle="modal"
+				data-target="#caminho">caminho</button>
+
+			<div class="modal fade" id="caminho">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Trajeto</h4>
+						</div>
+						<div class="modal-body" id="info-mapa"></div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+		</div>
 	</div>
 
 	<script type="text/javascript">
@@ -269,6 +293,7 @@ td {
 			directionsService.route(request, function(result, status) {
 				if (status == google.maps.DirectionsStatus.OK) {
 					directionsDisplay.setDirections(result);
+					$("#botao-caminho").css('display', 'block');
 				} else {
 					marcaEscola();
 				}
@@ -298,9 +323,9 @@ td {
 		</script>
 	</c:if>
 	<script>
-	$(".y").append( "<span class=\"glyphicon glyphicon-ok\"></span>" );
-	$(".n").append( "<span class=\"glyphicon glyphicon-remove\"></span>" );
-</script>
+		$(".y").append("<span class=\"glyphicon glyphicon-ok\"></span>");
+		$(".n").append("<span class=\"glyphicon glyphicon-remove\"></span>");
+	</script>
 	<footer>@2014</footer>
 </body>
 </html>
