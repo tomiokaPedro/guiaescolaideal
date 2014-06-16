@@ -161,10 +161,19 @@
 </script>
 <!-- Se Escola tem posicao então -->
 <c:if test="${!escola.endereco.posicao.latitude.equals(\"ERROR\")}">
-	<script>
-		window.onload = inicializaPorPosicao(
-				"${escola.endereco.posicao.latitude}",
-				"${escola.endereco.posicao.longitude}");
+<script>
+	
+		function inicMapa(){
+			inicializaPorPosicao(
+					"${escola.endereco.posicao.latitude}",
+					"${escola.endereco.posicao.longitude}");
+		}
+		
+		document.ready = inicMapa();
+		
+		$('#portfolioModal1').on('shown.bs.modal', function() {
+			inicMapa();
+		});
 	</script>
 </c:if>
 
