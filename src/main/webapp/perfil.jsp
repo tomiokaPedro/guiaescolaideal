@@ -62,6 +62,21 @@
 td {
 	padding: 5px;
 }
+
+td.y, td.n{
+	width: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.y {
+	color:green;
+}
+
+.n{
+	color:red;
+}
+
 </style>
 </head>
 
