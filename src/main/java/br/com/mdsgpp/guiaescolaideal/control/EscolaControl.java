@@ -21,8 +21,7 @@ public class EscolaControl {
     }
 
     public List<Escola> getEscolaEspecifica(String nomeEscola, String estado,
-	    String nomeMunicipio) throws SQLException, ParseException,
-	    PesquisaException {
+	    String nomeMunicipio) throws SQLException, PesquisaException {
 	List<String> listaPalavrasChaves = ConversorDeEntrada
 		.getPalavrasChaveDoTexto(nomeEscola);
 	List<String> listaPalavrasMunicipio = null;
