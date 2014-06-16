@@ -17,7 +17,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
-                                <form role="form" action="realizarConsultaEscolaEspecifica.jsp" method="post" name="form1">
+                                <form role="form" action="realizarConsultaEscolaEspecifica.jsp" method="post" name="form1" id="especifica">
                                     <div class="row">
                                         <div class="form-group col-xs-12">
                                             <label for="escola">Escola</label>
@@ -45,8 +45,8 @@
                                 <br></br>
                                 <div class="row">
                                     <div class="form-group col-xs-12 floating-label-form-group">
-                                    <input type="submit"/>
-                                    <button type="button" class="btn btn-lg btn-success">Buscar Escola</button>
+                                   <input type="submit" value="Buscar Escola"/> 
+                            <!--    <button type="button" class="btn btn-lg btn-success">Buscar Escola</button> -->
                                 </div>
                         </div>
                     </form>
@@ -56,4 +56,5 @@
                 </div>
             </div>
         </div>
+        
     </div>
