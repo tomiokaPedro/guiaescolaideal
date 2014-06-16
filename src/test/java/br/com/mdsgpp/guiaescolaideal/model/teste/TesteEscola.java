@@ -572,4 +572,11 @@ public class TesteEscola {
 		assertTrue(!this.escola.isSecretaria());
 	}
 	
+	@Test
+	public void testQuantidadeVotos(){
+	    this.escola.setQuantidadeVotos(23);
+	    
+	    assertTrue(this.escola.getQuantidadeVotos() == 23);
+	}
+	
 }

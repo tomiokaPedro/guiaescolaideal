@@ -49,7 +49,7 @@ public class EnderecoDAO {
 	String latitude = rs.getString("LATITUDE");
 	String longitude = rs.getString("LONGITUDE");
 
-	posicao.converter(latitude, longitude);
+	posicao.validaPosicao(latitude, longitude);
 	endereco.setPosicao(posicao);
 
 	Municipio municipio = null;

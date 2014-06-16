@@ -33,7 +33,6 @@ public class TesteEscolaPorIdServlet {
 	
 	dispatcherPerfil= mock(RequestDispatcher.class);
 	dispatcherErro = mock(RequestDispatcher.class);
-	
 	testeDAO = new TesteDAO("Teste Servlet");
 	testeDAO.run();
 	
