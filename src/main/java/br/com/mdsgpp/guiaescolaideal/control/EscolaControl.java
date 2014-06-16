@@ -7,7 +7,6 @@ import java.util.List;
 
 import br.com.mdsgpp.guiaescolaideal.dao.Campo;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EntradaDadosException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
@@ -34,8 +33,8 @@ public class EscolaControl {
 		listaPalavrasChaves, estado, listaPalavrasMunicipio);
     }
 
-    public Escola getEscolaPorId(String id) throws SQLException, ConsultaBancoRetornoVazioException {
-	int id_numerico = ConversorDeEntrada.getNumeroInteiroSemPonto(id);
+    public Escola getEscolaPorId(String id) throws SQLException, PesquisaException {
+	int id_numerico = ConversorDeEntrada.getNumeroInteiro(id);
 	return escolaDAO.pesquisarPorID(id_numerico);
     }
 

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
@@ -22,6 +22,8 @@ import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 public class EscolaPorIdServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+    private EscolaDAO escolaDAO = null;
+    private Connection connection = null;
 
     @Override
     public void service(ServletRequest request, ServletResponse response)
@@ -30,26 +32,26 @@ public class EscolaPorIdServlet extends HttpServlet {
 	String id = request.getParameter("id");
 	RequestDispatcher dispatcher = null;
 
-	Connection connection = null;
 	try {
-	    connection = new ConnectionFactory().getConnection();
-
-	    EscolaDAO escolaDAO = new EscolaDAO(connection);
+	    configuraDAO();
 	    EscolaControl control = new EscolaControl(escolaDAO);
-
 	    Escola escola = control.getEscolaPorId(id);
-	    request.setAttribute("escola", escola);
 
+	    request.setAttribute("escola", escola);
 	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} catch (ConsultaBancoRetornoVazioException e) {
+	} catch (PesquisaException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} finally {
-	    ConnectionUtil.closeConnection(connection);
 	}
 
+	ConnectionUtil.closeConnection(connection);
 	dispatcher.forward(request, response);
+    }
+
+    private void configuraDAO() throws SQLException {
+	this.connection = new ConnectionFactory().getConnection();
+	this.escolaDAO = new EscolaDAO(connection);
     }
 
     private RequestDispatcher setDispatcherErro(ServletRequest request,
