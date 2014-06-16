@@ -175,4 +175,14 @@ public class TesteConversorDeEntrada {
     public void testGetValorBooleanDoTextoComDoisParametrosValorVazio(){
 	assertFalse(ConversorDeEntrada.getValorBooleanDoTexto("", Arrays.asList("sim", "java")));
     }
+    
+    @Test
+    public void testGetNumeroInteiro() throws EntradaDadosException{
+	assertTrue(ConversorDeEntrada.getNumeroInteiro("2") == 2);
+    }
+    
+    @Test(expected = EntradaDadosException.class)
+    public void testGetNumeroInteiroComValorInvalido() throws EntradaDadosException{
+	ConversorDeEntrada.getNumeroInteiro("dois");
+    }
 }

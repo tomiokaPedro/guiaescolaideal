@@ -447,3 +447,40 @@ footer .footer-below {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+
+.localizacao {
+	margin-top: 15px;
+}
+
+.caminho-botao{
+	display:none;
+}
+
+.mapa {
+	height: 300px;
+}
+
+@media ( min-width : 992px) {
+	.mapa {
+		height: 480px;
+	}
+}
+
+td {
+	padding: 5px;
+}
+
+td.y, td.n{
+	width: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.y {
+	color:green;
+}
+
+.n{
+	color:red;
+}

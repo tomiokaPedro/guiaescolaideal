@@ -3,55 +3,61 @@ package br.com.mdsgpp.guiaescolaideal.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.ConsultaBancoRetornoVazioException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
-@WebServlet(value = "/pegarEscola.jsp")
-public class EscolaPorIdServlet extends HttpServlet {
+import javax.servlet.annotation.*;
 
-    private static final long serialVersionUID = 1L;
-    private EscolaDAO escolaDAO = null;
-    private Connection connection = null;
-
+@WebServlet(value = "/computaVotos.jsp")
+public class ComputaVotosServlet extends HttpServlet {
+    
+    private static final long serialVersionUID = 123L;
+    
     @Override
     public void service(ServletRequest request, ServletResponse response)
 	    throws ServletException, IOException {
+	
+	
 
+	
 	String id = request.getParameter("id");
+	List<Escola> escolas = (List<Escola>)request.getAttribute("escolas");
+
 	RequestDispatcher dispatcher = null;
 
+	Connection connection = null;
 	try {
-	    configuraDAO();
-	    EscolaControl control = new EscolaControl(escolaDAO);
-	    Escola escola = control.getEscolaPorId(id);
+	    connection = new ConnectionFactory().getConnection();
 
-	    request.setAttribute("escola", escola);
-	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
+	    EscolaDAO escolaDAO = new EscolaDAO(connection);
+	    EscolaControl control = new EscolaControl(escolaDAO);
+	    
+	    control.updateVotos(Integer.parseInt(id));
+	    
+	    request.setAttribute("listaescola", escolas);
+
+	    
+
+	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} catch (PesquisaException e) {
-	    dispatcher = setDispatcherErro(request, e);
+	} finally {
+	    ConnectionUtil.closeConnection(connection);
 	}
 
-	ConnectionUtil.closeConnection(connection);
 	dispatcher.forward(request, response);
-    }
-
-    private void configuraDAO() throws SQLException {
-	this.connection = new ConnectionFactory().getConnection();
-	this.escolaDAO = new EscolaDAO(connection);
     }
 
     private RequestDispatcher setDispatcherErro(ServletRequest request,
@@ -62,3 +68,7 @@ public class EscolaPorIdServlet extends HttpServlet {
 	return dispatcher;
     }
 }
+
+
+
+

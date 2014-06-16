@@ -61,6 +61,14 @@ public class ConversorDeEntrada {
 	String novoTexto = numero.replaceAll("[.]", "").trim();
 	return Integer.parseInt(novoTexto);
     }
+    
+    public static int getNumeroInteiro(String numero) throws EntradaDadosException{
+	try{
+	    return Integer.parseInt(numero);
+	}catch(NumberFormatException e){
+	    throw new EntradaDadosException("Formato de número inválido!");
+	}
+    }
 
     // sim = true e false para o resto
     public static boolean getValorBooleanDoTexto(String texto) {

@@ -87,7 +87,7 @@ public class TesteEscolaControl {
 
     @Test
     public void testGetEscolaPorId() throws SQLException, ParseException,
-	    ConsultaBancoRetornoVazioException {
+	    PesquisaException {
 	String id = "171";
 	assertTrue(control.getEscolaPorId(id).getCodEscola() == 171);
     }

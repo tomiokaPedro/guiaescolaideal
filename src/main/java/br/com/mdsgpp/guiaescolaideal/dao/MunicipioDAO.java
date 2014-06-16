@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.mdsgpp.guiaescolaideal.model.Municipio;
+import br.com.mdsgpp.guiaescolaideal.model.Uf;
 
 public class MunicipioDAO {
 
@@ -29,6 +30,11 @@ public class MunicipioDAO {
 			municipio = new Municipio();
 			municipio.setNome(rs.getString("DESCRICAO"));
 			municipio.setCodigoDDD(rs.getString("DDD"));
+			
+			UfDAO dao= new UfDAO(connection);
+			Uf uf = dao.pesquisarPorID(rs.getInt("COD_UF"));
+			
+			municipio.setUf(uf);
 		}
 
 		stmt.close();

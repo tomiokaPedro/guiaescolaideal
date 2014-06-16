@@ -78,6 +78,7 @@ public class Escola {
 	private boolean brasilAlfabetizacao;
 	private boolean aberturaFdsComun;
 	private int numMatriculas;
+	private int quantidadeVotos;
 
 	public CategoriaEscola getCategoriaEscola() {
 		return categoriaEscola;
@@ -646,6 +647,13 @@ public class Escola {
 		this.secretaria = secretaria;
 	}
 	
+	public int getQuantidadeVotos() {
+		return quantidadeVotos;
+	}
+
+	public void setQuantidadeVotos(int quantidadeVotos) {
+		this.quantidadeVotos = quantidadeVotos;
+	}
 	
 
 }
