@@ -19,9 +19,6 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
-
-
-
 							<p>
 								Nome:${escola.nomeEscola} &nbsp; &nbsp; &nbsp; <br>
 							</p>
@@ -148,14 +145,6 @@
 
 							</table>
 							<%@ include file="localizarEscola.jsp"%>
-							<script>
-								$(".y")
-										.append(
-												"<span class=\"glyphicon glyphicon-ok\"></span>");
-								$(".n")
-										.append(
-												"<span class=\"glyphicon glyphicon-remove\"></span>");
-							</script>
 						</div>
 					</div>
 				</div>
