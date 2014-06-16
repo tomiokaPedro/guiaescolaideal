@@ -346,8 +346,9 @@
 								Este campo não necessita ser preenchido caso a opção do campo estado seja Distrito Federal, se a opção for Goiás, Mato Grosso ou Mato Grosso do Sul o campo Município deverá ser preenchido, com intuito de refinar ainda mais sua busca. 
 								<br></br>
 								<b>Características físicas</b>
-								<br></br>
-								Apresentamos a você várias característivas físicas para que você possa escolher de acordo com sua necessidade, cada característica possui uma opção de Sim ou Não, basta escolher uma das duas opções para cada característica e ao final clicar em buscar escola.
+								<br>
+								</br>
+								Apresentamos a você várias característivas físicas para que você possa escolher de acordo com sua necessidade, cada característica possui uma opção de Sim ou Não ou Tanto Faz, basta escolher uma das tr&ecirc;s opções para cada característica e ao final clicar em buscar escola.
                         </div>
                     </form>
                 </div>
