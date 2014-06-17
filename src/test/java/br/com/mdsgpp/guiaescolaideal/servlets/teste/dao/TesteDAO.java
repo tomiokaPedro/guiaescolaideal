@@ -40,11 +40,6 @@ public class TesteDAO extends DBTestCase{
 	return DatabaseOperation.REFRESH;
     }
     
-    @Override
-    protected DatabaseOperation getTearDownOperation() throws Exception {
-        return DatabaseOperation.DELETE;
-    }
-    
     private void configuraConexaoComOBanco() {
 	System.setProperty(
 		PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS,
