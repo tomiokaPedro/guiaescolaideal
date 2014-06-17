@@ -41,6 +41,8 @@ public class ConversorDeEntrada {
 
     public static List<Campo> gerarCampos(String nome, String valor,
 	    String tabela) throws EntradaDadosException {
+	if (valor == "")
+	    return null;
 
 	List<Campo> campos = new ArrayList<Campo>();
 	List<String> palavras = getPalavrasChaveDoTexto(valor);
