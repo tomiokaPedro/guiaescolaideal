@@ -39,42 +39,7 @@
 			form1.modalidade.focus();
 			return false;
 		}
-		
-		if(form1.labinf[0].checked==false && form1.labinf[1].checked==false){
-			alert('Maque uma opção para laboratório de informática');
-			return false;
-		}
-		
-		if(form1.labcien[0].checked==false && form1.labcien[1].checked==false){
-			alert('Maque uma opçãoo para laboratório de ciencias');
-			return false;
-		}
 
-		if(form1.acessibilidade[0].checked==false && form1.acessibilidade[1].checked==false){
-			alert('Maque uma opção para acessibilidade');
-			return false;
-		}
-		
-		if(form1.internet[0].checked==false && form1.internet[1].checked==false){
-			alert('Maque uma opção para internet');
-			return false;
-		}
-		
-		if(form1.quadraCoberta[0].checked==false && form1.quadraCoberta[1].checked==false){
-			alert('Maque uma opção para quadra coberta');
-			return false;
-		}
-		
-		if(form1.quadraDescoberta[0].checked==false && form1.quadraDescoberta[1].checked==false){
-			alert('Maque uma opção para quadra descoberta');
-			return false;
-		}
-		
-		if(form1.alojamentoAluno[0].checked==false && form1.alojamentoAluno[1].checked==false){
-			alert('Maque uma opção alojamento para alunos');
-			return false;
-		}
-		return true;
 	}
 </script>
 
