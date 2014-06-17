@@ -43,6 +43,27 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	String quadraCoberta = null;
 	String quadraDescoberta = null;
 	String alojamentoAluno = null;
+	String fimlucrativo = null;
+	String brasilalfabet = null;
+	String indigena = null;
+	String salaleitura = null;
+	String salaatendimentoespecial = null;
+	String salaprofessor = null;
+	String saladiretoria = null;
+	String sanitarioinfantil = null;
+	String sanitarioforapredio = null;
+	String cozinha = null;
+	String dispensa = null;
+	String refeitorio = null;
+	String bercario = null;
+	String auditorio = null;
+	String almoxarifado = null;
+	String secretaria = null;
+	String lavanderia = null;
+	String chuveiro = null;
+	String parqueinfantil = null;
+	String patiocoberto = null;
+	String patiodescoberto = null;
 
 	estado = request.getParameter("estado");
 	municipio = request.getParameter("municipio");
@@ -54,6 +75,28 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	quadraCoberta = request.getParameter("quadraCoberta");
 	quadraDescoberta = request.getParameter("quadraDescoberta");
 	alojamentoAluno = request.getParameter("alojamentoAluno");
+	fimlucrativo = request.getParameter("fimlucrativo");
+	brasilalfabet = request.getParameter("brasilalfabet");
+	indigena = request.getParameter("indigena");
+	salaleitura = request.getParameter("salaleitura");
+	salaatendimentoespecial = request
+		.getParameter("salaatendimentoespecial");
+	salaprofessor = request.getParameter("salaprofessor");
+	saladiretoria = request.getParameter("saladiretoria");
+	sanitarioinfantil = request.getParameter("sanitarioinfantil");
+	sanitarioforapredio = request.getParameter("sanitarioforapredio");
+	cozinha = request.getParameter("cozinha");
+	dispensa = request.getParameter("dispensa");
+	refeitorio = request.getParameter("refeitorio");
+	bercario = request.getParameter("bercario");
+	auditorio = request.getParameter("auditorio");
+	almoxarifado = request.getParameter("almoxarifado");
+	secretaria = request.getParameter("secretaria");
+	lavanderia = request.getParameter("lavanderia");
+	chuveiro = request.getParameter("chuveiro");
+	parqueinfantil = request.getParameter("parqueinfantil");
+	patiocoberto = request.getParameter("patiocoberto");
+	patiodescoberto = request.getParameter("patiodescoberto");
 
 	List<Campo> campos = new ArrayList<Campo>();
 
@@ -87,6 +130,49 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 		    "SE_QUADRA_ESPO_DESCOBERTA", quadraDescoberta, "escola"));
 	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALOJAMENTO_ALUNO",
 		    alojamentoAluno, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_FINS_LURATIVOS",
+		    fimlucrativo, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_BRASIL_ALFABETIZACAO", brasilalfabet, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_EDUCACAO_INDIGNA",
+		    indigena, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_LEITURA",
+		    salaleitura, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_ATEND_ESP",
+		    salaatendimentoespecial, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_PROFESSOR",
+		    salaprofessor, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_DIRETORIA",
+		    saladiretoria, "escola"));
+	    campos.addAll(ConversorDeEntrada
+		    .gerarCampos("SE_SANITARIO_EDUC_ADEQ_INFAN",
+			    sanitarioinfantil, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_SANITARIO_FORA_PREDIO", sanitarioforapredio, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_COZINHA", cozinha,
+		    "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_DESPENSA",
+		    dispensa, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_REFEITORIO",
+		    refeitorio, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_BERCARIO",
+		    bercario, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_AUDITORIO",
+		    auditorio, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALMOXARIFADO",
+		    almoxarifado, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_SECRETARIA",
+		    secretaria, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAVANDERIA",
+		    lavanderia, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_BANHEIRO_CHUVEIRO", chuveiro, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_PARQUE_INFANTIL",
+		    parqueinfantil, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_PATIO_COBERTO",
+		    patiocoberto, "escola"));
+	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_PATIO_DESCOBERTO",
+		    patiodescoberto, "escola"));
 
 	    con = new ConnectionFactory().getConnection();
 	    EscolaDAO escolaDAO = new EscolaDAO(con);
