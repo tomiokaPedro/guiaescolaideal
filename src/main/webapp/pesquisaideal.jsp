@@ -56,38 +56,38 @@
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td width="286">Instituicao sem fim lucrativo</td>
-	                                    	      <td width="582"><input type="radio" name="fimlucrativo" id="labinf13" value="fimlucrativo" />
+	                                    	      <td width="582"><input type="radio" name="fimlucrativo" id="labinf13" value="sim" />
 	                                    	        <label for="labinf13">Sim
-	                                    	          <input type="radio" name="fimlucrativo" id="labinf14" value="fimlucrativo" />
+	                                    	          <input type="radio" name="fimlucrativo" id="labinf14" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="fimlucrativo" type="radio" id="radio7" value="fimlucrativo" checked="checked" />
+	                                    	          <input name="fimlucrativo" type="radio" id="radio7" checked="checked" />
 	                                    	          Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Brasil Alfabetiza&ccedil;&atilde;o</td>
-	                                    	      <td><input type="radio" name="brasilalfabet" id="labinf15" value="brasilalfabet" />
+	                                    	      <td><input type="radio" name="brasilalfabet" id="labinf15" value="sim" />
 	                                    	        <label for="labinf15">Sim
-	                                    	          <input type="radio" name="brasilalfabet" id="labinf16" value="brasilalfabet" />
+	                                    	          <input type="radio" name="brasilalfabet" id="labinf16" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="brasilalfabet" type="radio" id="radio8" value="brasilalfabet" checked="checked" />
+	                                    	          <input name="brasilalfabet" type="radio" id="radio8" checked="checked" />
 	                                    	          Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Educa&ccedil;&atilde;o Ind&iacute;gena</td>
-	                                    	      <td><input type="radio" name="indigena" id="labinf17" value="indigena" />
+	                                    	      <td><input type="radio" name="indigena" id="labinf17" value="sim" />
                                                     <label for="labinf17">Sim
-                                                      <input type="radio" name="indigena" id="labinf18" value="indigena" />
+                                                      <input type="radio" name="indigena" id="labinf18" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="indigena" type="radio" id="radio9" value="indigena" checked="checked" />
+  <input name="indigena" type="radio" id="radio9" checked="checked" />
                                                   Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Acessibilidade</td>
-	                                    	      <td><input type="radio" name="acessibilidade" id="labinf19" value="acessibilidade" />
+	                                    	      <td><input type="radio" name="acessibilidade" id="labinf19" value="sim" />
                                                     <label for="labinf19">Sim
-                                                      <input type="radio" name="acessibilidade" id="labinf20" value="acessibilidade" />
+                                                      <input type="radio" name="acessibilidade" id="labinf20" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="acessibilidade" type="radio" id="radio10" value="acessibilidade" checked="checked" />
+  <input name="acessibilidade" type="radio" id="radio10" checked="checked" />
                                                   Tanto Faz</label></td>
                                     	        </tr>
                                     	      </table>
@@ -98,38 +98,38 @@
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td width="286">Sala de leitura</td>
-	                                    	      <td width="582"><input type="radio" name="salaleitura" id="labinf21" value="salaleitura" />
+	                                    	      <td width="582"><input type="radio" name="salaleitura" id="labinf21" value="sim" />
 	                                    	        <label for="labinf21">Sim
-	                                    	          <input type="radio" name="salaleitura" id="labinf22" value="salaleitura" />
+	                                    	          <input type="radio" name="salaleitura" id="labinf22" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="salaleitura" type="radio" id="radio11" value="salaleitura" checked="checked" />
+	                                    	          <input name="salaleitura" type="radio" id="radio11" checked="checked" />
                                    	              Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Sala de Atendimento Especializado</td>
-	                                    	      <td><input type="radio" name="salaatendimentoespecial" id="labinf23" value="salaatendimentoespecial" />
+	                                    	      <td><input type="radio" name="salaatendimentoespecial" id="labinf23" value="sim" />
 	                                    	        <label for="labinf23">Sim
-	                                    	          <input type="radio" name="salaatendimentoespecial" id="labinf24" value="salaatendimentoespecial" />
+	                                    	          <input type="radio" name="salaatendimentoespecial" id="labinf24" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="salaatendimentoespecial" type="radio" id="radio12" value="salaatendimentoespecial" checked="checked" />
+	                                    	          <input name="salaatendimentoespecial" type="radio" id="radio12" checked="checked" />
                                    	              Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Sala Professor</td>
-	                                    	      <td><input type="radio" name="salaprofessor" id="labinf25" value="salaprofessor" />
+	                                    	      <td><input type="radio" name="salaprofessor" id="labinf25" value="sim" />
 	                                    	        <label for="labinf25">Sim
-	                                    	          <input type="radio" name="salaprofessor" id="labinf26" value="salaprofessor" />
+	                                    	          <input type="radio" name="salaprofessor" id="labinf26" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="salaprofessor" type="radio" id="radio13" value="salaprofessor" checked="checked" />
+	                                    	          <input name="salaprofessor" type="radio" id="radio13" checked="checked" />
                                    	              Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Sala Diretoria</td>
-	                                    	      <td><input type="radio" name="saladiretoria" id="labinf27" value="saladiretoria" />
+	                                    	      <td><input type="radio" name="saladiretoria" id="labinf27" value="sim" />
 	                                    	        <label for="labinf27">Sim
-	                                    	          <input type="radio" name="saladiretoria" id="labinf28" value="saladiretoria" />
+	                                    	          <input type="radio" name="saladiretoria" id="labinf28" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="saladiretoria" type="radio" id="radio14" value="saladiretoria" checked="checked" />
+	                                    	          <input name="saladiretoria" type="radio" id="radio14" checked="checked" />
                                    	              Tanto Faz</label></td>
                                     	        </tr>
                                     	      </table>
@@ -140,20 +140,20 @@
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td width="286">Laborat&oacute;rio de Inform&aacute;tica	                                    	        </td>
-	                                    	      <td width="582"><input type="radio" name="labinf" id="labinf5" value="labinf" />
+	                                    	      <td width="582"><input type="radio" name="labinf" id="labinf5" value="sim" />
                                                     <label for="labinf5">Sim
-                                                      <input type="radio" name="labinf" id="labinf6" value="labinf" />
+                                                      <input type="radio" name="labinf" id="labinf6" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="labinf" type="radio" id="radio3" value="radio" checked="checked" />
+  <input name="labinf" type="radio" id="radio3" checked="checked" />
                                                   Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Laborat&oacute;rio de Ci&ecirc;ncias	                                    	        </td>
-	                                    	      <td><input type="radio" name="labcien" id="labinf" value="labcien" />
+	                                    	      <td><input type="radio" name="labcien" id="labinf" value="sim" />
                                                     <label for="labinf">Sim
-                                                      <input type="radio" name="labcien" id="labinf2" value="labcien" />
+                                                      <input type="radio" name="labcien" id="labinf2" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="labcien" type="radio" id="radio" value="labcien" checked="checked" />
+  <input name="labcien" type="radio" id="radio" checked="checked" />
                                                   Tanto Faz</label></td>
                                     	        </tr>
                                     	      </table>
@@ -164,20 +164,20 @@
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td width="286">Sanit&aacute;rio Adequado Infantil</td>
-	                                    	      <td width="582"><input type="radio" name="sanitarioinfantil" id="labinf3" value="sanitarioinfantil" />
+	                                    	      <td width="582"><input type="radio" name="sanitarioinfantil" id="labinf3" value="sim" />
 	                                    	        <label for="labinf3">Sim
-	                                    	          <input type="radio" name="sanitarioinfantil" id="labinf4" value="sanitarioinfantil" />
+	                                    	          <input type="radio" name="sanitarioinfantil" id="labinf4" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="sanitarioinfantil" type="radio" id="radio2" value="sanitarioinfantil" checked="checked" />
+	                                    	          <input name="sanitarioinfantil" type="radio" id="radio2" checked="checked" />
 	                                    	          Tanto Faz</label></td>
                                     	        </tr>
 	                                    	    <tr>
 	                                    	      <td>Sanit&aacute;rio fora do pr&eacute;dio</td>
-	                                    	      <td><input type="radio" name="sanitarioforapredio" id="labinf7" value="sanitarioforapredio" />
+	                                    	      <td><input type="radio" name="sanitarioforapredio" id="labinf7" value="sim" />
 	                                    	        <label for="labinf7">Sim
-	                                    	          <input type="radio" name="sanitarioforapredio" id="labinf8" value="sanitarioforapredio" />
+	                                    	          <input type="radio" name="sanitarioforapredio" id="labinf8" value="n&atilde;o" />
 	                                    	          N&atilde;o
-	                                    	          <input name="sanitarioforapredio" type="radio" id="radio4" value="sanitarioforapredio" checked="checked" />
+	                                    	          <input name="sanitarioforapredio" type="radio" id="radio4" checked="checked" />
 	                                    	          Tanto Faz</label></td>
                                     	        </tr>
                                     	      </table>
@@ -188,101 +188,101 @@
                                                 </tr>
                                                 <tr>
                                                   <td width="286">Cozinha</td>
-                                                  <td width="582"><input type="radio" name="cozinha" id="labinf9" value="cozinha" />
+                                                  <td width="582"><input type="radio" name="cozinha" id="labinf9" value="sim" />
                                                     <label for="labinf9">Sim
-                                                      <input type="radio" name="cozinha" id="labinf10" value="cozinha" />
+                                                      <input type="radio" name="cozinha" id="labinf10" value="n&atilde;o" />
                                                       N&atilde;o
-                                                      <input name="cozinha" type="radio" id="radio5" value="cozinha" checked="checked" />
+                                                      <input name="cozinha" type="radio" id="radio5" checked="checked" />
                                                       Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Dispensa</td>
-                                                  <td><input type="radio" name="dispensa" id="labinf11" value="dispensa" />
+                                                  <td><input type="radio" name="dispensa" id="labinf11" value="sim" />
                                                     <label for="labinf11">Sim
-                                                      <input type="radio" name="dispensa" id="labinf12" value="dispensa" />
+                                                      <input type="radio" name="dispensa" id="labinf12" value="n&atilde;o" />
                                                       N&atilde;o
-                                                      <input name="dispensa" type="radio" id="radio6" value="dispensa" checked="checked" />
+                                                      <input name="dispensa" type="radio" id="radio6" checked="checked" />
                                                       Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Refeit&oacute;rio</td>
-                                                  <td><input type="radio" name="refeitorio" id="labinf29" value="refeitorio" />
+                                                  <td><input type="radio" name="refeitorio" id="labinf29" value="sim" />
                                                     <label for="labinf29">Sim
-                                                      <input type="radio" name="refeitorio" id="labinf30" value="refeitorio" />
+                                                      <input type="radio" name="refeitorio" id="labinf30" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="refeitorio" type="radio" id="radio15" value="refeitorio" checked="checked" />
+  <input name="refeitorio" type="radio" id="radio15" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Alojamento Aluno</td>
-                                                  <td><input type="radio" name="alojamentoAluno" id="labinf31" value="alojamentoAluno" />
+                                                  <td><input type="radio" name="alojamentoAluno" id="labinf31" value="sim" />
                                                     <label for="labinf31">Sim
-                                                      <input type="radio" name="alojamentoAluno" id="labinf32" value="alojamentoAluno" />
+                                                      <input type="radio" name="alojamentoAluno" id="labinf32" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="alojamentoAluno" type="radio" id="radio16" value="alojamentoAluno" checked="checked" />
+  <input name="alojamentoAluno" type="radio" id="radio16" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Ber&ccedil;&aacute;rio</td>
-                                                  <td><input type="radio" name="bercario" id="labinf33" value="bercario" />
+                                                  <td><input type="radio" name="bercario" id="labinf33" value="sim" />
                                                     <label for="labinf33">Sim
-                                                      <input type="radio" name="bercario" id="labinf34" value="bercario" />
+                                                      <input type="radio" name="bercario" id="labinf34" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="bercario" type="radio" id="radio17" value="bercario" checked="checked" />
+  <input name="bercario" type="radio" id="radio17" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Audit&oacute;rio</td>
-                                                  <td><input type="radio" name="auditorio" id="labinf35" value="auditorio" />
+                                                  <td><input type="radio" name="auditorio" id="labinf35" value="sim" />
                                                     <label for="labinf35">Sim
-                                                      <input type="radio" name="auditorio" id="labinf36" value="auditorio" />
+                                                      <input type="radio" name="auditorio" id="labinf36" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="auditorio" type="radio" id="radio18" value="auditorio" checked="checked" />
+  <input name="auditorio" type="radio" id="radio18" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Almoxarifado</td>
-                                                  <td><input type="radio" name="almoxarifado" id="labinf37" value="almoxarifado" />
+                                                  <td><input type="radio" name="almoxarifado" id="labinf37" value="sim" />
                                                     <label for="labinf37">Sim
-                                                      <input type="radio" name="almoxarifado" id="labinf38" value="almoxarifado" />
+                                                      <input type="radio" name="almoxarifado" id="labinf38" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="almoxarifado" type="radio" id="radio19" value="almoxarifado" checked="checked" />
+  <input name="almoxarifado" type="radio" id="radio19" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Secretaria</td>
-                                                  <td><input type="radio" name="secretaria" id="labinf39" value="secretaria" />
+                                                  <td><input type="radio" name="secretaria" id="labinf39" value="sim" />
                                                     <label for="labinf39">Sim
-                                                      <input type="radio" name="secretaria" id="labinf40" value="secretaria" />
+                                                      <input type="radio" name="secretaria" id="labinf40" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="secretaria" type="radio" id="radio20" value="secretaria" checked="checked" />
+  <input name="secretaria" type="radio" id="radio20" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Lavanderia</td>
-                                                  <td><input type="radio" name="lavanderia" id="labinf41" value="lavanderia" />
+                                                  <td><input type="radio" name="lavanderia" id="labinf41" value="sim" />
                                                     <label for="labinf41">Sim
-                                                      <input type="radio" name="lavanderia" id="labinf42" value="lavanderia" />
+                                                      <input type="radio" name="lavanderia" id="labinf42" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="lavanderia" type="radio" id="radio21" value="lavanderia" checked="checked" />
+  <input name="lavanderia" type="radio" id="radio21" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Chuveiro</td>
-                                                  <td><input type="radio" name="chuveiro" id="labinf43" value="chuveiro" />
+                                                  <td><input type="radio" name="chuveiro" id="labinf43" value="sim" />
                                                     <label for="labinf43">Sim
-                                                      <input type="radio" name="chuveiro" id="labinf44" value="chuveiro" />
+                                                      <input type="radio" name="chuveiro" id="labinf44" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="chuveiro" type="radio" id="radio22" value="chuveiro" checked="checked" />
+  <input name="chuveiro" type="radio" id="radio22" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                                 <tr>
                                                   <td>Internet</td>
-                                                  <td><input type="radio" name="internet" id="labinf45" value="internet" />
+                                                  <td><input type="radio" name="internet" id="labinf45" value="sim" />
                                                     <label for="labinf45">Sim
-                                                      <input type="radio" name="internet" id="labinf46" value="internet" />
+                                                      <input type="radio" name="internet" id="labinf46" value="n&atilde;o" />
                                                       N&atilde;o
-  <input name="internet" type="radio" id="radio23" value="internet" checked="checked" />
+  <input name="internet" type="radio" id="radio23" checked="checked" />
                                                   Tanto Faz</label></td>
                                                 </tr>
                                               </table>
