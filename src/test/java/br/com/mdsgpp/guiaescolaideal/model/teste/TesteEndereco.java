@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import br.com.mdsgpp.guiaescolaideal.model.Endereco;
 import br.com.mdsgpp.guiaescolaideal.model.Municipio;
+import br.com.mdsgpp.guiaescolaideal.model.Posicao;
 
 public class TesteEndereco {
 	Endereco endereco = new Endereco();
@@ -86,5 +87,11 @@ public class TesteEndereco {
 		endereco.setMunicipio(null);
 		assertNull(endereco.getMunicipio());
 	}
-
+	
+	@Test
+	public void testPosicao(){
+	    endereco.setPosicao(new Posicao());
+	    
+	    assertNotNull(endereco.getPosicao());
+	}
 }

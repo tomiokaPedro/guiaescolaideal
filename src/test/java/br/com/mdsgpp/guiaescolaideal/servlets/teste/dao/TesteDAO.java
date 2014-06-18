@@ -7,6 +7,7 @@ import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
+import org.junit.Test;
 
 /**
  * Classe criada para popular o banco antes de cada teste,
@@ -39,11 +40,6 @@ public class TesteDAO extends DBTestCase{
 	return DatabaseOperation.REFRESH;
     }
     
-    @Override
-    protected DatabaseOperation getTearDownOperation() throws Exception {
-        return DatabaseOperation.DELETE;
-    }
-    
     private void configuraConexaoComOBanco() {
 	System.setProperty(
 		PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS,
@@ -55,6 +51,10 @@ public class TesteDAO extends DBTestCase{
 		user);
 	System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD,
 		password);
+    }
+    
+    @Test
+    public void test(){
     }
 
 }

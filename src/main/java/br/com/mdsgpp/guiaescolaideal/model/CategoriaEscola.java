@@ -6,6 +6,7 @@ public class CategoriaEscola {
 	private String categoriaEscolaPrivada;
 
 	public CategoriaEscola() {
+	    this(false);
 	}
 
 	public CategoriaEscola(boolean escolaPublica) {

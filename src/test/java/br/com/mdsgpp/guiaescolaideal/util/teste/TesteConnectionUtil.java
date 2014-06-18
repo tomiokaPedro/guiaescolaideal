@@ -1,9 +1,6 @@
 package br.com.mdsgpp.guiaescolaideal.util.teste;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,6 +17,12 @@ public class TesteConnectionUtil {
 	ConnectionUtil.closeConnection(connection);
 	verify(connection).close();
     }
+    
+    @Test
+    public void testCloseConnectionNull() throws SQLException {
+	Connection connection = null;
+	ConnectionUtil.closeConnection(connection);
+    }
 
     @Test
     public void testCloseConnectionIsClosed() throws SQLException {
@@ -28,6 +31,18 @@ public class TesteConnectionUtil {
 	verify(connection, never()).close();
     }
     
+    
+    @Test
+    public void testEsperandoErro() throws SQLException{
+	Connection connection = cenarioComConexaoAberta();
+	
+	doThrow(new SQLException()).when(connection).close();
+	ConnectionUtil.closeConnection(connection);
+	verify(connection).close();
+	
+	//deve rodar esse comando sem dar o erro
+	assert(true);
+    }
     private Connection cenarioComConexaoAberta() throws SQLException {
 	Connection connection = mock(Connection.class);
 	when(connection.isClosed()).thenReturn(false);

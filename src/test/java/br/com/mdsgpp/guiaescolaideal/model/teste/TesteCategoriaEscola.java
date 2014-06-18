@@ -45,5 +45,10 @@ public class TesteCategoriaEscola {
 		
 		assertFalse(this.catEscola.isEscolaPublica());
 	}
+	
+	@Test
+	public void testConstrutor(){
+	    assertFalse(new CategoriaEscola().isEscolaPublica());
+	}
 
 }

@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -163,7 +162,7 @@ public class EscolaDAO {
     public List<Escola> pesquisarPorNomeMaisLocalizacao(
 	    List<String> listaPalavras, String estado,
 	    List<String> listaPalavrasMunicipio) throws SQLException,
-	    ParseException, ConsultaBancoRetornoVazioException {
+	    ConsultaBancoRetornoVazioException {
 
 	String sql = gerarQuerySQLNomeMaisLocalizao("*", listaPalavras,
 		listaPalavrasMunicipio);

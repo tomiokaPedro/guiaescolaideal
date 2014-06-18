@@ -3,7 +3,6 @@ package br.com.mdsgpp.guiaescolaideal.servlets;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,14 +48,11 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} catch (ParseException e) {
-	    dispatcher = setDispatcherErro(request, e);
 	} catch (PesquisaException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} finally {
-	    ConnectionUtil.closeConnection(con);
 	}
-
+	
+	ConnectionUtil.closeConnection(con);
 	dispatcher.forward(request, response);
     }
 
