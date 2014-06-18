@@ -17,7 +17,7 @@ public class UfDAO {
 
 	public Uf pesquisarPorID(int id) throws SQLException {
 
-		String sql = "select * from UF where COD_UF = ?";
+		String sql = "select * from uf where COD_UF = ?";
 
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 		stmt.setInt(1, id);
