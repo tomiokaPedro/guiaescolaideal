@@ -1,5 +1,4 @@
     <!-- Buscar Escola -->
-
     <section id="portfolio">
         <div class="container">
             <div class="row">
@@ -10,7 +9,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <a href="#modal-busca-especifica" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -21,7 +20,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <a href="#modal-busca-ideal" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>

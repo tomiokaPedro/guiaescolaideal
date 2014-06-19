@@ -48,38 +48,28 @@
     <script src="js/freelancer.js"></script>
     <script src="jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 
-
-    <script type="text/javascript">
-    	$(function(){
-  		$("#select_estado").change(function(event){
-  		$("option:selected", $(this)).each(function(){
-  		var obj = document.getElementById('select_estado').value;
-  			if(obj != "x"){
-  				$("#select_estado").removeClass("disable").addClass("enable");
-  			}else{
-  				$("#select_estado").removeClass("enable").addClass("disable");
-  			}
-  			});
-  		});
-  		});
-    </script>
-
-
-    <script type="text/javascript">
-    	$(function(){
-  		$("#modalidade").change(function(event){
-  		$("option:selected", $(this)).each(function(){
-  		var obj = document.getElementById('modalidade').value;
-  			if(obj != "x"){
-  				$("#modalidade").removeClass("disable").addClass("enable");
-  			}else{
-  				$("#modalidade").removeClass("enable").addClass("disable");
-  			}
-  			});
-  		});
-  		});
-    </script>
-
+	
+	<script>
+	  	   function selectMode(id, value){
+		    $("#"+id).change(function(event){
+		      $("option:selected", $(this)).each(function(){
+		         var obj = document.getElementById(id).value;
+		    
+		      if(obj != value){
+		        $("#"+id).removeClass("disable").addClass("enable");
+		      }else{
+		        $("#"+id).removeClass("enable").addClass("disable");
+		      }
+		      });
+		    });
+		  }
+	  	   
+	  	 $(function(){
+	  		selectMode('select_estado', 'x');
+	  		selectMode('select_estado-ideal', 'x');
+	  		selectMode('modalidade', 'x');
+	  	 });
+	</script>
 </body>
 
 </html>

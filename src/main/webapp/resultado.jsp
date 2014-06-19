@@ -2,7 +2,7 @@
 <!-- pesquisa especifica -->
 
 
-<div class="portfolio-modal modal fade" id="portfolioModal1"
+<div class="portfolio-modal modal fade" id="modal-resultado"
 	tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-content">
 		<div class="close-modal" data-dismiss="modal">

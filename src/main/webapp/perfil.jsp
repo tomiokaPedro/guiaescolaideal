@@ -41,6 +41,7 @@
 	<%@ include file="contato.jsp"%>
 	<%@ include file="footer.jsp"%>
 	<%@ include file="click.jsp"%>
+	<%@ include file="pesquisaespecifica.jsp"%>
 	<%@ include file="pesquisaideal.jsp"%>
 
 	<script src="js/jquery-1.10.2.js"></script>
@@ -52,28 +53,35 @@
 	<script src="jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	
-	<script type="text/javascript">
-   		 $(window).load(function(){
-        	 $('#portfolioModal1').modal('show');
-   		 });
+	<script>
+	  	   function selectMode(id, value){
+		    $("#"+id).change(function(event){
+		      $("option:selected", $(this)).each(function(){
+		         var obj = document.getElementById(id).value;
+		    
+		      if(obj != value){
+		        $("#"+id).removeClass("disable").addClass("enable");
+		      }else{
+		        $("#"+id).removeClass("enable").addClass("disable");
+		      }
+		      });
+		    });
+		  }
+	  	  
+	  	 $(window).load(function() {
+				$('#modal-perfil').modal('show');
+		 });
+	  	   
+	  	 $(function(){
+	  		selectMode('select_estado', 'x');
+	  		selectMode('select_estado-ideal', 'x');
+	  		selectMode('modalidade', 'x');
+	  	 });
 	</script>
-
-	
-	<script type="text/javascript">
-    	$(function(){
-  		$("#select_estado").change(function(event){
-  		$("option:selected", $(this)).each(function(){
-  		var obj = document.getElementById('select_estado').value;
-  			if(obj != "x"){
-  				$("#select_estado").removeClass("disable").addClass("enable");
-  			}else{
-  				$("#select_estado").removeClass("enable").addClass("disable");
-  			}
-  			});
-  		});
-  		});
-    </script>
-    
+    <script>
+		$(".y").append("<span class=\"glyphicon glyphicon-ok\"></span>");
+		$(".n").append("<span class=\"glyphicon glyphicon-remove\"></span>");
+	</script>
     <script type="text/javascript">
 	var map;
 	var directionsDisplay;
@@ -155,10 +163,6 @@
 		console.log(msg);
 	}
 </script>
-<script>
-	$(".y").append("<span class=\"glyphicon glyphicon-ok\"></span>");
-	$(".n").append("<span class=\"glyphicon glyphicon-remove\"></span>");
-</script>
 <!-- Se Escola tem posicao então -->
 <c:if test="${!escola.endereco.posicao.latitude.equals(\"ERROR\")}">
 <script>
@@ -171,7 +175,7 @@
 		
 		document.ready = inicMapa();
 		
-		$('#portfolioModal1').on('shown.bs.modal', function() {
+		$('#modal-perfil').on('shown.bs.modal', function() {
 			inicMapa();
 		});
 	</script>
