@@ -1,9 +1,7 @@
-
 <!-- pesquisa especifica -->
 
-
-<div class="portfolio-modal modal fade" id="modal-perfil"
-	tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade" id="modal-perfil" tabindex="-1"
+	role="dialog" aria-hidden="true">
 	<div class="modal-content">
 		<div class="close-modal" data-dismiss="modal">
 			<div class="lr">
@@ -12,139 +10,260 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
+				<div class="col-xs-12">
 					<div class="modal-body">
 						<h2>Pesquisar Escola Específica</h2>
 						<hr class="star-primary">
 					</div>
 					<div class="row">
-						<div class="col-lg-8 col-lg-offset-2">
-							<p>
-								Nome:${escola.nomeEscola} &nbsp; &nbsp; &nbsp; <br>
-							</p>
-							<hr />
-							<table id="table_id">
-								<tr>
-									<th>Modalidade</th>
-								</tr>
-								<tr>
-									<td>Sem Fins Lucrativos</td>
-									<td class="${escola.seFinsLucrativos?'y':'n'}"></td>
-									<td>Brasil Alfabetização</td>
-									<td class="${escola.brasilAlfabetizacao?'y':'n'}"></td>
-									<td>Educação Indigena</td>
-									<td class="${escola.educacaoIndigena?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<td>Acessibilidade</td>
-									<td class="${escola.acessibilidade?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<th>Acesso</th>
-								</tr>
-								<tr>
-									<td>Depende de Vias de Acesso</td>
-									<td class="${escola.dependViasAcesso?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<th>Infra-Estrutura</th>
-								</tr>
-								<tr>
-									<td>Cozinha</td>
-									<td class="${escola.cozinha?'y':'n'}"></td>
-									<td>Berçario</td>
-									<td class="${escola.bercario?'y':'n'}"></td>
-									<td>Secretaria</td>
-									<td class="${escola.secretaria?'y':'n'}"></td>
+						<div class="col-xs-12">
+							<p>Nome:${escola.nomeEscola}</p>
+							<hr>
+							<div class="categorias col-xs-12 col-md-10 col-md-offset-1">
+								<div class="categoria col-xs-12">
+									<!-- Para que o mapa seja exibido em uma página da Web, devemos reservar um espaço para ele fazemos isso criando um
+	elemento div nomeado e obtendo uma referência para esse elemento no modelo de objeto de documento (DOM) do navegador.-->
+									<div class="categoria-title col-xs-12">
+										<a href="#">Endereço</a>
+									</div>
+									<div class="categoria-body">
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>Rua:</b> ${escola.endereco.rua}
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>Número:</b> ${escola.endereco.numero}
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>Complemento:</b> ${escola.endereco.complemento}
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>Bairro:</b> ${escola.endereco.bairro}
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>Municipio:</b> ${escola.endereco.municipio.nome}
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-6">
+											<b>CEP:</b> ${escola.endereco.cep}
+										</div>
+									</div>
+								</div>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-modalidade" href="#"
+											onclick="exibir('c-modalidade-body')"> Modalidade </a>
+									</div>
+									<div class="categoria-body c-modalidade-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sem Fins Lucrativos</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.seFinsLucrativos?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Brasil Alfabetização</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.brasilAlfabetizacao?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Educação Indigena</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.educacaoIndigena?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Acessibilidade</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.acessibilidade?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
-								</tr>
-								<tr>
-									<td>Dispensa</td>
-									<td class="${escola.despensa?'y':'n'}"></td>
-									<td>Auditório</td>
-									<td class="${escola.auditorio?'y':'n'}"></td>
-									<td>Lavanderia</td>
-									<td class="${escola.lavanderia?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<td>Refeitório</td>
-									<td class="${escola.refeitorio?'y':'n'}"></td>
-									<td>Almoxarifado</td>
-									<td class="${escola.almoxarifado?'y':'n'}"></td>
-									<td>Chuveiro</td>
-									<td class="${escola.banheiroChuveiro?'y':'n'}"></td>
-								</tr>
-								<tr>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-acesso" href="#" onclick="exibir('c-acesso-body')">
+											Acesso </a>
+									</div>
+									<div class="categoria-body c-acesso-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Depende de Vias de Acesso</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.dependViasAcesso?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-infra" href="#" onclick="exibir('c-infra-body')">
+											Infra-Estrutura </a>
+									</div>
+									<div class="categoria-body c-infra-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Cozinha</div>
+											<div class="dado-valor col-xs-2 ${escola.cozinha?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Berçario</div>
+											<div class="dado-valor col-xs-2 ${escola.bercario?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Secretaria</div>
+											<div class="dado-valor col-xs-2 ${escola.secretaria?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Dispensa</div>
+											<div class="dado-valor col-xs-2 ${escola.despensa?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Auditório</div>
+											<div class="dado-valor col-xs-2 ${escola.auditorio?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Lavanderia</div>
+											<div class="dado-valor col-xs-2 ${escola.lavanderia?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Refeitório</div>
+											<div class="dado-valor col-xs-2 ${escola.refeitorio?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Almoxarifado</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.almoxarifado?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Chuveiro</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.banheiroChuveiro?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Alojamento Aluno</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.alojamentoAluno?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-sala" href="#" onclick="exibir('c-sala-body')">
+											Salas </a>
+									</div>
+									<div class="categoria-body c-sala-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sala de Leitura</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.salaLeitura?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sala de Atendimento
+												Especializado</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.salaAtendimentoEspecializado?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sala Professor</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.salaProfessor?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sala Diretoria</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.salaDiretoria?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
-									<td>Alojamento Aluno</td>
-									<td class="${escola.alojamentoAluno?'y':'n'}"></td>
-								</tr>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-lab" href="#" onclick="exibir('c-lab-body')">
+											Laboratórios </a>
+									</div>
+									<div class="categoria-body c-lab-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Laboratório de Informática</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.labInformatica?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Laboratório de Ciências</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.labCiencias?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
-								<tr>
-									<th>Salas</th>
-								</tr>
-								<tr>
-									<td>Sala de Leitura</td>
-									<td class="${escola.salaLeitura?'y':'n'}"></td>
-									<td>Sala de Atendimento Especializado</td>
-									<td class="${escola.salaAtendimentoEspecializado?'y':'n'}"></td>
-									<td>Sala Professor</td>
-									<td class="${escola.salaProfessor?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<td>Sala Diretoria</td>
-									<td class="${escola.salaDiretoria?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<th>Laboratórios</th>
-								</tr>
-								<tr>
-									<td>Laboratório de Informática</td>
-									<td class="${escola.labInformatica?'y':'n'}"></td>
-									<td>Laboratório de Ciências</td>
-									<td class="${escola.labCiencias?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<th>Recreação</th>
-								</tr>
-								<tr>
-									<td>Quadra de Esportes Coberta</td>
-									<td class="${escola.quadraEsporteCoberta?'y':'n'}"></td>
-									<td>Quadra de Esportes Descoberta</td>
-									<td class="${escola.quadraEsporteDescoberta?'y':'n'}"></td>
-									<td>Pátio Coberto</td>
-									<td class="${escola.patioCoberto?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<td>Pátio Descoberto</td>
-									<td class="${escola.patioDescoberto?'y':'n'}"></td>
-									<td>Parque Infantil</td>
-									<td class="${escola.parqueInfantil?'y':'n'}"></td>
-								</tr>
-								<tr>
-									<th>Sanitários</th>
-								</tr>
-								<tr>
-									<td>Sanitário Adequado Infantil</td>
-									<td class="${escola.sanitarioAdequadoInfantil?'y':'n'}"></td>
-									<td>Sanitário Fora do Prédio</td>
-									<td class="${escola.sanitarioForaPredio?'y':'n'}"></td>
-								</tr>
-								<th>Serviços</th>
-								</tr>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-recreacao" href="#"
+											onclick="exibir('c-recreacao-body')"> Recreação </a>
+									</div>
+									<div class="categoria-body c-recreacao-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Quadra de Esportes Coberta</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.quadraEsporteCoberta?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Quadra de Esportes
+												Descoberta</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.quadraEsporteDescoberta?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Pátio Coberto</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.patioCoberto?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Pátio Descoberto</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.patioDescoberto?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Parque Infantil</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.parqueInfantil?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
-								<tr>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-sanitarios" href="#"
+											onclick="exibir('c-sanitarios-body')"> Sanitários </a>
+									</div>
+									<div class="categoria-body c-sanitarios-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sanitário Adequado Infantil</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.sanitarioAdequadoInfantil?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Sanitário Fora do Prédio</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.sanitarioForaPredio?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
 
-									<td>Agua Filtrada</td>
-									<td class="${escola.aguaFiltrada?'y':'n'}"></td>
-									<td>Internet</td>
-									<td class="${escola.internet?'y':'n'}"></td>
-								</tr>
-
-							</table>
-							<%@ include file="localizarEscola.jsp"%>
+								<div class="categoria col-xs-12">
+									<div class="categoria-title col-xs-12">
+										<a class="c-servicos" href="#"
+											onclick="exibir('c-servicos-body')"> Serviços </a>
+									</div>
+									<div class="categoria-body c-servicos-body">
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Agua Filtrada</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.aguaFiltrada?'y':'n'}"></div>
+										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Internet</div>
+											<div class="dado-valor col-xs-2 ${escola.internet?'y':'n'}"></div>
+										</div>
+									</div>
+								</div>
+								<%@ include file="localizarEscola.jsp"%>
+							</div>
 						</div>
 					</div>
 				</div>
