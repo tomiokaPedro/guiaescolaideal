@@ -72,26 +72,29 @@
 				$('#modal-perfil').modal('show');
 		 });
 	  	   
-	  	 $(function(){
+	  	 $(window).load(function() {
 	  		selectMode('select_estado', 'x');
 	  		selectMode('select_estado-ideal', 'x');
 	  		selectMode('modalidade', 'x');
 	  		addLink();
 	  	 });
-	  	  	 
+	  	 
 	  	 function addEvento(link){
+	  		if($("."+link+"-body").css('display') == 'none'){
+  				$("."+link).append("<span class=\"glyphicon glyphicon-chevron-down "+link+"-span\"></span>");
+  			}
+	
 	  		$("."+link).click(function(event){
 	  			if($("."+link+"-body").css('display') == 'none'){
 	  				$("."+link).append("<span class=\"glyphicon glyphicon-chevron-down "+link+"-span\"></span>");
 	  			}else{
 	  				$("."+link+"-span").remove();
 	  			}
-	  			
   			});
 	  	 }
 	  	 
 	  	 function addLink(){
-	  		 var array = ["c-modalidade", "c-acesso", "c-infra", "c-sala", "c-lab", "c-recreacao", "c-sanitarios", "c-servicos", "c-mapa"];
+	  		 var array = ["c-modalidade", "c-acesso", "c-infra", "c-sala", "c-lab", "c-recreacao", "c-sanitarios", "c-servicos"];
 	  		 
 	  		 for(var i=0; i < array.length; i++){
 	  			addEvento(array[i]);
