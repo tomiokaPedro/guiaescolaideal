@@ -72,3 +72,13 @@
 .categoria-title a span, a.categoria-title span{
 	float: right;
 }
+
+.cabecalho{
+	margin-bottom: 30px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.col-2 {
+	border-left: 1px solid #bbb;
+}

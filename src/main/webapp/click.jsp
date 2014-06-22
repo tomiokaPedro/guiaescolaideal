@@ -18,12 +18,10 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<p>Nome:${escola.nomeEscola}</p>
-
-							<div class="btn-group">
 								<form action="addPerfilServlet.jsp" method="post">
 									<button type="submit" name="id" value="${escola.codEscola}" class="btn btn-success">Comparar</button>
 								</form>
-							</div>
+							
 							<hr>
 							<div class="categorias col-xs-12 col-md-10 col-md-offset-1">
 								<div class="categoria col-xs-12">

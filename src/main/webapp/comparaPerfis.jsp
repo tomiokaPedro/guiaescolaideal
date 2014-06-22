@@ -76,7 +76,52 @@
 	  		selectMode('select_estado', 'x');
 	  		selectMode('select_estado-ideal', 'x');
 	  		selectMode('modalidade', 'x');
+	  		addLink();
 	  	 });
+	  	 
+	  	 function addEvento(link){
+	  		if($("."+link+"-body").css('display') == 'none'){
+  				$("."+link).append("<span class=\"glyphicon glyphicon-chevron-down "+link+"-span\"></span>");
+  			}
+	
+	  		$("."+link).click(function(event){
+	  			if($("."+link+"-body").css('display') == 'none'){
+	  				$("."+link).append("<span class=\"glyphicon glyphicon-chevron-down "+link+"-span\"></span>");
+	  			}else{
+	  				$("."+link+"-span").remove();
+	  			}
+  			});
+	  	 }
+	  	 
+	  	 function addLink(){
+	  		 var array = ["c-modalidade", "c-acesso", "c-infra", "c-sala", "c-lab", "c-recreacao", "c-sanitarios", "c-servicos"];
+	  		 
+	  		 for(var i=0; i < array.length; i++){
+	  			addEvento(array[i]);
+	  		 }
+	  	 }
+	</script>
+	 <script>
+	 
+	 	$(".modal-busca-especifica").click(function(event){
+	 		$("#modal-compara").modal('hide');
+	 		$("#modal-busca-especifica").modal("show");
+	 	});
+	 	
+	 	$(".modal-busca-ideal").click(function(event){
+	 		$("#modal-compara").modal('hide');
+	 		$("#modal-busca-ideal").modal("show");
+	 	});
+	 	
+   		 function exibir(conteudo){
+			if($("."+conteudo).css('display') == 'none'){
+				$("."+conteudo).css('display', 'block');
+			}else{
+				$("."+conteudo).css('display', 'none');
+			}
+		}
+		$(".y").append("<span class=\"glyphicon glyphicon-ok\"></span>");
+		$(".n").append("<span class=\"glyphicon glyphicon-remove\"></span>");
 	</script>
 </body>
 </html>
