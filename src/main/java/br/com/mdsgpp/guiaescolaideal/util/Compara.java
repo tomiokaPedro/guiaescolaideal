@@ -3,6 +3,7 @@ package br.com.mdsgpp.guiaescolaideal.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.mdsgpp.guiaescolaideal.exceptions.EscolaNaoPresenteException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.EscolaRepetidaException;
 import br.com.mdsgpp.guiaescolaideal.exceptions.QuantidadeDeEscolasExcedenteException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
@@ -47,6 +48,22 @@ public class Compara {
 		throw new EscolaRepetidaException("A escola já está na lista.");
 	    }
 	}
+    }
+
+    public void remove(int idNumerico) throws EscolaNaoPresenteException {
+	boolean verifica = false;
+	
+	for(int i=0; i < lista.size(); i++){
+	    if(idNumerico == lista.get(i).getCodEscola()){
+		lista.remove(i);
+		verifica = true;
+	    }
+	}
+	
+	if(!verifica){
+	    throw new EscolaNaoPresenteException("Escola não pode ser excluída.");
+	}
+	
     }
 
 }
