@@ -1,6 +1,4 @@
-
 <!-- pesquisa especifica -->
-
 
 <div class="portfolio-modal modal fade" id="modal-resultado"
 	tabindex="-1" role="dialog" aria-hidden="true">
@@ -19,7 +17,7 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
-							<div id="content">	
+							<div id="content">
 								<c:forEach var="escolar" items="${listaescola}">
 										Nome:<a href="pegarEscola.jsp?id=${escolar.codEscola}">${escolar.nomeEscola}</a>
 									<br> 

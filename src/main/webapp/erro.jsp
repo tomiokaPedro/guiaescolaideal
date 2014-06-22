@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,10 +48,10 @@ body{
 	</div>
 	
 	<div class="redirecionar">
-		Você será direcionado automaticamente em 10s, caso contrário <a href="index.jsp">clique aqui</a>.
+		Você será direcionado automaticamente em 10s, caso contrário <a href='${redirecionaPara != null ? redirecionaPara : "index.jsp"}'>clique aqui</a>.
 	</div>
 	<script type="text/javascript">
-		setTimeout("location.href='index.jsp'",10000);
+		setTimeout("location.href='${redirecionaPara != null? redirecionaPara : "index.jsp"}'",10000);
 	</script>
 </body>
 </html>

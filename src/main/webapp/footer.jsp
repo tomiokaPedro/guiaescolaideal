@@ -10,7 +10,7 @@
                     </div>
                       <div class="footer-col col-md-4">
                         <h3></h3>
-                        <p align="justify">Com dedicação, motivação, visão, talento, diálogo e trabalho em equipe podemos transformar o trabalho, a empresa, a comunidade e contribuirmos para uma sociedade melhor e mais justa.
+                        <p align="justify"><i>"Com dedicação, motivação, visão, talento, diálogo e trabalho em equipe podemos transformar o trabalho, a empresa, a comunidade e contribuirmos para uma sociedade melhor e mais justa."</i>
                         <br></br>
                         .Otto Cembranelli
                         </p>

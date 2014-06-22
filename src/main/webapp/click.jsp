@@ -18,6 +18,12 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<p>Nome:${escola.nomeEscola}</p>
+
+							<div class="btn-group">
+								<form action="addPerfilServlet.jsp" method="post">
+									<button type="submit" name="id" value="${escola.codEscola}" class="btn btn-success">Comparar</button>
+								</form>
+							</div>
 							<hr>
 							<div class="categorias col-xs-12 col-md-10 col-md-offset-1">
 								<div class="categoria col-xs-12">
@@ -48,10 +54,8 @@
 									</div>
 								</div>
 								<div class="categoria col-xs-12">
-									<div class="categoria-title col-xs-12">
-										<a class="c-modalidade" href="#"
-											onclick="exibir('c-modalidade-body')"> Modalidade </a>
-									</div>
+									<a class="c-modalidade categoria-title col-xs-12" href="#"
+										onclick="exibir('c-modalidade-body')"> Modalidade </a>
 									<div class="categoria-body c-modalidade-body">
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
 											<div class="dado col-xs-10">Sem Fins Lucrativos</div>
