@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="nome">Nome</label>
-                                <input class="form-control" type="text" name="name" placeholder="Nome">
+                                <input cl8ass="form-control" type="text" name="name" placeholder="Nome">
                             </div>
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="nome">Assunto</label>

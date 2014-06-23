@@ -41,8 +41,8 @@ public class ContatoControl
                              .parse("contato.guiaescolaideal@gmail.com");  
 
                   message.setRecipients(Message.RecipientType.TO, toUser);
-                  message.setSubject(assunto);//Assunto
-                  message.setText(mensagem);
+                  message.setSubject("assunto teste1");//Assunto
+                  message.setText("texto");
                   /**Método para enviar a mensagem criada*/
                   Transport.send(message);
 
