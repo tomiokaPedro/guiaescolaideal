@@ -17,7 +17,8 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
-							<p>Nome:${escola.nomeEscola}</p>
+							<p>Nome:${escola.nomeEscola}
+							<a href="computaVotos.jsp?id=${escola.codEscola}" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> ${escola.quantidadeVotos}</a> </p>
 								<form action="addPerfilServlet.jsp" method="post">
 									<button type="submit" name="id" value="${escola.codEscola}" class="btn btn-success">Comparar</button>
 								</form>

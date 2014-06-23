@@ -28,7 +28,6 @@ public class ComputaVotosServlet extends HttpServlet {
 	    throws ServletException, IOException {
 
 	String id = request.getParameter("id");
-	List<Escola> escolas = (List<Escola>) request.getAttribute("escolas");
 
 	RequestDispatcher dispatcher = null;
 
@@ -41,9 +40,8 @@ public class ComputaVotosServlet extends HttpServlet {
 
 	    control.updateVotos(Integer.parseInt(id));
 
-	    request.setAttribute("listaescola", escolas);
 
-	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
+	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
 	} finally {
