@@ -25,7 +25,7 @@
 							    <div class="form-group col-xs-12 "></div>
 								</div>
 								<div class="row">
-									<div class="form-group col-xs-12">A sua mensagem foi enviada com sucesso, aguarde para retornar ao site! Caso contrário, <a href="index.jsp">clique aqui</a>.</div>
+									<div class="form-group col-xs-12">A sua mensagem foi enviada com sucesso, aguarde para retornar ao site! Caso contrário, <a href="index.jsp">clique aqui</a> para ser redirecionado imediatamente.</div>
     <script type="text/javascript">
 		setTimeout("location.href='index.jsp'",10000);
 	</script>
