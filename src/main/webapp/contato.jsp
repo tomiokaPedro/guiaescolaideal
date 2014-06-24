@@ -1,5 +1,6 @@
     <!-- Contato -->
 
+
     <section id="contato">
         <div class="container">
             <div class="row">
@@ -10,23 +11,27 @@
             </div>
                    <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form role="form">
+                    <form role="form" action="enviarEmail.jsp" method="post" name="form3" id="email">
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="nome">Nome</label>
-                                <input class="form-control" type="text" name="name" placeholder="Nome">
+                                <input cl8ass="form-control" type="text" name="name" placeholder="Nome">
+                            </div>
+                            <div class="form-group col-xs-12 floating-label-form-group">
+                                <label for="nome">Assunto</label>
+                                <input class="form-control" type="text" name="assunto" placeholder="Assunto">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12 floating-label-form-group">
+                      <div class="row">
+<div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="email">Email</label>
                                 <input class="form-control" type="email" name="email" placeholder="Email">
-                            </div>
-                        </div>
+            </div>
+                    </div>
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="mensagem">Mensagem</label>
-                                <textarea placeholder="Mensagem" class="form-control" rows="5"></textarea>
+                                <textarea name="mensagem" rows="5" class="form-control" id="mensagem" placeholder="Mensagem"></textarea>
                             </div>
                         </div>
                         <br>

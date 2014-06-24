@@ -26,6 +26,27 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
   </servlet-mapping> 
   
   <servlet>  
+<servlet>
+  <servlet-name>enviarEmail</servlet-name>
+  <servlet-class>br.com.mdsgpp.guiaescolaideal.servlets.ContatoServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>enviarEmail</servlet-name>
+  <url-pattern>/enviarEmail.jsp</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>realizarConsultaEscolaEspecifica</servlet-name>
+  <servlet-class>br.com.mdsgpp.guiaescolaideal.servlets.PesquisarEscolaEspecificaServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>realizarConsultaEscolaEspecifica</servlet-name>
+  <url-pattern>/realizarConsultaEscolaEspecifica.jsp</url-pattern>
+</servlet-mapping>
+
+<servlet>  
     	<servlet-name>pegarEscola</servlet-name>  
     	<servlet-class>br.com.mdsgpp.guiaescolaideal.servlets.EscolaPorIdServlet</servlet-class>  
 	</servlet>  
@@ -35,3 +56,5 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     <url-pattern>/pegarEscola.jsp</url-pattern>  
   </servlet-mapping> 
 </web-app>
+</web-app>
+
