@@ -24,17 +24,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/JavaMail/lib/dsn.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/gimap.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/imap.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/mail.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/mailapi.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/pop3.jar"/>
-	<classpathentry kind="lib" path="/JavaMail/lib/smtp.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Felipe/Desktop/commons-email-1.3.2-bin/commons-email-1.3.2/commons-email-1.3.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Felipe/Desktop/commons-email-1.3.2-bin/commons-email-1.3.2/commons-email-1.3.2-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Felipe/Desktop/commons-email-1.3.2-bin/commons-email-1.3.2/commons-email-1.3.2-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Felipe/Desktop/commons-email-1.3.2-bin/commons-email-1.3.2/commons-email-1.3.2-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Felipe/Desktop/commons-email-1.3.2-bin/commons-email-1.3.2/commons-email-1.3.2-test-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
