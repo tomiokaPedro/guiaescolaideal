@@ -33,28 +33,82 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 
 	RequestDispatcher dispatcher = null;
 
+	String modalidade = null;
 	String estado = null;
 	String municipio = null;
+	
+	String fimlucrativo = null;
+	String brasilalfabet = null;
+	String edindigena = null;
+	
+	
+	String salaleitura = null;
+	String salaatendespecializado = null;
+	String salaprofessor = null;
+	String saladiretoria = null;
+	
 	String labinf = null;
 	String labcien = null;
-	String modalidade = null;
-	String acessibilidade = null;
-	String internet = null;
+	
 	String quadraCoberta = null;
 	String quadraDescoberta = null;
+	String parqueInfantil = null;
+	String patioCoberto = null;
+	String patioDescoberto = null;
+	
+	String sanitario_adeq_infantil = null;
+	String sanitario_fora_predio = null;
+	
+	String acessibilidade = null;
+	String cozinha = null;
+	String refeitorio = null;
 	String alojamentoAluno = null;
-
+	String bercario = null;
+	String auditorio = null;
+	String secretaria = null;
+	String lavanderia = null;
+	String chuveiro = null;
+	String internet = null;	
+	
+	
+	modalidade = request.getParameter("modalidade");
 	estado = request.getParameter("estado");
 	municipio = request.getParameter("municipio");
+	
+	fimlucrativo = request.getParameter("fimlucrativo");
+	brasilalfabet = request.getParameter("brasilalfabet");
+	edindigena = request.getParameter("indigena");
+	
+	
+	salaleitura = request.getParameter("salaleitura");
+	salaatendespecializado = request.getParameter("salaatendimentoespecial");
+	salaprofessor = request.getParameter("salaprofessor");
+	saladiretoria = request.getParameter("saladiretoria");
+	
 	labinf = request.getParameter("labinf");
 	labcien = request.getParameter("labcien");
-	modalidade = request.getParameter("modalidade");
+	
+	sanitario_adeq_infantil = request.getParameter("sanitarioinfantil");
+	sanitario_fora_predio = request.getParameter("sanitarioforapredio");
+	
+	quadraCoberta = request.getParameter("quadra_coberta");
+	quadraDescoberta = request.getParameter("quadra_descoberta");
+	parqueInfantil = request.getParameter("parqueInfantil");
+	patioCoberto = request.getParameter("patioCoberto");
+	patioDescoberto = request.getParameter("patioDescoberto");
+	
 	acessibilidade = request.getParameter("acessibilidade");
-	internet = request.getParameter("internet");
-	quadraCoberta = request.getParameter("quadraCoberta");
-	quadraDescoberta = request.getParameter("quadraDescoberta");
-	alojamentoAluno = request.getParameter("alojamentoAluno");
-
+	cozinha = request.getParameter("cozinha");
+	refeitorio = request.getParameter("refeitorio");
+	alojamentoAluno =request.getParameter("alojamentoAluno");
+	bercario = request.getParameter("bercario");
+	auditorio = request.getParameter("auditorio");
+	secretaria = request.getParameter("secretaria");
+	lavanderia = request.getParameter("lavanderia");
+	chuveiro = request.getParameter("chuveiro");
+	internet = request.getParameter("internet");	
+	
+	
 	List<Campo> campos = new ArrayList<Campo>();
 
 	Connection con = null;
@@ -69,25 +123,151 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 
 	    } catch (Exception e) {
 	    }
-
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
-		    "escola"));
-
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
-		    labcien, "escola"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
+	    
+	    if(modalidade!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
 		    modalidade, "modalidade_ensino"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ACESSIBILIDADE",
-		    acessibilidade, "escola"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_INTERNET",
-		    internet, "escola"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos(
+	    }
+	    if(fimlucrativo!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_FINS_LURATIVOS", fimlucrativo, "escola"));
+	    }
+	    
+	    if(brasilalfabet!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BRASIL_ALFABETIZACAO", brasilalfabet, "escola"));
+	    }
+	    
+	    if(edindigena!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_EDUCACAO_INDIGNA", edindigena, "escola"));
+	    }
+	    
+	    if(salaleitura!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_LEITURA", salaleitura, "escola"));
+	    }
+	    
+	    if(salaatendespecializado!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_ATEND_ESP", salaatendespecializado, "escola"));
+	    }
+	    
+	    if(salaprofessor!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_PROFESSOR", salaprofessor, "escola"));
+	    }
+	    if(saladiretoria!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_DIRETORIA", saladiretoria, "escola"));
+	    }
+	    if(saladiretoria!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
+		    "escola"));
+	    }
+	    if(saladiretoria!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
+		    labcien, "escola"));
+	    }
+	    if(sanitario_adeq_infantil!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_EDUC_ADEQ_INFAN",
+		    sanitario_adeq_infantil, "escola"));
+	    }
+	    if(sanitario_adeq_infantil!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_EDUC_ADEQ_INFAN",
+		    sanitario_adeq_infantil, "escola"));
+	    }
+	    if(sanitario_fora_predio!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_FORA_PREDIO",
+		    sanitario_fora_predio, "escola"));
+	    }
+	    if(sanitario_fora_predio!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_FORA_PREDIO",
+		    sanitario_fora_predio, "escola"));
+	    }
+	    if(quadraCoberta!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_QUADRA_ESPO_COBERTA", quadraCoberta, "escola"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos(
+	    }
+	    if(quadraDescoberta!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_QUADRA_ESPO_DESCOBERTA", quadraDescoberta, "escola"));
-	    campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALOJAMENTO_ALUNO",
+	    }
+	    if(parqueInfantil!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_PARQUE_INFANTIL", parqueInfantil, "escola"));
+	    }
+	    if(patioCoberto!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_PATIO_COBERTO", patioCoberto, "escola"));
+	    }
+	    if(patioDescoberto!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos(
+		    "SE_PATIO_DESCOBERTO", patioDescoberto, "escola"));
+	    }
+	    if(acessibilidade!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_ACESSIBILIDADE",
+		    acessibilidade, "escola"));
+	    }
+	    if(cozinha!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_COZINHA",
+		    cozinha, "escola"));
+	    }
+	    if(refeitorio!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_REFEITORIO",
+		    refeitorio, "escola"));
+	    }
+	    if(alojamentoAluno!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALOJAMENTO_ALUNO",
 		    alojamentoAluno, "escola"));
-
+	    }
+	    if(bercario!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BERCARIO",
+		    bercario, "escola"));
+	    }
+	    if(auditorio!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_AUDITORIO",
+		    auditorio, "escola"));
+	    }
+	    if(secretaria!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SECRETARIA",
+		    secretaria, "escola"));
+	    }
+	    if(lavanderia!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAVANDERIA",
+		    lavanderia, "escola"));
+	    }
+	    if(chuveiro!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BANHEIRO_CHUVEIRO",
+		    chuveiro, "escola"));
+	    }
+	    if(internet!="")
+	    {
+		campos.addAll(ConversorDeEntrada.gerarCampos("SE_INTERNET",
+			    internet, "escola"));
+	    }
+	    
 	    con = new ConnectionFactory().getConnection();
 	    EscolaDAO escolaDAO = new EscolaDAO(con);
 	    EscolaControl escolaControl = new EscolaControl(escolaDAO);
