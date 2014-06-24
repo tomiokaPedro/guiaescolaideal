@@ -24,5 +24,15 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
   <servlet-name>realizarConsultaEscolaEspecifica</servlet-name>
   <url-pattern>/realizarConsultaEscolaEspecifica.jsp</url-pattern>
 </servlet-mapping>
+
+<servlet>  
+    	<servlet-name>pegarEscola</servlet-name>  
+    	<servlet-class>br.com.mdsgpp.guiaescolaideal.servlets.EscolaPorIdServlet</servlet-class>  
+	</servlet>  
+  
+  <servlet-mapping>  
+    <servlet-name>pegarEscola</servlet-name>  
+    <url-pattern>/pegarEscola.jsp</url-pattern>  
+  </servlet-mapping> 
 </web-app>
 
