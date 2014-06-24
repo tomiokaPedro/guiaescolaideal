@@ -53,8 +53,9 @@ public class TesteComputaVotosServlet {
 	verify(dispatcherErro, never()).forward(request, response);	
     }
     
+    @Test
     public void cenarioComIdInvalido() throws ServletException, IOException {
-	String id = "75015";
+	String id = "75015n";
 	when(request.getParameter("id")).thenReturn(id);
 	
 	configuraDispatcherParaPaginaDeErro();
