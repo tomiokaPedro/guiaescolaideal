@@ -1,6 +1,7 @@
 package br.com.mdsgpp.guiaescolaideal.control;
 
 import java.util.Properties;  
+
 import javax.mail.Message;  
 import javax.mail.Session;  
 import javax.mail.Transport;  
@@ -8,6 +9,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;   
 import javax.mail.Authenticator;  
 import javax.mail.PasswordAuthentication;   
+
+import com.mysql.fabric.Response;
   
 public class ContatoControl {  
       
@@ -34,7 +37,7 @@ public class ContatoControl {
     public void sendMail(String from, String to, String subject, String message) {  
           
         Properties props = new Properties();  
-  
+        
                 // quem estiver utilizando um SERVIDOR PROXY descomente essa parte e atribua as propriedades do SERVIDOR PROXY utilizado  
                 /* 
                 props.setProperty("proxySet","true"); 
@@ -55,7 +58,7 @@ public class ContatoControl {
           
         //Cria um autenticador que sera usado a seguir  
         SimpleAuth auth = null;  
-        auth = new SimpleAuth ("contato.guiaescolaideal@gmail.com","");  
+        auth = new SimpleAuth ("contato.guiaescolaideal@gmail.com","4t6Li40vZt");  
           
         //Session - objeto que ira realizar a conexão com o servidor  
         /*Como há necessidade de autenticação é criada uma autenticacao que 
@@ -91,7 +94,7 @@ public class ContatoControl {
              *  2 - seu nome de usuario do gmail 
              *  3 - sua senha do gmail 
              */  
-            tr.connect(mailSMTPServer, "seuusuarioparalogin", "suasenhaparalogin");  
+            tr.connect(mailSMTPServer, "contato.guiaescolaideal@gmail.com", "4t6Li40vZt");  
             msg.saveChanges(); // don't forget this  
             //envio da mensagem  
             tr.sendMessage(msg, msg.getAllRecipients());  
