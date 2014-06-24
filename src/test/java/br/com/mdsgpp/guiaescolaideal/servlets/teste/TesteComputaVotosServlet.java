@@ -57,11 +57,11 @@ public class TesteComputaVotosServlet {
 	String id = "75015";
 	when(request.getParameter("id")).thenReturn(id);
 	
-	configuraDispatcherParaPaginaPerfil();
+	configuraDispatcherParaPaginaDeErro();
 	computaVotosServlet.service(request, response);
 	
-	verify(dispatcherPerfil).forward(request, response);
-	verify(dispatcherErro, never()).forward(request, response);	
+	verify(dispatcherPerfil, never()).forward(request, response);
+	verify(dispatcherErro).forward(request, response);	
     }
     
     private void configuraDispatcherParaPaginaDeErro() {
