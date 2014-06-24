@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
+import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
@@ -45,7 +46,9 @@ public class ComputaVotosServlet extends HttpServlet {
 	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
-	} finally {
+	} catch (PesquisaException e) {
+	    dispatcher = setDispatcherErro(request, e);
+	}finally {
 	    ConnectionUtil.closeConnection(connection);
 	}
 
