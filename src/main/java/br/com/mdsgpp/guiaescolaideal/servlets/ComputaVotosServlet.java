@@ -37,10 +37,11 @@ public class ComputaVotosServlet extends HttpServlet {
 
 	    EscolaDAO escolaDAO = new EscolaDAO(connection);
 	    EscolaControl control = new EscolaControl(escolaDAO);
+	    Escola escola = control.getEscolaPorId(id);
 
 	    control.updateVotos(Integer.parseInt(id));
 
-
+	    request.setAttribute("escola", escola);
 	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
 	} catch (SQLException e) {
 	    dispatcher = setDispatcherErro(request, e);
