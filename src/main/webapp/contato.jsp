@@ -1,5 +1,6 @@
     <!-- Contato -->
 
+
     <section id="contato">
         <div class="container">
             <div class="row">
@@ -30,7 +31,7 @@
                         <div class="row">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label for="mensagem">Mensagem</label>
-                                <textarea placeholder="Mensagem" class="form-control" rows="5"></textarea>
+                                <textarea name="mensagem" rows="5" class="form-control" id="mensagem" placeholder="Mensagem"></textarea>
                             </div>
                         </div>
                         <br>
