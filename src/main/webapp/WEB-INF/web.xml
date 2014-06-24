@@ -16,12 +16,12 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 </servlet-mapping>
 
 <servlet>
-  <servlet-name>realizarConsultaEscolaEspecifica.jsp</servlet-name>
+  <servlet-name>realizarConsultaEscolaEspecifica</servlet-name>
   <servlet-class>br.com.mdsgpp.guiaescolaideal.servlets.PesquisarEscolaEspecificaServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-  <servlet-name>realizarConsultaEscolaEspecifica.jsp</servlet-name>
+  <servlet-name>realizarConsultaEscolaEspecifica</servlet-name>
   <url-pattern>/realizarConsultaEscolaEspecifica.jsp</url-pattern>
 </servlet-mapping>
 </web-app>

@@ -22,10 +22,9 @@ public class ContatoServlet extends HttpServlet{
     protected void service (HttpServletRequest request,
 	        HttpServletResponse response)
 	        throws ServletException, IOException {
-	
-	
-	ContatoControl control = new ContatoControl();
+
 	PrintWriter out = response.getWriter();
+	ContatoControl control = new ContatoControl();
 	
 	String nome = null;
 	String email = null;
@@ -38,8 +37,14 @@ public class ContatoServlet extends HttpServlet{
 	assunto = request.getParameter("assunto");
 	mensagem = request.getParameter("mensagem");
 	
-	control.enviarEmail(nome, email, assunto, mensagem);
-	out.println("Mensagem enviada com sucesso!");
+	/*out.println("O nome informado foi " +nome + " email: " +email +
+		" assunto: " +assunto +" Mensagem: \n" + mensagem);
+	*/
+	
+	control.sendMail("contato.guiaescolaideal@gmail.com","contato.guiaescolaideal@gmail.com",assunto,mensagem);
+	
+	
+	
 	 
     }
     
