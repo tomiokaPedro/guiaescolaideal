@@ -20,7 +20,7 @@
 							<p>Nome:${escola.nomeEscola}
 							<a href="computaVotos.jsp?id=${escola.codEscola}" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> ${escola.quantidadeVotos}</a> </p>
 								<form action="addPerfilServlet.jsp" method="post">
-									<button type="submit" name="id" value="${escola.codEscola}" class="btn btn-success">Comparar</button>
+									<button type="submit" name="id" value="${escola.codEscola}" class="btn btn-success">Comparação entre as escolas selecionadas</button>
 								</form>
 							
 							<hr>
@@ -45,7 +45,7 @@
 											<b>Bairro:</b> ${escola.endereco.bairro}
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-6">
-											<b>Municipio:</b> ${escola.endereco.municipio.nome}
+											<b>Município:</b> ${escola.endereco.municipio.nome}
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-6">
 											<b>CEP:</b> ${escola.endereco.cep}
@@ -67,14 +67,9 @@
 												class="dado-valor col-xs-2 ${escola.brasilAlfabetizacao?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Educação Indigena</div>
+											<div class="dado col-xs-10">Educação Indígena</div>
 											<div
 												class="dado-valor col-xs-2 ${escola.educacaoIndigena?'y':'n'}"></div>
-										</div>
-										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Acessibilidade</div>
-											<div
-												class="dado-valor col-xs-2 ${escola.acessibilidade?'y':'n'}"></div>
 										</div>
 									</div>
 								</div>
@@ -90,6 +85,11 @@
 											<div
 												class="dado-valor col-xs-2 ${escola.dependViasAcesso?'y':'n'}"></div>
 										</div>
+										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
+											<div class="dado col-xs-10">Acessibilidade</div>
+											<div
+												class="dado-valor col-xs-2 ${escola.acessibilidade?'y':'n'}"></div>
+										</div>
 									</div>
 								</div>
 
@@ -104,7 +104,7 @@
 											<div class="dado-valor col-xs-2 ${escola.cozinha?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Berçario</div>
+											<div class="dado col-xs-10">Berçário</div>
 											<div class="dado-valor col-xs-2 ${escola.bercario?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
@@ -138,7 +138,7 @@
 												class="dado-valor col-xs-2 ${escola.banheiroChuveiro?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Alojamento Aluno</div>
+											<div class="dado col-xs-10">Alojamento para alunos</div>
 											<div
 												class="dado-valor col-xs-2 ${escola.alojamentoAluno?'y':'n'}"></div>
 										</div>
@@ -163,12 +163,12 @@
 												class="dado-valor col-xs-2 ${escola.salaAtendimentoEspecializado?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Sala Professor</div>
+											<div class="dado col-xs-10">Sala de Professor</div>
 											<div
 												class="dado-valor col-xs-2 ${escola.salaProfessor?'y':'n'}"></div>
 										</div>
 										<div class="categoria-dado col-xs-12 col-md-4 col-sm-6">
-											<div class="dado col-xs-10">Sala Diretoria</div>
+											<div class="dado col-xs-10">Sala de Diretoria</div>
 											<div
 												class="dado-valor col-xs-2 ${escola.salaDiretoria?'y':'n'}"></div>
 										</div>
