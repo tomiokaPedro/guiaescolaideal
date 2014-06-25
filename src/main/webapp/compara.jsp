@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="modal-body">
-						<h2>Compara</h2>
+						<h2>Comparação entre as escolas selecionadas</h2>
 						<hr class="star-primary">
 					</div>
 					<div class="categorias col-xs-12 col-md-10 col-md-offset-1">

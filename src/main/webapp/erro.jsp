@@ -48,7 +48,7 @@ body{
 	</div>
 	
 	<div class="redirecionar">
-		Você será direcionado automaticamente em 10s, caso contrário <a href='${redirecionaPara != null ? redirecionaPara : "index.jsp"}'>clique aqui</a>.
+		Você será direcionado automaticamente em 10 segundos, caso não deseje ser redirecionado <a href='${redirecionaPara != null ? redirecionaPara : "index.jsp"}'>clique aqui</a>.
 	</div>
 	<script type="text/javascript">
 		setTimeout("location.href='${redirecionaPara != null? redirecionaPara : "index.jsp"}'",10000);
