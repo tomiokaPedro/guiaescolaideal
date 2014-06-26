@@ -135,28 +135,28 @@
 	  	 
 	  	 function validaEspecifica()
 	  	 {
-	  		 var nome = form1.nome.value;
-	  		 var estado = form1.estado.value;
-	  		 var municipio = form1.municipio.value;
+	  		 var nome = $("#f1-nome").val();
+	  		 var estado = $("#select_estado option:selected").val();
+	  		 var municipio = $("#f1-municipio").val();
 	  		 
 	  		 if(nome == "")
 	  			 {
 	  			 	alert("Digite o nome da escola!");
-	  			 	form1.nome.focus;
+	  			 	$("#f1-nome").focus();
 	  			 	return false;
 	  			 }
 	  		 
 	  		 if(nome.length < 3)
 	  			 {
 	  			 	alert("Nome da escola deve ter no mínimo 3 caracteres!");
-	  			 	form1.nome.focus();
+	  			 	$("#f1-nome").focus();
 	  			 	return false;
 	  			 }
 	  		 
-	  		if(estado == "")
+	  		if(estado == "x")
 	  			{
 	  				alert("Selecione um estado!");
-	  				form1.estado.focus();
+	  				$("#select_estado").focus();
 	  				return false;
 	  			}
 	  		

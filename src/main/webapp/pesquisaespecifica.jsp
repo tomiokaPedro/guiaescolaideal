@@ -21,7 +21,7 @@
 								<div class="row">
 									<div class="form-group col-xs-12">
 										<label for="escola">Escola</label> <input class="form-control"
-											type="text" name="nome" placeholder="Insira a Escola">
+											type="text" name="nome" id="f1-nome" placeholder="Insira a Escola">
 									</div>
 								</div>
 								<div class="row">
@@ -41,7 +41,7 @@
 								<div class="row">
 									<div class="form-group col-xs-12">
 										<label for="municipio">Município</label> <input
-											class="form-control" type="text" name="municipio"
+											class="form-control" type="text" name="municipio" id="f1-municipio"
 											placeholder="Insira o Município">
 									</div>
 								</div>
@@ -50,7 +50,7 @@
 								<div class="form-group col-xs-12 floating-label-form-group">
 									<div class="controls">
 										<button class="btn btn-success" type="submit"
-											value="Buscar Escola">Buscar Escola</button>
+											value="Buscar Escola" onclick="return validaEspecifica()">Buscar Escola</button>
 
 										<a href="#ajudaespecifica" class="portfolio-link"
 											data-toggle="modal">
