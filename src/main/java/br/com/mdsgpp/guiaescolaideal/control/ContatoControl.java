@@ -9,6 +9,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;   
 import javax.mail.Authenticator;  
 import javax.mail.PasswordAuthentication;
+
+import br.com.mdsgpp.guiaescolaideal.exceptions.ContatoException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.EnvioException;
+import br.com.mdsgpp.guiaescolaideal.exceptions.MensagemNaoCompletadaException;
   
 public class ContatoControl {  
     
@@ -41,7 +45,7 @@ public class ContatoControl {
 	this.session = session;
     }
     
-    public void sendMail(String from, String to, String subject, String message) {  
+    public void sendMail(String from, String to, String subject, String message) throws ContatoException {  
         session.getProperties().put("mail.smtp.user", from); //usuario ou seja, a conta que esta enviando o email (tem que ser do GMAIL)
         //Objeto que contém a mensagem  
         Message msg = new MimeMessage(session);  
@@ -57,8 +61,9 @@ public class ContatoControl {
             msg.setContent(message,"text/plain");  
   
         } catch (Exception e) {  
-            System.out.println(">> Erro: Completar Mensagem");  
-            e.printStackTrace();  
+            throw new MensagemNaoCompletadaException("A mensagem não foi completada.");
+            
+             
         }  
           
         //Objeto encarregado de enviar os dados para o email  
@@ -77,8 +82,7 @@ public class ContatoControl {
             tr.close();  
         } catch (Exception e) {  
             // TODO Auto-generated catch block  
-            System.out.println(">> Erro: Envio Mensagem");  
-            e.printStackTrace();  
+            throw new EnvioException("Erro ao enviar mensagem.");
         }  
   
     }
