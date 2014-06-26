@@ -20,6 +20,7 @@ public class TesteAceitacaoFormEscolaIdeal {
     private Selenium selenium;
     private String baseUrl = "http://localhost:8765/GuiaEscolaIdeal/index.jsp";
 
+    
     @Before
     public void setUp() throws Exception {
 	// You may use any WebDriver implementation. Firefox is used here as an
@@ -28,6 +29,7 @@ public class TesteAceitacaoFormEscolaIdeal {
 	selenium = new WebDriverBackedSelenium(driver, baseUrl);
     }
 
+    
     @Test
     public void testeCasoPerfeito() throws InterruptedException {
 
@@ -50,6 +52,21 @@ public class TesteAceitacaoFormEscolaIdeal {
 	assertEquals("Campo estado não foi selecionado!", selenium.getAlert());
     }
 
+    @Test
+    public void testeMunicipioCaracterInvalido()
+    {
+	realizarBuscaIdeal();
+	selecionaModalidade("Ensino Regular");
+	selecionaEstado("Goiás");
+	
+	driver.findElement(By.id("municipio")).clear();
+	driver.findElement(By.id("municipio")).sendKeys("@#$%^&");
+	submit();
+	
+	assertEquals("Município inválido!\nUso de caracteres inválidos.", selenium.getAlert());
+
+
+    }
     private void submit() {
 	selenium.click("id=button1id");
     }
