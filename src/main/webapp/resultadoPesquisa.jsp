@@ -82,6 +82,36 @@
 	  		 return regex.test(campo);
 	  	 }
 	  	 
+	  	function validaEspecifica()
+	  	 {
+	  		 var nome = form1.nome.value;
+	  		 var estado = form1.estado.value;
+	  		 var municipio = form1.municipio.value;
+	  		 
+	  		 if(nome == "")
+	  			 {
+	  			 	alert("Digite o nome da escola!");
+	  			 	form1.nome.focus;
+	  			 	return false;
+	  			 }
+	  		 
+	  		 if(nome.length < 3)
+	  			 {
+	  			 	alert("Nome da escola deve ter no mínimo 3 caracteres!");
+	  			 	form1.nome.focus();
+	  			 	return false;
+	  			 }
+	  		 
+	  		if(estado == "")
+	  			{
+	  				alert("Selecione um estado!");
+	  				form1.estado.focus();
+	  				return false;
+	  			}
+	  		
+	  		return true;
+	  	 }
+	  	
 	  	 function validaIdeal(){
 	  		 if(ideal.modalidade.value == 'x'){
 	  			 alert("Campo modalidade não foi selecionado!");
