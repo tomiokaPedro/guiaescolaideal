@@ -45,10 +45,9 @@ public class ComputaVotosServlet extends HttpServlet {
 	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
 	} catch (Exception e) {
 	    dispatcher = setDispatcherErro(request, e);
-	}finally {
-	    ConnectionUtil.closeConnection(connection);
 	}
-
+	
+	ConnectionUtil.closeConnection(connection);
 	dispatcher.forward(request, response);
     }
 
