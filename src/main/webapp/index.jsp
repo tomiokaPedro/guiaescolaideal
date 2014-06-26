@@ -69,6 +69,16 @@
 	  		selectMode('select_estado-ideal', 'x');
 	  		selectMode('modalidade', 'x');
 	  	 });
+	  	 
+	  	 function validaIdeal(){
+	  		 if(ideal.modalidade.value == 'x'){
+	  			 alert("Campo modalidade não foi selecionado!");
+	  			 return false;
+	  		 }
+	  		 
+	  		 return true;
+	  		 
+	  	 }
 	</script>
 </body>
 

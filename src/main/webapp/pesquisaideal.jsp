@@ -378,7 +378,7 @@
 									<div class="form-group col-xs-12 floating-label-form-group">
 										<div class="controls">
 											<button id="button1id" name="button1id"
-												class="btn btn-success">Buscar Escola</button>
+												class="btn btn-success" onclick="return validaIdeal()">Buscar Escola</button>
 
 											<a href="#ajudaideal" class="portfolio-link"
 												data-toggle="modal">
