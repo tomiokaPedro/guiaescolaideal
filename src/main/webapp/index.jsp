@@ -95,6 +95,32 @@
 	  		
 	  		 return true; 
 	  	 }
+	  	 
+	  	 function validaContato()
+	  	 {
+	  		 var name = form3.nome.value;
+	  		 var assunto = form3.assunto.value;
+	  		 var email = form3.email.value;
+	  		 
+	  		 if(name.isEmpty())
+	  			 {
+	  			 	alert("Digite um nome!");
+	  			 	form3.name.focus();
+	  			 	return false;
+	  			 }
+	  		 if(assunto.isEmpty())
+	  			 {
+	  			 	alert("Digite um assunto!");
+	  			 	form3.assunto.focus();
+	  			 	return false;
+	  			 }
+	  		 if(email.isEmpty())
+	  			 {
+	  			 	alert("Digite um email!");
+	  			 	form3.assunto.focus();
+	  			 	return false;
+	  			 }
+	  	 }
 	</script>
 </body>
 
