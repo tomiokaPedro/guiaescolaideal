@@ -18,7 +18,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Tecnologia</h3>
-                      <p>Esta aplicação utiliza tecnologia open source bootstrap.</p>
+                      <p>Esta aplicação utiliza tecnologia open source Bootstrap e linguagem de desenvolvimento Java.</p>
                         <table width="200" border="0">
                           <tr>
                             <th scope="col"><img src="img/logo_bootstrap-footer.png" width="188" height="105" alt="Twitter Bootstrap" /></th>
