@@ -74,6 +74,11 @@
 	  		 if(ideal.modalidade.value == 'x'){
 	  			 alert("Campo modalidade não foi selecionado!");
 	  			 return false;
+	  		if(ideal.estado.value == 'x')
+	  			{
+	  			alert("Campo estado não foi selecionado!");
+	  			return false;
+	  			}
 	  		 }
 	  		 
 	  		 return true;
