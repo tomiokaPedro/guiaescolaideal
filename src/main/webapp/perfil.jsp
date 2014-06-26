@@ -79,6 +79,69 @@
 	  		addLink();
 	  	 });
 	  	 
+	  	 function validaTexto(campo){
+	  		 var regex = /[^a-zA-Z0-9À-ü ]/g;
+	  		 
+	  		 return regex.test(campo);
+	  	 }
+	  	 
+	  	 function validaIdeal(){
+	  		 if(ideal.modalidade.value == 'x'){
+	  			 alert("Campo modalidade não foi selecionado!");
+	  			 return false;
+	  		 }
+	  		 
+	  		if($("#select_estado-ideal option:selected").val() == 'x'){
+	  			alert("Campo estado não foi selecionado!");
+	  			return false;
+	  		 }
+	  		
+	  		if(validaTexto(ideal.municipio.value)){
+	  			alert('Município inválido!\nUso de caracteres inválidos.\n');
+	  			return false;
+	  			
+	  		}
+	  		
+	  		 return true; 
+	  	 }
+
+	  	 
+	  	 function validaContato()
+	  	 {
+	  		 var name = femail.name.value;
+	  		 var assunto = femail.assunto.value;
+	  		 var email = femail.email.value;
+	  		 var mensagem = femail.mensagem.value;
+	  		 
+	  		 if(name == "")
+	  			 {
+	  			 	alert("Digite um nome!");
+	  			 	femail.name.focus();
+	  			 	return false;
+	  			 }
+	  		 if(assunto == "")
+	  			 {
+	  			 	alert("Digite um assunto!");
+	  			 	femail.assunto.focus();
+	  			 	return false;
+	  			 }
+	  		 if(email == "")
+	  			 {
+	  			 	alert("Digite um email!");
+	  			 	femail.assunto.focus();
+	  			 	return false;
+	  			 }
+
+	  		 if(mensagem == "")
+	  			 {
+	  			 	alert("Digite uma mensagem!");
+	  			 	femail.mensagem.focus();
+	  			 	return false;
+	  			 }
+			
+	  		 return true;
+	  	 }
+	  	 
 	  	 function addEvento(link){
 	  		if($("."+link+"-body").css('display') == 'none'){
   				$("."+link).append("<span class=\"glyphicon glyphicon-chevron-down "+link+"-span\"></span>");
