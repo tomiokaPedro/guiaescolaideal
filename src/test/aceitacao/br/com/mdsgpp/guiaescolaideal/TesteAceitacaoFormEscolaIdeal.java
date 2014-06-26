@@ -1,13 +1,13 @@
 package br.com.mdsgpp.guiaescolaideal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -20,7 +20,6 @@ public class TesteAceitacaoFormEscolaIdeal {
     private Selenium selenium;
     private String baseUrl = "http://localhost:8765/GuiaEscolaIdeal/index.jsp";
 
-    
     @Before
     public void setUp() throws Exception {
 	// You may use any WebDriver implementation. Firefox is used here as an
@@ -29,7 +28,6 @@ public class TesteAceitacaoFormEscolaIdeal {
 	selenium = new WebDriverBackedSelenium(driver, baseUrl);
     }
 
-    
     @Test
     public void testeCasoPerfeito() throws InterruptedException {
 
@@ -37,6 +35,7 @@ public class TesteAceitacaoFormEscolaIdeal {
 
 	selecionaModalidade("Ensino Regular");
 	selecionaEstado("Distrito Federal");
+	selenium.click("id=labinf5");
 	submit();
 
 	assertTrue(driver.getPageSource().contains("Resultado"));
@@ -53,20 +52,45 @@ public class TesteAceitacaoFormEscolaIdeal {
     }
 
     @Test
-    public void testeMunicipioCaracterInvalido()
-    {
+    public void testeMunicipioCaracterInvalido() {
 	realizarBuscaIdeal();
 	selecionaModalidade("Ensino Regular");
 	selecionaEstado("Goiás");
-	
+
 	driver.findElement(By.id("municipio")).clear();
 	driver.findElement(By.id("municipio")).sendKeys("@#$%^&");
 	submit();
-	
-	assertEquals("Município inválido! Uso de caracteres inválidos.", selenium.getAlert());
 
+	assertEquals("Município inválido! Uso de caracteres inválidos.",
+		selenium.getAlert());
 
     }
+
+    @Test
+    public void testeModalidadeVazia() {
+	realizarBuscaIdeal();
+	submit();
+
+	assertEquals("Campo modalidade não foi selecionado!",
+		selenium.getAlert());
+    }
+
+    @Test
+    public void testeSistemaNaoEncontraNenhumaEscola() {
+	realizarBuscaIdeal();
+	selecionaModalidade("Ensino Regular");
+	selecionaEstado("Goiás");
+
+	driver.findElement(By.id("municipio")).clear();
+	driver.findElement(By.id("municipio")).sendKeys(
+		"javavah do sul e do norte");
+	submit();
+
+	assertTrue(driver.getPageSource().contains(
+		"Consulta não retornou nenhuma escola com esses atributos."));
+
+    }
+
     private void submit() {
 	selenium.click("id=button1id");
     }
@@ -89,44 +113,6 @@ public class TesteAceitacaoFormEscolaIdeal {
 		.click();
     }
 
-    /*
-     * @Test public void testeSemInserirEstado() { selecionaModalidade();
-     * submit();
-     * 
-     * String texto = getAlertText();
-     * assertTrue(texto.equals("Selecione um estado")); }
-     * 
-     * @Test public void testeMunicipioComCaracteresInvalidos() {
-     * selecionaModalidade(); selecionaEstado(); selecionaLabInfo();
-     * selecionaLabCiencias();
-     * 
-     * WebElement municipio = driver.findElement(By.name("municipio"));
-     * municipio.sendKeys("$%$¨&%¨¨¨&%"); submit();
-     * 
-     * String texto = getAlertText(); assertTrue(texto != null &&
-     * !texto.isEmpty()); }
-     * 
-     * private String getAlertText() { String texto =
-     * driver.switchTo().alert().getText(); driver.switchTo().alert().accept();
-     * return texto; }
-     * 
-     * @Test public void testeNaoEncontrarEscola() { selecionaModalidade();
-     * selecionaEstado(); selecionaLabInfo();
-     * 
-     * WebElement municipio = driver.findElement(By.name("municipio"));
-     * municipio.sendKeys("Java");
-     * 
-     * selecionaLabCiencias(); submit();
-     * 
-     * assertTrue(driver.getPageSource().contains(
-     * "Consulta não retornou nenhuma escola com esses atributos.")); }
-     * 
-     * @Test public void testeModalidadeVazia() { selecionaEstado();
-     * selecionaLabInfo(); selecionaLabCiencias(); submit();
-     * 
-     * String texto = getAlertText();
-     * assertTrue(texto.equalsIgnoreCase("Selecione uma modalidade")); }
-     */
     @After
     public void close() {
 	selenium.close();
