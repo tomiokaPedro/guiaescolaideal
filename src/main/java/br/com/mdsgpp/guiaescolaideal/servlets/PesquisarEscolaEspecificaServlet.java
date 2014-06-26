@@ -2,7 +2,6 @@ package br.com.mdsgpp.guiaescolaideal.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
 @WebServlet(value = "/realizarConsultaEscolaEspecifica.jsp")
@@ -46,9 +44,7 @@ public class PesquisarEscolaEspecificaServlet extends HttpServlet {
 		    escolaControl.getEscolaEspecifica(nome, estado, municipio));
 
 	    dispatcher = request.getRequestDispatcher("/resultadoPesquisa.jsp");
-	} catch (SQLException e) {
-	    dispatcher = setDispatcherErro(request, e);
-	} catch (PesquisaException e) {
+	} catch (Exception e) {
 	    dispatcher = setDispatcherErro(request, e);
 	}
 	

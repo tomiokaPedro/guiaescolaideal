@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import br.com.mdsgpp.guiaescolaideal.control.EscolaControl;
 import br.com.mdsgpp.guiaescolaideal.dao.ConnectionFactory;
 import br.com.mdsgpp.guiaescolaideal.dao.EscolaDAO;
-import br.com.mdsgpp.guiaescolaideal.exceptions.PesquisaException;
 import br.com.mdsgpp.guiaescolaideal.model.Escola;
 import br.com.mdsgpp.guiaescolaideal.util.ConnectionUtil;
 
@@ -39,9 +38,7 @@ public class EscolaPorIdServlet extends HttpServlet {
 
 	    request.setAttribute("escola", escola);
 	    dispatcher = request.getRequestDispatcher("/perfil.jsp");
-	} catch (SQLException e) {
-	    dispatcher = setDispatcherErro(request, e);
-	} catch (PesquisaException e) {
+	} catch (Exception e) {
 	    dispatcher = setDispatcherErro(request, e);
 	}
 
