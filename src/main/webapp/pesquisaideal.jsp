@@ -34,7 +34,8 @@
 									</div>
 									<div class="row">
 										<div class="form-group col-xs-12 ">
-											<label for="Estado">Estado</label> <select
+											<label for="Estado">Estado</label>
+											<select
 												id="select_estado-ideal" class="disable form-control"
 												type="text" name="estado">
 												<option value="x" disabled selected>Selecione o
@@ -50,7 +51,7 @@
 									<div class="row">
 										<div class="form-group col-xs-12">
 											<label for="municipio">Município</label> <input
-												class="form-control" type="text" name="municipio"
+												class="form-control" type="text" name="municipio" id="municipio"
 												placeholder="Insira o Município">
 										</div>
 									</div>
