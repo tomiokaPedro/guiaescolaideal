@@ -95,6 +95,7 @@
 	  		
 	  		 return true; 
 	  	 }
+
 	  	 
 	  	 function validaContato()
 	  	 {
@@ -130,6 +131,7 @@
 	  			 }
 
 	  	 }
+
 	</script>
 </body>
 
