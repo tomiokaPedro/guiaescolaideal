@@ -99,37 +99,38 @@
 	  	 
 	  	 function validaContato()
 	  	 {
-	  		 var name = form3.nome.value;
-	  		 var assunto = form3.assunto.value;
-	  		 var email = form3.email.value;
-	  		 var mensagem = form3.mensagem.value;
+	  		 var name = femail.name.value;
+	  		 var assunto = femail.assunto.value;
+	  		 var email = femail.email.value;
+	  		 var mensagem = femail.mensagem.value;
 	  		 
-	  		 if(name.isEmpty())
+	  		 if(name == "")
 	  			 {
 	  			 	alert("Digite um nome!");
-	  			 	form3.name.focus();
+	  			 	femail.name.focus();
 	  			 	return false;
 	  			 }
-	  		 if(assunto.isEmpty())
+	  		 if(assunto == "")
 	  			 {
 	  			 	alert("Digite um assunto!");
-	  			 	form3.assunto.focus();
+	  			 	femail.assunto.focus();
 	  			 	return false;
 	  			 }
-	  		 if(email.isEmpty())
+	  		 if(email == "")
 	  			 {
 	  			 	alert("Digite um email!");
-	  			 	form3.assunto.focus();
+	  			 	femail.assunto.focus();
 	  			 	return false;
 	  			 }
 
-	  		 if(mensagem.isEmpty())
+	  		 if(mensagem == "")
 	  			 {
 	  			 	alert("Digite uma mensagem!");
-	  			 	form3.mensagem.focus();
+	  			 	femail.mensagem.focus();
 	  			 	return false;
 	  			 }
-
+			
+	  		 return true;
 	  	 }
 
 	</script>
