@@ -88,8 +88,8 @@
 															value="sim" /> Sim <input
 																type="radio" name="indigena" id="labinf18" value="n&atilde;o" />
 																N&atilde;o <input name="indigena" type="radio"
-																id="radio9" checked="checked" value="" /> Tanto Faz
-														></td>
+																id="radio9" checked="checked" value="" /> 
+																Tanto Faz</td>
 													</tr>
 												</table>
 											  <p>&nbsp;</p>
@@ -185,8 +185,8 @@
 																<input type="radio" name="sanitarioforapredio"
 																id="labinf8" value="n&atilde;o" /> N&atilde;o <input
 																name="sanitarioforapredio" type="radio" id="radio4"
-																checked="checked" value="" /> Tanto Faz
-														></td>
+																checked="checked" value="" /> 
+																Tanto Faz</td>
 													</tr>
 												</table>
 												<p>&nbsp;</p>
@@ -302,8 +302,7 @@
 																<input type="radio" name="alojamentoAluno" id="labinf32"
 																value="n&atilde;o" /> N&atilde;o <input name="alojamentoAluno"
 																type="radio" id="radio16" checked="checked" value="" />
-																Tanto Faz
-														></td>
+																Tanto Faz</td>
 													</tr>
 													<tr>
 														<td>Ber&ccedil;&aacute;rio</td>
@@ -321,8 +320,7 @@
 																<input type="radio" name="auditorio" id="labinf36"
 																value="n&atilde;o" /> N&atilde;o <input name="auditorio"
 																type="radio" id="radio18" checked="checked" value="" />
-																Tanto Faz
-														></td>
+																Tanto Faz</td>
 													</tr>
 													<tr>
 														<td>Secretaria</td>
@@ -341,8 +339,7 @@
 																<input type="radio" name="lavanderia" id="labinf42"
 																value="n&atilde;o" /> N&atilde;o <input name="lavanderia"
 																type="radio" id="radio21" checked="checked" value="" />
-																Tanto Faz
-														></td>
+																Tanto Faz</td>
 													</tr>
 													<tr>
 														<td>Chuveiro</td>
