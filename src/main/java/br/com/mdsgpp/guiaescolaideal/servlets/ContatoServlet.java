@@ -1,7 +1,6 @@
 package br.com.mdsgpp.guiaescolaideal.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,6 @@ public class ContatoServlet extends HttpServlet {
     protected void service(HttpServletRequest request,
 	    HttpServletResponse response) throws ServletException, IOException {
 
-	PrintWriter out = response.getWriter();
 	ContatoControl control = new ContatoControl();
 	RequestDispatcher dispatcher = null;
 
@@ -34,9 +32,6 @@ public class ContatoServlet extends HttpServlet {
 	email = request.getParameter("email");
 	assunto = request.getParameter("assunto");
 	mensagem = request.getParameter("mensagem");
-
-	out.println("O nome informado foi " + nome + " email: " + email
-		+ " assunto: " + assunto + " Mensagem: \n" + mensagem);
 
 	String mensagemCompleta = "Enviada por " + nome + " <" + email + " >"
 		+ "\n" + mensagem;
