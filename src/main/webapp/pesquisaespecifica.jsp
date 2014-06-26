@@ -17,7 +17,7 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
-							<form role="form" action="realizarConsultaEscolaEspecifica.jsp" method="post" name="form1" id="especifica">
+							<form role="form" action="realizarConsultaEscolaEspecifica.jsp" method="post" name="form1" id="form1">
 								<div class="row">
 									<div class="form-group col-xs-12">
 										<label for="escola">Escola</label> <input class="form-control"
