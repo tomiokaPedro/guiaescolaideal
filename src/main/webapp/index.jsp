@@ -121,12 +121,14 @@
 	  			 	form3.assunto.focus();
 	  			 	return false;
 	  			 }
+
 	  		 if(mensagem.isEmpty())
 	  			 {
 	  			 	alert("Digite uma mensagem!");
 	  			 	form3.mensagem.focus();
 	  			 	return false;
 	  			 }
+
 	  	 }
 	</script>
 </body>
