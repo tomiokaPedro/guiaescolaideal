@@ -1,6 +1,6 @@
 package br.com.mdsgpp.guiaescolaideal;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -36,13 +36,22 @@ public class TesteAceitacaoFormEscolaIdeal {
 	selecionaModalidade("Ensino Regular");
 	selecionaEstado("Distrito Federal");
 	submit();
-	
+
 	assertTrue(driver.getPageSource().contains("Resultado"));
 
     }
 
+    @Test
+    public void testeSemInserirEstado() {
+	realizarBuscaIdeal();
+	selecionaModalidade("Ensino Regular");
+	submit();
+
+	assertEquals("Campo estado não foi selecionado!", selenium.getAlert());
+    }
+
     private void submit() {
-	driver.findElement(By.id("button1id")).click();
+	selenium.click("id=button1id");
     }
 
     private void selecionaEstado(String estado) {
@@ -55,7 +64,7 @@ public class TesteAceitacaoFormEscolaIdeal {
 		.selectByVisibleText(modalidade);
     }
 
-    private void realizarBuscaIdeal() throws InterruptedException {
+    private void realizarBuscaIdeal() {
 	selenium.open("/GuiaEscolaIdeal/index.jsp");
 	selenium.click("link=Buscar Escola");
 	driver.findElement(
@@ -103,7 +112,7 @@ public class TesteAceitacaoFormEscolaIdeal {
      */
     @After
     public void close() {
-	driver.close();
+	selenium.close();
     }
 
 }
