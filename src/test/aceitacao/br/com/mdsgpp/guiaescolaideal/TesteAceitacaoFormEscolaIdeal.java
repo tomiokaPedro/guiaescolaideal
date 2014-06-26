@@ -63,7 +63,7 @@ public class TesteAceitacaoFormEscolaIdeal {
 	driver.findElement(By.id("municipio")).sendKeys("@#$%^&");
 	submit();
 	
-	assertEquals("Município inválido!\nUso de caracteres inválidos.", selenium.getAlert());
+	assertEquals("Município inválido! Uso de caracteres inválidos.", selenium.getAlert());
 
 
     }

@@ -90,7 +90,7 @@
 	  		 }
 	  		
 	  		if(validaTexto(ideal.municipio.value)){
-	  			alert('Município inválido!\nUso de caracteres inválidos.\n');
+	  			alert('Município inválido! Uso de caracteres inválidos.');
 	  			return false;
 	  			
 	  		}
