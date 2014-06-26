@@ -124,145 +124,145 @@ public class PesquisarEscolaIdealServlet extends HttpServlet {
 	    } catch (Exception e) {
 	    }
 	    
-	    if(modalidade!="")
+	    if(!modalidade.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("DESCRICAO",
 		    modalidade, "modalidade_ensino"));
 	    }
-	    if(fimlucrativo!="")
+	    if(!fimlucrativo.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_FINS_LURATIVOS", fimlucrativo, "escola"));
 	    }
 	    
-	    if(brasilalfabet!="")
+	    if(!brasilalfabet.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BRASIL_ALFABETIZACAO", brasilalfabet, "escola"));
 	    }
 	    
-	    if(edindigena!="")
+	    if(!edindigena.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_EDUCACAO_INDIGNA", edindigena, "escola"));
 	    }
 	    
-	    if(salaleitura!="")
+	    if(!salaleitura.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_LEITURA", salaleitura, "escola"));
 	    }
 	    
-	    if(salaatendespecializado!="")
+	    if(!salaatendespecializado.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_ATEND_ESP", salaatendespecializado, "escola"));
 	    }
 	    
-	    if(salaprofessor!="")
+	    if(!salaprofessor.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_PROFESSOR", salaprofessor, "escola"));
 	    }
-	    if(saladiretoria!="")
+	    if(!saladiretoria.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SALA_DIRETORIA", saladiretoria, "escola"));
 	    }
-	    if(saladiretoria!="")
+	    if(!labinf.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_INFO", labinf,
 		    "escola"));
 	    }
-	    if(saladiretoria!="")
+	    if(!labcien.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAB_CIENCIAS",
 		    labcien, "escola"));
 	    }
-	    if(sanitario_adeq_infantil!="")
+	    if(!sanitario_adeq_infantil.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_EDUC_ADEQ_INFAN",
 		    sanitario_adeq_infantil, "escola"));
 	    }
-	    if(sanitario_adeq_infantil!="")
+	    if(!sanitario_adeq_infantil.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_EDUC_ADEQ_INFAN",
 		    sanitario_adeq_infantil, "escola"));
 	    }
-	    if(sanitario_fora_predio!="")
+	    if(!sanitario_fora_predio.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_FORA_PREDIO",
 		    sanitario_fora_predio, "escola"));
 	    }
-	    if(sanitario_fora_predio!="")
+	    if(!sanitario_fora_predio.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SANITARIO_FORA_PREDIO",
 		    sanitario_fora_predio, "escola"));
 	    }
-	    if(quadraCoberta!="")
+	    if(!quadraCoberta.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_QUADRA_ESPO_COBERTA", quadraCoberta, "escola"));
 	    }
-	    if(quadraDescoberta!="")
+	    if(!quadraDescoberta.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_QUADRA_ESPO_DESCOBERTA", quadraDescoberta, "escola"));
 	    }
-	    if(parqueInfantil!="")
+	    if(!parqueInfantil.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_PARQUE_INFANTIL", parqueInfantil, "escola"));
 	    }
-	    if(patioCoberto!="")
+	    if(!patioCoberto.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_PATIO_COBERTO", patioCoberto, "escola"));
 	    }
-	    if(patioDescoberto!="")
+	    if(!patioDescoberto.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos(
 		    "SE_PATIO_DESCOBERTO", patioDescoberto, "escola"));
 	    }
-	    if(acessibilidade!="")
+	    if(!acessibilidade.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_ACESSIBILIDADE",
 		    acessibilidade, "escola"));
 	    }
-	    if(cozinha!="")
+	    if(!cozinha.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_COZINHA",
 		    cozinha, "escola"));
 	    }
-	    if(refeitorio!="")
+	    if(!refeitorio.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_REFEITORIO",
 		    refeitorio, "escola"));
 	    }
-	    if(alojamentoAluno!="")
+	    if(!alojamentoAluno.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_ALOJAMENTO_ALUNO",
 		    alojamentoAluno, "escola"));
 	    }
-	    if(bercario!="")
+	    if(!bercario.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BERCARIO",
 		    bercario, "escola"));
 	    }
-	    if(auditorio!="")
+	    if(!auditorio.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_AUDITORIO",
 		    auditorio, "escola"));
 	    }
-	    if(secretaria!="")
+	    if(!secretaria.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_SECRETARIA",
 		    secretaria, "escola"));
 	    }
-	    if(lavanderia!="")
+	    if(!lavanderia.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_LAVANDERIA",
 		    lavanderia, "escola"));
 	    }
-	    if(chuveiro!="")
+	    if(!chuveiro.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_BANHEIRO_CHUVEIRO",
 		    chuveiro, "escola"));
 	    }
-	    if(internet!="")
+	    if(!internet.isEmpty())
 	    {
 		campos.addAll(ConversorDeEntrada.gerarCampos("SE_INTERNET",
 			    internet, "escola"));
