@@ -79,11 +79,13 @@
 	  	 function validaIdeal(){
 	  		 if(ideal.modalidade.value == 'x'){
 	  			 alert("Campo modalidade não foi selecionado!");
+	  			 $("#modalidade").focus();
 	  			 return false;
 	  		 }
 	  		 
 	  		if($("#select_estado-ideal option:selected").val() == 'x'){
 	  			alert("Campo estado não foi selecionado!");
+	  			$("#select_estado-ideal").focus();
 	  			return false;
 	  		 }
 	  		
@@ -139,12 +141,11 @@
 	  		 var estado = $("#select_estado option:selected").val();
 	  		 var municipio = $("#f1-municipio").val();
 	  		 
-	  		 if(nome == "")
-	  			 {
-	  			 	alert("Digite o nome da escola!");
-	  			 	$("#f1-nome").focus();
-	  			 	return false;
-	  			 }
+	  		if(validaTexto(nome)){
+	  			alert('Nome da escola inválido!\nUso de caracteres inválidos.\n');
+	  			$("#f1-nome").focus();
+	  			return false;	
+	  		}
 	  		 
 	  		 if(nome.length < 3)
 	  			 {
@@ -159,6 +160,12 @@
 	  				$("#select_estado").focus();
 	  				return false;
 	  			}
+	  		
+	  		if(validaTexto(municipio)){
+	  			alert('Município inválido!\nUso de caracteres inválidos.\n');
+	  			$("#f1-municipio").focus();
+	  			return false;	
+	  		}
 	  		
 	  		return true;
 	  	 }

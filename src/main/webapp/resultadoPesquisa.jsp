@@ -82,44 +82,16 @@
 	  		 return regex.test(campo);
 	  	 }
 	  	 
-	  	function validaEspecifica()
-	  	 {
-	  		 var nome = form1.nome.value;
-	  		 var estado = form1.estado.value;
-	  		 var municipio = form1.municipio.value;
-	  		 
-	  		 if(nome == "")
-	  			 {
-	  			 	alert("Digite o nome da escola!");
-	  			 	form1.nome.focus;
-	  			 	return false;
-	  			 }
-	  		 
-	  		 if(nome.length < 3)
-	  			 {
-	  			 	alert("Nome da escola deve ter no mínimo 3 caracteres!");
-	  			 	form1.nome.focus();
-	  			 	return false;
-	  			 }
-	  		 
-	  		if(estado == "")
-	  			{
-	  				alert("Selecione um estado!");
-	  				form1.estado.focus();
-	  				return false;
-	  			}
-	  		
-	  		return true;
-	  	 }
-	  	
 	  	 function validaIdeal(){
 	  		 if(ideal.modalidade.value == 'x'){
 	  			 alert("Campo modalidade não foi selecionado!");
+	  			 $("#modalidade").focus();
 	  			 return false;
 	  		 }
 	  		 
 	  		if($("#select_estado-ideal option:selected").val() == 'x'){
 	  			alert("Campo estado não foi selecionado!");
+	  			$("#select_estado-ideal").focus();
 	  			return false;
 	  		 }
 	  		
@@ -167,6 +139,41 @@
 	  			 }
 			
 	  		 return true;
+	  	 }
+	  	 
+	  	 function validaEspecifica()
+	  	 {
+	  		 var nome = $("#f1-nome").val();
+	  		 var estado = $("#select_estado option:selected").val();
+	  		 var municipio = $("#f1-municipio").val();
+	  		 
+	  		if(validaTexto(nome)){
+	  			alert('Nome da escola inválido!\nUso de caracteres inválidos.\n');
+	  			$("#f1-nome").focus();
+	  			return false;	
+	  		}
+	  		 
+	  		 if(nome.length < 3)
+	  			 {
+	  			 	alert("Nome da escola deve ter no mínimo 3 caracteres!");
+	  			 	$("#f1-nome").focus();
+	  			 	return false;
+	  			 }
+	  		 
+	  		if(estado == "x")
+	  			{
+	  				alert("Selecione um estado!");
+	  				$("#select_estado").focus();
+	  				return false;
+	  			}
+	  		
+	  		if(validaTexto(municipio)){
+	  			alert('Município inválido!\nUso de caracteres inválidos.\n');
+	  			$("#f1-municipio").focus();
+	  			return false;	
+	  		}
+	  		
+	  		return true;
 	  	 }
 	</script>
 </body>
