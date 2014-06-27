@@ -24,7 +24,7 @@
                         </div>
                       <div class="row">
 <div class="form-group col-xs-12 floating-label-form-group">
-                                <label for="email">Email</label>
+                                <label for="email">E-mail</label>
                                 <input class="form-control" type="email" name="email" placeholder="Email">
             </div>
                     </div>

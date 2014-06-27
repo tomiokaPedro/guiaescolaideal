@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="modal-body">
-						<h2>Compara</h2>
+						<h2>Comparação entre as escolas selecionadas</h2>
 						<hr class="star-primary">
 					</div>
 					<div class="categorias col-xs-12 col-md-10 col-md-offset-1">
@@ -75,7 +75,7 @@
 										<b>Bairro:</b> ${compara.escolaA.endereco.bairro}
 									</div>
 									<div class="categoria-dado col-xs-12 col-md-6">
-										<b>Municipio:</b> ${compara.escolaA.endereco.municipio.nome}
+										<b>Município:</b> ${compara.escolaA.endereco.municipio.nome}
 									</div>
 									<div class="categoria-dado col-xs-12 col-md-6">
 										<b>CEP:</b> ${compara.escolaA.endereco.cep}
@@ -96,7 +96,7 @@
 										<b>Bairro:</b> ${compara.escolaB.endereco.bairro}
 									</div>
 									<div class="categoria-dado col-xs-12 col-md-6">
-										<b>Municipio:</b> ${compara.escolaB.endereco.municipio.nome}
+										<b>Município:</b> ${compara.escolaB.endereco.municipio.nome}
 									</div>
 									<div class="categoria-dado col-xs-12 col-md-6">
 										<b>CEP:</b> ${compara.escolaB.endereco.cep}
@@ -119,7 +119,7 @@
 											class="dado-valor col-xs-3 ${compara.escolaA.cozinha?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Berçario</div>
+										<div class="dado col-xs-9">Berçário</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaA.bercario?'y':'n'}"></div>
 									</div>
@@ -159,7 +159,7 @@
 											class="dado-valor col-xs-3 ${compara.escolaA.banheiroChuveiro?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Alojamento Aluno</div>
+										<div class="dado col-xs-9">Alojamento para Alunos</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaA.alojamentoAluno?'y':'n'}"></div>
 									</div>
@@ -171,7 +171,7 @@
 											class="dado-valor col-xs-3 ${compara.escolaB.cozinha?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Berçario</div>
+										<div class="dado col-xs-9">Berçário</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaB.bercario?'y':'n'}"></div>
 									</div>
@@ -211,7 +211,7 @@
 											class="dado-valor col-xs-3 ${compara.escolaB.banheiroChuveiro?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Alojamento Aluno</div>
+										<div class="dado col-xs-9">Alojamento para Alunos</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaB.alojamentoAluno?'y':'n'}"></div>
 									</div>
@@ -239,12 +239,12 @@
 											class="dado-valor col-xs-3 ${compara.escolaA.salaAtendimentoEspecializado?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Sala Professor</div>
+										<div class="dado col-xs-9">Sala de Professor</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaA.salaProfessor?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Sala Diretoria</div>
+										<div class="dado col-xs-9">Sala de Diretoria</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaA.salaDiretoria?'y':'n'}"></div>
 									</div>
@@ -262,12 +262,12 @@
 											class="dado-valor col-xs-3 ${compara.escolaB.salaAtendimentoEspecializado?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Sala Professor</div>
+										<div class="dado col-xs-9">Sala de Professor</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaB.salaProfessor?'y':'n'}"></div>
 									</div>
 									<div class="categoria-dado col-xs-12 col-sm-6 col-md-6">
-										<div class="dado col-xs-9">Sala Diretoria</div>
+										<div class="dado col-xs-9">Sala de Diretoria</div>
 										<div
 											class="dado-valor col-xs-3 ${compara.escolaB.salaDiretoria?'y':'n'}"></div>
 									</div>
