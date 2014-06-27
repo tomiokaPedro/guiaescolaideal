@@ -50,7 +50,11 @@
 	<script src="js/cbpAnimatedHeader.js"></script>
 	<script src="js/freelancer.js"></script>
 	<script src="jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.dataTables.js"></script>
+	<script src="js/dataTables.bootstrap.js"></script>
 
+	
+	
 	<script>
 	  	   function selectMode(id, value){
 		    $("#"+id).change(function(event){
@@ -175,6 +179,10 @@
 	  		
 	  		return true;
 	  	 }
+	</script>
+	<script>
+    	$('#resultado').dataTable({
+        	});
 	</script>
 </body>
 

@@ -25,7 +25,9 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
  	
-
+	<!-- Icone -->>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	
 </head>
 
 <%@ include file="navbar.jsp" %> 

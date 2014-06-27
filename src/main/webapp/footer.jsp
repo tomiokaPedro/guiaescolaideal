@@ -7,6 +7,7 @@
                         <p>Universidade de Brasília - UnB
                             <br>Faculdade UnB Gama - FGA
                             <br>Gama - DF</p>
+                        <p><img src="img/logo_unb-footer.png" alt="Universidade de Bras&iacute;lia" width="105" height="105" /><img src="img/logo_fga-footer.png" alt="FGA - UnB Gama" width="105" height="105" /></p>
                     </div>
                       <div class="footer-col col-md-4">
                         <h3></h3>
@@ -17,7 +18,14 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Tecnologia</h3>
-                        <p>Esta aplicação utiliza tecnologia open source bootstrap.</p>
+                      <p>Esta aplicação utiliza tecnologia open source Bootstrap e linguagem de desenvolvimento Java.</p>
+                        <table width="200" border="0">
+                          <tr>
+                            <th scope="col"><img src="img/logo_bootstrap-footer.png" width="188" height="105" alt="Twitter Bootstrap" /></th>
+                            <th scope="col"><img src="img/java_logo-footer.png" width="131" height="105" /></th>
+                          </tr>
+                        </table>
+                        <p>&nbsp;</p>
                     </div>
                   
                 </div>
